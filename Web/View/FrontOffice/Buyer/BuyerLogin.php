@@ -28,15 +28,15 @@ require '../Layout.php';
                                         <div class="row">
                                             <div class="col-md-12 mb-4">
                                                 <div class="form-outline">
-                                                    <input type="email" id="signInMail" class="form-control form-control-lg" required tabindex="1" />
-                                                    <label class="form-label" for="email">Email address <span class="text-danger">*</span></label>
+                                                    <input type="email" id="txt-email" class="form-control form-control-lg" required tabindex="1" />
+                                                    <label class="form-label" for="txt-email">Email address <span class="text-danger">*</span></label>
                                                     <div class="invalid-feedback">Please enter a valid email address.</div>
                                                 </div>
                                             </div>
                                             <div class="col-md-12  mb-4">
                                                 <div class="form-outline">
-                                                    <input type="password" id="signInPwd" class="form-control form-control-lg" required tabindex="2" />
-                                                    <label class="form-label" for="password">Password <span class="text-danger">*</span></label>
+                                                    <input type="password" id="txt-password" class="form-control form-control-lg" required tabindex="2" />
+                                                    <label class="form-label" for="txt-password">Password <span class="text-danger">*</span></label>
                                                     <div class="invalid-feedback">Please enter your password.</div>
                                                 </div>
                                             </div>
@@ -46,12 +46,12 @@ require '../Layout.php';
                                             <button class="btn btn-dark btn-lg btn-block" type="submit">Login</button>
                                         </div>
 
-                                        <div class="row mb-4">
-                                            <div class="col d-flex justify-content-center">
+                                        <div class="mb-4 d-flex justify-content-between">
+                                            <div class="">
                                                 <p>Not a member? <a href="BuyerCreate.php">Register</a></p>
                                             </div>
 
-                                            <div class="col">
+                                            <div class="">
                                                 <a href="BuyerForgetPassword.php">Forgot password?</a>
                                             </div>
                                         </div>

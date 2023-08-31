@@ -9,13 +9,10 @@ require '../Layout.php';
     </ol>
 </nav>
 
-<!------------------- Outer Container ------------------->
 <div class="container p-3 bg-white mt-3">
-
-    <!------------- 1st Inner Container ------------->
     <div class="row">
         <!-------- Product Images -------->
-        <div class="col-xs-12 col-md-6 mt-3 mb-5">
+        <div class="col-xs-12 col-md-5 mt-3 mb-5">
             <div id="carouselMDExample" class="carousel slide carousel-fade" data-mdb-ride="carousel">
                 <!----- Slides ----->
                 <div class="carousel-inner mb-5 shadow-1-strong rounded-3">
@@ -71,69 +68,81 @@ require '../Layout.php';
         </div>
         <!-------- Product Images -------->
 
-        <!-------- Product Details -------->
-        <div class="col-xs-12 col-md-6 mt-2">
+        <!-------- Product -------->
+        <div class="col-xs-12 col-md-7 mt-2">
             <h1>Product Name</h1>
             <h3>RM</h3>
             <div class="border-top pt-3 mb-3" style="min-height: 138px;">
                 <p>description...</p>
             </div>
-            
-            <!----- Colors ----->
+
+            <!----- Product Detail ----->
             <div class="row d-flex align-items-center mb-3">
                 <div class="col">
                     <h6>Variations</h6>
-                    <!-- loop pd -->
-                    <input type="radio" class="btn-check" name="details-option" id="${details.productDetailId}" autocomplete="off" checked>
-                    <label class="btn btn-outline-info mt-1" for="${details.productDetailId}">Pink - S - Cotton</label>
-                    <input type="radio" class="btn-check" name="details-option" id="${details.productDetailId}" autocomplete="off" checked>
-                    <label class="btn btn-outline-info mt-1" for="${details.productDetailId}">Yellow - S - Cotton</label>
-                    <input type="radio" class="btn-check" name="details-option" id="${details.productDetailId}" autocomplete="off" checked>
-                    <label class="btn btn-outline-info mt-1" for="${details.productDetailId}">Blue - S - Cotton</label>
-                    <!-- end of loop pd -->
+                    <input type="radio" class="btn-check" name="details-option" id="${details.1}" autocomplete="off" checked>
+                    <label class="btn btn-outline-secondary mt-1" for="${details.1}">Pink - S - Cotton</label>
+                    <input type="radio" class="btn-check" name="details-option" id="${details.2}" autocomplete="off" checked>
+                    <label class="btn btn-outline-secondary mt-1" for="${details.2}">Yellow - S - Cotton</label>
+                    <input type="radio" class="btn-check" name="details-option" id="${details.3}" autocomplete="off" checked>
+                    <label class="btn btn-outline-secondary mt-1" for="${details.3}">Blue - S - Cotton</label>
+                    <input type="radio" class="btn-check" name="details-option" id="${details.4}" autocomplete="off" checked>
+                    <label class="btn btn-outline-secondary mt-1" for="${details.4}">Blue - S - Cotton</label>
+                    <input type="radio" class="btn-check" name="details-option" id="${details.5}" autocomplete="off" checked>
+                    <label class="btn btn-outline-secondary mt-1" for="${details.5}">Blue - S - Cotton</label>
+                    <input type="radio" class="btn-check" name="details-option" id="${details.6}" autocomplete="off" checked>
+                    <label class="btn btn-outline-secondary mt-1" for="${details.6}">Blue - S - Cotton</label>
                 </div>
             </div>
             <!----- Quantity ----->
             <div class="col-md-12 d-flex justify-content-between align-items-center border-bottom mt-4 pb-4">
                 <div class="col-md-6">
-                    <h6 class="mb-0">Quantity: </h6>
+                    <h6 class="mb-0">Quantity</h6>
                 </div>
-                <!--- Quantity Input --->
                 <div class="col-md-6 d-flex justify-content-end">
                     <button class="btn btn-link px-2" onclick="this.parentNode.querySelector('input[type=number]').stepDown()">
                         <i class="fas fa-minus"></i>
                     </button>
-                    <input id="quantity" min="1" name="quantity" value="1" type="number" class="form-control form-control-sm text-center" />
+                    <input id="txt-quantity" min="1" name="quantity" value="1" type="number" class="form-control form-control-sm text-center" />
                     <button class="btn btn-link px-2" onclick="this.parentNode.querySelector('input[type=number]').stepUp()">
                         <i class="fas fa-plus"></i>
                     </button>
                 </div>
-                <!--- Quantity Input --->
             </div>
             <!----- Quantity ----->
-        </div>
-        <!-------- Product Details -------->
-    </div>
-    <!------------- 1st Inner Container ------------->
+            <!-------- Product Details -------->
 
-    <!------------- 1st Sub Container ------------->
-    <div class="row mt-3 align-items-center">
-        <!----- Action Buttons ----->
-        <div class="col-md-12 mt-2">
-            <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                <button class="btn btn-secondary w-25" type="button" id="buy-now-btn">Buy Now</button>
+            <div class="mt-4">
+                <div class="d-flex align-items-center mb-2">
+                    <i class="fas fa-shop fs-5"></i>
+                    <span class="mx-2" id="txt-store-name">Store 1</span>
+                </div>
+                <div class="d-flex align-items-center mb-2">
+                    <i class="fas fa-location-dot fs-5"></i>
+                    <span class="mx-2" id="txt-business-address">123 Business St</span>
+                </div>
+            </div>
+
+            <div class="row mt-3 align-items-center">
+                <div class="col-md-12 mt-2">
+                    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                        <button class="btn btn-dark w-25" type="button" id="btn-buy-now">Buy Now</button>
+                    </div>
+                </div>
             </div>
         </div>
-        <!----- Action Buttons ----->
     </div>
-    <!------------- 1st Sub Container ------------->
     <hr />
     <?php
     require '../Review/ReviewSummary.php';
     ?>
 </div>
+<button type="button" class="btn btn-black btn-floating btn-lg m-2 opacity-75" id="btn-back-to-top">
+    <i class="fas fa-arrow-up"></i>
+</button>
 <?php
 require '../Footer.php';
 ?>
+<script src="../../../Script/FrontOffice/Product/ProductRead.js"></script>
 <!------------------- Outer Container ------------------->
 <!-- <script src="<%=request.getContextPath()%>/Scripts/FrontOffice/Product/Fo.ProductView.js" type="text/javascript"></script> -->
