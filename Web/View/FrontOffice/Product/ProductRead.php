@@ -9,10 +9,10 @@ require '../Layout.php';
     </ol>
 </nav>
 
-<div class="container p-3 bg-white mt-3">
+<div class="p-5 pt-3 bg-white">
     <div class="row">
         <!-------- Product Images -------->
-        <div class="col-xs-12 col-md-5 mt-3 mb-5">
+        <div class="col-xs-12 col-md-4 mt-3 mb-5">
             <div id="carouselMDExample" class="carousel slide carousel-fade" data-mdb-ride="carousel">
                 <!----- Slides ----->
                 <div class="carousel-inner mb-5 shadow-1-strong rounded-3">
@@ -66,38 +66,45 @@ require '../Layout.php';
                 <!----- Thumbnails ----->
             </div>
         </div>
-        <!-------- Product Images -------->
+        <!-------- End Product Images -------->
 
         <!-------- Product -------->
-        <div class="col-xs-12 col-md-7 mt-2">
-            <h1>Product Name</h1>
-            <h3>RM</h3>
-            <div class="border-top pt-3 mb-3" style="min-height: 138px;">
-                <p>description...</p>
+        <div class="col-xs-12 col-md-8 mt-2 position-relative">
+            <h2>Product Name</h2>
+            <h4>RM <span id="txt-price">23</span> </h4>
+            <div class="border-top pt-3 mb-3 pt-4">
+                <h6>Description</h6>
+                <p>
+                    nsodfv sndfvnspdfn senf vsndfvs. spenf vspufnbvsev neofnva;fvnaerinfaovhna vaisdncvajsdnc sdcbip
+                    nsodfv sndfvnspdfn senf vsndfvs. spenf vspufnbvsev neofnva;fvnaerinfaovhna vaisdncvajsdnc sdcbip
+                    nsodfv sndfvnspdfn senf vsndfvs. spenf vspufnbvsev neofnva;fvnaerinfaovhna vaisdncvajsdnc sdcbip sdfv sdfvsdfgsdfgsdfg
+                    dfgsdfgsdgf
+                </p>
             </div>
 
             <!----- Product Detail ----->
-            <div class="row d-flex align-items-center mb-3">
+            <div class="row d-flex align-items-center mb-3 mt-4">
                 <div class="col">
-                    <h6>Variations</h6>
+                    <h6>Variations <span class="text-danger">*</span> <span class="text-muted mt-2 ms-2"> <span id="txt-avaialble-qty">8</span> item(s) left</span></h6>
                     <input type="radio" class="btn-check" name="details-option" id="${details.1}" autocomplete="off" checked>
                     <label class="btn btn-outline-secondary mt-1" for="${details.1}">Pink - S - Cotton</label>
-                    <input type="radio" class="btn-check" name="details-option" id="${details.2}" autocomplete="off" checked>
+                    <input type="radio" class="btn-check" name="details-option" id="${details.2}" autocomplete="off">
                     <label class="btn btn-outline-secondary mt-1" for="${details.2}">Yellow - S - Cotton</label>
-                    <input type="radio" class="btn-check" name="details-option" id="${details.3}" autocomplete="off" checked>
+                    <input type="radio" class="btn-check" name="details-option" id="${details.3}" autocomplete="off">
                     <label class="btn btn-outline-secondary mt-1" for="${details.3}">Blue - S - Cotton</label>
-                    <input type="radio" class="btn-check" name="details-option" id="${details.4}" autocomplete="off" checked>
+                    <input type="radio" class="btn-check" name="details-option" id="${details.4}" autocomplete="off">
                     <label class="btn btn-outline-secondary mt-1" for="${details.4}">Blue - S - Cotton</label>
-                    <input type="radio" class="btn-check" name="details-option" id="${details.5}" autocomplete="off" checked>
+                    <input type="radio" class="btn-check" name="details-option" id="${details.5}" autocomplete="off">
                     <label class="btn btn-outline-secondary mt-1" for="${details.5}">Blue - S - Cotton</label>
-                    <input type="radio" class="btn-check" name="details-option" id="${details.6}" autocomplete="off" checked>
+                    <input type="radio" class="btn-check" name="details-option" id="${details.6}" autocomplete="off">
                     <label class="btn btn-outline-secondary mt-1" for="${details.6}">Blue - S - Cotton</label>
+
                 </div>
             </div>
             <!----- Quantity ----->
-            <div class="col-md-12 d-flex justify-content-between align-items-center border-bottom mt-4 pb-4">
+            <div class="col-md-12 d-flex justify-content-between align-items-center mt-4 pb-4">
                 <div class="col-md-6">
-                    <h6 class="mb-0">Quantity</h6>
+                    <h6 class="mb-0">Quantity <span class="text-danger">*</span></h6>
                 </div>
                 <div class="col-md-6 d-flex justify-content-end">
                     <button class="btn btn-link px-2" onclick="this.parentNode.querySelector('input[type=number]').stepDown()">
@@ -109,24 +116,38 @@ require '../Layout.php';
                     </button>
                 </div>
             </div>
-            <!----- Quantity ----->
-            <!-------- Product Details -------->
+            <!----- End Quantity ----->
+            <!-------- End Product Details -------->
 
-            <div class="mt-4">
-                <div class="d-flex align-items-center mb-2">
-                    <i class="fas fa-shop fs-5"></i>
-                    <span class="mx-2" id="txt-store-name">Store 1</span>
+            <!-- Seller  -->
+            <div class="row d-flex justify-content-center border-top pt-3">
+                <div class="col-3 card h-100 p-4 text-center">
+                    <span class="mb-0 fs-5 lead fw-" id="txt-seller-name">Seller 1</span>
+                    <p class="mb-2 ms-3 text-muted"><small> Last login at <span id="txt-seller-last-login-date">1pm</span></small></p>
+                    <p class="mb-2">Join on <span id="txt-seller-created-date">$createdDate</span></p>
+
+                    <a class="btn btn-outline-info mb-3" role="button" hrerf="mailto:e@gmail.com">Email me</a>
+                    <button class="btn btn-outline-dark">Whatsapp me</button>
                 </div>
-                <div class="d-flex align-items-center mb-2">
-                    <i class="fas fa-location-dot fs-5"></i>
-                    <span class="mx-2" id="txt-business-address">123 Business St</span>
+
+                <div class="col col-lg-9 ps-4">
+                    <h4 id="txt-store-name">Store 1</h4>
+                    <div>
+                        <i class="fas fa-location-dot fs-5"></i>
+                        <p id="txt-business-address">njkasw.sdnklasd,maoniaosn asdfuawbwer,m njbjks, 234hsdnsc asioasdfnjl nasfgnajlks, sdfhairnl cbJKZdbfuaisnbfjzkxcvbn lzhsgjka;fvhnja L:ZKhasdfjkwerutisdnm ertiweefmlc </p>
+                    </div>
+                    <div>
+                        <i class="fas fa-circle-info fs-5"></i> Description
+                        <p id="txt-store-desc">bskenfvshbehr husioenjdc abur9fobaiw fbaisurbfalsjdbf asd.cas fhuiasd fnauwrbnfasdhfa welAHERUsDFAJNS ioHnasnf Zjsd fZlbcasj fjzxnc s;dfbasdlcnzs fancDc nsdhfL NUjlasbdbfajsdbc Lsdjasasdfhjkqweyuioa sndjfasdjhf jksdfncn,mzxhjawe</p>
+                    </div>
                 </div>
             </div>
+            <!-- End of seller -->
 
-            <div class="row mt-3 align-items-center">
+            <div class="row mt-3 position-absolute bottom-0 end-0">
                 <div class="col-md-12 mt-2">
-                    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                        <button class="btn btn-dark w-25" type="button" id="btn-buy-now">Buy Now</button>
+                    <div class="d-grid gap-2">
+                        <button class="btn btn-dark" type="button" id="btn-buy-now">Buy Now</button>
                     </div>
                 </div>
             </div>

@@ -1,3 +1,8 @@
-$('#progress-bar-negative').css('width', `10%`);
-$('#progress-bar-neutral').css('width', `30%`);
-$('#progress-bar-positive').css('width', `60%`);
+$(document).ready(function () {
+    backToTop();
+
+    $('#progress-bar-negative').css('width', `10%`);
+    $('#progress-bar-neutral').css('width', `30%`);
+    $('#progress-bar-positive').css('width', `60%`);
+});
+

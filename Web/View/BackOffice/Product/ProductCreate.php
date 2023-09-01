@@ -71,10 +71,10 @@ require '../Layout.php';
         </table>
         <!-- Action -->
         <div class="col d-flex justify-content-end mb-4">
-            <a class="btn btn-secondary btn-floating float-end" title="Back" href="EventSummary.php" role="button">
+            <a class="btn btn-secondary btn-floating float-end" title="Back" href="ProductSummary.php" role="button">
                 <i class="fas fa-arrow-left"></i>
             </a>
-            <button type="submit" id="btn-add-event" class="btn btn-primary btn-floating ms-4" title="Save">
+            <button type="submit" id="btn-add-product" class="btn btn-dark btn-floating ms-4" title="Save">
                 <i class="fas fa-floppy-disk"></i>
             </button>
         </div>

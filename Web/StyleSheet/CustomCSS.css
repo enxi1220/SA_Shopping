@@ -4,8 +4,8 @@
     border-color: #e3ebf7;
 }
 
-input[type=number]{
-    width: 66px; 
+input[type=number][id=txt-quantity] {
+    width: 66px;
 }
 
 #btn-back-to-top {

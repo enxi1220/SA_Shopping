@@ -8,7 +8,7 @@ require '../Layout.php';
             <h2 class="float-start mb-5">Product Summary</h2>
         </div>
         <div class="col">
-            <a class="btn btn-primary btn-lg btn-floating float-end" title="Add" href="EventCreate.php" role="button">
+            <a class="btn btn-dark btn-lg btn-floating float-end" title="Add" href="ProductCreate.php" role="button">
                 <i class="fas fa-plus"></i>
             </a>
         </div>

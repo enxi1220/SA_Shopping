@@ -1,5 +1,4 @@
 <div class="tab-pane fade bg-light p-3 mt-3 " id="buyer-delete" role="tabpanel" aria-labelledby="buyer-delete-nav-tab">
-
     <h3 class="lead">Delete Account</h3>
     <hr class="mt-0" />
     <div class="alert alert-info">

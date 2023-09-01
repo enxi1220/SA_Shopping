@@ -16,12 +16,12 @@ require '../Layout.php';
     https://cf.shopee.ph/file/590f003ff837b620b0f4121d516b7a19
     https://rukminim2.flixcart.com/image/550/650/klqx30w0/jean/i/t/v/32-kttladiesjeans848-kotty-original-imagyt4gu8sperbe.jpeg?q=90&crop=false 
 -->
-<div class="p-5">
+<div class="p-5 pt-3 bg-light">
     <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-5 g-4">
         <!-- products  -->
         <div class="col">
             <a class="text-reset" href="ProductRead.php?productId=">
-                <div class="card h-100 hover-shadow">
+                <div class="card h-100 hover-shadow ">
                     <img width="500" height="400" src="https://down-my.img.susercontent.com/file/869ca7cd68610f89beafbf107230860a" class="card-img-top" alt="Palm Springs Road" />
                     <div class="card-body">
                         <h5 class="card-title">Product Name</h5>
@@ -265,7 +265,9 @@ require '../Layout.php';
         </div>
     </div>
 </div>
-
+<button type="button" class="btn btn-black btn-floating btn-lg m-2 opacity-75" id="btn-back-to-top">
+    <i class="fas fa-arrow-up"></i>
+</button>
 <?php
 require '../Footer.php';
 ?>

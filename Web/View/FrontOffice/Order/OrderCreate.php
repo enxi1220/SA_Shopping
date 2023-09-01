@@ -54,20 +54,20 @@ require '../Layout.php';
                 <!-- Pills navs -->
                 <ul class="nav nav-pills nav-justified mb-3" id="ex1" role="tablist">
                     <li class="nav-item" role="presentation">
-                        <a class="nav-link" id="ex3-tab-1" data-mdb-toggle="pill" href="#ex3-pills-1" role="tab" aria-controls="ex3-pills-1" aria-selected="true">COD</a>
+                        <a class="nav-link" id="tab-cod" data-mdb-toggle="pill" href="#pills-cod" role="tab" aria-controls="pills-cod" aria-selected="true">COD</a>
                     </li>
                     <li class="nav-item" role="presentation">
-                        <a class="nav-link" id="ex3-tab-2" data-mdb-toggle="pill" href="#ex3-pills-2" role="tab" aria-controls="ex3-pills-2" aria-selected="false">e-wallet</a>
+                        <a class="nav-link" id="tab-e-wallet" data-mdb-toggle="pill" href="#pills-e-wallet" role="tab" aria-controls="pills-e-wallet" aria-selected="false">e-wallet</a>
                     </li>
                     <li class="nav-item" role="presentation">
-                        <a class="nav-link" id="ex3-tab-3" data-mdb-toggle="pill" href="#ex3-pills-3" role="tab" aria-controls="ex3-pills-3" aria-selected="false">card</a>
+                        <a class="nav-link" id="tab-card" data-mdb-toggle="pill" href="#pills-card" role="tab" aria-controls="pills-card" aria-selected="false">card</a>
                     </li>
                 </ul>
                 <!-- Pills navs -->
 
                 <!-- Pills content -->
                 <div class="tab-content" id="ex2-content">
-                    <div class="tab-pane fade show" id="ex3-pills-1" role="tabpanel" aria-labelledby="ex3-tab-1">
+                    <div class="tab-pane fade show" id="pills-cod" role="tabpanel" aria-labelledby="tab-cod">
                         <div class="alert alert-info">
                             <strong>Note:</strong> Please keep the exact amount ready for payment when the delivery is made.
                         </div>
@@ -77,17 +77,17 @@ require '../Layout.php';
                             </div>
                         </div>
                     </div>
-                    <div class="tab-pane fade" id="ex3-pills-2" role="tabpanel" aria-labelledby="ex3-tab-2">
+                    <div class="tab-pane fade" id="pills-e-wallet" role="tabpanel" aria-labelledby="tab-e-wallet">
                         <div class="alert alert-info">
                             <strong>Note:</strong> You will be redirected to the e-wallet payment page for completing the transaction. Please make sure you have your e-wallet credentials ready.
                         </div>
                         <div class="row mt-3">
                             <div class="col-12">
-                                <button type="submit" class="btn btn-secondary w-100 mt-4 btn-rounded" value="E-wallet">Check Out</button>
+                                <button type="submit" class="btn btn-secondary w-100 mt-4 btn-rounded" value="E-Wallet">Check Out</button>
                             </div>
                         </div>
                     </div>
-                    <div class="tab-pane fade" id="ex3-pills-3" role="tabpanel" aria-labelledby="ex3-tab-3">
+                    <div class="tab-pane fade" id="pills-card" role="tabpanel" aria-labelledby="tab-card">
                         <div class="row">
                             <div class="mb-3">
                                 <div class="form-outline">

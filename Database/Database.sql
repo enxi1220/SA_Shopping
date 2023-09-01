@@ -114,6 +114,7 @@ CREATE TABLE IF NOT EXISTS `SA_Shopping`.`Order` (
     `deliveryFee` FLOAT NOT NULL,
     `totalPrice` FLOAT NOT NULL,
     `createdDate` DATETIME NOT NULL,
+    `updatedDate` DATETIME,
     FOREIGN KEY (productDetailId) REFERENCES ProductDetail(productDetailId),
     FOREIGN KEY (buyerId) REFERENCES Buyer(buyerId),
     UNIQUE KEY `orderNo_UNIQUE` (`orderNo`)

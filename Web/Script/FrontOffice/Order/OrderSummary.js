@@ -1,4 +1,6 @@
 $(document).ready(function () {
+    backToTop();
+    
     $("#txt-review").focus();
 
     $(`#form-review-create`).submit(function (event) {

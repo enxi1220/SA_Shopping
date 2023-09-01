@@ -12,7 +12,7 @@ require $_SERVER['DOCUMENT_ROOT'] . '/SA_Shopping/Web/StyleSheet/CSS_links.php';
 
 <body>
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-dark p-3">
+    <nav class="navbar navbar-expand-lg navbar-light bg-dark p-3 sticky-top">
         <!-- Container wrapper -->
         <div class="container-fluid">
             <!-- Toggle button -->

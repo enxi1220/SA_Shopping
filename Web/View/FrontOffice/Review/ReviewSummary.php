@@ -1,4 +1,5 @@
-<h2 class="lead">Review
+<h2 class="lead">
+  Review
   <span class="badge badge-primary">100+</span>
   <div class="d-flex justify-content-end">
     <button class="ms-2 btn btn-danger" id="btn-negative">10</button>
