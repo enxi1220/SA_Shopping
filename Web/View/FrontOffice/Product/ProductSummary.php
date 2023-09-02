@@ -22,7 +22,7 @@ require '../Layout.php';
         <div class="col">
             <a class="text-reset" href="ProductRead.php?productId=">
                 <div class="card h-100 hover-shadow ">
-                    <img width="500" height="400" src="https://down-my.img.susercontent.com/file/869ca7cd68610f89beafbf107230860a" class="card-img-top" alt="Palm Springs Road" />
+                    <img width="500" height="400" src="https://down-my.img.susercontent.com/file/869ca7cd68610f89beafbf107230860a" class="card-img-top" alt="Palm Springs Road" loading="lazy" />
                     <div class="card-body">
                         <h5 class="card-title">Product Name</h5>
                         <p class="card-text">Price</p>

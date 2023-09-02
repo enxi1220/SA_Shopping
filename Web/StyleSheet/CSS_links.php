@@ -11,4 +11,5 @@
 <link href="<?php $_SERVER['DOCUMENT_ROOT'] ?>/SA_Shopping/Web/Library/DataTable/datatables.min.css" rel="stylesheet" type="text/css"/>
 
 <!-- Custom CSS -->
-<link href="<?php $_SERVER['DOCUMENT_ROOT'] ?>/SA_Shopping/Web/StyleSheet/CustomCSS.css" rel="stylesheet" type="text/css" />
+<link href="<?php $_SERVER['DOCUMENT_ROOT'] ?>/SA_Shopping/Web/StyleSheet/FrontOffice.css" rel="stylesheet" type="text/css" />
+<link href="<?php $_SERVER['DOCUMENT_ROOT'] ?>/SA_Shopping/Web/StyleSheet/BackOffice.css" rel="stylesheet" type="text/css" />

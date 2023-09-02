@@ -12,11 +12,11 @@ require '../Layout.php';
 
 <form class="m-4 needs-validation" id="form-order-create" method="POST" novalidate>
     <div class="row">
-        <div class="col-8">
+        <div class="col-lg-8">
             <div class="container p-3 m-1">
                 <div class="row">
                     <div class="col-3">
-                        <img id="img-product" class="img-fluid rounded float-start" src="https://down-my.img.susercontent.com/file/869ca7cd68610f89beafbf107230860a" alt="Product name" />
+                        <img id="img-product" class="img-fluid rounded float-start" src="https://down-my.img.susercontent.com/file/869ca7cd68610f89beafbf107230860a" alt="Product name" loading="lazy"/>
                         <span class="badge rounded-pill badge-notification bg-danger fs-6" id="txt-quantity">1</span>
                     </div>
                     <div class="col-9 d-flex align-items-center justify-content-between">
@@ -32,21 +32,21 @@ require '../Layout.php';
                 <div class="invalid-feedback">Required</div>
             </div>
         </div>
-        <div class="col-4">
+        <div class="col-lg-4">
             <div class="card p-5 m-1">
                 <h5 class="mb-4">The total amount</h5>
                 <div class="d-flex justify-content-between">
                     <div>Order</div>
-                    <div id="txt-price">RM 34</div>
+                    <div>RM <span id="txt-price">34</span></div>
                 </div>
                 <div class="d-flex justify-content-between">
                     <div>Delivery</div>
-                    <div id="txt-delivery-fee">RM 4.90</div>
+                    <div>RM <span id="txt-delivery-fee">4.90</span></div>
                 </div>
                 <hr />
                 <div class="d-flex justify-content-between">
                     <div class="fw-bold">Total</div>
-                    <div id="txt-total-price">RM 38.90</div>
+                    <div>RM <span id="txt-total-price">38.90</span></div>
                 </div>
                 <hr />
                 <h5 class="mb-4">Select a payment method <span class="text-danger">*</span></h5>
@@ -73,7 +73,7 @@ require '../Layout.php';
                         </div>
                         <div class="row mt-3">
                             <div class="col-12">
-                                <button type="submit" class="btn btn-secondary w-100 mt-4 btn-rounded" value="Cash on Delivery">Check Out</button>
+                                <button type="submit" class="btn btn-dark w-100 mt-4 btn-rounded" value="Cash on Delivery">Check Out</button>
                             </div>
                         </div>
                     </div>
@@ -83,7 +83,7 @@ require '../Layout.php';
                         </div>
                         <div class="row mt-3">
                             <div class="col-12">
-                                <button type="submit" class="btn btn-secondary w-100 mt-4 btn-rounded" value="E-Wallet">Check Out</button>
+                                <button type="submit" class="btn btn-dark w-100 mt-4 btn-rounded" value="E-Wallet">Check Out</button>
                             </div>
                         </div>
                     </div>
@@ -117,7 +117,7 @@ require '../Layout.php';
                         </div>
                         <div class="row mt-3">
                             <div class="col-12">
-                                <button type="submit" class="btn btn-secondary w-100 mt-4 btn-rounded" value="Card">Check Out</button>
+                                <button type="submit" class="btn btn-dark w-100 mt-4 btn-rounded" value="Card">Check Out</button>
                             </div>
                         </div>
                     </div>

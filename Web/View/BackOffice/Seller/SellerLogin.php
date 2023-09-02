@@ -48,11 +48,11 @@ require '../Layout.php';
 
                                         <div class="mb-4 d-flex justify-content-between">
                                             <div class="">
-                                                <p>Not a member? <a href="BuyerCreate.php">Register</a></p>
+                                                <p>Not a member? <a href="SellerCreate.php">Register</a></p>
                                             </div>
 
                                             <div class="">
-                                                <a href="BuyerForgetPassword.php">Forgot password?</a>
+                                                <a href="SellerForgetPassword.php">Forgot password?</a>
                                             </div>
                                         </div>
 

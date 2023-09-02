@@ -1,29 +1,22 @@
 <?php
 require '../Layout.php';
 ?>
-
-<div class="p-5 rounded-2">
+<div class="p-5 shadow bg-white offset-2 h-100 overflow-auto">
     <div class="row">
-        <div class="col">
-            <h2 class="float-start mb-5">Product Summary</h2>
-        </div>
-        <div class="col">
+        <div class="col justify-content-between mb-5">
+            <h2 class="pt-5">Product Summary</h2>
             <a class="btn btn-dark btn-lg btn-floating float-end" title="Add" href="ProductCreate.php" role="button">
                 <i class="fas fa-plus"></i>
             </a>
         </div>
     </div>
-
-    <table id="product-summary" class="table table-striped w-100">
+    <table id="product-summary" class="table table-striped">
         <thead>
             <tr>
-                <th>Event No</th>
-                <th>Event Name</th>
-                <th>Event Date</th>
-                <th>Status</th>
-                <th>Created By</th>
+                <th>Product No</th>
+                <th>Product Name</th>
+                <th>Price</th>
                 <th>Created Date</th>
-                <th>Updated By</th>
                 <th>Updated Date</th>
                 <th>Action</th>
             </tr>
@@ -34,33 +27,33 @@ require '../Layout.php';
 </div>
 
 <!----------------------- Modal ----------------------->
-<div class="modal fade" id="modal-activate-event" tabindex="-1" aria-labelledby="txt-modal-activate-event" aria-hidden="true">
+<div class="modal fade" id="modal-product-activate" tabindex="-1" aria-labelledby="txt-modal-product-activate" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="txt-modal-activate-event">Confirmation</h5>
+                <h5 class="modal-title" id="txt-modal-product-activate">Confirmation</h5>
                 <button type="button" class="btn-close" data-mdb-dismiss="modal" aria-label="Close"></button>
             </div>
-            <div class="modal-body">Are you sure to activate the event?</div>
+            <div class="modal-body">Are you sure to activate the product?</div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-mdb-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary" id="btn-activate-event">Sure</button>
+                <button type="button" class="btn btn-primary" id="btn-product-activate">Sure</button>
             </div>
         </div>
     </div>
 </div>
 
-<div class="modal fade" id="modal-deactivate-event" tabindex="-1" aria-labelledby="txt-modal-deactivate-event" aria-hidden="true">
+<div class="modal fade" id="modal-product-deactivate" tabindex="-1" aria-labelledby="txt-modal-product-deactivate" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="txt-modal-deactivate-event">Confirmation</h5>
+                <h5 class="modal-title" id="txt-modal-product-deactivate">Confirmation</h5>
                 <button type="button" class="btn-close" data-mdb-dismiss="modal" aria-label="Close"></button>
             </div>
-            <div class="modal-body">Are you sure to deactivate the event?</div>
+            <div class="modal-body">Are you sure to deactivate the product?</div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-mdb-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary" id="btn-deactivate-event">Sure</button>
+                <button type="button" class="btn btn-primary" id="btn-product-deactivate">Sure</button>
             </div>
         </div>
     </div>

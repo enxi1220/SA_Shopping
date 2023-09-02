@@ -120,6 +120,7 @@ CREATE TABLE IF NOT EXISTS `SA_Shopping`.`Order` (
     UNIQUE KEY `orderNo_UNIQUE` (`orderNo`)
 );
 
+-- useless table. todo: delete 
 CREATE TABLE IF NOT EXISTS `SA_Shopping`.`Payment` (
     `paymentId` INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
     `paymentNo` VARCHAR(255) NOT NULL,

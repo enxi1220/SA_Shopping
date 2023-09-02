@@ -9,7 +9,7 @@ $(document).ready(function () {
         searching: false
     });
 
-    $('#btn-add-row').on('click', function () {
+    $('#btn-row-add').on('click', function () {
         addRow(dataTable);
     });
 

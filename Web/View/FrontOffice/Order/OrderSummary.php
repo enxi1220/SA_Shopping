@@ -27,7 +27,7 @@ require '../Layout.php';
             <div class="tab-content" id="v-tabs-tabContent">
                 <div class="tab-pane fade" id="confirmed" role="tabpanel" aria-labelledby="confirmed-nav-tab">
                     <!-- loop -->
-                    <div class="bg-light p-3 mb-4 shadow-1">
+                    <div class="p-3 mb-4 bg-white shadow-3">
                         <h3 class="lead pb-2 fw-bold d-flex justify-content-between">
                             <label>Order No.</label>
                             <span class="fw-normal" id="txt-order-no">$orderNo <a class="text-primary">Copy</a></span>
@@ -59,7 +59,7 @@ require '../Layout.php';
                     </div>
                     <!-- end of loop -->
                     <!-- loop -->
-                    <div class="bg-light p-3 mb-4 shadow-1">
+                    <div class="p-3 mb-4  bg-white shadow-3">
                         <h3 class="lead pb-2 fw-bold d-flex justify-content-between">
                             <label>Order No.</label>
                             <span class="fw-normal" id="txt-order-no">$orderNo <a class="text-primary">Copy</a></span>

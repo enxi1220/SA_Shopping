@@ -1,10 +1,10 @@
 <?php
 require '../Layout.php';
 ?>
-<div class="p-5 rounded-2">
+<div class="p-5 shadow bg-white offset-2 h-100">
     <div class="row">
         <div class="col">
-            <h2 class="float-start mb-5">Add Product</h2>
+            <h2 class="float-start mb-5 pt-5">Add Product</h2>
         </div>
     </div>
     <form id="form-product-create" class="needs-validation" novalidate method="POST">
@@ -44,7 +44,7 @@ require '../Layout.php';
 
         <!-- Product Detail Information  -->
         <hr />
-        <button type="button" id="btn-add-row" class="btn btn-secondary btn-floating mt-3"><i class="fas fa-plus"></i></button>
+        <button type="button" id="btn-row-add" class="btn btn-success btn-floating mt-3" title="Add"><i class="fas fa-plus"></i></button>
         <span class="fs-5 fw-bold">Product Detail </span>
         <table id="product-detail-create" class="table table-striped w-100">
             <thead>
@@ -74,7 +74,7 @@ require '../Layout.php';
             <a class="btn btn-secondary btn-floating float-end" title="Back" href="ProductSummary.php" role="button">
                 <i class="fas fa-arrow-left"></i>
             </a>
-            <button type="submit" id="btn-add-product" class="btn btn-dark btn-floating ms-4" title="Save">
+            <button type="submit" id="btn-product-add" class="btn btn-dark btn-floating ms-4" title="Save">
                 <i class="fas fa-floppy-disk"></i>
             </button>
         </div>

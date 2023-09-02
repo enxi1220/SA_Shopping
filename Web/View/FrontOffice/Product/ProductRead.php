@@ -18,18 +18,18 @@ require '../Layout.php';
                 <div class="carousel-inner mb-5 shadow-1-strong rounded-3">
 
                     <div class="carousel-item active">
-                        <img src="https://images.threadsmagazine.com/app/uploads/5139/13/11201922/131-turn-of-cloth-01-main.jpg" class="d-block w-100" alt="..." style="object-fit: cover;" />
+                        <img src="https://images.threadsmagazine.com/app/uploads/5139/13/11201922/131-turn-of-cloth-01-main.jpg" class="d-block w-100" alt="..." style="object-fit: cover;" loading="lazy"/>
                     </div>
 
                     <!-- loop from second-->
                     <div class="carousel-item">
-                        <img src="https://media.glamour.com/photos/607f2749febb5e66fe7c52cf/1:1/w_1200,h_1200,c_limit/terry%20cloth%20trend_jumpsuit.jpg" class="d-block w-100" alt="..." style="object-fit: cover;" />
+                        <img src="https://media.glamour.com/photos/607f2749febb5e66fe7c52cf/1:1/w_1200,h_1200,c_limit/terry%20cloth%20trend_jumpsuit.jpg" class="d-block w-100" alt="..." style="object-fit: cover;" loading="lazy"/>
                     </div>
                     <div class="carousel-item">
-                        <img src="https://down-my.img.susercontent.com/file/85317e6d1ed48cd1acf01c39386d5357" class="d-block w-100" alt="..." style="object-fit: cover;" />
+                        <img src="https://down-my.img.susercontent.com/file/85317e6d1ed48cd1acf01c39386d5357" class="d-block w-100" alt="..." style="object-fit: cover;" loading="lazy"/>
                     </div>
                     <div class="carousel-item">
-                        <img src="https://down-my.img.susercontent.com/file/869ca7cd68610f89beafbf107230860a" class="d-block w-100" alt="..." style="object-fit: cover;" />
+                        <img src="https://down-my.img.susercontent.com/file/869ca7cd68610f89beafbf107230860a" class="d-block w-100" alt="..." style="object-fit: cover;" loading="lazy"/>
                     </div>
                     <!-- end of loop  -->
                 </div>
