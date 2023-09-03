@@ -44,6 +44,7 @@ require '../Layout.php';
         <table id="product-detail-summary" class="table table-striped w-100">
             <thead>
                 <tr>
+                    <th class="w-auto">SKU No.</th>
                     <th class="w-auto">Status</th>
                     <th class="w-auto">Size</th>
                     <th class="w-auto">Color</th>

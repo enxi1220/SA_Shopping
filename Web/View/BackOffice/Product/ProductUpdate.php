@@ -44,11 +44,12 @@ require '../Layout.php';
         <!-- Product Detail Information  -->
         <hr />
         <button type="button" id="btn-row-add" class="btn btn-success btn-floating mt-3 float-end" title="Add"><i class="fas fa-plus"></i></button>
-        <label class="fs-3 fw-bold">Product Detail </label>
+        <label class="fs-3">Product Detail </label>
         <table id="product-detail-update" class="table table-striped w-100">
             <thead>
                 <tr>
                     <th class="w-auto">Action</th>
+                    <th class="w-auto">SKU No.</th>
                     <th class="w-auto">Status</th>
                     <th class="w-auto">Size</th>
                     <th class="w-auto">Color</th>

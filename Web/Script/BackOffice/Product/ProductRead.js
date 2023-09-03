@@ -2,6 +2,7 @@ $(document).ready(function () {
     // rm hardcode
     var products = [
         {
+            productDetailId: "SKU/1201/00001",
             status: "Available",
             size: "Small",
             color: "Red",
@@ -14,6 +15,7 @@ $(document).ready(function () {
             updatedBy: "Admin"
         },
         {
+            productDetailId: "SKU/1201/00002",
             status: "Discontinued",
             size: "Medium",
             color: "Blue",
@@ -32,6 +34,7 @@ $(document).ready(function () {
         data: products,
         columns:
             [
+                { data: "productDetailId" },
                 { data: "status" },
                 { data: "size" },
                 { data: "color" },

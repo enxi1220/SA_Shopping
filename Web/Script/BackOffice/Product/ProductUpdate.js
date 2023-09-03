@@ -17,6 +17,7 @@ $(document).ready(function () {
     // rm hardcode
     dataTable.row.add([
         `<button class="btn btn-secondary btn-floating toggle-status" type="button"><i class="fa-solid fa-check"></i></button>`,
+        `SKU/1201/00001`,
         `Discontinued`,
         `<div class="form-outline">
             <input type="text" id="txt-size-${index}" class="form-control border bg-white" required />
@@ -41,6 +42,7 @@ $(document).ready(function () {
     ]).draw(false);
     dataTable.row.add([
         `<button class="btn btn-secondary btn-floating toggle-status" type="button"><i class="fa-solid fa-times"></i></button>`,
+        `SKU 2`,
         `Available`,
         `<div class="form-outline">
             <input type="text" id="txt-size-${index}" class="form-control border bg-white" required />
@@ -92,6 +94,7 @@ $(document).ready(function () {
 function addRow(dataTable, index) {
     dataTable.row.add([
         `<button class="btn btn-danger btn-floating delete-row" type="button"><i class="fa-solid fa-trash-can"></i></button>`,
+        ``,
         ``,
         `<div class="form-outline">
             <input type="text" id="txt-size-${index}" class="form-control border bg-white" required />
