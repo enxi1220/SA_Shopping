@@ -44,6 +44,9 @@ $(document).ready(function () {
                             </a>
                             <a class="btn btn-secondary btn-floating" title="Remove image" href="ProductUpdate.php?productId=${row.productId}"" role="button">
                                 <i class="fas fa-folder-minus"></i>
+                            </a>
+                            <a class="btn btn-secondary btn-floating" title="View reviews" href="../Review/ReviewSummary.php?productId=${row.productId}"" role="button">
+                                <i class="fas fa-comments"></i>
                             </a>`;
 
                         return html;
