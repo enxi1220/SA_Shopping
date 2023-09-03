@@ -13,7 +13,7 @@ require '../Layout.php';
             <div class="col-md-6">
                 <div class="form-outline">
                     <input type="text" id="txt-order-no" class="form-control" readonly />
-                    <label class="form-label" for="txt-order-no">Order No </label>
+                    <label class="form-label" for="txt-order-no">Order No</label>
                 </div>
             </div>
             <div class="col-md-6">
@@ -33,7 +33,7 @@ require '../Layout.php';
             <div class="col-md-6">
                 <div class="form-outline">
                     <input type="text" id="txt-delivery-fee" class="form-control" readonly />
-                    <label class="form-label" for="txt-delivery-fee">Delivery Fee </label>
+                    <label class="form-label" for="txt-delivery-fee">Delivery Fee</label>
                 </div>
             </div>
         </div>

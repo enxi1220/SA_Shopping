@@ -10,7 +10,7 @@ require '../Layout.php';
             </a>
         </div>
     </div>
-    <table id="product-summary" class="table table-striped">
+    <table id="product-summary" class="table table-striped w-100">
         <thead>
             <tr>
                 <th>Product No</th>

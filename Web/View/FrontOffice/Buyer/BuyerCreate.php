@@ -39,7 +39,7 @@ require '../Layout.php';
                                         <div class="col-md-6 mb-3">
                                             <div class="form-outline">
                                                 <input type="email" id="mail" class="form-control" required tabindex="1" />
-                                                <label class="form-label" for="email">Email <span class="text-danger">*</span></label>
+                                                <label class="form-label" for="email" required>Email</label>
                                                 <div class="invalid-feedback">Required</div>
                                             </div>
                                         </div>
@@ -47,7 +47,7 @@ require '../Layout.php';
                                         <div class="col-md-6 mb-3">
                                             <div class="form-outline">
                                                 <input type="tel" id="phone" class="form-control" required tabindex="2" />
-                                                <label class="form-label" for="phone">Phone <span class="text-danger">*</span></label>
+                                                <label class="form-label" for="phone" required>Phone</label>
                                                 <div class="invalid-feedback">Required</div>
                                             </div>
                                         </div>
@@ -55,7 +55,7 @@ require '../Layout.php';
                                         <div class="col-md-6 mb-3">
                                             <div class="form-outline">
                                                 <input type="text" id="txt-name" class="form-control" required tabindex="3" />
-                                                <label class="form-label" for="txt-name">Name <span class="text-danger">*</span></label>
+                                                <label class="form-label" for="txt-name" required>Name</label>
                                                 <div class="invalid-feedback">Required</div>
                                             </div>
                                         </div>
@@ -69,16 +69,16 @@ require '../Layout.php';
 
                                         <div class="col-md-6 mb-3">
                                             <div class="form-outline mb-4">
-                                                <input type="password" id="password" class="form-control" required tabindex="5" />
-                                                <label class="form-label" for="password">Password <span class="text-danger">*</span></label>
+                                                <input type="password" id="txt-password" class="form-control" required tabindex="5" />
+                                                <label class="form-label" for="txt-password" required>Password</label>
                                                 <div class="invalid-feedback">Required</div>
                                             </div>
                                         </div>
 
                                         <div class="col-md-6 mb-4">
                                             <div class="form-outline mb-4">
-                                                <input type="password" id="confirmPass" class="form-control" required tabindex="6" />
-                                                <label class="form-label" for="confirmPass">Confirm Password <span class="text-danger">*</span></label>
+                                                <input type="password" id="txt-confirm-password" class="form-control" required tabindex="6" />
+                                                <label class="form-label" for="txt-confirm-password" required>Confirm Password</label>
                                                 <div class="invalid-feedback">Required</div>
                                             </div>
                                         </div>

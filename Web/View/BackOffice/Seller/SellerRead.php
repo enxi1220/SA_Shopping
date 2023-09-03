@@ -28,8 +28,20 @@
         </div>
         <div class="col-md-12">
             <div class="form-outline">
-                <textarea id="txt-delivery-address" class="form-control" readonly></textarea>
-                <label class="form-label" for="txt-delivery-address">Delivery Address</label>
+                <input type="text" id="txt-store-name" class="form-control" readonly />
+                <label class="form-label" for="txt-store-name">Store Name</label>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="form-outline">
+                <textarea id="txt-store-desc" class="form-control" readonly rows="4"></textarea>
+                <label class="form-label" for="txt-store-desc">Store Description</label>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="form-outline">
+                <textarea id="txt-business-address" class="form-control" readonly rows="4"></textarea>
+                <label class="form-label" for="txt-business-address">Business Address</label>
             </div>
         </div>
     </form>

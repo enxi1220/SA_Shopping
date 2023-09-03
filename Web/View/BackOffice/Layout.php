@@ -78,7 +78,3 @@ require $_SERVER['DOCUMENT_ROOT'] . '/SA_Shopping/Web/StyleSheet/CSS_links.php';
         <!-- Navbar -->
     </header>
     <!--Main Navigation-->
-
-    <?php
-    require 'Footer.php';
-    ?>

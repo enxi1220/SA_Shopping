@@ -1,5 +1,1 @@
-back office nav bar 1. small screen cnt collapse, snall screen no full width...
-product image 
-product edit
-product detail edit 
-
+product image add and remove

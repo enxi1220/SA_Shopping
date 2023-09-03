@@ -9,7 +9,7 @@ require '../Layout.php';
             <!-- Tab side navs -->
             <div class="nav flex-column nav-tabs rounded" id="nav-tabs" role="tablist" aria-orientation="vertical">
                 <a class="nav-link ripple rounded-top" id="seller-view-nav-tab" data-mdb-ripple-color="info" data-mdb-toggle="tab" role="tab" aria-controls="seller-view" aria-selected="false" href="#seller-view"><i class="fas fa-user pe-3"></i>Profile Overview</a>
-                <a class="nav-link ripple" id="seller-edit-nav-tab" data-mdb-ripple-color="info" data-mdb-toggle="tab" role="tab" aria-controls="seller-edit" aria-selected="false" href="#seller-edit"><i class="fas fa-user-edit pe-3"></i>Edit Profile</a>
+                <a class="nav-link ripple" id="seller-edit-nav-tab" data-mdb-ripple-color="info" data-mdb-toggle="tab" role="tab" aria-controls="seller-edit" aria-selected="false" href="#seller-edit"><i class="fas fa-user-edit pe-3"></i>Update Profile</a>
                 <a class="nav-link ripple" id="seller-change-password-nav-tab" data-mdb-ripple-color="info" data-mdb-toggle="tab" role="tab" aria-controls="seller-change-password" aria-selected="false" href="#seller-change-password"><i class="fas fa-user-lock pe-3"></i>Change Password</a>
                 <a class="nav-link ripple" id="seller-delete-nav-tab" data-mdb-ripple-color="info" data-mdb-toggle="tab" role="tab" aria-controls="seller-delete" aria-selected="false" href="#seller-delete"><i class="fas fa-user-times pe-3"></i>Delete Account</a>
             </div>

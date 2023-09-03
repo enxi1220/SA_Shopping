@@ -20,7 +20,7 @@ require '../Layout.php';
                     <div class="row g-0 d-flex justify-content-center align-items-center">
                         <div class="col-md-6 col-lg-5 d-none d-md-block p-5 border-end">
                             <h1 class="my-5 display-3 fw-bold ls-tight">
-                                Shopping<br />
+                                Selling<br />
                                 <span class="text-primary">with us</span>
                             </h1>
                             <h2 class="my-5">Register a <b>seller</b> account</h2>
@@ -31,54 +31,49 @@ require '../Layout.php';
                         <div class="col-md-6 col-lg-7 d-flex align-items-center">
                             <div class="card-body p-4 p-lg-5 text-black">
                                 <div class="text-center">
-                                    <img src="https://static.vecteezy.com/system/resources/previews/003/689/231/original/online-registration-or-sign-up-login-for-account-on-smartphone-app-user-interface-with-secure-password-mobile-application-for-ui-web-banner-access-cartoon-people-illustration-vector.jpg" alt="register form" class="img-fluid w-50 h-50" style="border-radius: 1rem 0 0 1rem;" loading="lazy"/>
+                                    <img src="https://static.vecteezy.com/system/resources/previews/003/689/231/original/online-registration-or-sign-up-login-for-account-on-smartphone-app-user-interface-with-secure-password-mobile-application-for-ui-web-banner-access-cartoon-people-illustration-vector.jpg" alt="register form" class="img-fluid w-50 h-50" style="border-radius: 1rem 0 0 1rem;" loading="lazy" />
                                 </div>
                                 <form id="form-seller-create need" method="POST" class="needs-validation" novalidate>
-
                                     <div class="row">
                                         <div class="col-md-6 mb-3">
                                             <div class="form-outline">
                                                 <input type="email" id="mail" class="form-control" required tabindex="1" />
-                                                <label class="form-label" for="email">Email <span class="text-danger">*</span></label>
+                                                <label class="form-label" for="email" required>Email</label>
                                                 <div class="invalid-feedback">Required</div>
                                             </div>
                                         </div>
-
                                         <div class="col-md-6 mb-3">
                                             <div class="form-outline">
                                                 <input type="tel" id="phone" class="form-control" required tabindex="2" />
-                                                <label class="form-label" for="phone">Phone <span class="text-danger">*</span></label>
+                                                <label class="form-label" for="phone" required>Phone</label>
                                                 <div class="invalid-feedback">Required</div>
                                             </div>
                                         </div>
-
                                         <div class="col-md-6 mb-3">
                                             <div class="form-outline">
                                                 <input type="text" id="txt-name" class="form-control" required tabindex="3" />
-                                                <label class="form-label" for="txt-name">Name <span class="text-danger">*</span></label>
+                                                <label class="form-label" for="txt-name" required>Name</label>
                                                 <div class="invalid-feedback">Required</div>
                                             </div>
                                         </div>
-
+                                        <div class="col-md-6 mb-3">
+                                            <div class="form-outline">
+                                                <input type="text" id="txt-name" class="form-control" required tabindex="4" />
+                                                <label class="form-label" for="txt-name" required>Store Name</label>
+                                                <div class="invalid-feedback">Required</div>
+                                            </div>
+                                        </div>
                                         <div class="col-md-6 mb-4">
                                             <div class="form-outline">
-                                                <textarea id="txt-delivery-address" class="form-control" rows="4" tabindex="4" ></textarea>
-                                                <label class="form-label" for="txt-delivery-address">Delivery Address (Optional)</label>
-                                            </div>
-                                        </div>
-
-                                        <div class="col-md-6 mb-3">
-                                            <div class="form-outline mb-4">
-                                                <input type="password" id="password" class="form-control" required tabindex="5" />
-                                                <label class="form-label" for="password">Password <span class="text-danger">*</span></label>
+                                                <textarea id="txt-business-address" class="form-control" rows="4" tabindex="5" required></textarea>
+                                                <label class="form-label" for="txt-business-address" required>Business Address</label>
                                                 <div class="invalid-feedback">Required</div>
                                             </div>
                                         </div>
-
                                         <div class="col-md-6 mb-4">
-                                            <div class="form-outline mb-4">
-                                                <input type="password" id="confirmPass" class="form-control" required tabindex="6" />
-                                                <label class="form-label" for="confirmPass">Confirm Password <span class="text-danger">*</span></label>
+                                            <div class="form-outline">
+                                                <textarea id="txt-store-desc" class="form-control" rows="4" tabindex="6" required></textarea>
+                                                <label class="form-label" for="txt-store-desc" required>Store Description</label>
                                                 <div class="invalid-feedback">Required</div>
                                             </div>
                                         </div>

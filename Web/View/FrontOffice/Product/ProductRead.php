@@ -18,18 +18,18 @@ require '../Layout.php';
                 <div class="carousel-inner mb-5 shadow-1-strong rounded-3">
 
                     <div class="carousel-item active">
-                        <img src="https://images.threadsmagazine.com/app/uploads/5139/13/11201922/131-turn-of-cloth-01-main.jpg" class="d-block w-100" alt="..." style="object-fit: cover;" loading="lazy"/>
+                        <img src="https://images.threadsmagazine.com/app/uploads/5139/13/11201922/131-turn-of-cloth-01-main.jpg" class="d-block w-100" alt="..." style="object-fit: cover;" loading="lazy" />
                     </div>
 
                     <!-- loop from second-->
                     <div class="carousel-item">
-                        <img src="https://media.glamour.com/photos/607f2749febb5e66fe7c52cf/1:1/w_1200,h_1200,c_limit/terry%20cloth%20trend_jumpsuit.jpg" class="d-block w-100" alt="..." style="object-fit: cover;" loading="lazy"/>
+                        <img src="https://media.glamour.com/photos/607f2749febb5e66fe7c52cf/1:1/w_1200,h_1200,c_limit/terry%20cloth%20trend_jumpsuit.jpg" class="d-block w-100" alt="..." style="object-fit: cover;" loading="lazy" />
                     </div>
                     <div class="carousel-item">
-                        <img src="https://down-my.img.susercontent.com/file/85317e6d1ed48cd1acf01c39386d5357" class="d-block w-100" alt="..." style="object-fit: cover;" loading="lazy"/>
+                        <img src="https://down-my.img.susercontent.com/file/85317e6d1ed48cd1acf01c39386d5357" class="d-block w-100" alt="..." style="object-fit: cover;" loading="lazy" />
                     </div>
                     <div class="carousel-item">
-                        <img src="https://down-my.img.susercontent.com/file/869ca7cd68610f89beafbf107230860a" class="d-block w-100" alt="..." style="object-fit: cover;" loading="lazy"/>
+                        <img src="https://down-my.img.susercontent.com/file/869ca7cd68610f89beafbf107230860a" class="d-block w-100" alt="..." style="object-fit: cover;" loading="lazy" />
                     </div>
                     <!-- end of loop  -->
                 </div>
@@ -85,7 +85,10 @@ require '../Layout.php';
             <!----- Product Detail ----->
             <div class="row d-flex align-items-center mb-3 mt-4">
                 <div class="col">
-                    <h6>Variations <span class="text-danger">*</span> <span class="text-muted mt-2 ms-2"> <span id="txt-avaialble-qty">8</span> item(s) left</span></h6>
+                    <h6>
+                        <label required>Variations</label>
+                        <label class="text-muted mt-2 ms-2"><span id="txt-avaialble-qty">8</span> item(s) left</label>
+                    </h6>
                     <input type="radio" class="btn-check" name="details-option" id="${details.1}" autocomplete="off" checked>
                     <label class="btn btn-outline-secondary mt-1" for="${details.1}">Pink - S - Cotton</label>
                     <input type="radio" class="btn-check" name="details-option" id="${details.2}" autocomplete="off">
@@ -98,13 +101,12 @@ require '../Layout.php';
                     <label class="btn btn-outline-secondary mt-1" for="${details.5}">Blue - S - Cotton</label>
                     <input type="radio" class="btn-check" name="details-option" id="${details.6}" autocomplete="off">
                     <label class="btn btn-outline-secondary mt-1" for="${details.6}">Blue - S - Cotton</label>
-
                 </div>
             </div>
             <!----- Quantity ----->
             <div class="col-md-12 d-flex justify-content-between align-items-center mt-4 pb-4">
                 <div class="col-md-6">
-                    <h6 class="mb-0">Quantity <span class="text-danger">*</span></h6>
+                    <h6 class="mb-0"><label required>Quantity</label> </h6>
                 </div>
                 <div class="col-md-6 d-flex justify-content-end">
                     <button class="btn btn-link px-2" onclick="this.parentNode.querySelector('input[type=number]').stepDown()">

@@ -29,15 +29,15 @@ require '../Layout.php';
                                             <div class="col-md-12 mb-4">
                                                 <div class="form-outline">
                                                     <input type="email" id="txt-email" class="form-control form-control-lg" required tabindex="1" />
-                                                    <label class="form-label" for="txt-email">Email address <span class="text-danger">*</span></label>
-                                                    <div class="invalid-feedback">Please enter a valid email address.</div>
+                                                    <label class="form-label" for="txt-email" required>Email address</label>
+                                                    <div class="invalid-feedback">Required</div>
                                                 </div>
                                             </div>
                                             <div class="col-md-12  mb-4">
                                                 <div class="form-outline">
                                                     <input type="password" id="txt-password" class="form-control form-control-lg" required tabindex="2" />
-                                                    <label class="form-label" for="txt-password">Password <span class="text-danger">*</span></label>
-                                                    <div class="invalid-feedback">Please enter your password.</div>
+                                                    <label class="form-label" for="txt-password" required>Password</label>
+                                                    <div class="invalid-feedback">Required</div>
                                                 </div>
                                             </div>
                                         </div>
@@ -58,7 +58,7 @@ require '../Layout.php';
 
                                         <div class="text-center">
                                             <p>or sign up with</p>
-                                            <button type="button" class="btn btn-secondary btn-floating mx-1">
+                                            <button type="button" class="btn btn-primary btn-floating mx-1">
                                                 <i class="fab fa-google"></i>
                                             </button>
                                         </div>

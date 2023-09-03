@@ -1,0 +1,8 @@
+{
+    "Database": {
+        "ServerName": "localhost:3307",
+        "Username": "root",
+        "Password": "",
+        "DatabaseName": "sa_shopping"
+    }
+}

@@ -7,7 +7,7 @@
     <form id="form-seller-delete" class="needs-validation" novalidate>
         <div class="form-outline my-3">
             <input type="password" id="txt-password-delete" class="form-control " maxlength="30" required />
-            <label class="form-label" for="txt-password-delete">Password <span class="text-danger">*</span></label>
+            <label class="form-label" for="txt-password-delete" required>Password</label>
             <div class="invalid-feedback">Required</div>
         </div>
         <div class="d-flex justify-content-center mt-5">

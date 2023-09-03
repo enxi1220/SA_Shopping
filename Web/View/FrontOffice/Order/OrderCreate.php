@@ -28,7 +28,7 @@ require '../Layout.php';
             <hr/>
             <div class="form-outline">
                 <textarea id="txt-delivery-address" class="form-control" required rows="4" tabindex="1"></textarea>
-                <label class="form-label" for="txt-delivery-address">Delivery Address <span class="text-danger">*</span></label>
+                <label class="form-label" for="txt-delivery-address" required>Delivery Address</label>
                 <div class="invalid-feedback">Required</div>
             </div>
         </div>
@@ -49,7 +49,7 @@ require '../Layout.php';
                     <div>RM <span id="txt-total-price">38.90</span></div>
                 </div>
                 <hr />
-                <h5 class="mb-4">Select a payment method <span class="text-danger">*</span></h5>
+                <h5 class="mb-4"><label required>Select a payment method</label> </h5>
 
                 <!-- Pills navs -->
                 <ul class="nav nav-pills nav-justified mb-3" id="ex1" role="tablist">
@@ -92,7 +92,7 @@ require '../Layout.php';
                             <div class="mb-3">
                                 <div class="form-outline">
                                     <input type="text" id="txt-card-number" class="form-control" tabindex="5" pattern="^\d{4}\s?\d{4}\s?\d{4}\s?\d{4}$" minlength="19" maxlength="19" placeholder="0000 0000 0000 0000"/>
-                                    <label class="form-label" for="txt-card-number">Card Number <span class="text-danger">*</span></label>
+                                    <label class="form-label" for="txt-card-number" required>Card Number</label>
                                     <div class="invalid-feedback">Required</div>
                                 </div>
                             </div>
@@ -101,7 +101,7 @@ require '../Layout.php';
                             <div class="mb-3">
                                 <div class="form-outline">
                                     <input type="password" id="txt-cvv" class="form-control" tabindex="6" pattern="^\d{3}$" minlength="3" maxlength="3" placeholder="000"/>
-                                    <label class="form-label" for="txt-cvv">CVV <span class="text-danger">*</span></label>
+                                    <label class="form-label" for="txt-cvv" required>CVV</label>
                                     <div class="invalid-feedback">Required</div>
                                 </div>
                             </div>
@@ -110,7 +110,7 @@ require '../Layout.php';
                             <div class="mb-3">
                                 <div class="form-outline">
                                     <input type="text" id="txt-expiry-date" class="form-control" tabindex="7" pattern="(0[1-9]|1[0-2])\/[0-9]{2}" maxlength="5" minlength="5" placeholder="12/30"/>
-                                    <label class="form-label" for="txt-expiry-date">Expiry Date <span class="text-danger">*</span></label>
+                                    <label class="form-label" for="txt-expiry-date" required>Expiry Date</label>
                                     <div class="invalid-feedback">Required</div>
                                 </div>
                             </div>

@@ -22,7 +22,7 @@
     <div class="card-body">
       <h5 class="card-title">Yellow - S - Cotton</h5>
       <p class="card-text">Neutral review...</p>
-      <span class="text-muted">Edited on 20 July 2023</span>
+      <span class="text-muted">Updated on 20 July 2023</span>
     </div>
   </div>
   <div class="card border border-success mb-3">

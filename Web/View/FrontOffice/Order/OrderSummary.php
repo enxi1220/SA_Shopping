@@ -39,7 +39,7 @@ require '../Layout.php';
                                 <div class="d-flex justify-content-between">
                                     <label>
                                         <span id="txt-quantity">$quantity</span> item(s)
-                                    </label>
+                                   </label>
                                     <label>RM <span id="txt-price">$price</span></label>
                                 </div>
                             </div>
@@ -71,7 +71,7 @@ require '../Layout.php';
                                 <div class="d-flex justify-content-between">
                                     <label>
                                         <span id="txt-quantity">$quantity</span> item(s)
-                                    </label>
+                                   </label>
                                     <label>RM <span id="txt-price">$price</span></label>
                                 </div>
                             </div>
@@ -119,7 +119,7 @@ require '../Layout.php';
         <div class="modal-content">
             <form action="POST" id="form-review-create needs-validation" novalidate>
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Write Review <span class="text-danger">*</span></h5>
+                    <h5 class="modal-title" id="exampleModalLabel"><label required>Write Review</label></h5>
                     <button type="button" class="btn-close" data-mdb-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">

@@ -5,27 +5,27 @@
         <div class="col-md-12">
             <div class="form-outline">
                 <input type="password" class="form-control" id="txt-current-password" required />
-                <label for="txt-current-password" class="form-label">Current Password <span class="text-danger">*</span></label>
+                <label for="txt-current-password" class="form-label" required>Current Password</label>
                 <div class="invalid-feedback">Required</div>
             </div>
         </div>
         <div class="col-md-12">
             <div class="form-outline">
                 <input type="password" id="txt-password" class="form-control" required />
-                <label class="form-label" for="txt-password">Password <span class="text-danger">*</span></label>
+                <label class="form-label" for="txt-password" required>Password</label>
                 <div class="invalid-feedback">Required</div>
             </div>
         </div>
         <div class="col-md-12">
             <div class="form-outline">
                 <input type="password" id="txt-confirm-password" class="form-control" required />
-                <label class="form-label" for="txt-confirm-password">Confirm Password <span class="text-danger">*</span></label>
+                <label class="form-label" for="txt-confirm-password" required>Confirm Password</label>
                 <div class="invalid-feedback">Required</div>
             </div>
         </div>
 
         <div class="d-flex justify-content-center mt-5">
-            <button type="submit" class="btn btn-secondary btn-block w-25">Save Changes</button>
+            <button type="submit" class="btn btn-dark btn-block w-25">Save Changes</button>
         </div>
     </form>
 </div>
