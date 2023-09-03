@@ -29,7 +29,7 @@ require '../Layout.php';
                     <a role="button" class="btn btn-dark btn-floating" title="View" href="OrderRead.php?orderId=${row.orderId}">
                         <i class="fas fa-eye"></i>
                     </a>
-                    <button type="button" id="btn-confirm" class="btn btn-success btn-floating title="Confirm">
+                    <button type="button" id="btn-confirm" class="btn btn-success btn-floating" title="Confirm">
                         <i class="fas fa-check"></i>
                     </button>
                     <button type="button" id="btn-ship" class="btn btn-primary btn-floating" title="Ship">

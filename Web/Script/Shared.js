@@ -1,4 +1,3 @@
-// Example starter JavaScript for disabling form submissions if there are invalid fields
 (() => {
     'use strict';
     // Fetch all the forms we want to apply custom Bootstrap validation styles to
@@ -47,7 +46,7 @@ function post(url, dataArr, successHandler, afterSuccess, errorHandler) {
                     icon: 'success',
                     title: 'Success',
                     html: '<pre>' + success + '</pre>',
-                    // timer: 1900,
+                    timer: 9999,
                     showConfirmButton: false
                 }).then(function () {
                     if (afterSuccess) {
@@ -62,12 +61,7 @@ function post(url, dataArr, successHandler, afterSuccess, errorHandler) {
                 errorHandler(error);
             } else {
                 //default error version
-//        Swal.fire({
-//          icon: 'error',
-//          title: 'Oops...',
-//          html: '<pre>' + error.responseText + '</pre>'
-//          // text:  error.responseText
-//        })
+
                 Swal.fire({
                     icon: 'error',
                     title: 'Oops...',
@@ -92,7 +86,7 @@ function get(url, data, successHandler, errorHandler, afterError, afterSuccess) 
                 //user-defined success version
                 successHandler(success);
             } else {
-                
+
                 //default success version
                 Swal.fire({
                     icon: 'success',
@@ -105,32 +99,6 @@ function get(url, data, successHandler, errorHandler, afterError, afterSuccess) 
                         afterSuccess();
                     }
                 });
-
-                //success with after success
-                // if(afterSuccess){
-                //      Swal.fire({
-                //     icon: 'success',
-                //     title: 'Success',
-                //     html: '<pre>' + success + '</pre>',
-                //     // timer: 1900,
-                //     showConfirmButton: false
-                //     }).then(function () {
-                  
-                //             afterSuccess();
-                //     });
-                // }else{
-                //     //default success version
-                // Swal.fire({
-                //     icon: 'success',
-                //     title: 'Success...',
-                //     html: '<pre>' + success + '</pre>',
-                //     showConfirmButton: false
-                // })
-
-                // }
-
-
-               
             }
         },
         error: function (error) {

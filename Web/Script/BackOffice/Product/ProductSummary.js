@@ -39,11 +39,8 @@ $(document).ready(function () {
                             <a class="btn btn-secondary btn-floating" title="Update" href="ProductUpdate.php?productId=${row.productId}" role="button">
                                 <i class="fas fa-pen-to-square"></i>
                             </a>
-                            <a class="btn btn-secondary btn-floating" title="Add image" href="ProductUpdate.php?productId=${row.productId}"" role="button">
+                            <a class="btn btn-secondary btn-floating" title="Update Image" href="ProductImageCreateDelete.php?productId=${row.productId}"" role="button">
                                 <i class="far fa-image"></i>
-                            </a>
-                            <a class="btn btn-secondary btn-floating" title="Remove image" href="ProductUpdate.php?productId=${row.productId}"" role="button">
-                                <i class="fas fa-folder-minus"></i>
                             </a>
                             <a class="btn btn-secondary btn-floating" title="View reviews" href="../Review/ReviewSummary.php?productId=${row.productId}"" role="button">
                                 <i class="fas fa-comments"></i>

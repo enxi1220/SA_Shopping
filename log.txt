@@ -1,2 +1,2 @@
-product image add and remove
-product with review 
+product image add and remove - pending, left js
+reset password - not started
