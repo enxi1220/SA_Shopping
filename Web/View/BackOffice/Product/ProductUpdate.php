@@ -27,7 +27,7 @@ require '../Layout.php';
         <div class="row mb-4">
             <div class="col-md-6">
                 <div class="form-outline">
-                    <input type="text" id="txt-price" class="form-control" required tabindex="2" />
+                    <input type="text" id="txt-price" class="form-control" required tabindex="2" min=0 step=".01" pattern="^\d*(\.\d{0,2})?$"/>
                     <label class="form-label" for="txt-price" required>Price (RM)</label>
                     <div class="invalid-feedback">Required</div>
                 </div>

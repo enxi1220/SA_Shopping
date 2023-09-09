@@ -2,24 +2,30 @@
     <h3 class="lead">Change Password</h3>
     <hr class="mt-0 mb-3" />
     <form class="row g-3 needs-validation mt-3" id="form-change-password" novalidate>
-        <div class="col-md-12">
+        <div class="col-md-12 mb-4">
             <div class="form-outline">
-                <input type="password" class="form-control" id="txt-current-password" required />
+                <i class="fas fa-eye-slash text-secondary toggle-visibility trailing" data-target></i>
+                <input type="password" class="form-control" id="txt-current-password" required  data-mdb-showcounter="true" maxlength="20" />
                 <label for="txt-current-password" class="form-label" required>Current Password</label>
+                <div class="form-helper"></div>
                 <div class="invalid-feedback">Required</div>
             </div>
         </div>
-        <div class="col-md-12">
+        <div class="col-md-12 mb-4">
             <div class="form-outline">
-                <input type="password" id="txt-password" class="form-control" required />
+                <i class="fas fa-eye-slash text-secondary toggle-visibility trailing" data-target></i>
+                <input type="password" id="txt-password" class="form-control" required  data-mdb-showcounter="true" maxlength="20" />
                 <label class="form-label" for="txt-password" required>Password</label>
+                <div class="form-helper"></div>
                 <div class="invalid-feedback">Required</div>
             </div>
         </div>
-        <div class="col-md-12">
+        <div class="col-md-12 mb-4">
             <div class="form-outline">
-                <input type="password" id="txt-confirm-password" class="form-control" required />
+                <i class="fas fa-eye-slash text-secondary toggle-visibility trailing" data-target></i>
+                <input type="password" id="txt-confirm-password" class="form-control" required  data-mdb-showcounter="true" maxlength="20" />
                 <label class="form-label" for="txt-confirm-password" required>Confirm Password</label>
+                <div class="form-helper"></div>
                 <div class="invalid-feedback">Required</div>
             </div>
         </div>

@@ -35,8 +35,10 @@ require '../Layout.php';
                                             </div>
                                             <div class="col-md-12  mb-4">
                                                 <div class="form-outline">
-                                                    <input type="password" id="txt-password" class="form-control form-control-lg" required tabindex="2" />
+                                                    <i class="fas fa-eye-slash text-secondary toggle-visibility trailing" data-target></i>
+                                                    <input type="password" id="txt-password" class="form-control form-control-lg form-icon-trailing" required tabindex="2" data-mdb-showcounter="true" maxlength="20" />
                                                     <label class="form-label" for="txt-password" required>Password</label>
+                                                    <div class="form-helper"></div>
                                                     <div class="invalid-feedback">Required</div>
                                                 </div>
                                             </div>

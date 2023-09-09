@@ -25,7 +25,7 @@ $(document).ready(function () {
 
 // todo: change to multiple pic
 function picturePreview(input) {
-    if (input.files && input.files[0]) {
+    if (input.files) {
         var reader = new FileReader();
         reader.onload = function (e) {
             $('#img-preview').attr('src', e.target.result);
@@ -38,7 +38,7 @@ function deleteProductImage(id) {
     var productId = new URLSearchParams(window.location.search).get('productId');
     $('#modal-product-image-delete').modal('show');
     $('#btn-product-image-delete').click(function () {
-        console.log(id);
+        // todo: back end 
         //     var productImage = JSON.stringify({
         //         "productImageId": id.toString()
         //     });

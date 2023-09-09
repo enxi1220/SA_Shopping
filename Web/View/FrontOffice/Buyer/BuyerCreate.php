@@ -34,7 +34,6 @@ require '../Layout.php';
                                     <img src="https://static.vecteezy.com/system/resources/previews/003/689/231/original/online-registration-or-sign-up-login-for-account-on-smartphone-app-user-interface-with-secure-password-mobile-application-for-ui-web-banner-access-cartoon-people-illustration-vector.jpg" alt="register form" class="img-fluid w-50 h-50" style="border-radius: 1rem 0 0 1rem;" loading="lazy"/>
                                 </div>
                                 <form id="form-buyer-create need" method="POST" class="needs-validation" novalidate>
-
                                     <div class="row">
                                         <div class="col-md-6 mb-3">
                                             <div class="form-outline">
@@ -43,7 +42,6 @@ require '../Layout.php';
                                                 <div class="invalid-feedback">Required</div>
                                             </div>
                                         </div>
-
                                         <div class="col-md-6 mb-3">
                                             <div class="form-outline">
                                                 <input type="tel" id="phone" class="form-control" required tabindex="2" />
@@ -51,7 +49,6 @@ require '../Layout.php';
                                                 <div class="invalid-feedback">Required</div>
                                             </div>
                                         </div>
-
                                         <div class="col-md-6 mb-3">
                                             <div class="form-outline">
                                                 <input type="text" id="txt-name" class="form-control" required tabindex="3" />
@@ -59,31 +56,31 @@ require '../Layout.php';
                                                 <div class="invalid-feedback">Required</div>
                                             </div>
                                         </div>
-
-                                        <div class="col-md-6 mb-4">
+                                        <div class="col-md-6 mb-3">
                                             <div class="form-outline">
                                                 <textarea id="txt-delivery-address" class="form-control" rows="4" tabindex="4" ></textarea>
                                                 <label class="form-label" for="txt-delivery-address">Delivery Address (Optional)</label>
                                             </div>
                                         </div>
-
-                                        <div class="col-md-6 mb-3">
-                                            <div class="form-outline mb-4">
-                                                <input type="password" id="txt-password" class="form-control" required tabindex="5" />
+                                        <div class="col-md-6 mb-4">
+                                            <div class="form-outline">
+                                                <i class="fas fa-eye-slash text-secondary toggle-visibility trailing" data-target></i>    
+                                                <input type="password" id="txt-password" class="form-control" required tabindex="5" data-mdb-showcounter="true" maxlength="20" />
                                                 <label class="form-label" for="txt-password" required>Password</label>
+                                                <div class="form-helper"></div>
                                                 <div class="invalid-feedback">Required</div>
                                             </div>
                                         </div>
-
                                         <div class="col-md-6 mb-4">
-                                            <div class="form-outline mb-4">
-                                                <input type="password" id="txt-confirm-password" class="form-control" required tabindex="6" />
+                                            <div class="form-outline">
+                                                <i class="fas fa-eye-slash text-secondary toggle-visibility trailing" data-target></i>
+                                                <input type="password" id="txt-confirm-password" class="form-control" required tabindex="6" data-mdb-showcounter="true" maxlength="20" />
                                                 <label class="form-label" for="txt-confirm-password" required>Confirm Password</label>
+                                                <div class="form-helper"></div>
                                                 <div class="invalid-feedback">Required</div>
                                             </div>
                                         </div>
                                     </div>
-
                                     <div class="pt-1 mb-4">
                                         <button class="btn btn-dark btn-lg btn-block" type="submit">Register</button>
                                     </div>

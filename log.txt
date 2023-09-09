@@ -1,2 +1,4 @@
 product image add and remove - pending, left js
 reset password - not started
+
+<!-- todo: add video, video js -->

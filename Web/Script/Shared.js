@@ -138,3 +138,16 @@ function checkDate(id, min, max) {
         }
     });
 }
+
+$(`.toggle-visibility`).click(function () {
+    $(this).toggleClass("fa-eye-slash fa-eye");
+
+    if($(this).siblings("input").attr("type") === "password"){
+        $(this).siblings("input").attr("type", "text");
+    }else{
+        $(this).siblings("input").attr("type", "password");
+    }
+
+
+    var icon = targetElement.find("i");
+});

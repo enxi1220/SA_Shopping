@@ -15287,7 +15287,8 @@ i.flag-zw:before {
   left: auto;
   top: 50%;
   transform: translateY(-50%);
-  pointer-events: none
+  cursor: default;
+  pointer-events: auto !important;
 }
 
 .form-outline .form-icon-trailing {

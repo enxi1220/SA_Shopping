@@ -6,8 +6,10 @@
     </div>
     <form id="form-buyer-delete" class="needs-validation" novalidate>
         <div class="form-outline my-3">
-            <input type="password" id="txt-password-delete" class="form-control " maxlength="30" required />
+        <i class="fas fa-eye-slash text-secondary toggle-visibility trailing" data-target></i>    
+            <input type="password" id="txt-password-delete" class="form-control " maxlength="20" required data-mdb-showcounter="true" maxlength="20" />
             <label class="form-label" for="txt-password-delete" required>Password</label>
+            <div class="form-helper"></div>
             <div class="invalid-feedback">Required</div>
         </div>
         <div class="d-flex justify-content-center mt-5">

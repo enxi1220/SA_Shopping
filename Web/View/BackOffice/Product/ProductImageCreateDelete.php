@@ -12,13 +12,15 @@ require '../Layout.php';
         <div class="row mt-3">
             <div class="col-md-4">
                 <div class="form-outline">
-                    <input type="file" id="txt-image" name="ProductImage" class="form-control" tabindex="1" onchange="picturePreview(this)" required multiple accept="image/jpeg, image/png, image/gif">
-                    <!-- <label class="form-label" for="txt-image" required>Product Image</label> -->
+                    <input type="file" id="txt-image" name="ProductImage" class="form-control" tabindex="1" onchange="picturePreview(this)" required multiple accept="image/jpeg, image/png, image/gif, video/mp4">
                     <div class="invalid-feedback">Required and only allow jpg, jpeg, png, gif file types</div>
                 </div>
             </div>
+            <!-- todo: add video, video js -->
             <div class="col-md-8">
-                <div class=""></div>
+                <video id="video-preview" class="" controls width="300" height="300">
+                    <source src="" type="video/mp4">
+                </video>
                 <img src="" id="img-preview" class="img-fluid" />
             </div>
         </div>
