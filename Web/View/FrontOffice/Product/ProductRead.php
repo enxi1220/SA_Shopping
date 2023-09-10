@@ -83,20 +83,10 @@ require '../Layout.php';
                 <div class="col">
                     <h6>
                         <label required>Variations</label>
-                        <label class="text-muted mt-2 ms-2"><span id="txt-avaialble-qty">8</span> item(s) left</label>
+                        <label class="text-muted mt-2 ms-2"><span id="txt-available-qty"></span> item(s) left</label>
                     </h6>
-                    <input type="radio" class="btn-check" name="details-option" id="${details.1}" autocomplete="off" checked>
-                    <label class="btn btn-outline-secondary mt-1" for="${details.1}">Pink - S - Cotton</label>
-                    <input type="radio" class="btn-check" name="details-option" id="${details.2}" autocomplete="off">
-                    <label class="btn btn-outline-secondary mt-1" for="${details.2}">Yellow - S - Cotton</label>
-                    <input type="radio" class="btn-check" name="details-option" id="${details.3}" autocomplete="off">
-                    <label class="btn btn-outline-secondary mt-1" for="${details.3}">Blue - S - Cotton</label>
-                    <input type="radio" class="btn-check" name="details-option" id="${details.4}" autocomplete="off">
-                    <label class="btn btn-outline-secondary mt-1" for="${details.4}">Blue - S - Cotton</label>
-                    <input type="radio" class="btn-check" name="details-option" id="${details.5}" autocomplete="off">
-                    <label class="btn btn-outline-secondary mt-1" for="${details.5}">Blue - S - Cotton</label>
-                    <input type="radio" class="btn-check" name="details-option" id="${details.6}" autocomplete="off">
-                    <label class="btn btn-outline-secondary mt-1" for="${details.6}">Blue - S - Cotton</label>
+                    <div id="product-detail">
+                    </div>
                 </div>
             </div>
             <!----- Quantity ----->

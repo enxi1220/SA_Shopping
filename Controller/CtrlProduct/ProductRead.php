@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 require_once $_SERVER['DOCUMENT_ROOT'] . "/SA_Shopping/Model/Product.php";
 require_once $_SERVER['DOCUMENT_ROOT'] . "/SA_Shopping/Model/ProductDetail.php";
@@ -25,13 +25,11 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
         $productImage = new ProductImage();
 
         $result = ProductRead::Read($product, $productDetail, $productImage);
-    
+
         if (empty($result)) {
             throw new Exception("Data not found");
         }
 
-        // todo: cant get array
-    
         $result = $result[0];
         $output = array(
             'productId' => $result->getProductId(),
@@ -42,12 +40,34 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
             'description' => $result->getDescription(),
             'createdDate' => $result->getCreatedDate(),
             'updatedDate' => $result->getUpdatedDate(),
-            'productDetails' => $result->getProductDetails(),
-            'productImages' => $result->getProductImages()
+            'productDetails' => array_map(function ($detail) {
+                return [
+                    'productDetailId' => $detail->getProductDetailId(),
+                    'productDetailNo' => $detail->getProductDetailNo(),
+                    'productId' => $detail->getProductId(),
+                    'size' => $detail->getSize(),
+                    'status' => $detail->getStatus(),
+                    'color' => $detail->getColor(),
+                    'material' => $detail->getMaterial(),
+                    'minStockQty' => $detail->getMinStockQty(),
+                    'availableQty' => $detail->getAvailableQty(),
+                    'salesOutQty' => $detail->getSalesOutQty(),
+                    'createdDate' => $detail->getCreatedDate(),
+                    'updatedDate' => $detail->getUpdatedDate(),
+                    'updatedBy' => $detail->getUpdatedBy()
+                ];
+            }, $result->getProductDetails()),
+            'productImages' => array_map(function ($image) {
+                return [
+                    'productImageId' => $image->getProductImageId(),
+                    'productId' => $image->getProductId(),
+                    'imageName' => $image->getImageName(),
+                ];
+            }, $result->getProductImages())
         );
 
         echo json_encode($output);
-
+        
     } catch (\Throwable $e) {
         header($_SERVER["SERVER_PROTOCOL"] . ' 500 Internal Server Error', true, 500);
         // echo $e->getMessage();
