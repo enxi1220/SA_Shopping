@@ -70,15 +70,11 @@ require '../Layout.php';
 
         <!-------- Product -------->
         <div class="col-xs-12 col-md-8 mt-2 position-relative">
-            <h2>Product Name</h2>
-            <h4>RM <span id="txt-price">23</span> </h4>
+            <h2 id="txt-name"></h2>
+            <h4>RM <span id="txt-price"></span> </h4>
             <div class="border-top pt-3 mb-3 pt-4">
                 <h6>Description</h6>
-                <p>
-                    nsodfv sndfvnspdfn senf vsndfvs. spenf vspufnbvsev neofnva;fvnaerinfaovhna vaisdncvajsdnc sdcbip
-                    nsodfv sndfvnspdfn senf vsndfvs. spenf vspufnbvsev neofnva;fvnaerinfaovhna vaisdncvajsdnc sdcbip
-                    nsodfv sndfvnspdfn senf vsndfvs. spenf vspufnbvsev neofnva;fvnaerinfaovhna vaisdncvajsdnc sdcbip sdfv sdfvsdfgsdfgsdfg
-                    dfgsdfgsdgf
+                <p id="txt-description">
                 </p>
             </div>
 

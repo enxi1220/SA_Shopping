@@ -3,145 +3,146 @@ DROP DATABASE IF EXISTS `SA_Shopping`;
 CREATE DATABASE `SA_Shopping`;
 USE `SA_Shopping`;
 
-CREATE TABLE IF NOT EXISTS `SA_Shopping`.`Seller` (
-    `sellerId` INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+CREATE TABLE IF NOT EXISTS `SA_Shopping`.`admin` (
+    `admin_id` INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    `username` VARCHAR(255) NOT NULL,
+    `name` VARCHAR(255) NOT NULL,
+    `email` VARCHAR(255) NOT NULL,
+    `password` VARCHAR(255) NOT NULL,
+    `phone` VARCHAR(20) NOT NULL,
+    `status` VARCHAR(50) NOT NULL,
+    `reset_code` VARCHAR(50),
+    `created_date` DATETIME,
+    `created_by` VARCHAR(255),
+    `updated_date` DATETIME,
+    `updated_by` VARCHAR(255),
+	UNIQUE KEY `email_UNIQUE` (`email`),
+	UNIQUE KEY `username_UNIQUE` (`username`)
+);
+
+CREATE TABLE IF NOT EXISTS `SA_Shopping`.`seller` (
+    `seller_id` INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
     `username` VARCHAR(255),
     `name` VARCHAR(255),
     `email` VARCHAR(255),
     `password` VARCHAR(255),
     `phone` VARCHAR(20),
     `status` VARCHAR(50),
-    `resetCode` VARCHAR(50),
-    `createdDate` DATETIME,
-    `createdBy` VARCHAR(255),
-    `updatedDate` DATETIME,
-    `updatedBy` VARCHAR(255),
-    `businessAddress` TEXT,
-    `storeName` VARCHAR(255),
-    `storeDesc` TEXT,
-    `lastLoginDate` DATETIME,
+    `reset_code` VARCHAR(50),
+    `created_date` DATETIME,
+    `created_by` VARCHAR(255),
+    `updated_date` DATETIME,
+    `updated_by` VARCHAR(255),
+    `business_address` TEXT,
+    `store_name` VARCHAR(255),
+    `store_desc` TEXT,
+    `last_login_date` DATETIME,
 	UNIQUE KEY `email_UNIQUE` (`email`),
 	UNIQUE KEY `username_UNIQUE` (`username`),
-	UNIQUE KEY `storeName_UNIQUE` (`storeName`)
+	UNIQUE KEY `store_name_UNIQUE` (`store_name`)
 );
 
-CREATE TABLE IF NOT EXISTS `SA_Shopping`.`Admin` (
-    `adminId` INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+CREATE TABLE IF NOT EXISTS `SA_Shopping`.`buyer` (
+    `buyer_id` INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
     `username` VARCHAR(255) NOT NULL,
     `name` VARCHAR(255) NOT NULL,
     `email` VARCHAR(255) NOT NULL,
     `password` VARCHAR(255) NOT NULL,
     `phone` VARCHAR(20) NOT NULL,
     `status` VARCHAR(50) NOT NULL,
-    `resetCode` VARCHAR(50),
-    `createdDate` DATETIME,
-    `createdBy` VARCHAR(255),
-    `updatedDate` DATETIME,
-    `updatedBy` VARCHAR(255),
+    `reset_code` VARCHAR(50),
+    `created_date` DATETIME,
+    `created_by` VARCHAR(255),
+    `updated_date` DATETIME,
+    `updated_by` VARCHAR(255),
+    `delivery_address` TEXT,
 	UNIQUE KEY `email_UNIQUE` (`email`),
 	UNIQUE KEY `username_UNIQUE` (`username`)
 );
 
-CREATE TABLE IF NOT EXISTS `SA_Shopping`.`Buyer` (
-    `buyerId` INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
-    `username` VARCHAR(255) NOT NULL,
-    `name` VARCHAR(255) NOT NULL,
-    `email` VARCHAR(255) NOT NULL,
-    `password` VARCHAR(255) NOT NULL,
-    `phone` VARCHAR(20) NOT NULL,
-    `status` VARCHAR(50) NOT NULL,
-    `resetCode` VARCHAR(50),
-    `createdDate` DATETIME,
-    `createdBy` VARCHAR(255),
-    `updatedDate` DATETIME,
-    `updatedBy` VARCHAR(255),
-    `deliveryAddress` TEXT,
-	UNIQUE KEY `email_UNIQUE` (`email`),
-	UNIQUE KEY `username_UNIQUE` (`username`)
-);
-
-CREATE TABLE IF NOT EXISTS `SA_Shopping`.`Product` (
-    `productId` INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
-    `productNo` VARCHAR(255) NOT NULL,
-    `sellerId` INT NOT NULL,
+CREATE TABLE IF NOT EXISTS `SA_Shopping`.`product` (
+    `product_id` INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    `product_no` VARCHAR(255) NOT NULL,
+    `seller_id` INT NOT NULL,
     `name` VARCHAR(255) NOT NULL,
     `price` FLOAT NOT NULL,
+    `status` VARCHAR(50) NOT NULL,
     `description` TEXT NOT NULL,
-    `createdDate` DATETIME NOT NULL,
-    `updatedDate` DATETIME,
-    FOREIGN KEY (sellerId) REFERENCES Seller(sellerId),
-    UNIQUE KEY `productNo_UNIQUE` (`productNo`)
+    `created_date` DATETIME NOT NULL,
+    `updated_date` DATETIME,
+    FOREIGN KEY (seller_id) REFERENCES seller(seller_id),
+    UNIQUE KEY `product_no_UNIQUE` (`product_no`)
 );
 
-CREATE TABLE IF NOT EXISTS `SA_Shopping`.`ProductDetail` (
-    `productDetailId` INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
-    `productDetailNo` VARCHAR(255) NOT NULL,
-    `productId` INT NOT NULL,
+CREATE TABLE IF NOT EXISTS `SA_Shopping`.`product_detail` (
+    `product_detail_id` INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    `product_detail_no` VARCHAR(255) NOT NULL,
+    `product_id` INT NOT NULL,
     `size` VARCHAR(50) NOT NULL,
     `status` VARCHAR(50) NOT NULL,
     `color` VARCHAR(50) NOT NULL,
     `material` VARCHAR(50) NOT NULL,
-    `minStockQty` INT NOT NULL,
-    `availableQty` INT NOT NULL,
-    `salesOutQty` INT DEFAULT 0,
-    `createdDate` DATETIME NOT NULL,
-    `updatedDate` DATETIME,
-    `updatedBy` VARCHAR(255),
-    FOREIGN KEY (productId) REFERENCES Product(productId),
-    UNIQUE KEY `productDetailNo_UNIQUE` (`productDetailNo`)
+    `min_stock_qty` INT NOT NULL,
+    `available_qty` INT NOT NULL,
+    `sales_out_qty` INT DEFAULT 0,
+    `created_date` DATETIME NOT NULL,
+    `updated_date` DATETIME,
+    `updated_by` VARCHAR(255),
+    FOREIGN KEY (product_id) REFERENCES product(product_id),
+    UNIQUE KEY `product_detail_no_UNIQUE` (`product_detail_no`)
 );
 
-CREATE TABLE IF NOT EXISTS `SA_Shopping`.`ProductImage` (
-    `productImageId` INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
-    `productId` INT NOT NULL,
-    `imageURL` VARCHAR(255) NOT NULL,
-    FOREIGN KEY (productId) REFERENCES Product(productId)
+CREATE TABLE IF NOT EXISTS `SA_Shopping`.`product_image` (
+    `product_image_id` INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    `product_id` INT NOT NULL,
+    `image_name` VARCHAR(255) NOT NULL,
+    FOREIGN KEY (product_id) REFERENCES product(product_id)
 );
 
-CREATE TABLE IF NOT EXISTS `SA_Shopping`.`Order` (
-    `orderId` INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
-    `orderNo` VARCHAR(255) NOT NULL,
-    `productDetailId` INT NOT NULL,
-    `buyerId` INT NOT NULL,
+CREATE TABLE IF NOT EXISTS `SA_Shopping`.`order` (
+    `order_id` INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    `order_no` VARCHAR(255) NOT NULL,
+    `product_detail_id` INT NOT NULL,
+    `buyer_id` INT NOT NULL,
     `status` VARCHAR(50) NOT NULL,
-    `productName` VARCHAR(255) NOT NULL,
+    `product_name` VARCHAR(255) NOT NULL,
     `price` FLOAT NOT NULL,
     `quantity` INT NOT NULL,
     `size` VARCHAR(50) NOT NULL,
     `color` VARCHAR(50) NOT NULL,
     `material` VARCHAR(50) NOT NULL,
-    `deliveryAddress` TEXT NOT NULL,
-    `deliveryFee` FLOAT NOT NULL,
-    `totalPrice` FLOAT NOT NULL,
-    `createdDate` DATETIME NOT NULL,
-    `updatedDate` DATETIME,
-    FOREIGN KEY (productDetailId) REFERENCES ProductDetail(productDetailId),
-    FOREIGN KEY (buyerId) REFERENCES Buyer(buyerId),
-    UNIQUE KEY `orderNo_UNIQUE` (`orderNo`)
+    `delivery_address` TEXT NOT NULL,
+    `delivery_fee` FLOAT NOT NULL,
+    `total_price` FLOAT NOT NULL,
+    `created_date` DATETIME NOT NULL,
+    `updated_date` DATETIME,
+    FOREIGN KEY (product_detail_id) REFERENCES product_detail(product_detail_id),
+    FOREIGN KEY (buyer_id) REFERENCES buyer(buyer_id),
+    UNIQUE KEY `order_no_UNIQUE` (`order_no`)
 );
 
 -- useless table. todo: delete 
-CREATE TABLE IF NOT EXISTS `SA_Shopping`.`Payment` (
-    `paymentId` INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
-    `paymentNo` VARCHAR(255) NOT NULL,
-    `orderId` INT NOT NULL,
+CREATE TABLE IF NOT EXISTS `SA_Shopping`.`payment` (
+    `payment_id` INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    `payment_no` VARCHAR(255) NOT NULL,
+    `order_id` INT NOT NULL,
     `price` FLOAT NOT NULL,
-    `createdDate` DATETIME NOT NULL,
-    `paymentMethod` VARCHAR(50) NOT NULL,
-    FOREIGN KEY (orderId) REFERENCES `Order`(orderId),
-    UNIQUE KEY `paymentNo_UNIQUE` (`paymentNo`)
+    `created_date` DATETIME NOT NULL,
+    `payment_method` VARCHAR(50) NOT NULL,
+    FOREIGN KEY (order_id) REFERENCES `order`(order_id),
+    UNIQUE KEY `payment_no_UNIQUE` (`payment_no`)
 );
 
-CREATE TABLE IF NOT EXISTS `SA_Shopping`.`Review` (
-    `reviewId` INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
-    `productId` INT NOT NULL,
-    `orderId` INT NOT NULL,
-    `buyerEmail` VARCHAR(255) NOT NULL,
-    `reviewText` TEXT NOT NULL,
+CREATE TABLE IF NOT EXISTS `SA_Shopping`.`review` (
+    `review_id` INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    `product_id` INT NOT NULL,
+    `order_id` INT NOT NULL,
+    `buyer_email` VARCHAR(255) NOT NULL,
+    `review_text` TEXT NOT NULL,
     `status` VARCHAR(50) NOT NULL,
     `sentiment` FLOAT NOT NULL,
-    `createdDate` DATETIME NOT NULL,
-    `updatedDate` DATETIME,
-    FOREIGN KEY (productId) REFERENCES Product(productId),
-    FOREIGN KEY (orderId) REFERENCES `Order`(orderId)
+    `created_date` DATETIME NOT NULL,
+    `updated_date` DATETIME,
+    FOREIGN KEY (product_id) REFERENCES product(product_id),
+    FOREIGN KEY (order_id) REFERENCES `order`(order_id)
 );

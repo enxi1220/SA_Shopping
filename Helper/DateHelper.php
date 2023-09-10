@@ -1,0 +1,16 @@
+<?php
+
+class DateHelper
+{
+    public static function GetMalaysiaDateTime()
+    {
+        $dt = new DateTime("now", new DateTimeZone('Asia/Kuala_Lumpur'));
+        return $dt->format("Y-m-d H:i:s");
+    }
+
+    public static function GetMalaysiaDateTimeWithoutSecond()
+    {
+        $dt = new DateTime("now", new DateTimeZone('Asia/Kuala_Lumpur'));
+        return $dt->format("Y-m-d H:i");
+    }
+}
