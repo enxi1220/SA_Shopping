@@ -46,7 +46,7 @@ class ProductRead
                 p.created_date, 
                 p.updated_date
              FROM product p
-             JOIN seller s on p.seller_id = s.seller_id
+            --  JOIN seller s on p.seller_id = s.seller_id
              WHERE
                 p.product_id =  IF(:product_id IS NULL, p.product_id, :product_id)
                 AND p.seller_id = IF(:seller_id IS NULL, p.seller_id, :seller_id)
@@ -54,7 +54,7 @@ class ProductRead
              ORDER BY p.product_id DESC",
             function (PDOStatement $pstmt) use ($product) {
                 $pstmt->bindValue(":product_id", $product->getProductId(), PDO::PARAM_INT);
-                $pstmt->bindValue(":seller_id", $product->getSellerId(), PDO::PARAM_STR);
+                $pstmt->bindValue(":seller_id", $product->getSellerId(), PDO::PARAM_INT);
                 $pstmt->bindValue(":status", $product->getStatus(), PDO::PARAM_STR);
             },
             function ($row) {
