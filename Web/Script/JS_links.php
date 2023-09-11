@@ -16,4 +16,5 @@
 <!-- custom -->
 <script src="<?php $_SERVER['DOCUMENT_ROOT'] ?>/SA_Shopping/Web/Script/Footer.js" type="text/javascript"></script>
 <script src="<?php $_SERVER['DOCUMENT_ROOT'] ?>/SA_Shopping/Web/Script/Shared.js" type="text/javascript"></script>
+<script src="<?php $_SERVER['DOCUMENT_ROOT'] ?>/SA_Shopping/Web/Script/Constant/String.js" type="text/javascript"></script>
 

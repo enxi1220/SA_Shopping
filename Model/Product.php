@@ -19,7 +19,8 @@ class Product
     private $updatedDate;
     private Seller $seller;
     private $productDetails = array();
-    PRIVATE $productImages = array();
+    private $productImages = array();
+    private $reviews = array();
 
     public function getProductId()
     {
@@ -140,6 +141,7 @@ class Product
         $this->productDetails = $productDetails;
         return $this;
     }
+
     public function getProductImages()
     {
         return $this->productImages;
@@ -147,6 +149,16 @@ class Product
 
     public function setProductImages($productImages){
         $this->productImages = $productImages;
+        return $this;
+    }
+
+    public function getReviews()
+    {
+        return $this->reviews;
+    }
+
+    public function setReviews($reviews){
+        $this->reviews = $reviews;
         return $this;
     }
 

@@ -103,6 +103,7 @@ CREATE TABLE IF NOT EXISTS `SA_Shopping`.`order` (
     `order_id` INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
     `order_no` VARCHAR(255) NOT NULL,
     `product_detail_id` INT NOT NULL,
+    `product_detail_no` VARCHAR(255) NOT NULL,
     `buyer_id` INT NOT NULL,
     `status` VARCHAR(50) NOT NULL,
     `product_name` VARCHAR(255) NOT NULL,

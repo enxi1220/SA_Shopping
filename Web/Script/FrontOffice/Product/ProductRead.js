@@ -16,7 +16,6 @@ $(document).ready(function () {
                     '/SA_Shopping/Controller/CtrlSeller/SellerRead.php',
                     { sellerId: product.sellerId },
                     function (successSeller) {
-                        console.log(successSeller);
                         var seller = JSON.parse(successSeller);
                         renderSeller(seller);
                     }
@@ -108,4 +107,8 @@ function renderSeller(seller) {
     $('#txt-store-name').text(seller.storeName);
     $('#txt-business-address').text(seller.businessAddress);
     $('#txt-store-desc').text(seller.storeDesc);
+}
+
+function renderReview(review){
+
 }

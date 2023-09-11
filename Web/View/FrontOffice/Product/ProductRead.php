@@ -124,5 +124,6 @@ require '../Layout.php';
 require '../Footer.php';
 ?>
 <script src="../../../Script/FrontOffice/Product/ProductRead.js"></script>
+<script src="../../../Script/FrontOffice/Review/ReviewSummary.js"></script>
 <!------------------- Outer Container ------------------->
 <!-- <script src="<%=request.getContextPath()%>/Scripts/FrontOffice/Product/Fo.ProductView.js" type="text/javascript"></script> -->
