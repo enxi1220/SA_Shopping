@@ -19,6 +19,10 @@ class Order {
     private $createdDate;
     private $updatedDate;
 
+    private $buyerPhone;
+    private $buyerName;
+    private $buyerEmail;
+
     public function getOrderId() {
         return $this->orderId;
     }
@@ -171,4 +175,32 @@ class Order {
         $this->updatedDate = $updatedDate;
         return $this;
     }
+    
+    public function getBuyerPhone() {
+        return $this->buyerPhone;
+    }
+
+    public function setBuyerPhone($buyerPhone) {
+        $this->buyerPhone = $buyerPhone;
+        return $this;
+    }
+
+    public function getBuyerName() {
+        return $this->buyerName;
+    }
+
+    public function setBuyerName($buyerName) {
+        $this->buyerName = $buyerName;
+        return $this;
+    }
+
+    public function getBuyerEmail() {
+        return $this->buyerEmail;
+    }
+
+    public function setBuyerEmail($buyerEmail) {
+        $this->buyerEmail = $buyerEmail;
+        return $this;
+    }
+
 }

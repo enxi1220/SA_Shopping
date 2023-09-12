@@ -5,5 +5,5 @@ class OrderStatusConstant {
     const SHIP = "To ship";
     const DELIVER = "To deliver";
     const REVIEW = "To review";
-    const CLOSED = "CLOSED";
+    const CLOSED = "Closed";
 }

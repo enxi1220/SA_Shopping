@@ -12,13 +12,13 @@ require '../Layout.php';
         <div class="row mb-4">
             <div class="col-md-6">
                 <div class="form-outline">
-                    <input type="text" name="ProductNo" id="txt-product-no" maxlength="150" class="form-control" readonly />
+                    <input type="text" name="ProductNo" id="txt-product-no" maxlength="150" class="form-control" tabindex="1" readonly />
                     <label class="form-label" for="txt-product-no">Product No</label>
                 </div>
             </div>
             <div class="col-md-6">
                 <div class="form-outline">
-                    <input type="text" name="Name" id="txt-name" maxlength="150" class="form-control" tabindex="1" readonly />
+                    <input type="text" name="Name" id="txt-name" maxlength="150" class="form-control" tabindex="2"  readonly />
                     <label class="form-label" for="txt-name" required>Product Name</label>
                 </div>
             </div>
@@ -26,13 +26,13 @@ require '../Layout.php';
         <div class="row mb-4">
             <div class="col-md-6">
                 <div class="form-outline">
-                    <input type="text" id="txt-price" class="form-control" tabindex="2" readonly />
+                    <input type="text" id="txt-price" class="form-control" tabindex="3" readonly />
                     <label class="form-label" for="txt-price" required>Price (RM)</label>
                 </div>
             </div>
             <div class="col-md-6">
                 <div class="form-outline">
-                    <textarea id="txt-description" class="form-control" tabindex="3" rows="4" readonly></textarea>
+                    <textarea id="txt-description" class="form-control" tabindex="4" rows="4" readonly></textarea>
                     <label class="form-label" for="txt-description" required>Description</label>
                 </div>
             </div>
@@ -64,27 +64,8 @@ require '../Layout.php';
         <!-- Image -->
         <hr />
         <label class="fs-3 mb-3">Product Images </label>
-        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 mb-4">
-            <div class="col">
-                <div class="h-100">
-                    <img src="/SA_Shopping/Web/Image/iu-fighting.gif" class="card-img-top" alt="Hollywood Sign on The Hill" />
-                </div>
-            </div>
-            <div class="col">
-                <div class="h-100">
-                    <img src="/SA_Shopping/Web/Image/iu-fighting.gif" class="card-img-top" alt="Hollywood Sign on The Hill" />
-                </div>
-            </div>
-            <div class="col">
-                <div class="h-100">
-                    <img src="/SA_Shopping/Web/Image/iu-fighting.gif" class="card-img-top" alt="Hollywood Sign on The Hill" />
-                </div>
-            </div>
-            <div class="col">
-                <div class="h-100">
-                    <img src="/SA_Shopping/Web/Image/iu-fighting.gif" class="card-img-top" alt="Hollywood Sign on The Hill" />
-                </div>
-            </div>
+        <div id="product-images" class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 mb-4">
+            
         </div>
 
         <!-- Action -->

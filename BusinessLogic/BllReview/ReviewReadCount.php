@@ -23,14 +23,18 @@ class ReviewReadCount
     {
         return $dataAccess->Reader(
             "SELECT
-                r.product_id,
-                SUM(CASE WHEN r.sentiment < 0 THEN 1 ELSE 0 END) AS negative_reviews,
-                SUM(CASE WHEN r.sentiment > 0 THEN 1 ELSE 0 END) AS positive_reviews,
-                SUM(CASE WHEN r.sentiment = 0 THEN 1 ELSE 0 END) AS neutral_reviews,
-                COUNT(review_id) AS total_reviews
-             FROM review r
-             WHERE r.product_id = IF(:product_id IS NULL, r.product_id, :product_id)
-             GROUP BY r.product_id",
+                COALESCE(r.product_id, 2) AS product_id,
+                COALESCE(SUM(CASE WHEN r.sentiment < 0 THEN 1 ELSE 0 END), 0) AS negative_reviews,
+                COALESCE(SUM(CASE WHEN r.sentiment > 0 THEN 1 ELSE 0 END), 0) AS positive_reviews,
+                COALESCE(SUM(CASE WHEN r.sentiment = 0 THEN 1 ELSE 0 END), 0) AS neutral_reviews,
+                COALESCE(COUNT(r.review_id), 0) AS total_reviews
+             FROM (
+                SELECT product_id
+                FROM product 
+             ) AS p
+             LEFT JOIN review r ON p.product_id = r.product_id
+             WHERE p.product_id = IF(:product_id IS NULL, p.product_id, :product_id)
+             GROUP BY p.product_id",
             function (PDOStatement $pstmt) use ($review) {
                 $pstmt->bindValue(":product_id", $review->getProductId(), PDO::PARAM_INT);
             },

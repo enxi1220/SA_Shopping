@@ -2,6 +2,7 @@
 
 require_once $_SERVER['DOCUMENT_ROOT'] . "/SA_Shopping/Model/Review.php";
 require_once $_SERVER['DOCUMENT_ROOT'] . "/SA_Shopping/BusinessLogic/BllReview/ReviewRead.php";
+require_once $_SERVER['DOCUMENT_ROOT'] . "/SA_Shopping/BusinessLogic/BllReview/ReviewReadCount.php";
 
 if ($_SERVER["REQUEST_METHOD"] == "GET") {
 
@@ -18,33 +19,30 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
 
         $result = ReviewRead::Read($review);
 
-        if (empty($result)) {
-            throw new Exception("Data not found");
-        }
-
         $output = array_map(
             function ($review) {
                 return [
                     'reviewId' => $review->getReviewId(),
-                    'productId' => $review->getProductId(),
-                    'orderId' => $review->getOrderId(),
+                    // 'productId' => $review->getProductId(),
+                    // 'orderId' => $review->getOrderId(),
                     'buyerEmail' => $review->getBuyerEmail(),
                     'reviewText' => $review->getReviewText(),
-                    'status' => $review->getStatus(),
+                    // 'status' => $review->getStatus(),
                     'sentiment' => $review->getSentiment(),
                     'sentimentLabel' => $review->getSentimentLabel(),
-                    'sentimentRecommendation' => $review->getSentimentRecommendation(),
+                    // 'sentimentRecommendation' => $review->getSentimentRecommendation(),
                     'createdDate' => $review->getCreatedDate(),
                     'updatedDate' => $review->getUpdatedDate(),
                     'order' => array(
-                        'productDetailId' => $review->getOrder()->getProductDetailId(),
+                        // 'productDetailId' => $review->getOrder()->getProductDetailId(),
                         'productDetailNo' => $review->getOrder()->getProductDetailNo(),
-                        'size' => $review->getOrder()->getSize(),
-                        'color' => $review->getOrder()->getColor(),
-                        'material' => $review->getOrder()->getMaterial()
-                    )
+                        // 'size' => $review->getOrder()->getSize(),
+                        // 'color' => $review->getOrder()->getColor(),
+                        // 'material' => $review->getOrder()->getMaterial()
+                    ),
                 ];
-            }, $result
+            },
+            $result
         );
 
         echo json_encode($output);

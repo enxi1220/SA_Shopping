@@ -1,37 +1,37 @@
 $(document).ready(function () {
-    // rm hardcode
-    var products = [
-        {
-            productDetailNo: "SKU/1201/00001",
-            status: "Available",
-            size: "Small",
-            color: "Red",
-            material: "Cotton",
-            minStockQty: 10,
-            availableQty: 50,
-            salesOutQty: 40,
-            createdDate: "2023-08-01",
-            updatedDate: "2023-09-01",
-            updatedBy: "Admin"
-        },
-        {
-            productDetailNo: "SKU/1201/00002",
-            status: "Discontinued",
-            size: "Medium",
-            color: "Blue",
-            material: "Silk",
-            minStockQty: 5,
-            availableQty: 20,
-            salesOutQty: 10,
-            createdDate: "2023-07-15",
-            updatedDate: "2023-09-02",
-            updatedBy: "User"
-        },
-        // Add more sample products as needed
-    ];
+    var productId = new URLSearchParams(window.location.search).get('productId');
 
+    if (productId) {
+        get(
+            '/SA_Shopping/Controller/BackOffice/CtrlProduct/ProductRead.php',
+            { productId: new URLSearchParams(window.location.search).get('productId') },
+            function (success) {
+                product = JSON.parse(success);
+                renderProducts(product);
+                renderProductDetails(product.productDetails);
+                renderProductImages(product.productImages)
+            }
+        );
+    }
+
+});
+
+function renderProducts(product) {
+    $('#txt-product-no').val(product.productNo);
+    $('#txt-name').val(product.name);
+    $('#txt-price').val(product.price);
+    $('#txt-description').val(product.description);
+    // todo: rm shitty code
+    $('#txt-product-no').focus();
+    $('#txt-name').focus();
+    $('#txt-price').focus();
+    $('#txt-description').focus();
+    $('#txt-description').blur();
+}
+
+function renderProductDetails(details) {
     $('#product-detail-summary').DataTable({
-        data: products,
+        data: details,
         columns:
             [
                 { data: "productDetailNo" },
@@ -47,4 +47,19 @@ $(document).ready(function () {
                 { data: "updatedBy" }
             ]
     });
-});
+}
+
+function renderProductImages(images) {
+    images.forEach(element => {
+        $('#product-images').append(
+            `
+            <div class="col">
+                <div class="h-100">
+                    <img src="${element.imageName}" class="card-img-top" />
+                </div>
+            </div>
+            `
+        );
+    });
+
+}

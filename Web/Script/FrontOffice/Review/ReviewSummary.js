@@ -3,21 +3,13 @@ $(document).ready(function () {
 
     if (productId) {
         get(
-            '/SA_Shopping/Controller/CtrlReview/ReviewRead.php',
+            '/SA_Shopping/Controller/FrontOffice/CtrlReview/ReviewSummary.php',
             { productId: productId },
             function (success) {
                 console.log(success);
-                reviews = JSON.parse(success);
-                renderReview(reviews);
-            }
-        );
-        get(
-            '/SA_Shopping/Controller/CtrlReview/ReviewReadCount.php',
-            { productId: productId },
-            function (success) {
-                console.log(success);
-                review = JSON.parse(success);
-                renderReviewCount(review);
+                data = JSON.parse(success);
+                renderReview(data.reviews);
+                renderReviewCount(data.reviewCount);
             }
         );
     }
@@ -41,9 +33,9 @@ function renderReview(reviews) {
     });
 }
 
-function renderReviewCount(review) {
-    $('#lbl-total-review').text(review.totalReview);
-    $('#btn-negative').text(review.negativeReview);
-    $('#btn-neutral').text(review.neutralReview);
-    $('#btn-positive').text(review.positiveReview);
+function renderReviewCount(reviewCount) {
+    $('#lbl-total-review').text(reviewCount.totalReview);
+    $('#btn-negative').text(reviewCount.negativeReview);
+    $('#btn-neutral').text(reviewCount.neutralReview);
+    $('#btn-positive').text(reviewCount.positiveReview);
 }

@@ -5,6 +5,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . "/SA_Shopping/Constant/ImagePathConstan
 require_once $_SERVER['DOCUMENT_ROOT'] . "/SA_Shopping/Helper/UniqueNoHelper.php";
 require_once $_SERVER['DOCUMENT_ROOT'] . "/SA_Shopping/Helper/DateHelper.php";
 require_once $_SERVER['DOCUMENT_ROOT'] . "/SA_Shopping/Model/Seller.php";
+require_once $_SERVER['DOCUMENT_ROOT'] . "/SA_Shopping/Model/Review.php";
 
 class Product
 {
@@ -18,6 +19,7 @@ class Product
     private $createdDate;
     private $updatedDate;
     private Seller $seller;
+    private Review $review;
     private $productDetails = array();
     private $productImages = array();
     private $reviews = array();
@@ -129,6 +131,17 @@ class Product
     public function setSeller($seller)
     {
         $this->seller = $seller;
+        return $this;
+    }
+
+    public function getReview()
+    {
+        return $this->review;
+    }
+
+    public function setReview($review)
+    {
+        $this->review = $review;
         return $this;
     }
 

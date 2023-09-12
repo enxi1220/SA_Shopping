@@ -1,4 +1,19 @@
 $(document).ready(function () {
+    var productId = new URLSearchParams(window.location.search).get('productId');
+
+    if (productId) {
+        get(
+            '/SA_Shopping/Controller/BackOffice/CtrlProduct/ProductImageCreateDelete.php',
+            { productId: new URLSearchParams(window.location.search).get('productId') },
+            function (success) {
+                console.log(success);
+                productImages = JSON.parse(success);
+                renderProductImages(productImages);
+            }
+        );
+    }
+
+
     $(`#form-product-image-create`).submit(function (event) {
         event.preventDefault();
         if ($(`#form-product-image-create`)[0].checkValidity()) {
@@ -33,9 +48,8 @@ function picturePreview(input) {
         reader.readAsDataURL(input.files[0]);
     }
 }
-// todo: no param pass yet 
+// todo: html no param pass yet 
 function deleteProductImage(id) {
-    var productId = new URLSearchParams(window.location.search).get('productId');
     $('#modal-product-image-delete').modal('show');
     $('#btn-product-image-delete').click(function () {
         // todo: back end 
@@ -46,5 +60,22 @@ function deleteProductImage(id) {
         //     post('Controller',
         //         productImage,
         //     );
+    });
+}
+
+function renderProductImages(productImages){
+    productImages.forEach(element => {
+        $('#product-images').append(
+            `
+            <div class="col">
+                <div class="overflow-hidden m-2 d-flex justify-content-end position-relative">
+                    <img src="${element.imageName}" class="h-100 w-100 object-fit-cover" />
+                    <button class="position-absolute btn btn-floating btn-danger text-white m-3" type="button" onclick="deleteProductImage(${element.productImageId})">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+            </div>
+            `
+        );
     });
 }

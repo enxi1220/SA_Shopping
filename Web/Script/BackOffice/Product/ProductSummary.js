@@ -1,27 +1,17 @@
 $(document).ready(function () {
-    // rm hardcode
-    var products = [
-        {
-            productNo: 1,
-            name: "Product 1",
-            price: 10.99,
-            createdDate: "2023-09-01",
-            updatedDate: "2023-09-02",
-            productId: 101 // Unique identifier
-        },
-        {
-            productNo: 2,
-            name: "Product 2",
-            price: 19.99,
-            createdDate: "2023-09-03",
-            updatedDate: "2023-09-04",
-            productId: 102 // Unique identifier
-        },
-        // Add more sample products as needed
-    ];
+    get(
+        '/SA_Shopping/Controller/BackOffice/CtrlProduct/ProductSummary.php',
+        {},
+        function (success) {
+            products = JSON.parse(success);
+            renderProducts(products);
+        }
+    );
+});
 
+function renderProducts(products) {
     $('#product-summary').DataTable({
-        order: [[0, 'desc']],
+        order: [0, 'desc'],
         data: products,
         columns:
             [
@@ -52,4 +42,4 @@ $(document).ready(function () {
                 }
             ]
     });
-});
+}

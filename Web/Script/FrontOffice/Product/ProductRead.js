@@ -6,14 +6,14 @@ $(document).ready(function () {
 
     if (productId) {
         get(
-            '/SA_Shopping/Controller/CtrlProduct/ProductRead.php',
+            '/SA_Shopping/Controller/FrontOffice/CtrlProduct/ProductRead.php',
             { productId: productId },
             function (success) {
                 product = JSON.parse(success);
                 renderProduct(product);
 
                 get(
-                    '/SA_Shopping/Controller/CtrlSeller/SellerRead.php',
+                    '/SA_Shopping/Controller/FrontOffice/CtrlSeller/SellerRead.php',
                     { sellerId: product.sellerId },
                     function (successSeller) {
                         var seller = JSON.parse(successSeller);

@@ -26,8 +26,8 @@ require '../Layout.php';
         <div class="row mb-4">
             <div class="col-md-6">
                 <div class="form-outline">
-                    <input type="text" id="txt-price" class="form-control" readonly />
-                    <label class="form-label" for="txt-price">Order Total (RM)</label>
+                    <input type="text" id="txt-total-price" class="form-control" readonly />
+                    <label class="form-label" for="txt-total-price">Order Total (RM)</label>
                 </div>
             </div>
             <div class="col-md-6">
@@ -161,4 +161,4 @@ require '../Layout.php';
 <?php
 require '../Footer.php';
 ?>
-<script src="../../../Script/BackOffice/Product/ProductCreate.js"></script>
+<script src="../../../Script/BackOffice/Order/OrderRead.js"></script>

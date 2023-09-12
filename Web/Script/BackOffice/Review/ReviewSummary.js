@@ -1,47 +1,34 @@
 $(document).ready(function () {
-    // rm hardcode
-    var reviews = [
-        {
-            productDetailNo: "SKU001",
-            buyerEmail: "buyer1@example.com",
-            reviews: "sdfvcsadc",
-            sentiment: 0,
-            createdDate: "2023-08-01",
-            updatedDate: "2023-09-01"
-        },
-        {
-            productDetailNo: "SKU002",
-            buyerEmail: "buyer2@example.com",
-            reviews: "sefvsedfv",
-            sentiment: 0.9,
-            createdDate: "2023-08-15",
-            updatedDate: "2023-09-02"
-        },
-        {
-            productDetailNo: "SKU003",
-            buyerEmail: "buyer3@example.com",
-            reviews: "sefvsedfv",
-            sentiment: -0.4,
-            createdDate: "2023-08-15",
-            updatedDate: "2023-09-02"
-        },
-        // Add more sample data as needed
-    ];
+    var productId = new URLSearchParams(window.location.search).get('productId');
 
+    if (productId) {
+        get(
+            '/SA_Shopping/Controller/FrontOffice/CtrlReview/ReviewSummary.php',
+            { productId: productId },
+            function (success) {
+                console.log(success);
+                data = JSON.parse(success);
+                renderReview(data.reviews);
+            }
+        );
+    }
+});
+
+function renderReview(reviews){
     $('#review-summary').DataTable({
         data: reviews,
         columns: [
-            { data: "productDetailNo" },
+            { data: "order.productDetailNo" },
             { data: "buyerEmail" },
-            { data: "reviews" },
+            { data: "reviewText" },
             {
                 render: function (data, type, row, meta) {
-                    if(row.sentiment == 0){
-                        return `<span class="badge rounded-pill badge-warning">Neutral</span>`;
-                    }else if (row.sentiment > 0){
-                        return `<span class="badge rounded-pill badge-success">Positive</span>`;
+                    if(row.sentimentLabel == SentimentLabel.Neutral){
+                        return `<span class="badge rounded-pill badge-warning">${SentimentLabel.Neutral}</span>`;
+                    }else if (row.sentimentLabel == SentimentLabel.Positive){
+                        return `<span class="badge rounded-pill badge-success">${SentimentLabel.Positive}</span>`;
                     }else{
-                        return `<span class="badge rounded-pill badge-danger">Negative</span>`;
+                        return `<span class="badge rounded-pill badge-danger">${SentimentLabel.Negative}</span>`;
                     }
                 }
             },
@@ -49,4 +36,4 @@ $(document).ready(function () {
             { data: "updatedDate" }
         ]
     });
-});
+}

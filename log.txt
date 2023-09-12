@@ -2,3 +2,7 @@ product image add and remove - pending, left js
 reset password - not started
 
 <!-- todo: add video, video js -->
+shit
+ctrl can invoke multiple businesslogic le
+need to change js code 
+muahahaha shit
