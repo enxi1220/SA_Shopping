@@ -40,7 +40,8 @@ class OrderRead
                 o.updated_date,
                 b.name,
                 b.phone,
-                b.email
+                b.email,
+                p.product_id
              FROM `order` o
              JOIN product_detail pd ON pd.product_detail_id = o.product_detail_id
              JOIN product p ON pd.product_id = p.product_id
@@ -55,7 +56,7 @@ class OrderRead
                 $pstmt->bindValue(":order_id", $order->getOrderId(), PDO::PARAM_INT);
                 $pstmt->bindValue(":status", $order->getStatus(), PDO::PARAM_STR);
                 $pstmt->bindValue(":buyer_id", $order->getBuyerId(), PDO::PARAM_INT);
-                $pstmt->bindValue(":seller_id", $order->getBuyerId(), PDO::PARAM_INT);
+                $pstmt->bindValue(":seller_id", $order->getSellerId(), PDO::PARAM_INT);
             },
             function ($row) {
                 $order = new Order();
@@ -80,7 +81,8 @@ class OrderRead
                     ->setUpdatedDate($row['updated_date'])
                     ->setBuyerName($row['name'])
                     ->setBuyerPhone($row['phone'])
-                    ->setBuyerEmail($row['email']);
+                    ->setBuyerEmail($row['email'])
+                    ->setProductId($row['product_id']);
             }
         );
     }

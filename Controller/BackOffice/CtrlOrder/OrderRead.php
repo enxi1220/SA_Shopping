@@ -15,14 +15,14 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
         $order = new Order();
 
         $order->setOrderId($orderId);
-        
+
         $result = OrderRead::Read($order);
 
         if (empty($result)) {
             throw new Exception("Data not found");
         }
 
-        $result = $result[0];
+    $result = $result[0];
 
         $output = array(
             'orderId' => $result->getOrderId(),
@@ -48,7 +48,6 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
         );
 
         echo json_encode($output);
-
     } catch (\Throwable $e) {
         header($_SERVER["SERVER_PROTOCOL"] . ' 500 Internal Server Error', true, 500);
         // echo $e->getMessage();

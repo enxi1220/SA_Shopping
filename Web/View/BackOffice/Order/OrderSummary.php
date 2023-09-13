@@ -11,7 +11,8 @@ require '../Layout.php';
         <thead>
             <tr>
                 <th>Order No</th>
-                <th>Order Name</th>
+                <th>Product Name</th>
+                <th>SKU No</th>
                 <th>Status</th>
                 <th>Created Date</th>
                 <th>Updated Date</th>
@@ -19,27 +20,7 @@ require '../Layout.php';
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td>
-                    <a role="button" class="btn btn-dark btn-floating" title="View" href="OrderRead.php?orderId=${row.orderId}">
-                        <i class="fas fa-eye"></i>
-                    </a>
-                    <button type="button" id="btn-confirm" class="btn btn-success btn-floating" title="Confirm">
-                        <i class="fas fa-check"></i>
-                    </button>
-                    <button type="button" id="btn-ship" class="btn btn-primary btn-floating" title="Ship">
-                        <i class="fas fa-box"></i>
-                    </button>
-                    <button type="button" id="btn-deliver" class="btn btn-warning btn-floating" title="Deliver">
-                        <i class="fas fa-truck"></i>
-                    </button>
-                </td>
-            </tr>
+
         </tbody>
     </table>
 </div>

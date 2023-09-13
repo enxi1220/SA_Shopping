@@ -151,3 +151,9 @@ $(`.toggle-visibility`).click(function () {
 
     var icon = targetElement.find("i");
 });
+
+function copyToClipboard(textToCopy){
+    var dummy = $('<input>').val(textToCopy).appendTo('body').select();
+    document.execCommand('copy');
+    $(dummy).remove();
+}

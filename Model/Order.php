@@ -22,6 +22,8 @@ class Order {
     private $buyerPhone;
     private $buyerName;
     private $buyerEmail;
+    private $sellerId;
+    private $productId;
 
     public function getOrderId() {
         return $this->orderId;
@@ -200,6 +202,24 @@ class Order {
 
     public function setBuyerEmail($buyerEmail) {
         $this->buyerEmail = $buyerEmail;
+        return $this;
+    }
+    
+    public function getSellerId() {
+        return $this->sellerId;
+    }
+
+    public function setSellerId($sellerId) {
+        $this->sellerId = $sellerId;
+        return $this;
+    }
+    
+    public function getProductId() {
+        return $this->productId;
+    }
+
+    public function setProductId($productId) {
+        $this->productId = $productId;
         return $this;
     }
 

@@ -20,6 +20,14 @@ var SentimentLabel = {
     Positive: "Positive"
 }
 
+var OrderStatus = {
+    Confirm: "To confirm",
+    Ship: "To ship",
+    Deliver: "To deliver",
+    Review: "To review",
+    Closed: "Closed"
+}
+
 
 
 

@@ -8,8 +8,8 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
     try {
         $order = new Order();
 
-        // todo: replace seller session
-        $order->setSellerId(1);
+        // todo: replace buyer session
+        $order->setBuyerId(1);
         
         $result = OrderRead::Read($order);
 
@@ -22,24 +22,25 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
                 return [
                     'orderId' => $order->getOrderId(),
                     'orderNo' => $order->getOrderNo(),
-                    // 'productDetailId' => $order->getProductDetailId(),
-                    'productDetailNo' => $order->getProductDetailNo(),
+                // 'productDetailId' => $order->getProductDetailId(),
+                    // 'productDetailNo' => $order->getProductDetailNo(),
                     // 'buyerId' => $order->getBuyerId(),
                     'status' => $order->getStatus(),
                     'productName' => $order->getProductName(),
-                    // 'price' => $order->getPrice(),
-                    // 'quantity' => $order->getQuantity(),
-                    // 'size' => $order->getSize(),
-                    // 'color' => $order->getColor(),
-                    // 'material' => $order->getMaterial(),
-                    // 'deliveryAddress' => $order->getDeliveryAddress(),
+                    'price' => $order->getPrice(),
+                    'quantity' => $order->getQuantity(),
+                    'size' => $order->getSize(),
+                    'color' => $order->getColor(),
+                    'material' => $order->getMaterial(),
+                    'deliveryAddress' => $order->getDeliveryAddress(),
                     // 'deliveryFee' => $order->getDeliveryFee(),
-                    // 'totalPrice' => $order->getTotalPrice(),
+                    'totalPrice' => $order->getTotalPrice(),
                     'createdDate' => $order->getCreatedDate(),
                     'updatedDate' => $order->getUpdatedDate(),
                     // 'buyerName' => $order->getBuyerName(),
                     // 'buyerPhone' => $order->getBuyerPhone(),
                     // 'buyerEmail' => $order->getBuyerEmail()
+                    'productId' => $order->getProductId()
                 ];
             },
             $result

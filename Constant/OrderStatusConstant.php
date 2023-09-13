@@ -1,7 +1,7 @@
 <?php
 
 class OrderStatusConstant {
-    const COMFIRM = "To confirm";
+    const CONFIRM = "To confirm";
     const SHIP = "To ship";
     const DELIVER = "To deliver";
     const REVIEW = "To review";

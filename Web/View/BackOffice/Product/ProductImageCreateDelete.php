@@ -36,46 +36,6 @@ require '../Layout.php';
         <hr />
         <label class="fs-3">Delete Image</label>
         <div id="product-images" class="row row-cols-1 row-cols-lg-2 row-cols-xl-3 g-4 mb-4">
-            <!-- <div class="col">
-                <div class="overflow-hidden m-2 d-flex justify-content-end position-relative">
-                    <img src="/SA_Shopping/Web/Image/iu-fighting.gif" class="h-100 w-auto object-cover" alt="Product Image" />
-                    <button class="position-absolute btn btn-floating btn-danger text-white m-3" type="button" onclick="deleteProductImage(1)">
-                        <i class="fas fa-times"></i>
-                    </button>
-                </div>
-            </div>
-            <div class="col">
-                <div class="overflow-hidden m-2 d-flex justify-content-end position-relative">
-                    <img src="/SA_Shopping/Web/Image/iu-fighting.gif" class="h-100 w-auto object-cover" alt="Product Image" />
-                    <button class="position-absolute btn btn-floating btn-danger text-white m-3" type="button" onclick="deleteProductImage()">
-                        <i class="fas fa-times"></i>
-                    </button>
-                </div>
-            </div>
-            <div class="col">
-                <div class="overflow-hidden m-2 d-flex justify-content-end position-relative">
-                    <img src="/SA_Shopping/Web/Image/iu-fighting.gif" class="h-100 w-auto object-cover" alt="Product Image" />
-                    <button class="position-absolute btn btn-floating btn-danger text-white m-3" type="button" onclick="deleteProductImage()">
-                        <i class="fas fa-times"></i>
-                    </button>
-                </div>
-            </div>
-            <div class="col">
-                <div class="overflow-hidden m-2 d-flex justify-content-end position-relative">
-                    <img src="/SA_Shopping/Web/Image/iu-fighting.gif" class="h-100 w-auto object-cover" alt="Product Image" />
-                    <button class="position-absolute btn btn-floating btn-danger text-white m-3" type="button" onclick="deleteProductImage()">
-                        <i class="fas fa-times"></i>
-                    </button>
-                </div>
-            </div>
-            <div class="col">
-                <div class="overflow-hidden m-2 d-flex justify-content-end position-relative">
-                    <img src="/SA_Shopping/Web/Image/iu-fighting.gif" class="h-100 w-auto object-cover" alt="Product Image" />
-                    <button class="position-absolute btn btn-floating btn-danger text-white m-3" type="button" onclick="deleteProductImage()">
-                        <i class="fas fa-times"></i>
-                    </button>
-                </div>
-            </div> -->
         </div>
     </form>
 
