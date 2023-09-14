@@ -8,6 +8,8 @@ class ProductImage
     private $productId;
     private $imageName;
 
+    private $limit;
+
     public function getProductImageId()
     {
         return $this->productImageId;
@@ -39,5 +41,17 @@ class ProductImage
     {
         $this->imageName = $imageName;
         return $this;
+    
     }
+    public function getLimit()
+    {
+        return $this->limit;
+    }
+
+    public function setLimit($limit)
+    {
+        $this->limit = $limit;
+        return $this;
+    }
+
 }

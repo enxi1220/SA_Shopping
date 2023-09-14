@@ -8,7 +8,6 @@ require '../Layout.php';
         <li class="breadcrumb-item active" aria-current="page">Product Detail</li>
     </ol>
 </nav>
-
 <div class="p-5 pt-3 bg-white">
     <div class="row">
         <!-------- Product Images -------->
@@ -32,7 +31,7 @@ require '../Layout.php';
 
                 <!----- Thumbnails ----->
                 <div id="product-image-thumbnail" class="carousel-indicators" style="margin-bottom: -20px;">
-                    
+
                 </div>
                 <!----- Thumbnails ----->
             </div>
@@ -56,8 +55,12 @@ require '../Layout.php';
                         <label required>Variations</label>
                         <label class="text-muted mt-2 ms-2"><span id="txt-available-qty"></span> item(s) left</label>
                     </h6>
-                    <div id="product-detail">
+                    <div class="form-outline">
+                        <div id="product-detail">
+                        </div>
+
                     </div>
+
                 </div>
             </div>
             <!----- Quantity ----->
@@ -66,11 +69,12 @@ require '../Layout.php';
                     <h6 class="mb-0"><label required>Quantity</label> </h6>
                 </div>
                 <div class="col-md-6 d-flex justify-content-end">
-                    <button class="btn btn-link px-2" onclick="this.parentNode.querySelector('input[type=number]').stepDown()">
+                    <button class="btn btn-link px-2" type="button" onclick="this.parentNode.querySelector('input[type=number]').stepDown()">
                         <i class="fas fa-minus"></i>
                     </button>
-                    <input id="txt-quantity" min="1" name="quantity" value="1" type="number" class="form-control form-control-sm text-center" />
-                    <button class="btn btn-link px-2" onclick="this.parentNode.querySelector('input[type=number]').stepUp()">
+                    <input id="txt-quantity" min="1" value="1" name="quantity" type="number" class="form-control form-control-sm text-center" />
+
+                    <button class="btn btn-link px-2" type="button" onclick="this.parentNode.querySelector('input[type=number]').stepUp()">
                         <i class="fas fa-plus"></i>
                     </button>
                 </div>
@@ -106,23 +110,27 @@ require '../Layout.php';
             <div class="row mt-3 position-absolute bottom-0 end-0">
                 <div class="col-md-12 mt-2">
                     <div class="d-grid gap-2">
-                        <button class="btn btn-dark" type="button" id="btn-buy-now">Buy Now</button>
+                        <button class="btn btn-dark" type="submit" id="btn-buy-now">Buy Now</button>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+
     <hr />
     <?php
     require '../Review/ReviewSummary.php';
     ?>
 </div>
+
 <button type="button" class="btn btn-black btn-floating btn-lg m-2 opacity-75" id="btn-back-to-top">
     <i class="fas fa-arrow-up"></i>
 </button>
+
 <?php
 require '../Footer.php';
 ?>
+
 <script src="../../../Script/FrontOffice/Product/ProductRead.js"></script>
 <script src="../../../Script/FrontOffice/Review/ReviewSummary.js"></script>
 <!------------------- Outer Container ------------------->

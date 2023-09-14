@@ -13,7 +13,7 @@ class ProductRead
             function (DataAccess $dataAccess) use ($product, $productDetail, $productImage) {
                 $products = [];
                 
-                $products =  self::ReadProduct($dataAccess, $product);
+                $products =  self::ReadProduct($dataAccess, $product, $productDetail);
                 
                 foreach ($products as $product) {
                     $productDetails = self::ReadProductDetail($dataAccess, $product, $productDetail);
@@ -32,10 +32,10 @@ class ProductRead
         return $result;
     }
 
-    private static function ReadProduct(DataAccess $dataAccess, Product $product)
+    private static function ReadProduct(DataAccess $dataAccess, Product $product, ProductDetail $productDetail)
     {
         return $dataAccess->Reader(
-            "SELECT 
+            "SELECT DISTINCT
                 p.product_id, 
                 p.product_no, 
                 p.seller_id, 
@@ -46,16 +46,18 @@ class ProductRead
                 p.created_date, 
                 p.updated_date
              FROM product p
-            --  JOIN seller s on p.seller_id = s.seller_id
+             LEFT JOIN product_detail pd on p.product_id = pd.product_id
              WHERE
                 p.product_id =  IF(:product_id IS NULL, p.product_id, :product_id)
                 AND p.seller_id = IF(:seller_id IS NULL, p.seller_id, :seller_id)
                 AND p.status = IF(:status IS NULL, p.status, :status)
-             ORDER BY p.product_id DESC",
-            function (PDOStatement $pstmt) use ($product) {
+                AND pd.product_detail_id =  IF(:product_detail_id IS NULL, pd.product_detail_id, :product_detail_id)
+            ORDER BY p.product_id DESC",
+            function (PDOStatement $pstmt) use ($product, $productDetail) {
                 $pstmt->bindValue(":product_id", $product->getProductId(), PDO::PARAM_INT);
                 $pstmt->bindValue(":seller_id", $product->getSellerId(), PDO::PARAM_INT);
                 $pstmt->bindValue(":status", $product->getStatus(), PDO::PARAM_STR);
+                $pstmt->bindValue(":product_detail_id", $productDetail->getProductDetailId(), PDO::PARAM_STR);
             },
             function ($row) {
                 $product = new Product();
@@ -128,7 +130,7 @@ class ProductRead
                 pi.image_name
              FROM product_image pi
              WHERE
-                pi.product_id =  IF(:product_id IS NULL, pi.product_id, :product_id)",
+                pi.product_id = IF(:product_id IS NULL, pi.product_id, :product_id) ",
             function (PDOStatement $pstmt) use ($product, $productImage) {
                 $pstmt->bindValue(":product_id", $product->getProductId(), PDO::PARAM_INT);
             },

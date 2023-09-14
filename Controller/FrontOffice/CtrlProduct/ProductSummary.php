@@ -14,15 +14,12 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
     try {
 
         $product = new Product();
-        $product
-            ->setStatus(ProductStatusConstant::ACTIVE);
+        $product->setStatus(ProductStatusConstant::ACTIVE);
 
         $productDetail = new ProductDetail();
         $productDetail->setStatus(ProductDetailStatusConstant::AVAILABLE);
 
-        $productImage = new ProductImage();
-
-        $result = ProductRead::Read($product, $productDetail, $productImage);
+        $result = ProductRead::Read($product, $productDetail, new ProductImage());
 
         if (empty($result)) {
             throw new Exception("Data not found");
@@ -70,6 +67,7 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
         );
 
         echo json_encode($output);
+        
     } catch (\Throwable $e) {
         header($_SERVER["SERVER_PROTOCOL"] . ' 500 Internal Server Error', true, 500);
         // echo $e->getMessage();

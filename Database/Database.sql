@@ -102,6 +102,7 @@ CREATE TABLE IF NOT EXISTS `SA_Shopping`.`product_image` (
 CREATE TABLE IF NOT EXISTS `SA_Shopping`.`order` (
     `order_id` INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
     `order_no` VARCHAR(255) NOT NULL,
+    `product_id` INT NOT NULL,
     `product_detail_id` INT NOT NULL,
     `product_detail_no` VARCHAR(255) NOT NULL,
     `buyer_id` INT NOT NULL,
@@ -115,23 +116,13 @@ CREATE TABLE IF NOT EXISTS `SA_Shopping`.`order` (
     `delivery_address` TEXT NOT NULL,
     `delivery_fee` FLOAT NOT NULL,
     `total_price` FLOAT NOT NULL,
+    `payment_method` VARCHAR(50) NOT NULL,
     `created_date` DATETIME NOT NULL,
     `updated_date` DATETIME,
     FOREIGN KEY (product_detail_id) REFERENCES product_detail(product_detail_id),
+    FOREIGN KEY (product_id) REFERENCES product(product_id),
     FOREIGN KEY (buyer_id) REFERENCES buyer(buyer_id),
     UNIQUE KEY `order_no_UNIQUE` (`order_no`)
-);
-
--- useless table. todo: delete 
-CREATE TABLE IF NOT EXISTS `SA_Shopping`.`payment` (
-    `payment_id` INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
-    `payment_no` VARCHAR(255) NOT NULL,
-    `order_id` INT NOT NULL,
-    `price` FLOAT NOT NULL,
-    `created_date` DATETIME NOT NULL,
-    `payment_method` VARCHAR(50) NOT NULL,
-    FOREIGN KEY (order_id) REFERENCES `order`(order_id),
-    UNIQUE KEY `payment_no_UNIQUE` (`payment_no`)
 );
 
 CREATE TABLE IF NOT EXISTS `SA_Shopping`.`review` (

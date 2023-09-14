@@ -44,11 +44,13 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
                         'createdDate' => $review->getCreatedDate(),
                         'updatedDate' => $review->getUpdatedDate(),
                         'order' => array(
-                            'productDetailId' => $review->getOrder()->getProductDetailId(),
-                            'productDetailNo' => $review->getOrder()->getProductDetailNo(),
-                            'size' => $review->getOrder()->getSize(),
-                            'color' => $review->getOrder()->getColor(),
-                            'material' => $review->getOrder()->getMaterial()
+                            'productDetail' => array(
+                                'productDetailId' => $review->getOrder()->getProduct()->getProductDetail()->getProductDetailId(),
+                                'productDetailNo' => $review->getOrder()->getProduct()->getProductDetail()->getProductDetailNo(),
+                                'size' => $review->getOrder()->getProduct()->getProductDetail()->getSize(),
+                                'color' => $review->getOrder()->getProduct()->getProductDetail()->getColor(),
+                                'material' => $review->getOrder()->getProduct()->getProductDetail()->getMaterial()
+                            )
                         ),
                     ];
                 },

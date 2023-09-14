@@ -36,6 +36,7 @@ class OrderRead
                 o.delivery_address,
                 o.delivery_fee,
                 o.total_price,
+                o.payment_method,
                 o.created_date,
                 o.updated_date,
                 b.name,
@@ -59,30 +60,45 @@ class OrderRead
                 $pstmt->bindValue(":seller_id", $order->getSellerId(), PDO::PARAM_INT);
             },
             function ($row) {
+                $productDetail = new ProductDetail();
+                $productDetail
+                    ->setProductDetailId($row['product_detail_id'])
+                    ->setProductDetailNo($row['product_detail_no'])
+                    ->setSize($row['size'])
+                    ->setColor($row['color'])
+                    ->setMaterial($row['material']);
+
+                $product = new Product();
+                $product
+                    ->setProductId($row['product_id'])
+                    ->setName($row['product_name'])
+                    ->setPrice($row['price'])
+                    ->setProductDetail($productDetail);
+
+                $buyer = new Buyer();
+                $buyer
+                    ->setBuyerId($row['buyer_id'])
+                    ->setName($row['name'])
+                    ->setPhone($row['phone'])
+                    ->setEmail($row['email']);
+
                 $order = new Order();
 
                 return $order
                     ->setOrderId($row['order_id'])
                     ->setOrderNo($row['order_no'])
-                    ->setProductDetailId($row['product_detail_id'])
-                    ->setProductDetailNo($row['product_detail_no'])
                     ->setBuyerId($row['buyer_id'])
                     ->setStatus($row['status'])
-                    ->setProductName($row['product_name'])
-                    ->setPrice($row['price'])
                     ->setQuantity($row['quantity'])
-                    ->setSize($row['size'])
-                    ->setColor($row['color'])
-                    ->setMaterial($row['material'])
                     ->setDeliveryAddress($row['delivery_address'])
                     ->setDeliveryFee($row['delivery_fee'])
                     ->setTotalPrice($row['total_price'])
+                    ->setPaymentMethod($row['payment_method'])
                     ->setCreatedDate($row['created_date'])
                     ->setUpdatedDate($row['updated_date'])
-                    ->setBuyerName($row['name'])
-                    ->setBuyerPhone($row['phone'])
-                    ->setBuyerEmail($row['email'])
-                    ->setProductId($row['product_id']);
+                    ->setProductId($row['product_id'])
+                    ->setBuyer($buyer)
+                    ->setProduct($product);
             }
         );
     }

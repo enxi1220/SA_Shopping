@@ -2,6 +2,7 @@
 
 require_once $_SERVER['DOCUMENT_ROOT'] . "/SA_Shopping/DataAccess/DataAccess.php";
 require_once $_SERVER['DOCUMENT_ROOT'] . "/SA_Shopping/Model/Review.php";
+require_once $_SERVER['DOCUMENT_ROOT'] . "/SA_Shopping/Model/Product.php";
 
 class ReviewRead
 {
@@ -50,29 +51,21 @@ class ReviewRead
                 $pstmt->bindValue(":status", $review->getStatus(), PDO::PARAM_STR);
             },
             function ($row) {
-                $order = new Order();
-                $order
-                    // ->setOrderId($row['order_id'])
-                    // ->setOrderNo($row['order_no'])
+                $productDetail = new ProductDetail();
+                $productDetail
                     ->setProductDetailId($row['product_detail_id'])
                     ->setProductDetailNo($row['product_detail_no'])
-                    // ->setBuyerId($row['buyer_id'])
-                    // ->setStatus($row['status'])
-                    // ->setProductName($row['product_name'])
-                    // ->setPrice($row['price'])
-                    // ->setQuantity($row['quantity'])
                     ->setSize($row['size'])
                     ->setColor($row['color'])
-                    ->setMaterial($row['material'])
-                    // ->setDeliveryAddress($row['delivery_address'])
-                    // ->setDeliveryFee($row['delivery_fee'])
-                    // ->setTotalPrice($row['total_price'])
-                    // ->setCreatedDate($row['created_date'])
-                    // ->setUpdatedDate($row['updated_date']);
-                ;
+                    ->setMaterial($row['material']);
+                    
+                $product = new Product();
+                $product->setProductDetail($productDetail);
+
+                $order = new Order();
+                $order->setProduct($product);
 
                 $review = new Review();
-
                 return $review
                     ->setReviewId($row['review_id'])
                     ->setProductId($row['product_id'])
@@ -84,7 +77,6 @@ class ReviewRead
                     ->setCreatedDate($row['created_date'])
                     ->setUpdatedDate($row['updated_date'])
                     ->setOrder($order);
-                    
             }
         );
     }

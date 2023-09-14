@@ -22,29 +22,40 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
             throw new Exception("Data not found");
         }
 
-    $result = $result[0];
+        $result = $result[0];
+        $product = $result->getProduct();
+        $buyer = $result->getBuyer();
 
         $output = array(
             'orderId' => $result->getOrderId(),
             'orderNo' => $result->getOrderNo(),
-            'productDetailId' => $result->getProductDetailId(),
-            'productDetailNo' => $result->getProductDetailNo(),
             'buyerId' => $result->getBuyerId(),
             'status' => $result->getStatus(),
-            'productName' => $result->getProductName(),
-            'price' => $result->getPrice(),
             'quantity' => $result->getQuantity(),
-            'size' => $result->getSize(),
-            'color' => $result->getColor(),
-            'material' => $result->getMaterial(),
             'deliveryAddress' => $result->getDeliveryAddress(),
             'deliveryFee' => $result->getDeliveryFee(),
             'totalPrice' => $result->getTotalPrice(),
+            'paymentMethod' => $result->getPaymentMethod(),
             'createdDate' => $result->getCreatedDate(),
             'updatedDate' => $result->getUpdatedDate(),
-            'buyerName' => $result->getBuyerName(),
-            'buyerPhone' => $result->getBuyerPhone(),
-            'buyerEmail' => $result->getBuyerEmail()
+            'product' => array(
+                'productId' => $product->getProductId(),
+                'name' => $product->getName(),
+                'price' => $product->getPrice(),
+                'productDetail' => array(
+                    'productDetailId' => $product->getProductDetail()->getProductDetailId(),
+                    'productDetailNo' => $product->getProductDetail()->getProductDetailNo(),
+                    'size' => $product->getProductDetail()->getSize(),
+                    'color' => $product->getProductDetail()->getColor(),
+                    'material' => $product->getProductDetail()->getMaterial(),
+                )
+            ),
+            'buyer' => array(
+                'buyerId' => $buyer->getBuyerId(),
+                'name' => $buyer->getName(),
+                'phone' => $buyer->getPhone(),
+                'email' => $buyer->getEmail(),
+            )
         );
 
         echo json_encode($output);

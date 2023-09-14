@@ -4,25 +4,32 @@ $(document).ready(function () {
     var productId = new URLSearchParams(window.location.search).get('productId');
     var product = null;
 
-    if (productId) {
-        get(
-            '/SA_Shopping/Controller/FrontOffice/CtrlProduct/ProductRead.php',
-            { productId: productId },
-            function (success) {
-                product = JSON.parse(success);
-                renderProduct(product);
-
-                get(
-                    '/SA_Shopping/Controller/FrontOffice/CtrlSeller/SellerRead.php',
-                    { sellerId: product.sellerId },
-                    function (successSeller) {
-                        var seller = JSON.parse(successSeller);
-                        renderSeller(seller);
-                    }
-                );
-            }
-        );
+    if (!(productId)) {
+        swalError('Invalid parameters',
+            function () {
+                window.history.back();
+                exit;
+            });
     }
+
+    get(
+        '/SA_Shopping/Controller/FrontOffice/CtrlProduct/ProductRead.php',
+        { productId: productId },
+        function (success) {
+            product = JSON.parse(success);
+            renderProduct(product);
+
+            get(
+                '/SA_Shopping/Controller/FrontOffice/CtrlSeller/SellerRead.php',
+                { sellerId: product.sellerId },
+                function (successSeller) {
+                    var seller = JSON.parse(successSeller);
+                    renderSeller(seller);
+                }
+            );
+        }
+    );
+
 
     // show available quantity according to selected variation
     $(document).on('change', 'input[name="OptionGroup"]', function () {
@@ -31,6 +38,13 @@ $(document).ready(function () {
         $('#txt-available-qty').text(selectedProductDetail[0].availableQty);
         $(`#txt-quantity`).attr("max", $('#txt-available-qty').text());
     });
+
+    $(`#btn-buy-now`).click(function () {
+        console.log('sdfv');
+        var productDetailId = $('input[name="OptionGroup"]:checked').attr('id');
+        var quantity = $('#txt-quantity').val();
+        location.href = `/SA_Shopping/Web/View/FrontOffice/Order/OrderCreate.php?productDetailId=${productDetailId}&quantity=${quantity}`;
+    });
 });
 
 function renderProduct(product) {
@@ -38,11 +52,9 @@ function renderProduct(product) {
     $('#txt-price').text(product.price);
     $('#txt-description').text(product.description);
 
-    $('#txt-available-qty').text(product.productDetails.reduce((accumulator, currentValue) => accumulator + currentValue.availableQty, 0));
-
     product.productDetails.forEach(element => {
         var label = $('<label>')
-            .attr('for', element.productDetailId)
+            .attr('for', element.productDetailId,)
             .text(element.color + " - " + element.size + " - " + element.material)
             .addClass("btn btn-outline-secondary mt-1 mx-1");
 
@@ -50,27 +62,30 @@ function renderProduct(product) {
             .attr({
                 type: "radio",
                 id: element.productDetailId,
-                name: "OptionGroup",
-                autocomplete: "off"
+                name: "OptionGroup"
             })
-            .addClass("btn-check");
+            .addClass("btn-check")
+            .prop('required', true);
 
         $('#product-detail').append(input, label);
     });
+
+
+    $('#txt-available-qty').text(product.productDetails.reduce((accumulator, currentValue) => accumulator + currentValue.availableQty, 0));
 
     product.productImages.forEach((element, index) => {
         const isActive = index === 0;
 
         const startDiv = $('<div>')
             .addClass(`carousel-item ${isActive ? 'active' : ''}`);
-    
+
         const image = $('<img>')
             .attr({
                 src: element.imageName,
                 loading: "lazy"
             })
             .addClass('d-block w-100 object-fit-cover');
-    
+
         startDiv.append(image);
         $('#product-image').append(startDiv);
 
@@ -88,11 +103,11 @@ function renderProduct(product) {
             });
 
         const thumbnail = $('<img>')
-        .attr({
-            src: element.imageName,
-            loading: "lazy"
-        })
-        .addClass('d-block w-100 shadow-1-strong rounded img-fluid object-fit-cover');
+            .attr({
+                src: element.imageName,
+                loading: "lazy"
+            })
+            .addClass('d-block w-100 shadow-1-strong rounded img-fluid object-fit-cover');
 
         startBtn.append(thumbnail);
         $('#product-image-thumbnail').append(startBtn);
@@ -107,8 +122,4 @@ function renderSeller(seller) {
     $('#txt-store-name').text(seller.storeName);
     $('#txt-business-address').text(seller.businessAddress);
     $('#txt-store-desc').text(seller.storeDesc);
-}
-
-function renderReview(review){
-
 }

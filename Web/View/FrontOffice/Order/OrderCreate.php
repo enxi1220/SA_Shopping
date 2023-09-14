@@ -10,18 +10,23 @@ require '../Layout.php';
     </ol>
 </nav>
 
-<form class="m-4 needs-validation" id="form-order-create" method="POST" novalidate>
+<form class="m-4 needs-validation" id="form-order-create" novalidate>
     <div class="row">
         <div class="col-lg-8">
             <div class="container p-3 m-1">
                 <div class="row">
                     <div class="col-3">
-                        <img id="img-product" class="img-fluid rounded float-start" src="https://down-my.img.susercontent.com/file/869ca7cd68610f89beafbf107230860a" alt="Product name" loading="lazy"/>
-                        <span class="badge rounded-pill badge-notification bg-danger fs-6" id="txt-quantity">1</span>
+                        <img id="img-product" class="img-fluid rounded float-start" src alt="Product name" loading="lazy"/>
+                        <span class="badge rounded-pill badge-notification bg-danger fs-6" id="txt-quantity"></span>
                     </div>
                     <div class="col-9 d-flex align-items-center justify-content-between">
-                        <div id="txt-product-name-size-color-material" class="fs-5">Product name - size/color/material</div>
-                        <div id="txt-unit-price" class="fs-5">RM 34</div>
+                        <div class="fs-5">
+                            <label for="" id="txt-product-name"></label> - 
+                            <label for="" id="txt-product-size"></label> - 
+                            <label for="" id="txt-product-color"></label> - 
+                            <label for="" id="txt-product-material"></label>
+                        </div>
+                        <div class="fs-5">RM <label for="" id="txt-unit-price"></label></div>
                     </div>
                 </div>
             </div>
@@ -34,19 +39,19 @@ require '../Layout.php';
         </div>
         <div class="col-lg-4">
             <div class="card p-5 m-1">
-                <h5 class="mb-4">The total amount</h5>
+                <h5 class="mb-4">The total amount (RM)</h5>
                 <div class="d-flex justify-content-between">
                     <div>Order</div>
-                    <div>RM <span id="txt-price">34</span></div>
+                    <div><span id="txt-price"></span></div>
                 </div>
                 <div class="d-flex justify-content-between">
                     <div>Delivery</div>
-                    <div>RM <span id="txt-delivery-fee">4.90</span></div>
+                    <div><span id="txt-delivery-fee"></span></div>
                 </div>
                 <hr />
                 <div class="d-flex justify-content-between">
                     <div class="fw-bold">Total</div>
-                    <div>RM <span id="txt-total-price">38.90</span></div>
+                    <div><span id="txt-total-price"></span></div>
                 </div>
                 <hr />
                 <h5 class="mb-4"><label required>Select a payment method</label> </h5>

@@ -19,14 +19,27 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
 
         $output = array_map(
             function ($order) {
+                $product = $order->getProduct();
                 return [
                     'orderId' => $order->getOrderId(),
                     'orderNo' => $order->getOrderNo(),
+                    'product' => array(
+                        // 'productId' => $product->getProductId(),
+                        'name' => $product->getName(),
+                        // 'price' => $product->getPrice(),
+                        'productDetail' => array(
+                            // 'productDetailId' => $product->getProductDetail()->getProductDetailId(),
+                            'productDetailNo' => $product->getProductDetail()->getProductDetailNo(),
+                            // 'size' => $product->getProductDetail()->getSize(),
+                            // 'color' => $product->getProductDetail()->getColor(),
+                            // 'material' => $product->getProductDetail()->getMaterial(),
+                        )
+                    ),
                     // 'productDetailId' => $order->getProductDetailId(),
-                    'productDetailNo' => $order->getProductDetailNo(),
+                    // 'productDetailNo' => $order->getProductDetailNo(),
                     // 'buyerId' => $order->getBuyerId(),
                     'status' => $order->getStatus(),
-                    'productName' => $order->getProductName(),
+                    // 'productName' => $order->getProductName(),
                     // 'price' => $order->getPrice(),
                     // 'quantity' => $order->getQuantity(),
                     // 'size' => $order->getSize(),

@@ -1,29 +1,38 @@
 <?php
 
+require_once $_SERVER['DOCUMENT_ROOT'] . "/SA_Shopping/Model/Product.php";
+require_once $_SERVER['DOCUMENT_ROOT'] . "/SA_Shopping/Model/Buyer.php";
+require_once $_SERVER['DOCUMENT_ROOT'] . "/SA_Shopping/Constant/PrefixConstant.php";
+require_once $_SERVER['DOCUMENT_ROOT'] . "/SA_Shopping/Helper/UniqueNoHelper.php";
+require_once $_SERVER['DOCUMENT_ROOT'] . "/SA_Shopping/Helper/DateHelper.php";
+
 class Order {
     private $orderId;
     private $orderNo;
-    private $productDetailId;
-    private $productDetailNo;
-    private $buyerId;
     private $status;
-    private $productName;
-    private $price;
+    // private $productName;
+    private $productDetailId;
+    // private $productDetailNo;
+    // private $price;
     private $quantity;
-    private $size;
-    private $color;
-    private $material;
+    // private $size;
+    // private $color;
+    // private $material;
+    private $buyerId;
     private $deliveryAddress;
     private $deliveryFee;
     private $totalPrice;
     private $createdDate;
     private $updatedDate;
+    private $paymentMethod;
 
-    private $buyerPhone;
-    private $buyerName;
-    private $buyerEmail;
+    // private $buyerPhone;
+    // private $buyerName;
+    // private $buyerEmail;
     private $sellerId;
     private $productId;
+    private Product $product;
+    private Buyer $buyer;
 
     public function getOrderId() {
         return $this->orderId;
@@ -38,8 +47,8 @@ class Order {
         return $this->orderNo;
     }
 
-    public function setOrderNo($orderNo) {
-        $this->orderNo = $orderNo;
+    public function setOrderNo($orderNo = null) {
+        $this->orderNo = $orderNo == null ? UniqueNoHelper::RandomCode($this->prefix()) : $orderNo;
         return $this;
     }
 
@@ -52,14 +61,14 @@ class Order {
         return $this;
     }
 
-    public function getProductDetailNo() {
-        return $this->productDetailNo;
-    }
+    // public function getProductDetailNo() {
+    //     return $this->productDetailNo;
+    // }
 
-    public function setProductDetailNo($productDetailNo) {
-        $this->productDetailNo = $productDetailNo;
-        return $this;
-    }
+    // public function setProductDetailNo($productDetailNo) {
+    //     $this->productDetailNo = $productDetailNo;
+    //     return $this;
+    // }
 
     public function getBuyerId() {
         return $this->buyerId;
@@ -79,23 +88,23 @@ class Order {
         return $this;
     }
 
-    public function getProductName() {
-        return $this->productName;
-    }
+    // public function getProductName() {
+    //     return $this->productName;
+    // }
 
-    public function setProductName($productName) {
-        $this->productName = $productName;
-        return $this;
-    }
+    // public function setProductName($productName) {
+    //     $this->productName = $productName;
+    //     return $this;
+    // }
 
-    public function getPrice() {
-        return $this->price;
-    }
+    // public function getPrice() {
+    //     return $this->price;
+    // }
 
-    public function setPrice($price) {
-        $this->price = $price;
-        return $this;
-    }
+    // public function setPrice($price) {
+    //     $this->price = $price;
+    //     return $this;
+    // }
 
     public function getQuantity() {
         return $this->quantity;
@@ -106,32 +115,32 @@ class Order {
         return $this;
     }
 
-    public function getSize() {
-        return $this->size;
-    }
+    // public function getSize() {
+    //     return $this->size;
+    // }
 
-    public function setSize($size) {
-        $this->size = $size;
-        return $this;
-    }
+    // public function setSize($size) {
+    //     $this->size = $size;
+    //     return $this;
+    // }
 
-    public function getColor() {
-        return $this->color;
-    }
+    // public function getColor() {
+    //     return $this->color;
+    // }
 
-    public function setColor($color) {
-        $this->color = $color;
-        return $this;
-    }
+    // public function setColor($color) {
+    //     $this->color = $color;
+    //     return $this;
+    // }
 
-    public function getMaterial() {
-        return $this->material;
-    }
+    // public function getMaterial() {
+    //     return $this->material;
+    // }
 
-    public function setMaterial($material) {
-        $this->material = $material;
-        return $this;
-    }
+    // public function setMaterial($material) {
+    //     $this->material = $material;
+    //     return $this;
+    // }
 
     public function getDeliveryAddress() {
         return $this->deliveryAddress;
@@ -155,8 +164,8 @@ class Order {
         return $this->totalPrice;
     }
 
-    public function setTotalPrice($totalPrice) {
-        $this->totalPrice = $totalPrice;
+    public function setTotalPrice($totalPrice = null) {
+        $this->totalPrice = $totalPrice == null? ($this->product->getPrice() * $this->quantity ) + $this->deliveryFee : $totalPrice;
         return $this;
     }
 
@@ -178,30 +187,39 @@ class Order {
         return $this;
     }
     
-    public function getBuyerPhone() {
-        return $this->buyerPhone;
+    // public function getBuyerPhone() {
+    //     return $this->buyerPhone;
+    // }
+
+    // public function setBuyerPhone($buyerPhone) {
+    //     $this->buyerPhone = $buyerPhone;
+    //     return $this;
+    // }
+
+    // public function getBuyerName() {
+    //     return $this->buyerName;
+    // }
+
+    // public function setBuyerName($buyerName) {
+    //     $this->buyerName = $buyerName;
+    //     return $this;
+    // }
+
+    // public function getBuyerEmail() {
+    //     return $this->buyerEmail;
+    // }
+
+    // public function setBuyerEmail($buyerEmail) {
+    //     $this->buyerEmail = $buyerEmail;
+    //     return $this;
+    // }
+    
+    public function getPaymentMethod() {
+        return $this->paymentMethod;
     }
 
-    public function setBuyerPhone($buyerPhone) {
-        $this->buyerPhone = $buyerPhone;
-        return $this;
-    }
-
-    public function getBuyerName() {
-        return $this->buyerName;
-    }
-
-    public function setBuyerName($buyerName) {
-        $this->buyerName = $buyerName;
-        return $this;
-    }
-
-    public function getBuyerEmail() {
-        return $this->buyerEmail;
-    }
-
-    public function setBuyerEmail($buyerEmail) {
-        $this->buyerEmail = $buyerEmail;
+    public function setPaymentMethod($paymentMethod) {
+        $this->paymentMethod = $paymentMethod;
         return $this;
     }
     
@@ -221,6 +239,28 @@ class Order {
     public function setProductId($productId) {
         $this->productId = $productId;
         return $this;
+    }
+    
+    public function getProduct() {
+        return $this->product;
+    }
+
+    public function setProduct($product) {
+        $this->product = $product;
+        return $this;
+    }
+    
+    public function getBuyer() {
+        return $this->buyer;
+    }
+
+    public function setBuyer($buyer) {
+        $this->buyer = $buyer;
+        return $this;
+    }
+
+    public function prefix(){
+        return PrefixConstant::ORDER;
     }
 
 }

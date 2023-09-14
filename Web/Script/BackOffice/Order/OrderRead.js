@@ -23,13 +23,14 @@ function renderOrder(order) {
     $('#txt-created-date').val(order.createdDate);
     $('#txt-updated-date').val(order.updatedDate);
     $('#txt-delivery-address').val(order.deliveryAddress);
-    $('#txt-product-name').val(order.productName);
-    $('#txt-price').val(order.price);
+    $('#txt-product-name').val(order.product.name);
+    $('#txt-price').val(order.product.price);
     $('#txt-quantity').val(order.quantity);
-    $('#txt-product-size').val(order.size);
-    $('#txt-product-color').val(order.color);
-    $('#txt-product-material').val(order.material);
-    $('#txt-buyer-name').val(order.buyerName);
-    $('#txt-buyer-phone').val(order.buyerPhone);
-    $('#txt-buyer-email').val(order.buyerEmail);
+    $('#txt-payment-method').val(order.paymentMethod);
+    $('#txt-product-size').val(order.product.productDetail.size);
+    $('#txt-product-color').val(order.product.productDetail.color);
+    $('#txt-product-material').val(order.product.productDetail.material);
+    $('#txt-buyer-name').val(order.buyer.name);
+    $('#txt-buyer-phone').val(order.buyer.phone);
+    $('#txt-buyer-email').val(order.buyer.email);
 }

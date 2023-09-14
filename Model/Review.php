@@ -1,6 +1,7 @@
 <?php
 
 require_once $_SERVER['DOCUMENT_ROOT'] . "/SA_Shopping/Model/Order.php";
+require_once $_SERVER['DOCUMENT_ROOT'] . "/SA_Shopping/Model/Buyer.php";
 require_once $_SERVER['DOCUMENT_ROOT'] . "/SA_Shopping/Constant/SentimentRecommendationConstant.php";
 require_once $_SERVER['DOCUMENT_ROOT'] . "/SA_Shopping/Constant/SentimentLabelConstant.php";
 
@@ -16,6 +17,7 @@ class Review
     private $createdDate;
     private $updatedDate;
     private Order $order;
+    private Buyer $buyer;
 
     private $productDetailNo;
     private $negativeReviewCount;
@@ -131,6 +133,17 @@ class Review
     {
         $this->order = $order;
         return $this;
+    }
+
+    public function setBuyer($buyer)
+    {
+        $this->buyer = $buyer;
+        return $this;
+    }
+
+    public function getBuyer()
+    {
+        return $this->buyer;
     }
 
     public function getProductDetailNo()

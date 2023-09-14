@@ -14,6 +14,7 @@ $(document).ready(function () {
         index++;
         addRow(dataTable, index);
     });
+    
     // rm hardcode
     dataTable.row.add([
         `<button class="btn btn-secondary btn-floating toggle-status" type="button"><i class="fa-solid fa-check"></i></button>`,
@@ -77,12 +78,12 @@ $(document).ready(function () {
         // Get the data for the clicked row
         var rowData = dataTable.row(row).data();
 
-        if (rowData[1] == "Available") {
+        if (rowData[2] == "Available") {
             rowData[0] = `<button class="btn btn-secondary btn-floating toggle-status" type="button"><i class="fa-solid fa-check"></i></button>`;
-            rowData[1] = "Discontinued";
+            rowData[2] = "Discontinued";
         } else {
             rowData[0] = `<button class="btn btn-secondary btn-floating toggle-status" type="button"><i class="fa-solid fa-times"></i></button>`,
-                rowData[1] = "Available";
+            rowData[2] = "Available";
         }
 
         // Invalidate the specific row to trigger a redraw

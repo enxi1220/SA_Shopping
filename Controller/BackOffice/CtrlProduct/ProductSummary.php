@@ -13,7 +13,7 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
 
         $product = new Product();
         // todo: hardcode become session 
-        $product->setSellerId(1);
+        // $product->setSellerId(1);
 
         $productDetail = new ProductDetail();
 

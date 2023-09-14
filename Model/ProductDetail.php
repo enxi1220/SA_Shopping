@@ -1,5 +1,7 @@
 <?php
 
+require_once $_SERVER['DOCUMENT_ROOT'] . "/SA_Shopping/Constant/ProductDetailStatusConstant.php";
+
 class ProductDetail
 {
     private $productDetailId;
@@ -157,5 +159,15 @@ class ProductDetail
     {
         $this->updatedBy = $updatedBy;
         return $this;
+    }
+
+    public function updateAfterPurchase($quantity){
+        $this->availableQty -= $quantity;
+        $this->salesOutQty += $quantity;
+        $this->updatedBy = "System";
+
+        if($this->availableQty == 0){
+            $this->status = ProductDetailStatusConstant::OUTOFSTOCK;
+        }
     }
 }

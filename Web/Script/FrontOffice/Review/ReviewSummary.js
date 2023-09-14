@@ -6,7 +6,6 @@ $(document).ready(function () {
             '/SA_Shopping/Controller/FrontOffice/CtrlReview/ReviewSummary.php',
             { productId: productId },
             function (success) {
-                console.log(success);
                 data = JSON.parse(success);
                 renderReview(data.reviews);
                 renderReviewCount(data.reviewCount);
@@ -23,7 +22,7 @@ function renderReview(reviews) {
             <div class="card border border-${color} mb-3">
                 <div class="card-header fw-bold fs-4 text-${color}">${element.sentimentRecommendation}</div>
                 <div class="card-body">
-                    <h5 class="card-title">${element.order.color} - ${element.order.size} - ${element.order.material}</h5>
+                    <h5 class="card-title">${element.order.productDetail.color} - ${element.order.productDetail.size} - ${element.order.productDetail.material}</h5>
                     <p class="card-text">${element.reviewText}</p>
                     <span class="text-muted">${element.status} on ${element.status == ReviewStatus.New ? element.createdDate : element.updatedDate}</span>
                 </div>

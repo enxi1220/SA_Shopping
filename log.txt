@@ -3,4 +3,4 @@ reset password - not started
 
 <!-- todo: add video, video js -->
 
-// todo: fo.order summary review error affect page
+review read buyer email 

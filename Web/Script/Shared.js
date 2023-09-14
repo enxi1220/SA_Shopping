@@ -9,6 +9,7 @@
             if (!form.checkValidity()) {
                 event.preventDefault();
                 event.stopPropagation();
+                console.log('error');
             }
             form.classList.add('was-validated');
         }, false);
@@ -45,8 +46,8 @@ function post(url, dataArr, successHandler, afterSuccess, errorHandler) {
                 Swal.fire({
                     icon: 'success',
                     title: 'Success',
-                    html: '<pre>' + success + '</pre>',
-                    timer: 9999,
+                    html: success,
+                    timer: 99999,
                     showConfirmButton: false
                 }).then(function () {
                     if (afterSuccess) {
@@ -65,7 +66,7 @@ function post(url, dataArr, successHandler, afterSuccess, errorHandler) {
                 Swal.fire({
                     icon: 'error',
                     title: 'Oops...',
-                    html: '<pre>' + error.responseText + '</pre>',
+                    html: error.responseText,
                     allowOutsideClick: false,
                     allowEscapeKey: false,
                     showCloseButton: false
@@ -91,7 +92,7 @@ function get(url, data, successHandler, errorHandler, afterError, afterSuccess) 
                 Swal.fire({
                     icon: 'success',
                     title: 'Success',
-                    html: '<pre>' + success + '</pre>',
+                    html: success,
                     // timer: 1900,
                     showConfirmButton: false
                 }).then(function () {
@@ -110,7 +111,7 @@ function get(url, data, successHandler, errorHandler, afterError, afterSuccess) 
                 Swal.fire({
                     icon: 'error',
                     title: 'Oops...',
-                    html: '<pre>' + error.responseText + '</pre>'
+                    text: error.responseText
                 }).then(function () {
                     if (afterError) {
                         afterError();
@@ -119,6 +120,22 @@ function get(url, data, successHandler, errorHandler, afterError, afterSuccess) 
             }
         }
     });
+}
+
+function swalError(text, afterError) {
+    Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        html: '<pre>' + text + '</pre>'
+    }).then(function () {
+        if (afterError) {
+            afterError();
+        }
+    });
+}
+
+function swalSuccess(text) {
+
 }
 
 function checkDate(id, min, max) {
@@ -142,9 +159,9 @@ function checkDate(id, min, max) {
 $(`.toggle-visibility`).click(function () {
     $(this).toggleClass("fa-eye-slash fa-eye");
 
-    if($(this).siblings("input").attr("type") === "password"){
+    if ($(this).siblings("input").attr("type") === "password") {
         $(this).siblings("input").attr("type", "text");
-    }else{
+    } else {
         $(this).siblings("input").attr("type", "password");
     }
 
@@ -152,7 +169,7 @@ $(`.toggle-visibility`).click(function () {
     var icon = targetElement.find("i");
 });
 
-function copyToClipboard(textToCopy){
+function copyToClipboard(textToCopy) {
     var dummy = $('<input>').val(textToCopy).appendTo('body').select();
     document.execCommand('copy');
     $(dummy).remove();

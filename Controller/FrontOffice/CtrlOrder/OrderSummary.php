@@ -10,7 +10,7 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
 
         // todo: replace buyer session
         $order->setBuyerId(1);
-        
+
         $result = OrderRead::Read($order);
 
         if (empty($result)) {
@@ -19,35 +19,35 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
 
         $output = array_map(
             function ($order) {
+                $product = $order->getProduct();
                 return [
                     'orderId' => $order->getOrderId(),
                     'orderNo' => $order->getOrderNo(),
-                // 'productDetailId' => $order->getProductDetailId(),
-                    // 'productDetailNo' => $order->getProductDetailNo(),
-                    // 'buyerId' => $order->getBuyerId(),
                     'status' => $order->getStatus(),
-                    'productName' => $order->getProductName(),
-                    'price' => $order->getPrice(),
+                    'product' => array(
+                        'productId' => $product->getProductId(),
+                        'name' => $product->getName(),
+                        'price' => $product->getPrice(),
+                        'productDetail' => array(
+                            'productDetailId' => $product->getProductDetail()->getProductDetailId(),
+                            'productDetailNo' => $product->getProductDetail()->getProductDetailNo(),
+                            'size' => $product->getProductDetail()->getSize(),
+                            'color' => $product->getProductDetail()->getColor(),
+                            'material' => $product->getProductDetail()->getMaterial(),
+                        )
+                    ),
                     'quantity' => $order->getQuantity(),
-                    'size' => $order->getSize(),
-                    'color' => $order->getColor(),
-                    'material' => $order->getMaterial(),
                     'deliveryAddress' => $order->getDeliveryAddress(),
-                    // 'deliveryFee' => $order->getDeliveryFee(),
                     'totalPrice' => $order->getTotalPrice(),
+                    'paymentMethod' => $order->getPaymentMethod(),
                     'createdDate' => $order->getCreatedDate(),
-                    'updatedDate' => $order->getUpdatedDate(),
-                    // 'buyerName' => $order->getBuyerName(),
-                    // 'buyerPhone' => $order->getBuyerPhone(),
-                    // 'buyerEmail' => $order->getBuyerEmail()
-                    'productId' => $order->getProductId()
+                    'updatedDate' => $order->getUpdatedDate()
                 ];
             },
             $result
         );
 
         echo json_encode($output);
-
     } catch (\Throwable $e) {
         header($_SERVER["SERVER_PROTOCOL"] . ' 500 Internal Server Error', true, 500);
         // echo $e->getMessage();

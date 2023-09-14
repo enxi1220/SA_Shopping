@@ -3,12 +3,12 @@ $(document).ready(function () {
 
     if (productId) {
         get(
-            '/SA_Shopping/Controller/FrontOffice/CtrlReview/ReviewSummary.php',
+            '/SA_Shopping/Controller/BackOffice/CtrlReview/ReviewSummary.php',
             { productId: productId },
             function (success) {
                 console.log(success);
                 data = JSON.parse(success);
-                renderReview(data.reviews);
+                renderReview(data);
             }
         );
     }
@@ -18,7 +18,7 @@ function renderReview(reviews){
     $('#review-summary').DataTable({
         data: reviews,
         columns: [
-            { data: "order.productDetailNo" },
+            { data: "productDetail.productDetailNo" },
             { data: "buyerEmail" },
             { data: "reviewText" },
             {

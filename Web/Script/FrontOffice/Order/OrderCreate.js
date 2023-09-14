@@ -1,18 +1,81 @@
-$(document).ready(function () {
-    enhanceUI();
+var productDetailId = new URLSearchParams(window.location.search).get('productDetailId');
+var quantity = new URLSearchParams(window.location.search).get('quantity');
 
-    $(`#form-order-create`).submit(function (event) {
-        event.preventDefault();
-        if (!$(`#form-order-create`)[0].checkValidity()) {
-            return;
+$(document).ready(function () {
+
+    // if (!(productDetailId && quantity)) {
+    //     swalError('Invalid parameters',
+    //         function () {
+    //             window.history.back();
+    //         });
+    // }
+
+    get(
+        '/SA_Shopping/Controller/FrontOffice/CtrlOrder/OrderCreate.php',
+        {
+            productDetailId: productDetailId,
+            quantity: quantity
+        },
+        function (success) {
+            console.log(success);
+            order = JSON.parse(success);
+            renderOrder(order);
+            enhanceUI();
         }
-        var paymentMethod = $("button[type=submit]:focus").val();
-        console.log(paymentMethod);
-        // todo: post;
+    );
+
+    $(`#form-order-create`).submit(function (event){
+        console.log('asdc');
+        // console.log(preparePostData());
+        event.preventDefault();
+        post(
+            '/SA_Shopping/Controller/FrontOffice/CtrlOrder/OrderCreate.php',
+            [
+                submitData('order', preparePostData())
+            ],
+            null,
+            function () {
+                location.href = "/SA_Shopping/Web/View/FrontOffice/Product/ProductSummary.php";
+            }
+        );
     });
 });
 
-function enhanceUI(){
+function preparePostData() {
+    var order = JSON.stringify({
+        paymentMethod: $("button[type=submit]:focus").val(),
+        deliveryAddress: $('#txt-delivery-address').val(),
+        productDetailId: productDetailId,
+        quantity: quantity
+    });
+
+    return order;
+}
+
+function renderOrder(order) {
+    $('#txt-quantity').text(order.quantity);
+    $('#img-product').attr('src', order.product.productImage.imageName);
+    $('#txt-product-name').text(order.product.name);
+    $('#txt-product-size').text(order.product.productDetail.size);
+    $('#txt-product-color').text(order.product.productDetail.color);
+    $('#txt-product-material').text(order.product.productDetail.material);
+    $('#txt-unit-price').text(order.product.price);
+    $('#txt-delivery-address').val(order.buyer.deliveryAddress);
+    $('#txt-delivery-fee').text(order.deliveryFee);
+
+    calculation(order);
+}
+
+function calculation(order) {
+    var quantity = parseInt(order.quantity);
+    var price = parseFloat(order.product.price);
+    var deliveryFee = parseFloat(order.deliveryFee);
+
+    $('#txt-price').text(quantity * price);
+    $('#txt-total-price').text((quantity * price) + deliveryFee);
+}
+
+function enhanceUI() {
     $(`#txt-delivery-address`).focus();
 
     $("#txt-card-number").on("input", function () {
@@ -25,7 +88,7 @@ function enhanceUI(){
     $("#txt-expiry-date").on("input", function () {
         const expiryDate = $(this).val().replace(/\//g, '');
         const formattedExpiryDate = expiryDate.replace(/(\d{2})(?=\d)/g, '$1/');
-    
+
         $(this).val(formattedExpiryDate);
     });
 

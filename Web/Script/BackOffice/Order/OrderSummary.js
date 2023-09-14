@@ -20,8 +20,8 @@ function renderOrders(orders) {
         columns:
             [
                 { data: "orderNo" },
-                { data: "productName" },
-                { data: "productDetailNo" },
+                { data: "product.name" },
+                { data: "product.productDetail.productDetailNo" },
                 { data: "status" },
                 { data: "createdDate" },
                 { data: "updatedDate" },

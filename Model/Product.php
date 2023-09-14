@@ -6,6 +6,8 @@ require_once $_SERVER['DOCUMENT_ROOT'] . "/SA_Shopping/Helper/UniqueNoHelper.php
 require_once $_SERVER['DOCUMENT_ROOT'] . "/SA_Shopping/Helper/DateHelper.php";
 require_once $_SERVER['DOCUMENT_ROOT'] . "/SA_Shopping/Model/Seller.php";
 require_once $_SERVER['DOCUMENT_ROOT'] . "/SA_Shopping/Model/Review.php";
+require_once $_SERVER['DOCUMENT_ROOT'] . "/SA_Shopping/Model/ProductDetail.php";
+require_once $_SERVER['DOCUMENT_ROOT'] . "/SA_Shopping/Model/ProductImage.php";
 
 class Product
 {
@@ -20,6 +22,8 @@ class Product
     private $updatedDate;
     private Seller $seller;
     private Review $review;
+    private ProductDetail $productDetail;
+    private ProductImage $productImage;
     private $productDetails = array();
     private $productImages = array();
     private $reviews = array();
@@ -145,6 +149,26 @@ class Product
         return $this;
     }
 
+    public function getProductDetail()
+    {
+        return $this->productDetail;
+    }
+
+    public function getProductImage()
+    {
+        return $this->productImage;
+    }
+
+    public function setProductImage($productImage){
+        $this->productImage = $productImage;
+        return $this;
+    }
+
+    public function setProductDetail($productDetail){
+        $this->productDetail = $productDetail;
+        return $this;
+    }
+
     public function getProductDetails()
     {
         return $this->productDetails;
@@ -164,6 +188,7 @@ class Product
         $this->productImages = $productImages;
         return $this;
     }
+
 
     public function getReviews()
     {

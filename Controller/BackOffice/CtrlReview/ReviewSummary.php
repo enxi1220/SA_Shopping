@@ -33,9 +33,9 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
                     // 'sentimentRecommendation' => $review->getSentimentRecommendation(),
                     'createdDate' => $review->getCreatedDate(),
                     'updatedDate' => $review->getUpdatedDate(),
-                    'order' => array(
+                    'productDetail' => array(
                         // 'productDetailId' => $review->getOrder()->getProductDetailId(),
-                        'productDetailNo' => $review->getOrder()->getProductDetailNo(),
+                        'productDetailNo' => $review->getOrder()->getProduct()->getProductDetail()->getProductDetailNo(),
                         // 'size' => $review->getOrder()->getSize(),
                         // 'color' => $review->getOrder()->getColor(),
                         // 'material' => $review->getOrder()->getMaterial()
