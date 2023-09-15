@@ -2,6 +2,7 @@
 
 require_once $_SERVER['DOCUMENT_ROOT'] . "/SA_Shopping/Model/Product.php";
 require_once $_SERVER['DOCUMENT_ROOT'] . "/SA_Shopping/Model/Buyer.php";
+require_once $_SERVER['DOCUMENT_ROOT'] . "/SA_Shopping/Model/Review.php";
 require_once $_SERVER['DOCUMENT_ROOT'] . "/SA_Shopping/Constant/PrefixConstant.php";
 require_once $_SERVER['DOCUMENT_ROOT'] . "/SA_Shopping/Helper/UniqueNoHelper.php";
 require_once $_SERVER['DOCUMENT_ROOT'] . "/SA_Shopping/Helper/DateHelper.php";
@@ -33,6 +34,7 @@ class Order {
     private $productId;
     private Product $product;
     private Buyer $buyer;
+    private Review $review;
 
     public function getOrderId() {
         return $this->orderId;
@@ -256,6 +258,15 @@ class Order {
 
     public function setBuyer($buyer) {
         $this->buyer = $buyer;
+        return $this;
+    }
+    
+    public function getReview() {
+        return $this->review;
+    }
+
+    public function setReview($review) {
+        $this->review = $review;
         return $this;
     }
 

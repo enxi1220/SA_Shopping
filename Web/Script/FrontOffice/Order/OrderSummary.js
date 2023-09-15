@@ -7,6 +7,7 @@ $(document).ready(function () {
         '/SA_Shopping/Controller/FrontOffice/CtrlOrder/OrderSummary.php',
         {},
         function (success) {
+            console.log(success);
             orders = JSON.parse(success);
             renderOrders(orders);
         }
@@ -15,19 +16,20 @@ $(document).ready(function () {
 });
 
 function writeReview(orderId) {
+    const selectedOrder = orders.filter(detail => detail.orderId == orderId);
+    console.log(selectedOrder[0].review.reviewText);
+    $("#txt-review").val(selectedOrder[0].review.reviewText);
+
     $('#modal-review').modal('show');
     $("#txt-review").focus();
-    
+
     var url = '';
-    
-    const selectedOrder = orders.filter(detail => detail.orderId == orderId);
-    if(selectedOrder.status = OrderStatus.Review){
+
+    if (selectedOrder.status = OrderStatus.Review) {
         url = '/SA_Shopping/Controller/FrontOffice/CtrlReview/ReviewCreate.php';
-    }else if (selectedOrder.status = OrderStatus.Closed){
+    } else if (selectedOrder.status = OrderStatus.Closed) {
         url = '/SA_Shopping/Controller/FrontOffice/CtrlReview/ReviewUpdate.php';
     }
-
-    console.log('a');
 
     $(`#form-review-create`).submit(function (event) {
         event.preventDefault();

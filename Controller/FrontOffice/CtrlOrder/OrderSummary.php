@@ -2,6 +2,7 @@
 
 require_once $_SERVER['DOCUMENT_ROOT'] . "/SA_Shopping/Model/Order.php";
 require_once $_SERVER['DOCUMENT_ROOT'] . "/SA_Shopping/BusinessLogic/BllOrder/OrderRead.php";
+require_once $_SERVER['DOCUMENT_ROOT'] . "/SA_Shopping/BusinessLogic/BllReview/ReviewRead.php";
 
 if ($_SERVER["REQUEST_METHOD"] == "GET") {
 
@@ -13,6 +14,18 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
 
         $result = OrderRead::Read($order);
 
+        foreach ($result as $order) {
+            $review = new Review();
+            $review->setOrderId($order->getOrderId());
+            $reviews = ReviewRead::Read($review);
+            if(empty($reviews)){
+                $order->setReview(new Review());
+            }else{
+                $order->setReview($reviews[0]);
+            }
+            
+        }
+
         if (empty($result)) {
             throw new Exception("Data not found");
         }
@@ -20,10 +33,18 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
         $output = array_map(
             function ($order) {
                 $product = $order->getProduct();
+                $review = $order->getReview();
+                // $review = $order->getReview() == null? new Review() : $order->getReview();
                 return [
                     'orderId' => $order->getOrderId(),
                     'orderNo' => $order->getOrderNo(),
                     'status' => $order->getStatus(),
+                    'quantity' => $order->getQuantity(),
+                    'deliveryAddress' => $order->getDeliveryAddress(),
+                    'totalPrice' => $order->getTotalPrice(),
+                    'paymentMethod' => $order->getPaymentMethod(),
+                    'createdDate' => $order->getCreatedDate(),
+                    'updatedDate' => $order->getUpdatedDate(),
                     'product' => array(
                         'productId' => $product->getProductId(),
                         'name' => $product->getName(),
@@ -36,12 +57,10 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
                             'material' => $product->getProductDetail()->getMaterial(),
                         )
                     ),
-                    'quantity' => $order->getQuantity(),
-                    'deliveryAddress' => $order->getDeliveryAddress(),
-                    'totalPrice' => $order->getTotalPrice(),
-                    'paymentMethod' => $order->getPaymentMethod(),
-                    'createdDate' => $order->getCreatedDate(),
-                    'updatedDate' => $order->getUpdatedDate()
+                    'review' => array(
+                        'reviewId' => $review->getReviewId(),
+                        'reviewText' => $review->getReviewText()
+                    )
                 ];
             },
             $result

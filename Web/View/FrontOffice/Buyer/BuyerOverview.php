@@ -29,6 +29,5 @@ require '../Layout.php';
 <?php
 require '../Footer.php';
 ?>
+<script src="../../../Script/FrontOffice/Buyer/BuyerRead.js"></script>
 <script src="../../../Script/FrontOffice/Buyer/BuyerDelete.js"></script>
-<!-- <script src="<?php $_SERVER['DOCUMENT_ROOT'] ?>/TARUMT_Event_Ticketing/Web/Script/FrontOffice/User/UserRead.js" type="text/javascript"></script> -->
-<!-- <script src="<?php $_SERVER['DOCUMENT_ROOT'] ?>/TARUMT_Event_Ticketing/Web/Script/FrontOffice/User/UserUpdate.js" type="text/javascript"></script> -->
