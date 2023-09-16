@@ -30,9 +30,7 @@ class BuyerRead
                 b.status,
                 b.reset_code,
                 b.created_date,
-                b.created_by,
                 b.updated_date,
-                b.updated_by,
                 b.delivery_address
              FROM buyer b
              WHERE
@@ -56,9 +54,7 @@ class BuyerRead
                     ->setStatus($row['status'])
                     ->setResetCode($row['reset_code'])
                     ->setCreatedDate($row['created_date'])
-                    ->setCreatedBy($row['created_by'])
                     ->setUpdatedDate($row['updated_date'])
-                    ->setUpdatedBy($row['updated_by'])
                     ->setDeliveryAddress($row['delivery_address'])
                     ;
             }

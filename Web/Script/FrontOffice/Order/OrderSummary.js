@@ -51,12 +51,12 @@ function writeReview(orderId) {
 }
 
 function preparePostData(orderId) {
-    var review = JSON.stringify({
+    var data = JSON.stringify({
         orderId: orderId,
         reviewText: $('#txt-review').val()
     });
 
-    return review;
+    return data;
 }
 
 function renderOrders(orders) {

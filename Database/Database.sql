@@ -51,10 +51,8 @@ CREATE TABLE IF NOT EXISTS `SA_Shopping`.`buyer` (
     `phone` VARCHAR(20) NOT NULL,
     `status` VARCHAR(50) NOT NULL,
     `reset_code` VARCHAR(50),
-    `created_date` DATETIME,
-    `created_by` VARCHAR(255),
+    `created_date` DATETIME NOT NULL,
     `updated_date` DATETIME,
-    `updated_by` VARCHAR(255),
     `delivery_address` TEXT,
 	UNIQUE KEY `email_UNIQUE` (`email`),
 	UNIQUE KEY `username_UNIQUE` (`username`)

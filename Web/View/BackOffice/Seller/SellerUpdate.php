@@ -18,22 +18,22 @@
         </div>
         <div class="col-md-12">
             <div class="form-outline">
-                <input type="text" id="txt-store-name" class="form-control" required />
-                <label class="form-label" for="txt-store-name" required>Store Name</label>
+                <input type="text" id="txt-store-name-edit" class="form-control" required />
+                <label class="form-label" for="txt-store-name-edit" required>Store Name</label>
                 <div class="invalid-feedback">Required</div>
             </div>
         </div>
         <div class="col-md-12">
             <div class="form-outline">
-                <textarea id="txt-store-desc" class="form-control" required rows="4"></textarea>
-                <label class="form-label" for="txt-store-desc" required>Store Description</label>
+                <textarea id="txt-store-desc-edit" class="form-control" required rows="4"></textarea>
+                <label class="form-label" for="txt-store-desc-edit" required>Store Description</label>
                 <div class="invalid-feedback">Required</div>
             </div>
         </div>
         <div class="col-md-12">
             <div class="form-outline">
-                <textarea id="txt-business-address" class="form-control" required rows="4"></textarea>
-                <label class="form-label" for="txt-business-address" required>Business Address</label>
+                <textarea id="txt-business-address-edit" class="form-control" required rows="4"></textarea>
+                <label class="form-label" for="txt-business-address-edit" required>Business Address</label>
                 <div class="invalid-feedback">Required</div>
             </div>
         </div>

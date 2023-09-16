@@ -17,11 +17,12 @@ interface IUser {
     public function getResetCode();
     public function setCreatedDate($createdDate);    
     public function getCreatedDate();
-    public function setCreatedBy($createdBy);    
-    public function getCreatedBy();
+    // public function setCreatedBy($createdBy);    
+    // public function getCreatedBy();
     public function setUpdatedDate($updatedDate);    
     public function getUpdatedDate();
-    public function setUpdatedBy($updatedBy);    
-    public function getUpdatedBy();}
+    // public function setUpdatedBy($updatedBy);    
+    // public function getUpdatedBy();
+}
 
 ?>

@@ -3,15 +3,19 @@ $(document).ready(function () {
         '/SA_Shopping/Controller/BackOffice/CtrlSeller/SellerRead.php',
         {},
         function (success) {
-            buyer = JSON.parse(success);
-            renderBuyer(buyer);
+            seller = JSON.parse(success);
+            renderBuyer(seller);
         }
     );
 });
 
-function renderBuyer(buyer){
-    $('#txt-name').val(buyer.name);
-    $('#txt-email').val(buyer.email);
-    $('#txt-delivery-address').val(buyer.deliveryAddress);
+function renderBuyer(seller){
+    $('#lbl-created-date').text(seller.createdDate);
+    $('#txt-name').val(seller.name);
+    $('#txt-email').val(seller.email);
+    $('#txt-phone').val(seller.phone);
+    $('#txt-store-name').val(seller.storeName);
+    $('#txt-store-desc').val(seller.storeDesc);
+    $('#txt-business-address').val(seller.businessAddress);
 
 }

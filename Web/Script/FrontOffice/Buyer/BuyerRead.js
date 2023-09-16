@@ -10,8 +10,12 @@ $(document).ready(function () {
 });
 
 function renderBuyer(buyer){
+    $('#lbl-created-date').text(buyer.createdDate);
     $('#txt-name').val(buyer.name);
     $('#txt-email').val(buyer.email);
+    $('#txt-phone').val(buyer.phone);
     $('#txt-delivery-address').val(buyer.deliveryAddress);
-
+    $('#txt-name-edit').val(buyer.name);
+    $('#txt-phone-edit').val(buyer.phone);
+    $('#txt-delivery-address-edit').val(buyer.deliveryAddress);
 }

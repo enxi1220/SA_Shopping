@@ -42,14 +42,14 @@ $(document).ready(function () {
 });
 
 function preparePostData() {
-    var order = JSON.stringify({
+    var data = JSON.stringify({
         paymentMethod: $("button[type=submit]:focus").val(),
         deliveryAddress: $('#txt-delivery-address').val(),
         productDetailId: productDetailId,
         quantity: quantity
     });
 
-    return order;
+    return data;
 }
 
 function renderOrder(order) {

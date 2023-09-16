@@ -1,5 +1,7 @@
 <?php 
 require_once $_SERVER['DOCUMENT_ROOT'] . "/SA_Shopping/Model/IUser.php";
+require_once $_SERVER['DOCUMENT_ROOT'] . "/SA_Shopping/Helper/UniqueNoHelper.php";
+require_once $_SERVER['DOCUMENT_ROOT'] . "/SA_Shopping/Constant/PrefixConstant.php";
 
 class Buyer implements IUser {
     private $buyerId;
@@ -11,9 +13,7 @@ class Buyer implements IUser {
     private $status;
     private $resetCode;
     private $createdDate;
-    private $createdBy;
     private $updatedDate;
-    private $updatedBy;
     private $deliveryAddress;
 
     public function getBuyerId() {
@@ -29,8 +29,9 @@ class Buyer implements IUser {
         return $this->username;
     }
 
-    public function setUsername($username) {
+    public function setUsername($username = null) {
         $this->username = $username;
+        $this->username = $username == null? UniqueNoHelper::RandomUsername($this->email, $this->prefix()) : $username;
         return $this;
     }
 
@@ -97,14 +98,14 @@ class Buyer implements IUser {
         return $this;
     }
 
-    public function getCreatedBy() {
-        return $this->createdBy;
-    }
+    // public function getCreatedBy() {
+    //     return $this->createdBy;
+    // }
 
-    public function setCreatedBy($createdBy) {
-        $this->createdBy = $createdBy;
-        return $this;
-    }
+    // public function setCreatedBy($createdBy) {
+    //     $this->createdBy = $createdBy;
+    //     return $this;
+    // }
 
     public function getUpdatedDate() {
         return $this->updatedDate;
@@ -115,14 +116,14 @@ class Buyer implements IUser {
         return $this;
     }
 
-    public function getUpdatedBy() {
-        return $this->updatedBy;
-    }
+    // public function getUpdatedBy() {
+    //     return $this->updatedBy;
+    // }
 
-    public function setUpdatedBy($updatedBy) {
-        $this->updatedBy = $updatedBy;
-        return $this;
-    }
+    // public function setUpdatedBy($updatedBy) {
+    //     $this->updatedBy = $updatedBy;
+    //     return $this;
+    // }
 
     public function getDeliveryAddress() {
         return $this->deliveryAddress;
@@ -131,5 +132,9 @@ class Buyer implements IUser {
     public function setDeliveryAddress($deliveryAddress) {
         $this->deliveryAddress = $deliveryAddress;
         return $this;
+    }
+
+    public function prefix(){
+        return PrefixConstant::BUYER;
     }
 }

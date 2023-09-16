@@ -156,7 +156,7 @@ function checkDate(id, min, max) {
     });
 }
 
-$(`.toggle-visibility`).click(function () {
+$('.toggle-visibility').click(function () {
     $(this).toggleClass("fa-eye-slash fa-eye");
 
     if ($(this).siblings("input").attr("type") === "password") {
@@ -164,9 +164,6 @@ $(`.toggle-visibility`).click(function () {
     } else {
         $(this).siblings("input").attr("type", "password");
     }
-
-
-    var icon = targetElement.find("i");
 });
 
 function copyToClipboard(textToCopy) {
@@ -174,3 +171,24 @@ function copyToClipboard(textToCopy) {
     document.execCommand('copy');
     $(dummy).remove();
 }
+
+$('#txt-confirm-password').on('input', function(event) {
+    event.preventDefault();
+
+    var password = $('#txt-password').val();
+    var confirmPassword = $(this).val();
+    
+    var feedbackDiv = $(this).siblings('.invalid-feedback');
+    
+    if (!confirmPassword){
+        feedbackDiv.text('Required');
+        $(this).addClass('is-invalid');
+    }else if (password !== confirmPassword) {
+        feedbackDiv.text('Unmatch password');
+        $(this).addClass('is-invalid');
+    }
+    else{
+        feedbackDiv.text('');
+        $(this).removeClass('is-invalid');
+    }
+});

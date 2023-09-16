@@ -2,16 +2,6 @@
 require '../Layout.php';
 ?>
 
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
-
-</head>
-
 <section class="mt-3">
     <div class="container py-5">
         <div class="row d-flex justify-content-center">
@@ -33,19 +23,19 @@ require '../Layout.php';
                                 <div class="text-center">
                                     <img src="https://static.vecteezy.com/system/resources/previews/003/689/231/original/online-registration-or-sign-up-login-for-account-on-smartphone-app-user-interface-with-secure-password-mobile-application-for-ui-web-banner-access-cartoon-people-illustration-vector.jpg" alt="register form" class="img-fluid w-50 h-50" style="border-radius: 1rem 0 0 1rem;" loading="lazy"/>
                                 </div>
-                                <form id="form-buyer-create need" method="POST" class="needs-validation" novalidate>
+                                <form id="form-buyer-create" class="needs-validation" novalidate>
                                     <div class="row">
                                         <div class="col-md-6 mb-3">
                                             <div class="form-outline">
-                                                <input type="email" id="mail" class="form-control" required tabindex="1" />
-                                                <label class="form-label" for="email" required>Email</label>
+                                                <input type="email" id="txt-email" class="form-control" required tabindex="1" />
+                                                <label class="form-label" for="txt-email" required>Email</label>
                                                 <div class="invalid-feedback">Required</div>
                                             </div>
                                         </div>
                                         <div class="col-md-6 mb-3">
                                             <div class="form-outline">
-                                                <input type="tel" id="phone" class="form-control" required tabindex="2" />
-                                                <label class="form-label" for="phone" required>Phone</label>
+                                                <input type="tel" id="txt-phone" class="form-control" required tabindex="2" />
+                                                <label class="form-label" for="txt-phone" required>Phone</label>
                                                 <div class="invalid-feedback">Required</div>
                                             </div>
                                         </div>
@@ -105,7 +95,8 @@ require '../Layout.php';
 <?php
 require '../Footer.php';
 ?>
-<!-- <script src="<?php $_SERVER['DOCUMENT_ROOT'] ?>/TARUMT_Event_Ticketing/Web/Script/FrontOffice/User/UserCreate.js" type="text/javascript"></script> -->
+
+<script src="../../../Script/FrontOffice/Buyer/BuyerCreate.js"></script>
 
 </body>
 

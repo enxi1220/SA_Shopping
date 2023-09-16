@@ -1,5 +1,5 @@
 <div class="tab-pane fade bg-light px-4 py-3 my-3" id="buyer-view" role="tabpanel" aria-labelledby="buyer-view-nav-tab">
-<h3 class="lead">Join on 20/7/2023</h3>
+<h3 class="lead">Join on <label id="lbl-created-date"></label></h3>
     <hr class="mt-0 mb-3" />
     <form class="row g-3 mt-3" id="form-buyer-view">
         <!-- <div class="col-md-12">

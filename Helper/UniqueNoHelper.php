@@ -8,9 +8,9 @@ class UniqueNoHelper {
         return $prefix.$dt;
     }
     
-    function generateUsername($name, $role) {
+    public static function RandomUsername($email, $prefix) {
         $randomNumber = rand(100,999); // Generate a random number between 100 and 999
-        $username = $role ."". $randomNumber . "_" . str_replace(" ", "", $name);
+        $username = $prefix . $randomNumber . substr(trim($email), 0, 5);
         return $username;
     }
 

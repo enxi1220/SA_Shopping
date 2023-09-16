@@ -30,4 +30,5 @@ require '../Layout.php';
 require '../Footer.php';
 ?>
 <script src="../../../Script/FrontOffice/Buyer/BuyerRead.js"></script>
+<script src="../../../Script/FrontOffice/Buyer/BuyerUpdate.js"></script>
 <script src="../../../Script/FrontOffice/Buyer/BuyerDelete.js"></script>
