@@ -2,5 +2,9 @@ product image add and remove - pending, left js
 reset password - not started
 
 <!-- todo: add video, video js -->
-
-review read buyer email 
+seller same method to buyer
+change password 
+login
+delete acc
+create product 
+last: reset password 
