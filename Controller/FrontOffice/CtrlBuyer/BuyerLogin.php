@@ -38,8 +38,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         // create session
         session_start();
-        $_SESSION['buyer']['buyerId'] = $buyer->getBuyerId();
-        $_SESSION['buyer']['buyerEmail'] = $buyer->getEmail();
+        $_SESSION['buyer']['buyerId'] = $result->getBuyerId();
+        $_SESSION['buyer']['buyerEmail'] = $result->getEmail();
         
         echo "Login successfully.";
         

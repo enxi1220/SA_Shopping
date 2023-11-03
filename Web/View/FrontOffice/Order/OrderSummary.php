@@ -1,5 +1,6 @@
 <?php
 require '../Layout.php';
+require '../CheckLogin.php';
 ?>
 
 <nav aria-label="breadcrumb " class="pt-3 d-flex justify-content-center align-items-center">

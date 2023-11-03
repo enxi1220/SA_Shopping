@@ -7,10 +7,14 @@ require_once $_SERVER['DOCUMENT_ROOT'] . "/SA_Shopping/BusinessLogic/BllReview/R
 if ($_SERVER["REQUEST_METHOD"] == "GET") {
 
     try {
+        // todo: replace buyer session
+        session_start();
+        $buyerId = $_SESSION['buyer']['buyerId'];
+
+
         $order = new Order();
 
-        // todo: replace buyer session
-        $order->setBuyerId(1);
+        $order->setBuyerId($buyerId);
 
         $result = OrderRead::Read($order);
 
