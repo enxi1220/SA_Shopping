@@ -37,6 +37,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
 
         // create session
+        session_start();
         $_SESSION['buyer']['buyerId'] = $buyer->getBuyerId();
         $_SESSION['buyer']['buyerEmail'] = $buyer->getEmail();
         

@@ -13,6 +13,17 @@ require_once $_SERVER['DOCUMENT_ROOT'] . "/SA_Shopping/BusinessLogic/BllOrder/Or
 if ($_SERVER["REQUEST_METHOD"] == "GET") {
 
     try {
+
+        // if (session_status() == PHP_SESSION_NONE) {
+        //     session_start();
+        // }
+        // if (!isset($_SESSION['buyer'])) {
+        //     echo json_encode(array('redirect' => '../Buyer/BuyerLogin.php'));
+        //     exit;
+        // }
+        
+        ////////////////////////////////////////////////////////////////////////
+
         if (!isset($_GET['productDetailId']) || !isset($_GET['quantity'])) {
             throw new Exception("Product not found.");
         }
@@ -99,7 +110,7 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
         // todo: replace buyer session 
         $buyerId = 1;
 
-    // check product availability
+        // check product availability
         $product = new Product();
         $product->setStatus(ProductStatusConstant::ACTIVE);
 
@@ -138,7 +149,6 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
         OrderCreate::Create($order);
 
         echo "Order is placed. Order No: " . $order->getOrderNo();
-
     } catch (\Throwable $e) {
         header($_SERVER["SERVER_PROTOCOL"] . ' 500 Internal Server Error', true, 500);
         // echo $e->getMessage();

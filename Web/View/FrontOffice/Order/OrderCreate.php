@@ -1,5 +1,6 @@
 <?php
 require '../Layout.php';
+require '../CheckLogin.php';
 ?>
 
 <nav aria-label="breadcrumb " class="pt-3 d-flex justify-content-center align-items-center">
@@ -16,21 +17,21 @@ require '../Layout.php';
             <div class="container p-3 m-1">
                 <div class="row">
                     <div class="col-3">
-                        <img id="img-product" class="img-fluid rounded float-start" src alt="Product name" loading="lazy"/>
+                        <img id="img-product" class="img-fluid rounded float-start" src alt="Product name" loading="lazy" />
                         <span class="badge rounded-pill badge-notification bg-danger fs-6" id="txt-quantity"></span>
                     </div>
                     <div class="col-9 d-flex align-items-center justify-content-between">
                         <div class="fs-5">
-                            <label for="" id="txt-product-name"></label> - 
-                            <label for="" id="txt-product-size"></label> - 
-                            <label for="" id="txt-product-color"></label> - 
+                            <label for="" id="txt-product-name"></label> -
+                            <label for="" id="txt-product-size"></label> -
+                            <label for="" id="txt-product-color"></label> -
                             <label for="" id="txt-product-material"></label>
                         </div>
                         <div class="fs-5">RM <label for="" id="txt-unit-price"></label></div>
                     </div>
                 </div>
             </div>
-            <hr/>
+            <hr />
             <div class="form-outline">
                 <textarea id="txt-delivery-address" class="form-control" required rows="4" tabindex="1"></textarea>
                 <label class="form-label" for="txt-delivery-address" required>Delivery Address</label>
@@ -96,7 +97,7 @@ require '../Layout.php';
                         <div class="row">
                             <div class="mb-3">
                                 <div class="form-outline">
-                                    <input type="text" id="txt-card-number" class="form-control" tabindex="5" pattern="^\d{4}\s?\d{4}\s?\d{4}\s?\d{4}$" minlength="19" maxlength="19" placeholder="0000 0000 0000 0000"/>
+                                    <input type="text" id="txt-card-number" class="form-control" tabindex="5" pattern="^\d{4}\s?\d{4}\s?\d{4}\s?\d{4}$" minlength="19" maxlength="19" placeholder="0000 0000 0000 0000" />
                                     <label class="form-label" for="txt-card-number" required>Card Number</label>
                                     <div class="invalid-feedback">Required</div>
                                 </div>
@@ -105,7 +106,7 @@ require '../Layout.php';
                         <div class="row">
                             <div class="mb-3">
                                 <div class="form-outline">
-                                    <input type="password" id="txt-cvv" class="form-control" tabindex="6" pattern="^\d{3}$" minlength="3" maxlength="3" placeholder="000"/>
+                                    <input type="password" id="txt-cvv" class="form-control" tabindex="6" pattern="^\d{3}$" minlength="3" maxlength="3" placeholder="000" />
                                     <label class="form-label" for="txt-cvv" required>CVV</label>
                                     <div class="invalid-feedback">Required</div>
                                 </div>
@@ -114,7 +115,7 @@ require '../Layout.php';
                         <div class="row">
                             <div class="mb-3">
                                 <div class="form-outline">
-                                    <input type="text" id="txt-expiry-date" class="form-control" tabindex="7" pattern="(0[1-9]|1[0-2])\/[0-9]{2}" maxlength="5" minlength="5" placeholder="12/30"/>
+                                    <input type="text" id="txt-expiry-date" class="form-control" tabindex="7" pattern="(0[1-9]|1[0-2])\/[0-9]{2}" maxlength="5" minlength="5" placeholder="12/30" />
                                     <label class="form-label" for="txt-expiry-date" required>Expiry Date</label>
                                     <div class="invalid-feedback">Required</div>
                                 </div>
