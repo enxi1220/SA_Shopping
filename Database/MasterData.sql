@@ -1,27 +1,27 @@
 INSERT INTO admin (username, name, email, password, phone, status, reset_code, created_date, created_by, updated_date, updated_by)
 VALUES
-    ('admin1', 'Admin One', 'admin1@example.com', 'adminpass', '9876543210', 'Active', 'reset123', '2023-08-31 15:00:00', 'Admin', '2023-08-31 15:00:00', 'Admin'),
-    ('admin2', 'Admin Two', 'admin2@example.com', 'adminpass', '5555555555', 'Active', 'reset456', '2023-08-31 16:00:00', 'Admin', '2023-08-31 16:00:00', 'Admin'),
-    ('admin3', 'Admin Three', 'admin3@example.com', 'adminpass', '1112223333', 'Active', 'reset789', '2023-08-31 17:00:00', 'Admin', '2023-08-31 17:00:00', 'Admin'),
-    ('admin4', 'Admin Four', 'admin4@example.com', 'adminpass', '4445556666', 'Active', 'resetabc', '2023-08-31 18:00:00', 'Admin', '2023-08-31 18:00:00', 'Admin'),
-    ('admin5', 'Admin Five', 'admin5@example.com', 'adminpass', '7778889999', 'Active', 'resetxyz', '2023-08-31 19:00:00', 'Admin', '2023-08-31 19:00:00', 'Admin'),
-    ('admin6', 'Admin Six', 'admin6@example.com', PASSWORD('adminpass'), '9876543211', 'Active', 'reset888', '2023-08-31 15:00:00', 'Admin', '2023-08-31 15:00:00', 'Admin');
+    ('admin1', 'Admin One', 'admin1@example.com', 'adminpass', '9876543210', 'Activate', 'reset123', '2023-08-31 15:00:00', 'Admin', '2023-08-31 15:00:00', 'Admin'),
+    ('admin2', 'Admin Two', 'admin2@example.com', 'adminpass', '5555555555', 'Activate', 'reset456', '2023-08-31 16:00:00', 'Admin', '2023-08-31 16:00:00', 'Admin'),
+    ('admin3', 'Admin Three', 'admin3@example.com', 'adminpass', '1112223333', 'Activate', 'reset789', '2023-08-31 17:00:00', 'Admin', '2023-08-31 17:00:00', 'Admin'),
+    ('admin4', 'Admin Four', 'admin4@example.com', 'adminpass', '4445556666', 'Activate', 'resetabc', '2023-08-31 18:00:00', 'Admin', '2023-08-31 18:00:00', 'Admin'),
+    ('admin5', 'Admin Five', 'admin5@example.com', 'adminpass', '7778889999', 'Activate', 'resetxyz', '2023-08-31 19:00:00', 'Admin', '2023-08-31 19:00:00', 'Admin'),
+    ('admin6', 'Admin Six', 'admin6@example.com', PASSWORD('adminpass'), '9876543211', 'Activate', 'reset888', '2023-08-31 15:00:00', 'Admin', '2023-08-31 15:00:00', 'Admin');
 
 INSERT INTO seller (username, name, email, password, phone, status, reset_code, created_date, created_by, updated_date, updated_by, business_address, store_name, store_desc, last_login_date)
 VALUES
-    ('seller1', 'Seller One', 'seller1@example.com', 'password', '1234567890', 'Active', 'reset123', '2023-08-31 10:00:00', 'Admin', '2023-08-31 10:00:00', 'Admin', '123 Business St', 'Store 1', 'Welcome to Store 1', '2023-08-31 10:30:00'),
-    ('seller2', 'Seller Two', 'seller2@example.com', 'password', '9876543210', 'Active', 'reset456', '2023-08-31 11:00:00', 'Admin', '2023-08-31 11:00:00', 'Admin', '456 Business St', 'Store 2', 'Welcome to Store 2', '2023-08-31 11:30:00'),
-    ('seller3', 'Seller Three', 'seller3@example.com', 'password', '5555555555', 'Active', 'reset789', '2023-08-31 12:00:00', 'Admin', '2023-08-31 12:00:00', 'Admin', '789 Business St', 'Store 3', 'Welcome to Store 3', '2023-08-31 12:30:00'),
-    ('seller4', 'Seller Four', 'seller4@example.com', 'password', '1112223333', 'Active', 'resetabc', '2023-08-31 13:00:00', 'Admin', '2023-08-31 13:00:00', 'Admin', '987 Business St', 'Store 4', 'Welcome to Store 4', '2023-08-31 13:30:00'),
-    ('seller5', 'Seller Five', 'seller5@example.com', 'password', '4445556666', 'Active', 'resetxyz', '2023-08-31 14:00:00', 'Admin', '2023-08-31 14:00:00', 'Admin', '654 Business St', 'Store 5', 'Welcome to Store 5', '2023-08-31 14:30:00');
+    ('seller1', 'Seller One', 'seller1@example.com', 'password', '1234567890', 'Activate', 'reset123', '2023-08-31 10:00:00', 'Admin', '2023-08-31 10:00:00', 'Admin', '123 Business St', 'Store 1', 'Welcome to Store 1', '2023-08-31 10:30:00'),
+    ('seller2', 'Seller Two', 'seller2@example.com', 'password', '9876543210', 'Activate', 'reset456', '2023-08-31 11:00:00', 'Admin', '2023-08-31 11:00:00', 'Admin', '456 Business St', 'Store 2', 'Welcome to Store 2', '2023-08-31 11:30:00'),
+    ('seller3', 'Seller Three', 'seller3@example.com', 'password', '5555555555', 'Activate', 'reset789', '2023-08-31 12:00:00', 'Admin', '2023-08-31 12:00:00', 'Admin', '789 Business St', 'Store 3', 'Welcome to Store 3', '2023-08-31 12:30:00'),
+    ('seller4', 'Seller Four', 'seller4@example.com', 'password', '1112223333', 'Activate', 'resetabc', '2023-08-31 13:00:00', 'Admin', '2023-08-31 13:00:00', 'Admin', '987 Business St', 'Store 4', 'Welcome to Store 4', '2023-08-31 13:30:00'),
+    ('seller5', 'Seller Five', 'seller5@example.com', 'password', '4445556666', 'Activate', 'resetxyz', '2023-08-31 14:00:00', 'Admin', '2023-08-31 14:00:00', 'Admin', '654 Business St', 'Store 5', 'Welcome to Store 5', '2023-08-31 14:30:00');
 
 INSERT INTO buyer (username, name, email, password, phone, status, reset_code, created_date, created_by, updated_date, updated_by, delivery_address)
 VALUES
-    ('buyer1', 'Buyer One', 'buyer1@example.com', 'buyerpass', '1234567890', 'Active', 'reset123', '2023-08-31 20:00:00', 'Admin', '2023-08-31 20:00:00', 'Admin', '123 Buyer St'),
-    ('buyer2', 'Buyer Two', 'buyer2@example.com', 'buyerpass', '9876543210', 'Active', 'reset456', '2023-08-31 21:00:00', 'Admin', '2023-08-31 21:00:00', 'Admin', '456 Buyer St'),
-    ('buyer3', 'Buyer Three', 'buyer3@example.com', 'buyerpass', '5555555555', 'Active', 'reset789', '2023-08-31 22:00:00', 'Admin', '2023-08-31 22:00:00', 'Admin', '789 Buyer St'),
-    ('buyer4', 'Buyer Four', 'buyer4@example.com', 'buyerpass', '1112223333', 'Active', 'resetabc', '2023-08-31 23:00:00', 'Admin', '2023-08-31 23:00:00', 'Admin', '987 Buyer St'),
-    ('buyer5', 'Buyer Five', 'buyer5@example.com', 'buyerpass', '4445556666', 'Active', 'resetxyz', '2023-09-01 00:00:00', 'Admin', '2023-09-01 00:00:00', 'Admin', '654 Buyer St');
+    ('buyer1', 'Buyer One', 'buyer1@example.com', 'buyerpass', '1234567890', 'Activate', 'reset123', '2023-08-31 20:00:00', 'Admin', '2023-08-31 20:00:00', 'Admin', '123 Buyer St'),
+    ('buyer2', 'Buyer Two', 'buyer2@example.com', 'buyerpass', '9876543210', 'Activate', 'reset456', '2023-08-31 21:00:00', 'Admin', '2023-08-31 21:00:00', 'Admin', '456 Buyer St'),
+    ('buyer3', 'Buyer Three', 'buyer3@example.com', 'buyerpass', '5555555555', 'Activate', 'reset789', '2023-08-31 22:00:00', 'Admin', '2023-08-31 22:00:00', 'Admin', '789 Buyer St'),
+    ('buyer4', 'Buyer Four', 'buyer4@example.com', 'buyerpass', '1112223333', 'Activate', 'resetabc', '2023-08-31 23:00:00', 'Admin', '2023-08-31 23:00:00', 'Admin', '987 Buyer St'),
+    ('buyer5', 'Buyer Five', 'buyer5@example.com', 'buyerpass', '4445556666', 'Activate', 'resetxyz', '2023-09-01 00:00:00', 'Admin', '2023-09-01 00:00:00', 'Admin', '654 Buyer St');
 
 INSERT INTO product (product_no, seller_id, name, price, status, description, created_date, updated_date)
 VALUES

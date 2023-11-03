@@ -15,12 +15,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $data = json_decode($_POST['buyer']);
 
         $buyer = new Buyer();
-
         $buyer
             ->setEmail($data->email)
             ->setPhone($data->phone)
             ->setName($data->name)
-            ->setPassword($data->password)
+            ->setPassword(password_hash($data->password, PASSWORD_DEFAULT))
             ->setDeliveryAddress($data->deliveryAddress)
             ->setUsername()
             ->setStatus(UserStatusConstant::ACTIVE);
@@ -28,7 +27,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         BuyerCreate::Create($buyer);
 
         echo "Register successfully. Please proceed to login";
-
     } catch (\Throwable $e) {
         header($_SERVER["SERVER_PROTOCOL"] . ' 500 Internal Server Error', true, 500);
         // echo $e->getMessage();

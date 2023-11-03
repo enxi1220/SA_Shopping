@@ -6,7 +6,24 @@ $(`#form-buyer-delete`).submit(function (event) {
 
     $(`#modal-buyer-delete`).modal('show');
     $(`#btn-buyer-delete`).click(function () {
-        // todo: get buyer id & change buyer status 
+        event.preventDefault();
+        post(
+            '/SA_Shopping/Controller/FrontOffice/CtrlBuyer/BuyerDelete.php',
+            [
+                submitData('buyer', preparePostData())
+            ],
+            null,
+            function () {
+                location.href = "/SA_Shopping/Web/View/FrontOffice/Buyer/BuyerLogin.php";
+            }
+        );
         $(`#modal-buyer-delete`).modal('hide');
     });
 });
+
+function preparePostData() {
+    var data = JSON.stringify({
+        password: $('#txt-password-delete').val()
+    });
+    return data;
+}

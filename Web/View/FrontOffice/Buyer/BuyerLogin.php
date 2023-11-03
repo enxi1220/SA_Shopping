@@ -23,7 +23,7 @@ require '../Layout.php';
                             <div class="col-5 col-md-6 d-flex align-items-center">
                                 <div class="card-body p-4 p-lg-5 text-black">
 
-                                    <form id="sign-in-form" method="POST" class="needs-validation" novalidate>
+                                    <form id="form-buyer-login" method="POST" class="needs-validation" novalidate>
                                         <h1 class="mb-3 pb-3">Login</h1>
                                         <div class="row">
                                             <div class="col-md-12 mb-4">
@@ -78,7 +78,7 @@ require '../Layout.php';
     <?php
     require '../Footer.php';
     ?>
-    <!-- <script src="<?php $_SERVER['DOCUMENT_ROOT'] ?>/TARUMT_Event_Ticketing/Web/Script/FrontOffice/User/UserRead.js" type="text/javascript"></script> -->
+    <script src="../../../Script/FrontOffice/Buyer/BuyerLogin.js"></script>
 
 </body>
 

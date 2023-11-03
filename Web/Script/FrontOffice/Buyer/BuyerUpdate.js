@@ -8,12 +8,12 @@ $(document).ready(function () {
     //     }
     // );
 
-    $(`#form-buyer-edit`).submit(function (event){
+    $(`#form-buyer-edit`).submit(function (event) {
         event.preventDefault();
         post(
             '/SA_Shopping/Controller/FrontOffice/CtrlBuyer/BuyerUpdate.php',
             [
-                submitData('buyer', preparePostData())
+                submitData('buyer', preparePostUpdateData())
             ],
             null,
             function () {
@@ -29,7 +29,7 @@ $(document).ready(function () {
 //     $('#txt-delivery-address-edit').val(buyer.deliveryAddress);
 // }
 
-function preparePostData() {
+function preparePostUpdateData() {
     var data = JSON.stringify({
         phone: $('#txt-phone-edit').val(),
         name: $('#txt-name-edit').val(),
