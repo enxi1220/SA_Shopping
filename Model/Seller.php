@@ -1,5 +1,7 @@
 <?php 
 require_once $_SERVER['DOCUMENT_ROOT'] . "/SA_Shopping/Model/IUser.php";
+require_once $_SERVER['DOCUMENT_ROOT'] . "/SA_Shopping/Helper/UniqueNoHelper.php";
+require_once $_SERVER['DOCUMENT_ROOT'] . "/SA_Shopping/Constant/PrefixConstant.php";
 
 class Seller implements IUser{
     private $sellerId;
@@ -74,9 +76,9 @@ class Seller implements IUser{
         return $this->lastLoginDate;
     }
 
-    public function setUsername($username)
-    {
+    public function setUsername($username = null) {
         $this->username = $username;
+        $this->username = $username == null? UniqueNoHelper::RandomUsername($this->email, $this->prefix()) : $username;
         return $this;
     }
     
@@ -193,6 +195,10 @@ class Seller implements IUser{
     public function getUpdatedBy()
     {
         return $this->updatedBy;
+    }
+
+    public function prefix(){
+        return PrefixConstant::SELLER;
     }
 }
 

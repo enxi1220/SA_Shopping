@@ -1,6 +1,5 @@
 <?php
 
-#  Author: Lim En Xi
 
 require_once $_SERVER['DOCUMENT_ROOT'] . "/SA_Shopping/DataAccess/DataAccess.php";
 require_once $_SERVER['DOCUMENT_ROOT'] . "/SA_Shopping/Model/Buyer.php";
@@ -33,7 +32,7 @@ class BuyerCreate
                 $pstmt->bindValue(1, $buyer->getUsername());
                 $pstmt->bindValue(2, $buyer->getName());
                 $pstmt->bindValue(3, $buyer->getEmail());
-                $pstmt->bindValue(4, $buyer->getPassword()); // todo: encrypt password
+                $pstmt->bindValue(4, $buyer->getPassword());
                 $pstmt->bindValue(5, $buyer->getPhone());
                 $pstmt->bindValue(6, $buyer->getStatus());
                 $pstmt->bindValue(7, $buyer->getDeliveryAddress());

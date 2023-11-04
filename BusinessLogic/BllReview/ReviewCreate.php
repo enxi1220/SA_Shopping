@@ -1,6 +1,5 @@
 <?php
 
-#  Author: Lim En Xi
 
 require_once $_SERVER['DOCUMENT_ROOT'] . "/SA_Shopping/DataAccess/DataAccess.php";
 require_once $_SERVER['DOCUMENT_ROOT'] . "/SA_Shopping/Model/Review.php";

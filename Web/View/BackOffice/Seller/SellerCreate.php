@@ -8,7 +8,7 @@ require '../Layout.php';
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
+    <title>Register</title>
 
 </head>
 
@@ -33,19 +33,19 @@ require '../Layout.php';
                                 <div class="text-center">
                                     <img src="https://static.vecteezy.com/system/resources/previews/003/689/231/original/online-registration-or-sign-up-login-for-account-on-smartphone-app-user-interface-with-secure-password-mobile-application-for-ui-web-banner-access-cartoon-people-illustration-vector.jpg" alt="register form" class="img-fluid w-50 h-50" style="border-radius: 1rem 0 0 1rem;" loading="lazy" />
                                 </div>
-                                <form id="form-seller-create need" method="POST" class="needs-validation" novalidate>
+                                <form id="form-seller-create" class="needs-validation" novalidate>
                                     <div class="row">
                                         <div class="col-md-6 mb-3">
                                             <div class="form-outline">
-                                                <input type="email" id="mail" class="form-control" required tabindex="1" />
-                                                <label class="form-label" for="email" required>Email</label>
+                                                <input type="email" id="txt-email" class="form-control" required tabindex="1" />
+                                                <label class="form-label" for="txt-email" required>Email</label>
                                                 <div class="invalid-feedback">Required</div>
                                             </div>
                                         </div>
                                         <div class="col-md-6 mb-3">
                                             <div class="form-outline">
-                                                <input type="tel" id="phone" class="form-control" required tabindex="2" />
-                                                <label class="form-label" for="phone" required>Phone</label>
+                                                <input type="tel" id="txt-phone" class="form-control" required tabindex="2" />
+                                                <label class="form-label" for="txt-phone" required>Phone</label>
                                                 <div class="invalid-feedback">Required</div>
                                             </div>
                                         </div>
@@ -58,14 +58,14 @@ require '../Layout.php';
                                         </div>
                                         <div class="col-md-6 mb-3">
                                             <div class="form-outline">
-                                                <input type="text" id="txt-name" class="form-control" required tabindex="4" />
-                                                <label class="form-label" for="txt-name" required>Store Name</label>
+                                                <input type="text" id="txt-store-name" class="form-control" required tabindex="4" />
+                                                <label class="form-label" for="txt-store-name" required>Store Name</label>
                                                 <div class="invalid-feedback">Required</div>
                                             </div>
                                         </div>
                                         <div class="col-md-6 mb-4">
                                             <div class="form-outline">
-                                                <i class="fas fa-eye-slash text-secondary toggle-visibility trailing" data-target></i>    
+                                                <i class="fas fa-eye-slash text-secondary toggle-visibility trailing" data-target></i>
                                                 <input type="password" id="txt-password" class="form-control" required tabindex="5" data-mdb-showcounter="true" maxlength="20" />
                                                 <label class="form-label" for="txt-password" required>Password</label>
                                                 <div class="form-helper"></div>
@@ -96,7 +96,6 @@ require '../Layout.php';
                                             </div>
                                         </div>
                                     </div>
-
                                     <div class="pt-1 mb-4">
                                         <button class="btn btn-dark btn-lg btn-block" type="submit">Register</button>
                                     </div>
@@ -121,7 +120,8 @@ require '../Layout.php';
 <?php
 require '../Footer.php';
 ?>
-<!-- <script src="<?php $_SERVER['DOCUMENT_ROOT'] ?>/TARUMT_Event_Ticketing/Web/Script/FrontOffice/User/UserCreate.js" type="text/javascript"></script> -->
+
+<script src="../../../Script/BackOffice/Seller/SellerCreate.js"></script>
 
 </body>
 
