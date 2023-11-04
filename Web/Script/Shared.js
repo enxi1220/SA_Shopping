@@ -39,19 +39,24 @@ function post(url, dataArr, successHandler, afterSuccess, errorHandler) {
         contentType: false,
         processData: false,
         success: function (success) {
+            var data = JSON.parse(success);
             if (successHandler) {
-                successHandler(success);
+                successHandler(data.message);
             } else {
                 //default success version
                 Swal.fire({
                     icon: 'success',
                     title: 'Success',
-                    html: success,
+                    html: data.message,
                     timer: 99999,
                     showConfirmButton: false
                 }).then(function () {
                     if (afterSuccess) {
                         afterSuccess();
+                    }
+                    if (data.url) {
+                        // redirect using absolute url
+                        location.href = window.location.origin + data.url;
                     }
                 });
             }
@@ -87,13 +92,12 @@ function get(url, data, successHandler, errorHandler, afterError, afterSuccess) 
                 //user-defined success version
                 successHandler(success);
             } else {
-
                 //default success version
                 Swal.fire({
                     icon: 'success',
                     title: 'Success',
                     html: success,
-                    // timer: 1900,
+                    timer: 1900,
                     showConfirmButton: false
                 }).then(function () {
                     if (afterSuccess) {
@@ -111,31 +115,17 @@ function get(url, data, successHandler, errorHandler, afterError, afterSuccess) 
                 Swal.fire({
                     icon: 'error',
                     title: 'Oops...',
-                    text: error.responseText
+                    text: error.responseText,
+                    timer: 99999
                 }).then(function () {
                     if (afterError) {
                         afterError();
                     }
+                    history.back();
                 });
             }
         }
     });
-}
-
-function swalError(text, afterError) {
-    Swal.fire({
-        icon: 'error',
-        title: 'Oops...',
-        html: '<pre>' + text + '</pre>'
-    }).then(function () {
-        if (afterError) {
-            afterError();
-        }
-    });
-}
-
-function swalSuccess(text) {
-
 }
 
 function checkDate(id, min, max) {
@@ -172,22 +162,22 @@ function copyToClipboard(textToCopy) {
     $(dummy).remove();
 }
 
-$('#txt-confirm-password').on('input', function(event) {
+$('#txt-confirm-password').on('input', function (event) {
     event.preventDefault();
 
     var password = $('#txt-password').val();
     var confirmPassword = $(this).val();
-    
+
     var feedbackDiv = $(this).siblings('.invalid-feedback');
-    
-    if (!confirmPassword){
+
+    if (!confirmPassword) {
         feedbackDiv.text('Required');
         $(this).addClass('is-invalid');
-    }else if (password !== confirmPassword) {
+    } else if (password !== confirmPassword) {
         feedbackDiv.text('Unmatch password');
         $(this).addClass('is-invalid');
     }
-    else{
+    else {
         feedbackDiv.text('');
         $(this).removeClass('is-invalid');
     }

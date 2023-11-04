@@ -1,16 +1,18 @@
 <?php
 
+require_once $_SERVER['DOCUMENT_ROOT'] . "/SA_Shopping/Model/Seller.php";
 require_once $_SERVER['DOCUMENT_ROOT'] . "/SA_Shopping/Model/Product.php";
 require_once $_SERVER['DOCUMENT_ROOT'] . "/SA_Shopping/Model/ProductDetail.php";
 require_once $_SERVER['DOCUMENT_ROOT'] . "/SA_Shopping/Model/ProductImage.php";
+require_once $_SERVER['DOCUMENT_ROOT'] . "/SA_Shopping/BusinessLogic/BllSeller/SellerRead.php";
 require_once $_SERVER['DOCUMENT_ROOT'] . "/SA_Shopping/BusinessLogic/BllProduct/ProductRead.php";
 require_once $_SERVER['DOCUMENT_ROOT'] . "/SA_Shopping/Constant/ProductDetailStatusConstant.php";
 
 if ($_SERVER["REQUEST_METHOD"] == "GET") {
 
     try {
-        if (!isset($_GET['productId'])) {
-            throw new Exception("Product not found.");
+        if (!isset($_GET['productId']) || empty($_GET['productId'])) {
+            throw new Exception("Please choose a product.");
         }
 
         $productId = json_decode($_GET['productId']);
@@ -31,6 +33,12 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
         }
 
         $result = $result[0];
+
+        $seller = new Seller();
+        $seller->setSellerId($result->getSellerId());
+
+        $sellerResult = SellerRead::Read($seller)[0];
+
         $output = array(
             'productId' => $result->getProductId(),
             'productNo' => $result->getProductNo(),
@@ -63,11 +71,21 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
                     'productId' => $image->getProductId(),
                     'imageName' => $image->getImageName(),
                 ];
-            }, $result->getProductImages())
+            }, $result->getProductImages()),
+            'seller' => [
+                'sellerId' => $sellerResult->getSellerId(),
+                'name' => $sellerResult->getName(),
+                'email' => $sellerResult->getEmail(),
+                'phone' => $sellerResult->getPhone(),
+                'businessAddress' => $sellerResult->getBusinessAddress(),
+                'storeName' => $sellerResult->getStoreName(),
+                'storeDesc' => $sellerResult->getStoreDesc(),
+                'lastLoginDate' => $sellerResult->getLastLoginDate(),
+                'createdDate' => $sellerResult->getCreatedDate()
+            ]
         );
 
         echo json_encode($output);
-        
     } catch (\Throwable $e) {
         header($_SERVER["SERVER_PROTOCOL"] . ' 500 Internal Server Error', true, 500);
         // echo $e->getMessage();

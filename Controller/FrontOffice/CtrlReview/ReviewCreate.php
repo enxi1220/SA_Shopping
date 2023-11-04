@@ -1,5 +1,6 @@
 <?php
 
+require_once $_SERVER['DOCUMENT_ROOT'] . "/SA_Shopping/Helper/ResponseHelper.php";
 require_once $_SERVER['DOCUMENT_ROOT'] . "/SA_Shopping/Model/Order.php";
 require_once $_SERVER['DOCUMENT_ROOT'] . "/SA_Shopping/Model/Buyer.php";
 require_once $_SERVER['DOCUMENT_ROOT'] . "/SA_Shopping/BusinessLogic/BllBuyer/BuyerRead.php";
@@ -17,8 +18,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         $data = json_decode($_POST['review']);
 
-        // todo: replace buyer session 
-        $buyerId = 1;
+        session_start();
+        $buyerId = $_SESSION['buyer']['buyerId'];
 
         $buyer = new Buyer();
         $buyer->setBuyerId($buyerId);
@@ -50,7 +51,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         ReviewCreate::Create($review);
 
-        echo "Review is posted";
+        echo ResponseHelper::createJsonResponse("Review is posted");
 
     } catch (\Throwable $e) {
         header($_SERVER["SERVER_PROTOCOL"] . ' 500 Internal Server Error', true, 500);

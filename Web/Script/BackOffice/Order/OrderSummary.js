@@ -1,4 +1,5 @@
 $(document).ready(function () {
+    
     get(
         '/SA_Shopping/Controller/BackOffice/CtrlOrder/OrderSummary.php',
         {},
@@ -9,7 +10,6 @@ $(document).ready(function () {
             renderOrders(orders);
         }
     );
-
 
 });
 

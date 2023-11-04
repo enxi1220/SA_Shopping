@@ -1,17 +1,15 @@
 $(document).ready(function () {
     var orderId = new URLSearchParams(window.location.search).get('orderId');
 
-    if (orderId) {
-        get(
-            '/SA_Shopping/Controller/BackOffice/CtrlOrder/OrderRead.php',
-            { orderId: new URLSearchParams(window.location.search).get('orderId') },
-            function (success) {
-                console.log(success);
-                order = JSON.parse(success);
-                renderOrder(order);
-            }
-        );
-    }
+    get(
+        '/SA_Shopping/Controller/BackOffice/CtrlOrder/OrderRead.php',
+        { orderId: orderId },
+        function (success) {
+            console.log(success);
+            order = JSON.parse(success);
+            renderOrder(order);
+        }
+    );
 
 });
 

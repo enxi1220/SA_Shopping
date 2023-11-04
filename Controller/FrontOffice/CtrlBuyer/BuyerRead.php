@@ -7,8 +7,8 @@ require_once $_SERVER['DOCUMENT_ROOT'] . "/SA_Shopping/Constant/UserStatusConsta
 if ($_SERVER["REQUEST_METHOD"] == "GET") {
 
     try {
-        // todo: replace buyer session
-        $buyerId = 1;
+        session_start();
+        $buyerId = $_SESSION['buyer']['buyerId'];
         
         $buyer = new Buyer();
         $buyer->setBuyerId($buyerId);
@@ -16,7 +16,7 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
         $result = BuyerRead::Read($buyer);
 
         if (empty($result)) {
-            throw new Exception("Data not found");
+            throw new Exception("User not found");
         }
 
         $result = $result[0];

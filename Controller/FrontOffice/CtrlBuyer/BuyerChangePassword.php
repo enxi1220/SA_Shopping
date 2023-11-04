@@ -3,7 +3,7 @@
 require_once $_SERVER['DOCUMENT_ROOT'] . "/SA_Shopping/Helper/ResponseHelper.php";
 require_once $_SERVER['DOCUMENT_ROOT'] . "/SA_Shopping/Model/Buyer.php";
 require_once $_SERVER['DOCUMENT_ROOT'] . "/SA_Shopping/BusinessLogic/BllBuyer/BuyerRead.php";
-require_once $_SERVER['DOCUMENT_ROOT'] . "/SA_Shopping/BusinessLogic/BllBuyer/BuyerUpdate.php";
+require_once $_SERVER['DOCUMENT_ROOT'] . "/SA_Shopping/BusinessLogic/BllBuyer/BuyerUpdatePassword.php";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
@@ -19,17 +19,25 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $data = json_decode($_POST['buyer']);
 
         $buyer = new Buyer();
+        $buyer->setBuyerId($buyerId);
 
-        $buyer
-            ->setBuyerId($buyerId)
-            ->setPhone($data->phone)
-            ->setName($data->name)
-            ->setDeliveryAddress($data->deliveryAddress);
+        $result = BuyerRead::Read($buyer);
 
-        BuyerUpdate::Update($buyer);
+        if (empty($result)) {
+            throw new Exception("User not found");
+        }
 
-        echo ResponseHelper::createJsonResponse("Update profile successfully");
+        $result = $result[0];
 
+        if(!password_verify($data->currentPassword, $result->getPassword())){
+            throw new Exception("Incorrect password. Failed to change password.");
+        }
+
+        $buyer->setPassword(password_hash($data->password, PASSWORD_DEFAULT));
+
+        BuyerUpdatePassword::Update($buyer);
+
+        echo ResponseHelper::createJsonResponse("Change password successfully");
     } catch (\Throwable $e) {
         header($_SERVER["SERVER_PROTOCOL"] . ' 500 Internal Server Error', true, 500);
         // echo $e->getMessage();

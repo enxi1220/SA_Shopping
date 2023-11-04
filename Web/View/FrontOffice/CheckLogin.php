@@ -9,9 +9,9 @@ if (!isset($_SESSION['buyer'])) {
     echo "
         <script>
             Swal.fire({
-                title: 'Login Required',
-                text: 'You need to log in to access this page.',
                 icon: 'info',
+                title: 'Login Required',
+                text: 'Please login to proceed',
                 showCancelButton: false,
                 confirmButtonText: 'Log In',
             })
@@ -19,6 +19,5 @@ if (!isset($_SESSION['buyer'])) {
                 window.location.href = '../Buyer/BuyerLogin.php';
             }, 2000);
         </script>";
-    // header('Location: ../Buyer/BuyerLogin.php');
     exit;
 }

@@ -1,20 +1,19 @@
 $(document).ready(function () {
     var productId = new URLSearchParams(window.location.search).get('productId');
 
-    if (productId) {
-        get(
-            '/SA_Shopping/Controller/BackOffice/CtrlReview/ReviewSummary.php',
-            { productId: productId },
-            function (success) {
-                console.log(success);
-                data = JSON.parse(success);
-                renderReview(data);
-            }
-        );
-    }
+    get(
+        '/SA_Shopping/Controller/BackOffice/CtrlReview/ReviewSummary.php',
+        { productId: productId },
+        function (success) {
+            console.log(success);
+            data = JSON.parse(success);
+            renderReview(data);
+        }
+    );
+
 });
 
-function renderReview(reviews){
+function renderReview(reviews) {
     $('#review-summary').DataTable({
         data: reviews,
         columns: [
@@ -23,11 +22,11 @@ function renderReview(reviews){
             { data: "reviewText" },
             {
                 render: function (data, type, row, meta) {
-                    if(row.sentimentLabel == SentimentLabel.Neutral){
+                    if (row.sentimentLabel == SentimentLabel.Neutral) {
                         return `<span class="badge rounded-pill badge-warning">${SentimentLabel.Neutral}</span>`;
-                    }else if (row.sentimentLabel == SentimentLabel.Positive){
+                    } else if (row.sentimentLabel == SentimentLabel.Positive) {
                         return `<span class="badge rounded-pill badge-success">${SentimentLabel.Positive}</span>`;
-                    }else{
+                    } else {
                         return `<span class="badge rounded-pill badge-danger">${SentimentLabel.Negative}</span>`;
                     }
                 }

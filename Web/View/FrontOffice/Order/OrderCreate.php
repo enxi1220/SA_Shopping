@@ -6,7 +6,7 @@ require '../CheckLogin.php';
 <nav aria-label="breadcrumb " class="pt-3 d-flex justify-content-center align-items-center">
     <ol class="breadcrumb">
         <li class="breadcrumb-item"><a href="../Product/ProductSummary.php">Product Catalog</a></li>
-        <li class="breadcrumb-item"><a href="../Product/ProductRead.php?productId=">Product Detail</a></li>
+        <li class="breadcrumb-item" ><a id="link-product-detail" href="../Product/ProductRead.php?productId=">Product Detail</a></li>
         <li class="breadcrumb-item active" aria-current="page">Order Form</li>
     </ol>
 </nav>

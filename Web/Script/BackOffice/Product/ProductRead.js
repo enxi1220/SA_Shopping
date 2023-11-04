@@ -1,18 +1,16 @@
 $(document).ready(function () {
     var productId = new URLSearchParams(window.location.search).get('productId');
 
-    if (productId) {
-        get(
-            '/SA_Shopping/Controller/BackOffice/CtrlProduct/ProductRead.php',
-            { productId: new URLSearchParams(window.location.search).get('productId') },
-            function (success) {
-                product = JSON.parse(success);
-                renderProducts(product);
-                renderProductDetails(product.productDetails);
-                renderProductImages(product.productImages)
-            }
-        );
-    }
+    get(
+        '/SA_Shopping/Controller/BackOffice/CtrlProduct/ProductRead.php',
+        { productId: productId },
+        function (success) {
+            product = JSON.parse(success);
+            renderProducts(product);
+            renderProductDetails(product.productDetails);
+            renderProductImages(product.productImages)
+        }
+    );
 
 });
 

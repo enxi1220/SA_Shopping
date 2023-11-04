@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <?php
 require '../Layout.php';
+require '../CheckLogin.php';
 ?>
 
 <div class="container p-5">
@@ -31,4 +32,5 @@ require '../Footer.php';
 ?>
 <script src="../../../Script/FrontOffice/Buyer/BuyerRead.js"></script>
 <script src="../../../Script/FrontOffice/Buyer/BuyerUpdate.js"></script>
+<script src="../../../Script/FrontOffice/Buyer/BuyerChangePassword.js"></script>
 <script src="../../../Script/FrontOffice/Buyer/BuyerDelete.js"></script>

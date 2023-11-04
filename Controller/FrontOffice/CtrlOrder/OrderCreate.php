@@ -1,5 +1,6 @@
 <?php
 
+require_once $_SERVER['DOCUMENT_ROOT'] . "/SA_Shopping/Helper/ResponseHelper.php";
 require_once $_SERVER['DOCUMENT_ROOT'] . "/SA_Shopping/Model/Order.php";
 require_once $_SERVER['DOCUMENT_ROOT'] . "/SA_Shopping/Model/Product.php";
 require_once $_SERVER['DOCUMENT_ROOT'] . "/SA_Shopping/Model/Buyer.php";
@@ -14,18 +15,8 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
 
     try {
 
-        // if (session_status() == PHP_SESSION_NONE) {
-        //     session_start();
-        // }
-        // if (!isset($_SESSION['buyer'])) {
-        //     echo json_encode(array('redirect' => '../Buyer/BuyerLogin.php'));
-        //     exit;
-        // }
-        
-        ////////////////////////////////////////////////////////////////////////
-
-        if (!isset($_GET['productDetailId']) || !isset($_GET['quantity'])) {
-            throw new Exception("Product not found.");
+        if (!isset($_GET['productDetailId']) || $_GET['productDetailId'] === 'undefined' || !isset($_GET['quantity'])) {
+            throw new Exception("Please choose a product.");
         }
 
         $productDetailId = json_decode($_GET['productDetailId']);
@@ -46,9 +37,11 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
         }
         $productResult = $productResult[0];
 
+        session_start();
+        $buyerId = $_SESSION['buyer']['buyerId'];
+        
         $buyer = new Buyer();
-        // todo: replace buyer session 
-        $buyer->setBuyerId(1);
+        $buyer->setBuyerId($buyerId);
 
         $buyerResult = BuyerRead::Read($buyer);
 
@@ -107,8 +100,8 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
 
         $data = json_decode($_POST['order']);
 
-        // todo: replace buyer session 
-        $buyerId = 1;
+        session_start();
+        $buyerId = $_SESSION['buyer']['buyerId'];
 
         // check product availability
         $product = new Product();
@@ -148,7 +141,8 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
 
         OrderCreate::Create($order);
 
-        echo "Order is placed. Order No: " . $order->getOrderNo();
+        echo ResponseHelper::createJsonResponse("Order is placed. Order No: " . $order->getOrderNo());
+
     } catch (\Throwable $e) {
         header($_SERVER["SERVER_PROTOCOL"] . ' 500 Internal Server Error', true, 500);
         // echo $e->getMessage();

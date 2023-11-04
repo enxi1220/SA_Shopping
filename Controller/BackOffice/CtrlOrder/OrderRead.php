@@ -6,8 +6,8 @@ require_once $_SERVER['DOCUMENT_ROOT'] . "/SA_Shopping/BusinessLogic/BllOrder/Or
 if ($_SERVER["REQUEST_METHOD"] == "GET") {
 
     try {
-        if (!isset($_GET['orderId'])) {
-            throw new Exception("Order not found.");
+        if (!isset($_GET['orderId']) || empty($_GET['orderId'])) {
+            throw new Exception("Please choose an order.");
         }
 
         $orderId = json_decode($_GET['orderId']);

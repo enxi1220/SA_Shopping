@@ -4,29 +4,22 @@ $(document).ready(function () {
     var productId = new URLSearchParams(window.location.search).get('productId');
     var product = null;
 
-    if (!(productId)) {
-        swalError('Invalid parameters',
-            function () {
-                window.history.back();
-                exit;
-            });
-    }
-
     get(
         '/SA_Shopping/Controller/FrontOffice/CtrlProduct/ProductRead.php',
         { productId: productId },
         function (success) {
             product = JSON.parse(success);
             renderProduct(product);
+            renderSeller(product.seller);
 
-            get(
-                '/SA_Shopping/Controller/FrontOffice/CtrlSeller/SellerRead.php',
-                { sellerId: product.sellerId },
-                function (successSeller) {
-                    var seller = JSON.parse(successSeller);
-                    renderSeller(seller);
-                }
-            );
+            // get(
+            //     '/SA_Shopping/Controller/FrontOffice/CtrlSeller/SellerRead.php',
+            //     { sellerId: product.sellerId },
+            //     function (successSeller) {
+            //         var seller = JSON.parse(successSeller);
+            //         renderSeller(seller);
+            //     }
+            // );
         }
     );
 

@@ -37,7 +37,7 @@ require $_SERVER['DOCUMENT_ROOT'] . '/SA_Shopping/Web/StyleSheet/CSS_links.php';
                     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">
                         <li><a class="dropdown-item" href="/SA_Shopping/Web/View/FrontOffice/Buyer/BuyerOverview.php">My profile</a></li>
                         <li><a class="dropdown-item" href="/SA_Shopping/Web/View/FrontOffice/Order/OrderSummary.php">Purchase History</a></li>
-                        <li><a class="dropdown-item" href="#">Logout</a></li>
+                        <li><a class="dropdown-item" href="#" onclick="logout()">Logout</a></li>
                     </ul>
                 </li>
             </ul>

@@ -2,7 +2,7 @@
 require '../Layout.php';
 ?>
 
-<nav aria-label="breadcrumb " class="pt-3 d-flex justify-content-center align-items-center">
+<nav aria-label="breadcrumb" class="pt-3 d-flex justify-content-center align-items-center">
     <ol class="breadcrumb">
         <li class="breadcrumb-item"><a href="ProductSummary.php">Product Catalog</a></li>
         <li class="breadcrumb-item active" aria-current="page">Product Detail</li>
@@ -133,5 +133,3 @@ require '../Footer.php';
 
 <script src="../../../Script/FrontOffice/Product/ProductRead.js"></script>
 <script src="../../../Script/FrontOffice/Review/ReviewSummary.js"></script>
-<!------------------- Outer Container ------------------->
-<!-- <script src="<%=request.getContextPath()%>/Scripts/FrontOffice/Product/Fo.ProductView.js" type="text/javascript"></script> -->

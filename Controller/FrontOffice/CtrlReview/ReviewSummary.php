@@ -19,6 +19,10 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
 
         $result = ReviewRead::Read($review);
 
+        if(empty($result)){
+            exit;
+        }
+
         $reviewCount = ReviewReadCount::Read($review)[0];
 
         $output = [

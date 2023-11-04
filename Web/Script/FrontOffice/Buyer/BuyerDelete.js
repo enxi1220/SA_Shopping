@@ -10,7 +10,10 @@ $(`#form-buyer-delete`).submit(function (event) {
         post(
             '/SA_Shopping/Controller/FrontOffice/CtrlBuyer/BuyerDelete.php',
             [
-                submitData('buyer', preparePostData())
+                submitData('buyer',
+                    JSON.stringify({
+                        password: $('#txt-password-delete').val()
+                    }))
             ],
             null,
             function () {
@@ -20,10 +23,3 @@ $(`#form-buyer-delete`).submit(function (event) {
         $(`#modal-buyer-delete`).modal('hide');
     });
 });
-
-function preparePostData() {
-    var data = JSON.stringify({
-        password: $('#txt-password-delete').val()
-    });
-    return data;
-}

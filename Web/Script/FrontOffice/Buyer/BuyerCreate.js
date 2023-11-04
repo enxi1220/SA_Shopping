@@ -5,11 +5,7 @@ $(document).ready(function () {
             '/SA_Shopping/Controller/FrontOffice/CtrlBuyer/BuyerCreate.php',
             [
                 submitData('buyer', preparePostData())
-            ],
-            null,
-            function () {
-                location.href = "/SA_Shopping/Web/View/FrontOffice/Buyer/BuyerLogin.php";
-            }
+            ]
         );
     });
 });

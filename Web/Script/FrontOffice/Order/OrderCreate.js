@@ -3,13 +3,6 @@ var quantity = new URLSearchParams(window.location.search).get('quantity');
 
 $(document).ready(function () {
 
-    // if (!(productDetailId && quantity)) {
-    //     swalError('Invalid parameters',
-    //         function () {
-    //             window.history.back();
-    //         });
-    // }
-
     get(
         '/SA_Shopping/Controller/FrontOffice/CtrlOrder/OrderCreate.php',
         {
@@ -24,9 +17,7 @@ $(document).ready(function () {
         }
     );
 
-    $(`#form-order-create`).submit(function (event){
-        console.log('asdc');
-        // console.log(preparePostData());
+    $(`#form-order-create`).submit(function (event) {
         event.preventDefault();
         post(
             '/SA_Shopping/Controller/FrontOffice/CtrlOrder/OrderCreate.php',
@@ -62,6 +53,8 @@ function renderOrder(order) {
     $('#txt-unit-price').text(order.product.price);
     $('#txt-delivery-address').val(order.buyer.deliveryAddress);
     $('#txt-delivery-fee').text(order.deliveryFee);
+
+    $("#link-product-detail").attr("href", $("#link-product-detail").attr("href") + order.product.productId);
 
     calculation(order);
 }

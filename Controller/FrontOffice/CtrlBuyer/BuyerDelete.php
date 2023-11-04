@@ -1,5 +1,6 @@
 <?php
 
+require_once $_SERVER['DOCUMENT_ROOT'] . "/SA_Shopping/Helper/ResponseHelper.php";
 require_once $_SERVER['DOCUMENT_ROOT'] . "/SA_Shopping/Model/Buyer.php";
 require_once $_SERVER['DOCUMENT_ROOT'] . "/SA_Shopping/BusinessLogic/BllBuyer/BuyerRead.php";
 require_once $_SERVER['DOCUMENT_ROOT'] . "/SA_Shopping/BusinessLogic/BllBuyer/BuyerDeactivate.php";
@@ -8,8 +9,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     try {
 
-        // todo: replace buyer session
-        $buyerId = 2;
+        session_start();
+        $buyerId = $_SESSION['buyer']['buyerId'];
 
         // data from user input, buyer from database
 
@@ -18,7 +19,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
 
         $data = json_decode($_POST['buyer']);
-
 
         $buyer = new Buyer();
         $buyer->setBuyerId($buyerId);
@@ -31,13 +31,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         $result = $result[0];
 
-        if($data->password != $result->getPassword()){
+        if(!password_verify($data->password, $result->getPassword())){
             throw new Exception("Incorrect password. Delete profile failed.");
         }
 
         BuyerDeactivate::Deactivate($buyer);
 
-        echo "Delete profile successfully";
+        echo ResponseHelper::createJsonResponse("Delete profile successfully");
     } catch (\Throwable $e) {
         header($_SERVER["SERVER_PROTOCOL"] . ' 500 Internal Server Error', true, 500);
         // echo $e->getMessage();
