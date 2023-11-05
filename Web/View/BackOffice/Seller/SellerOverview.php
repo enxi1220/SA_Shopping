@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <?php
 require '../Layout.php';
+require '../CheckLogin.php';
 ?>
 
 <div class="container p-5">
@@ -30,4 +31,6 @@ require '../Layout.php';
 require '../Footer.php';
 ?>
 <script src="../../../Script/BackOffice/Seller/SellerRead.js"></script>
+<script src="../../../Script/BackOffice/Seller/SellerUpdate.js"></script>
+<script src="../../../Script/BackOffice/Seller/SellerChangePassword.js"></script>
 <script src="../../../Script/BackOffice/Seller/SellerDelete.js"></script>

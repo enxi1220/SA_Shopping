@@ -1,5 +1,8 @@
 <?php
 require $_SERVER['DOCUMENT_ROOT'] . '/SA_Shopping/Web/StyleSheet/CSS_links.php';
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
 ?>
 <!DOCTYPE html>
 <html>
@@ -36,7 +39,7 @@ require $_SERVER['DOCUMENT_ROOT'] . '/SA_Shopping/Web/StyleSheet/CSS_links.php';
                         <i class="fas fa-user fa-fw me-3"></i>
                         <span>Profile</span>
                     </a>
-                    <a href="#" class="list-group-item list-group-item-action py-2 ripple">
+                    <a onclick="logout()" href="#" class="list-group-item list-group-item-action py-2 ripple">
                         <i class="fas fa-right-from-bracket fa-fw me-3"></i>
                         <span>Logout</span>
                     </a>
@@ -71,7 +74,7 @@ require $_SERVER['DOCUMENT_ROOT'] . '/SA_Shopping/Web/StyleSheet/CSS_links.php';
                 <a class="navbar-brand" href="/SA_Shopping/Web/View/FrontOffice/Product/ProductSummary.php">
                     <img src="/SA_Shopping/Web/Image/iu-fighting.gif" height="40" alt="" loading="lazy" />
                 </a>
-                <div class="lead" id="txt-store-name">$storeName</div>
+                <div class="lead" id="lbl-store-name"><?php echo isset($_SESSION['seller']) ? implode(";", $_SESSION['seller']): "" ?></div>
             </div>
             <!-- Container wrapper -->
         </nav>

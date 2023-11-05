@@ -1,7 +1,7 @@
 <div class="tab-pane fade bg-light px-4 py-3 my-3" id="seller-change-password" role="tabpanel" aria-labelledby="seller-change-password-nav-tab">
     <h3 class="lead">Change Password</h3>
     <hr class="mt-0 mb-3" />
-    <form class="row g-3 needs-validation mt-3" id="form-change-password" novalidate>
+    <form id="form-seller-change-password" class="row g-3 needs-validation mt-3" novalidate>
         <div class="col-md-12 mb-4">
             <div class="form-outline">
                 <i class="fas fa-eye-slash text-secondary toggle-visibility trailing" data-target></i>

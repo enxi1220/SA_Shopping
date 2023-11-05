@@ -1,4 +1,7 @@
 $(document).ready(function () {
+    
+    $("header").hide();
+
     $(`#form-seller-create`).submit(function (event) {
         event.preventDefault();
         post(

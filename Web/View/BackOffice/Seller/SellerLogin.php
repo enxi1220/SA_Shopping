@@ -18,13 +18,13 @@ require '../Layout.php';
                     <div class="card" style="border-radius: 1rem;">
                         <div class="row g-0 d-flex justify-content-center align-items-center">
                             <div class="col-7 col-lg-5 d-md-block">
-                                <img src="https://www.tampabaytamilacademy.org/assets/login.c6b269bc.png" alt="login form" class="img-fluid mt-5" loading="lazy"/>
+                                <img src="https://www.tampabaytamilacademy.org/assets/login.c6b269bc.png" alt="login form" class="img-fluid mt-5" loading="lazy" />
                             </div>
                             <div class="col-5 col-md-6 d-flex align-items-center">
                                 <div class="card-body p-4 p-lg-5 text-black">
 
-                                    <form id="sign-in-form" method="POST" class="needs-validation" novalidate>
-                                        <h1 class="mb-3 pb-3">Login</h1>
+                                    <form id="form-seller-login" class="needs-validation" novalidate>
+                                        <h1 class="mb-3 pb-3">Login as a Seller</h1>
                                         <div class="row">
                                             <div class="col-md-12 mb-4">
                                                 <div class="form-outline">
@@ -78,7 +78,7 @@ require '../Layout.php';
     <?php
     require '../Footer.php';
     ?>
-    <!-- <script src="<?php $_SERVER['DOCUMENT_ROOT'] ?>/TARUMT_Event_Ticketing/Web/Script/FrontOffice/User/UserRead.js" type="text/javascript"></script> -->
+    <script src="../../../Script/BackOffice/Seller/SellerLogin.js"></script>
 
 </body>
 

@@ -8,13 +8,16 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
     try {
         $order = new Order();
 
-        // todo: replace seller session
-        $order->setSellerId(1);
-        
+        session_start();
+        $sellerId = $_SESSION['seller']['sellerId'];
+
+        $order->setSellerId($sellerId);
+
         $result = OrderRead::Read($order);
 
         if (empty($result)) {
-            throw new Exception("Data not found");
+            echo json_encode($result);
+            exit;
         }
 
         $output = array_map(
@@ -59,7 +62,6 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
         );
 
         echo json_encode($output);
-
     } catch (\Throwable $e) {
         header($_SERVER["SERVER_PROTOCOL"] . ' 500 Internal Server Error', true, 500);
         // echo $e->getMessage();

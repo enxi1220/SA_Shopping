@@ -1,7 +1,7 @@
 <div class="tab-pane fade bg-light px-4 py-3 my-3" id="seller-edit" role="tabpanel" aria-labelledby="seller-edit-nav-tab">
     <h3 class="lead">Update Profile</h3>
     <hr class="mt-0 mb-3" />
-    <form class="row g-3 needs-validation mt-3" id="form-seller-edit" novalidate>
+    <form id="form-seller-edit" class="row g-3 needs-validation mt-3" novalidate>
         <div class="col-md-12">
             <div class="form-outline">
                 <input type="text" class="form-control" id="txt-name-edit" required />

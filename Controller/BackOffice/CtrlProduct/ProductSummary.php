@@ -10,10 +10,11 @@ require_once $_SERVER['DOCUMENT_ROOT'] . "/SA_Shopping/Constant/ProductStatusCon
 if ($_SERVER["REQUEST_METHOD"] == "GET") {
 
     try {
+        session_start();
+        $sellerId = $_SESSION['seller']['sellerId'];
 
         $product = new Product();
-        // todo: hardcode become session 
-        // $product->setSellerId(1);
+        $product->setSellerId($sellerId);
 
         $productDetail = new ProductDetail();
 
@@ -22,7 +23,8 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
         $result = ProductRead::Read($product, $productDetail, $productImage);
 
         if (empty($result)) {
-            throw new Exception("Data not found");
+            echo json_encode($result);
+            exit;
         }
 
         $output = array_map(
@@ -61,11 +63,11 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
                     //     ];
                     // }, $product->getProductImages())
                 ];
-            }, $result
+            },
+            $result
         );
 
         echo json_encode($output);
-
     } catch (\Throwable $e) {
         header($_SERVER["SERVER_PROTOCOL"] . ' 500 Internal Server Error', true, 500);
         // echo $e->getMessage();

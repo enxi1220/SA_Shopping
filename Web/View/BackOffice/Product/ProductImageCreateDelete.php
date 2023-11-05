@@ -1,5 +1,6 @@
 <?php
 require '../Layout.php';
+require '../CheckLogin.php';
 ?>
 <div class="p-5 shadow bg-white offset-2 h-100 overflow-auto">
     <div class="row">

@@ -7,8 +7,8 @@ require_once $_SERVER['DOCUMENT_ROOT'] . "/SA_Shopping/Constant/UserStatusConsta
 if ($_SERVER["REQUEST_METHOD"] == "GET") {
 
     try {
-        // replace seller sessiion 
-        $sellerId = 1;
+        session_start();
+        $sellerId = $_SESSION['seller']['sellerId'];
 
         $seller = new Seller();
 

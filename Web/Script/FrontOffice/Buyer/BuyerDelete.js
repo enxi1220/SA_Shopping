@@ -14,11 +14,7 @@ $(`#form-buyer-delete`).submit(function (event) {
                     JSON.stringify({
                         password: $('#txt-password-delete').val()
                     }))
-            ],
-            null,
-            function () {
-                location.href = "/SA_Shopping/Web/View/FrontOffice/Buyer/BuyerLogin.php";
-            }
+            ]
         );
         $(`#modal-buyer-delete`).modal('hide');
     });

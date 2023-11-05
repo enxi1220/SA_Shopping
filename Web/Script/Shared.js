@@ -9,6 +9,7 @@
             if (!form.checkValidity()) {
                 event.preventDefault();
                 event.stopPropagation();
+                event.stopImmediatePropagation();
                 console.log('error');
             }
             form.classList.add('was-validated');

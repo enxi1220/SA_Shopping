@@ -33,7 +33,7 @@ require '../Layout.php';
                                 <div class="text-center">
                                     <img src="https://static.vecteezy.com/system/resources/previews/003/689/231/original/online-registration-or-sign-up-login-for-account-on-smartphone-app-user-interface-with-secure-password-mobile-application-for-ui-web-banner-access-cartoon-people-illustration-vector.jpg" alt="register form" class="img-fluid w-50 h-50" style="border-radius: 1rem 0 0 1rem;" loading="lazy" />
                                 </div>
-                                <form id="form-seller-create" class="needs-validation" novalidate>
+                                <form id="form-seller-create" novalidate class="needs-validation" >
                                     <div class="row">
                                         <div class="col-md-6 mb-3">
                                             <div class="form-outline">

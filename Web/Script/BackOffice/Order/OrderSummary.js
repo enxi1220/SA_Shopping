@@ -4,7 +4,6 @@ $(document).ready(function () {
         '/SA_Shopping/Controller/BackOffice/CtrlOrder/OrderSummary.php',
         {},
         function (success) {
-            
             orders = JSON.parse(success);
             console.log(orders);
             renderOrders(orders);

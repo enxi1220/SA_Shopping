@@ -24,7 +24,7 @@ require '../Layout.php';
                                 <div class="card-body p-4 p-lg-5 text-black">
 
                                     <form id="form-buyer-login" method="POST" class="needs-validation" novalidate>
-                                        <h1 class="mb-3 pb-3">Login</h1>
+                                        <h1 class="mb-3 pb-3">Login as a Buyer</h1>
                                         <div class="row">
                                             <div class="col-md-12 mb-4">
                                                 <div class="form-outline">

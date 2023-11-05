@@ -1,11 +1,13 @@
 $(document).ready(function () {
-    $("nav").hide();
-    $(`#form-buyer-login`).submit(function (event) {
+    
+    $("header").hide();
+
+    $(`#form-seller-login`).submit(function (event) {
         event.preventDefault();
         post(
-            '/SA_Shopping/Controller/FrontOffice/CtrlBuyer/BuyerLogin.php',
+            '/SA_Shopping/Controller/BackOffice/CtrlSeller/SellerLogin.php',
             [
-                submitData('buyer',
+                submitData('seller',
                     JSON.stringify({
                         email: $('#txt-email').val(),
                         password: $('#txt-password').val()

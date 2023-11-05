@@ -6,7 +6,16 @@ $(`#form-seller-delete`).submit(function (event) {
 
     $(`#modal-seller-delete`).modal('show');
     $(`#btn-seller-delete`).click(function () {
-        // todo: get seller id & change seller status 
+        event.preventDefault();
+        post(
+            '/SA_Shopping/Controller/BackOffice/CtrlSeller/SellerDelete.php',
+            [
+                submitData('seller',
+                    JSON.stringify({
+                        password: $('#txt-password-delete').val()
+                    }))
+            ]
+        );
         $(`#modal-seller-delete`).modal('hide');
     });
 });

@@ -17,5 +17,11 @@ function renderBuyer(seller){
     $('#txt-store-name').val(seller.storeName);
     $('#txt-store-desc').val(seller.storeDesc);
     $('#txt-business-address').val(seller.businessAddress);
+    $('#txt-name-edit').val(seller.name);
+    $('#txt-phone-edit').val(seller.phone);
+    $('#txt-store-name-edit').val(seller.storeName);
+    $('#txt-store-desc-edit').val(seller.storeDesc);
+    $('#txt-business-address-edit').val(seller.businessAddress);
+
 
 }
