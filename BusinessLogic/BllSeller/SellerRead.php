@@ -41,10 +41,12 @@ class SellerRead
              WHERE
                 s.seller_id = IF(:seller_id IS NULL, s.seller_id, :seller_id)
                 AND s.status = IF(:status IS NULL, s.status, :status)
+                AND s.email = IF(:email IS NULL, s.email, :email)
              ORDER BY s.created_date DESC",
             function (PDOStatement $pstmt) use ($seller) {
                 $pstmt->bindValue(":seller_id", $seller->getSellerId(), PDO::PARAM_INT);
                 $pstmt->bindValue(":status", $seller->getStatus(), PDO::PARAM_STR);
+                $pstmt->bindValue(":email", $seller->getEmail(), PDO::PARAM_STR);
             },
             function ($row) {
                 $seller = new Seller();

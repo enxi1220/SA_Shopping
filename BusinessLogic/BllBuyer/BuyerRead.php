@@ -36,7 +36,7 @@ class BuyerRead
              WHERE
                 b.buyer_id = IF(:buyer_id IS NULL, b.buyer_id, :buyer_id)
                 AND b.status = IF(:status IS NULL, b.status, :status)
-                AND b.email = IF(:email IS NULL, b.email, :email)
+                AND b.email = IF(:email IS NULL, b.email, :email)   
              ORDER BY b.created_date DESC",
             function (PDOStatement $pstmt) use ($buyer) {
                 $pstmt->bindValue(":buyer_id", $buyer->getBuyerId(), PDO::PARAM_INT);

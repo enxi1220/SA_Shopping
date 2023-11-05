@@ -17,6 +17,7 @@ require '../CheckLogin.php';
                 <th>Product No</th>
                 <th>Product Name</th>
                 <th>Price</th>
+                <th>Status</th>
                 <th>Created Date</th>
                 <th>Updated Date</th>
                 <th>Action</th>

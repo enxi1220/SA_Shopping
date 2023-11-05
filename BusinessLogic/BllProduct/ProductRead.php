@@ -68,6 +68,7 @@ class ProductRead
                 ->setSellerId($row['seller_id'])
                 ->setName($row['name'])
                 ->setPrice($row['price'])
+                ->setStatus($row['status'])
                 ->setDescription($row['description'])
                 ->setCreatedDate($row['created_date'])
                 ->setUpdatedDate($row['updated_date']);

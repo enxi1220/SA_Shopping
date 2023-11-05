@@ -26,33 +26,17 @@ require '../Layout.php';
 </div>
 
 <!----------------------- Modal ----------------------->
-<div class="modal fade" id="modal-activate-order" tabindex="-1" aria-labelledby="txt-modal-activate-order" aria-hidden="true">
+<div class="modal fade" id="modal-order-update" tabindex="-1" aria-labelledby="txt-modal-update-order" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="txt-modal-activate-order">Confirmation</h5>
+                <h5 class="modal-title" id="txt-modal-update-order">Confirmation</h5>
                 <button type="button" class="btn-close" data-mdb-dismiss="modal" aria-label="Close"></button>
             </div>
-            <div class="modal-body">Are you sure to activate the order?</div>
+            <div class="modal-body">Are you sure <label class="text-lowercase" id="lbl-action"></label> the order?</div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-mdb-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary" id="btn-activate-order">Sure</button>
-            </div>
-        </div>
-    </div>
-</div>
-
-<div class="modal fade" id="modal-deactivate-order" tabindex="-1" aria-labelledby="txt-modal-deactivate-order" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="txt-modal-deactivate-order">Confirmation</h5>
-                <button type="button" class="btn-close" data-mdb-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">Are you sure to deactivate the order?</div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-mdb-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary" id="btn-deactivate-order">Sure</button>
+                <button type="button" class="btn btn-primary" id="btn-update-order">Sure</button>
             </div>
         </div>
     </div>

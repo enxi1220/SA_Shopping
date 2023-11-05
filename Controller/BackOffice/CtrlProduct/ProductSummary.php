@@ -35,6 +35,7 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
                     'sellerId' => $product->getSellerId(),
                     'name' => $product->getName(),
                     'price' => $product->getPrice(),
+                    'status' => $product->getStatus(),
                     'description' => $product->getDescription(),
                     'createdDate' => $product->getCreatedDate(),
                     'updatedDate' => $product->getUpdatedDate(),

@@ -44,7 +44,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $_SESSION['seller']['storeName'] = $result->getStoreName();
 
         echo ResponseHelper::createJsonResponse("Login successfully.", "/SA_Shopping/Web/View/BackOffice/Product/ProductSummary.php");
-
     } catch (\Throwable $e) {
         header($_SERVER["SERVER_PROTOCOL"] . ' 500 Internal Server Error', true, 500);
         echo $e->getMessage();

@@ -2,7 +2,7 @@
 
 require_once $_SERVER['DOCUMENT_ROOT'] . "/SA_Shopping/DataAccess/DataAccess.php";
 require_once $_SERVER['DOCUMENT_ROOT'] . "/SA_Shopping/Model/Product.php";
-
+// ing
 class ProductCreate
 {
     public static function Create(Product $product)

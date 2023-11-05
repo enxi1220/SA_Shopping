@@ -1,6 +1,16 @@
 var UserStatus = {
-    Active: "Active",
-    Inactive: "Inactive"
+    Active: "Activate",
+    Inactive: "Deactivate"
+}
+
+var ProductStatus = {
+    Active: "Activate",
+    Inactive: "Deactivate"
+}
+
+var ProductDetailStatus = {
+    Available: "Available",
+    Unavailable: "Discontinued"
 }
 
 var ReviewStatus = {

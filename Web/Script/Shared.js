@@ -40,6 +40,7 @@ function post(url, dataArr, successHandler, afterSuccess, errorHandler) {
         contentType: false,
         processData: false,
         success: function (success) {
+            // console.log(success);
             var data = JSON.parse(success);
             if (successHandler) {
                 successHandler(data.message);
