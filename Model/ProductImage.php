@@ -8,6 +8,8 @@ class ProductImage
     private $productId;
     private $imageName;
 
+    private $tmpImageName;
+    private $shortImageName;
     private $limit;
 
     public function getProductImageId()
@@ -41,8 +43,13 @@ class ProductImage
     {
         $this->imageName = $imageName;
         return $this;
-    
     }
+
+    public function imagePath()
+    {
+        return ImagePathConstant::PATH;
+    }
+
     public function getLimit()
     {
         return $this->limit;
@@ -54,4 +61,21 @@ class ProductImage
         return $this;
     }
 
+    public function setTempImageName($tmpImageName){
+        $this->tmpImageName = $tmpImageName;
+        return $this;
+    }
+    
+    public function getTempImageName(){
+        return $this->tmpImageName;
+    }
+
+    public function setShortImageName($shortImageName){
+        $this->shortImageName = $shortImageName;
+        return $this;
+    }
+
+    public function getShortImageName(){
+        return $this->shortImageName;
+    }
 }

@@ -11,34 +11,12 @@ $(document).ready(function () {
 
     // todo: bll add product, check product detail unique
     $(`#form-product-create`).submit(function (event) {
-        // console.log(dataTable.cell(row, col).data());
-        console.log(dataTable.cell(0,1).data());
-        // the html recognized as string, cant get input...should have method, another project can 
-        console.log('---');
-        console.log(dataTable.cell(this).data());
-        console.log('---');
-        var allRowData = dataTable.rows().data();
-        allRowData.each(function () {
-            for (var i = 0; i < dataTable.columns().count(); i++) {
-                var cellData = dataTable.cell(this, i).data();
-                // cellData contains data for each cell in the row
-                console.log(cellData);
-            }
-        });
 
-        // idx = index
+        event.preventDefault();
 
-        // event.preventDefault();
-        // post(
-        //     '/SA_Shopping/Controller/FrontOffice/CtrlOrder/OrderCreate.php',
-        //     [
-        //         submitData('order', preparePostData())
-        //     ],
-        //     null,
-        //     function () {
-        //         location.href = "/SA_Shopping/Web/View/FrontOffice/Product/ProductSummary.php";
-        //     }
-        // );
+        preparePostData(dataTable);
+
+
     });
 
     drawRow(dataTable, index);
@@ -56,11 +34,45 @@ $(document).ready(function () {
     });
 });
 
-function preparePostData() {
+function preparePostData(dataTable) {
+    // Product Detail
+    var productDetails = [];
+    var index = 0;
 
+    dataTable.rows().data().each(function (row) {
+
+        var size = $(`#txt-size-${index}`).val();
+        var color = $(`#txt-color-${index}`).val();
+        var material = $(`#txt-material-${index}`).val();
+        var minStockQty = $(`#txt-min-stock-qty-${index}`).val();
+        var availableStockQty = $(`#txt-available-stock-qty-${index}`).val();
+
+        productDetails.push({
+            size: size,
+            color: color,
+            material: material,
+            minStockQty: minStockQty,
+            availableStockQty: availableStockQty
+        });
+        index++;
+    });
+
+    post(
+        '/SA_Shopping/Controller/BackOffice/CtrlProduct/ProductCreate.php',
+        [
+            submitData('product',
+                JSON.stringify({
+                    name: $('#txt-name').val(),
+                    price: $('#txt-price').val(),
+                    description: $('#txt-description').val(),
+                    productDetails: productDetails
+                })),
+            // submitData('productDetail', JSON.stringify(productDetails)),
+            submitData('productImage', $('#txt-image')[0].files[0])
+        ]
+    );
 }
 
-// todo: row hold unique value, id... no need unique ba
 function drawRow(dataTable, index) {
     dataTable.row.add([
         `<button class="btn btn-danger btn-floating delete-row" type="button"><i class="fa-solid fa-trash-can"></i></button>`,
@@ -85,4 +97,4 @@ function drawRow(dataTable, index) {
             <div class="invalid-feedback">Required</div>
         </div>`
     ]).draw(false);
-}
+};

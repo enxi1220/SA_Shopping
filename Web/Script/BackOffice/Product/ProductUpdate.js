@@ -78,12 +78,12 @@ $(document).ready(function () {
         // Get the data for the clicked row
         var rowData = dataTable.row(row).data();
 
-        if (rowData[2] == "Available") {
+        if (rowData[2] == ProductDetailStatus.Available) {
             rowData[0] = `<button class="btn btn-secondary btn-floating toggle-status" type="button"><i class="fa-solid fa-check"></i></button>`;
-            rowData[2] = "Discontinued";
+            rowData[2] = ProductDetailStatus.Unavailable;
         } else {
             rowData[0] = `<button class="btn btn-secondary btn-floating toggle-status" type="button"><i class="fa-solid fa-times"></i></button>`,
-            rowData[2] = "Available";
+            rowData[2] = ProductDetailStatus.Available;
         }
 
         // Invalidate the specific row to trigger a redraw
@@ -91,7 +91,7 @@ $(document).ready(function () {
     });
 });
 
-// added product detail through update product
+// add product detail through update product
 function addRow(dataTable, index) {
     dataTable.row.add([
         `<button class="btn btn-danger btn-floating delete-row" type="button"><i class="fa-solid fa-trash-can"></i></button>`,

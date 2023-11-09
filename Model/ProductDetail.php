@@ -34,9 +34,9 @@ class ProductDetail
         return $this->productDetailNo;
     }
 
-    public function setProductDetailNo($productDetailNo)
+    public function setProductDetailNo($productDetailNo = null)
     {
-        $this->productDetailNo = $productDetailNo;
+        $this->productDetailNo = $productDetailNo == null? UniqueNoHelper::RandomCode($this->prefix()): $productDetailNo;
         return $this;
     }
 
@@ -159,6 +159,11 @@ class ProductDetail
     {
         $this->updatedBy = $updatedBy;
         return $this;
+    }
+
+    public function prefix()
+    {
+        return PrefixConstant::PRODUCTDETAIL;
     }
 
     public function updateAfterPurchase($quantity){

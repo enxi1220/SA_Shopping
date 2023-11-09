@@ -20,7 +20,7 @@ require '../CheckLogin.php';
             <div class="col-md-6">
                 <div class="form-outline">
                     <input type="text" name="Name" id="txt-name" maxlength="150" class="form-control" tabindex="2"  readonly />
-                    <label class="form-label" for="txt-name" required>Product Name</label>
+                    <label class="form-label" for="txt-name">Product Name</label>
                 </div>
             </div>
         </div>
@@ -28,13 +28,13 @@ require '../CheckLogin.php';
             <div class="col-md-6">
                 <div class="form-outline">
                     <input type="text" id="txt-price" class="form-control" tabindex="3" readonly />
-                    <label class="form-label" for="txt-price" required>Price (RM)</label>
+                    <label class="form-label" for="txt-price">Price (RM)</label>
                 </div>
             </div>
             <div class="col-md-6">
                 <div class="form-outline">
                     <textarea id="txt-description" class="form-control" tabindex="4" rows="4" readonly></textarea>
-                    <label class="form-label" for="txt-description" required>Description</label>
+                    <label class="form-label" for="txt-description">Description</label>
                 </div>
             </div>
         </div>

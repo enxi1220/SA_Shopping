@@ -159,12 +159,12 @@ class Product
         return $this->productImage;
     }
 
-    public function setProductImage($productImage){
+    public function setProductImage(ProductImage $productImage){
         $this->productImage = $productImage;
         return $this;
     }
 
-    public function setProductDetail($productDetail){
+    public function setProductDetail(ProductDetail $productDetail){
         $this->productDetail = $productDetail;
         return $this;
     }
@@ -189,7 +189,6 @@ class Product
         return $this;
     }
 
-
     public function getReviews()
     {
         return $this->reviews;
@@ -200,9 +199,8 @@ class Product
         return $this;
     }
 
-    public function imagePath()
-    {
-        return ImagePathConstant::PATH;
+    public function pushProductDetails(ProductDetail $productDetail){
+        $this->productDetails[] = $productDetail;
     }
 
     public function prefix()
