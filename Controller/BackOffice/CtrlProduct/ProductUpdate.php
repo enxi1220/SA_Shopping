@@ -56,12 +56,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $product->pushProductDetails($productDetail);
         }
 
-        // var_dump($product);
-
         ProductUpdate::Update($product);
 
-        echo ResponseHelper::createJsonResponse("Update product successfully.");
-        // echo ResponseHelper::createJsonResponse("Update product successfully.", "/SA_Shopping/Web/View/BackOffice/Product/ProductSummary.php");
+        echo ResponseHelper::createJsonResponse("Update product successfully.", "/SA_Shopping/Web/View/BackOffice/Product/ProductSummary.php");
     } catch (\Throwable $e) {
         header($_SERVER["SERVER_PROTOCOL"] . ' 500 Internal Server Error', true, 500);
         // echo $e->getMessage();

@@ -32,8 +32,8 @@ $(document).ready(function () {
     });
 
     var dataTable = $('#product-detail-update').DataTable({
-        lengthMenu: [3, 5, 10, 25, 50], // Change 3 to the desired value
-        pageLength: 3,
+        lengthMenu: [25, 50, 100, 250, 300], // Change 3 to the desired value
+        // pageLength: 3,
         ordering: false,
         searching: false
     });
@@ -50,15 +50,22 @@ $(document).ready(function () {
 
     $('#product-detail-update').on('click', '.toggle-status', function () {
         var row = $(this).closest('tr');
+        var rowIndex = dataTable.row(row).index();
         // Get the data for the clicked row
         var rowData = dataTable.row(row).data();
 
-        if (rowData[2] == ProductDetailStatus.Available) {
-            rowData[0] = `<button class="btn btn-secondary btn-floating toggle-status" type="button"><i class="fa-solid fa-check"></i></button>`;
-            rowData[2] = ProductDetailStatus.Unavailable;
+        var pdId = $(`#btn-sku-id-${rowIndex}`).val();
+
+        if ( $(`#txt-status-${rowIndex}`).text() == ProductDetailStatus.Available) {
+            rowData[0] = `<button class="btn btn-secondary btn-floating toggle-status" type="button" id="btn-sku-id-${rowIndex}" value="${pdId}"><i class="fa-solid fa-check"></i></button>`;
+
+            $(`#txt-status-${rowIndex}`).text(ProductDetailStatus.Unavailable);
+            rowData[2] = `<span id="txt-status-${rowIndex}">${ProductDetailStatus.Unavailable}</span>`;
         } else {
-            rowData[0] = `<button class="btn btn-secondary btn-floating toggle-status" type="button"><i class="fa-solid fa-times"></i></button>`,
-            rowData[2] = ProductDetailStatus.Available;
+            rowData[0] = `<button class="btn btn-secondary btn-floating toggle-status" type="button" id="btn-sku-id-${rowIndex}" value="${pdId}"><i class="fa-solid fa-times"></i></button>`;
+
+            $(`#txt-status-${rowIndex}`).text(ProductDetailStatus.Available);
+            rowData[2] = `<span id="txt-status-${rowIndex}">${ProductDetailStatus.Available}</span>`;
         }
 
         // Invalidate the specific row to trigger a redraw
@@ -92,10 +99,9 @@ function preparePostData(dataTable) {
             availableStockQty: availableStockQty
         });
         index++;
-
-        console.log(skuId);
     });
 
+    console.log(productDetails);
 
     return productDetails;
 }
@@ -125,7 +131,8 @@ function renderProductDetails(dataTable, details, index) {
                     `<button class="btn btn-secondary btn-floating toggle-status" type="button" id="btn-sku-id-${index}" value="${element.productDetailId}">
                     <i class="fa-solid fa-check"></i>
                 </button>` :
-                    ``,
+                    `<button class="btn btn-secondary btn-floating d-none toggle-status" type="button" id="btn-sku-id-${index}" value="${element.productDetailId}">
+                </button>`,
             `<span id="txt-sku-no-${index}">${element.productDetailNo}</span>`,
             `<span id="txt-status-${index}">${element.status}</span>`,
             `<div class="form-outline">
