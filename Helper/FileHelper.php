@@ -1,8 +1,10 @@
-<?php 
+<?php
 
-class FileHelper{
+class FileHelper
+{
 
-    public static function ValidateImage(){
+    public static function ValidateImage()
+    {
         $image = $_FILES['productImage'];
         $validExtensions = '/\.(jpg|jpeg|gif|png)$/i';
         $validMimeTypes = ['image/jpeg', 'image/gif', 'image/png'];
@@ -17,9 +19,9 @@ class FileHelper{
         $fileName = uniqid() . "_" . basename($file['name']); // generate new filename
         $targetPath = $_SERVER['DOCUMENT_ROOT'] . $directory . $fileName; // specify store location
         $imageTemp = $file['tmp_name'];
-        
+
         $fileContents = file_get_contents($file['tmp_name']);
-        
+
         move_uploaded_file($imageTemp, $targetPath); // move the uploaded file to the specified location
         file_put_contents($targetPath, $fileContents);
 
@@ -27,7 +29,20 @@ class FileHelper{
         if (!file_exists($targetPath)) {
             throw new Exception("Image failed to upload.");
         }
-        
+
         return $fileName;
+    }
+
+    public static function DeleteImage($fileName)
+    {
+        $targetPath = $_SERVER['DOCUMENT_ROOT'] . $fileName;
+
+        if (file_exists($targetPath)) {
+            unlink($targetPath);
+
+            if (file_exists($targetPath)) {
+                throw new Exception("Failed to delete the image.");
+            }
+        }
     }
 }

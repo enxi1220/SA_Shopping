@@ -9,8 +9,7 @@ class ProductImage
     private $imageName;
 
     private $tmpImageName;
-    private $shortImageName;
-    private $limit;
+    private $count;
 
     public function getProductImageId()
     {
@@ -50,14 +49,14 @@ class ProductImage
         return ImagePathConstant::PATH;
     }
 
-    public function getLimit()
+    public function getCount()
     {
-        return $this->limit;
+        return $this->count;
     }
 
-    public function setLimit($limit)
+    public function setCount($count)
     {
-        $this->limit = $limit;
+        $this->count = $count;
         return $this;
     }
 
@@ -70,12 +69,7 @@ class ProductImage
         return $this->tmpImageName;
     }
 
-    public function setShortImageName($shortImageName){
-        $this->shortImageName = $shortImageName;
-        return $this;
-    }
-
     public function getShortImageName(){
-        return $this->shortImageName;
+        return $this->imageName;
     }
 }

@@ -16,16 +16,29 @@ class ProductRead
                 $products =  self::ReadProduct($dataAccess, $product, $productDetail);
                 
                 foreach ($products as $product) {
-                    $productDetails = self::ReadProductDetail($dataAccess, $product, $productDetail);
+                    $productDetail->setProductId($product->getProductId());
+                    $productDetails = self::ReadProductDetail($dataAccess, $productDetail);
                     $product->setProductDetails($productDetails);
                 }
 
                 foreach ($products as $product) {
-                    $productImages = self::ReadProductImage($dataAccess, $product, $productImage);
+                    $productImage->setProductId($product->getProductId());
+                    $productImages = self::ReadProductImage($dataAccess, $productImage);
                     $product->setProductImages($productImages);
                 }
                 
                 return $products;
+            }
+        );
+
+        return $result;
+    }
+
+    public static function ReadImage(ProductImage $productImage){
+        $dataAccess = DataAccess::getInstance();
+        $result = $dataAccess->BeginDatabase(
+            function (DataAccess $dataAccess) use ($productImage) {
+                return self::ReadProductImage($dataAccess, $productImage);
             }
         );
 
@@ -76,7 +89,7 @@ class ProductRead
         );
     }
 
-    private static function ReadProductDetail(DataAccess $dataAccess, Product $product, ProductDetail $productDetail){
+    private static function ReadProductDetail(DataAccess $dataAccess, ProductDetail $productDetail){
         return $dataAccess->Reader(
             "SELECT 
                 pd.product_detail_id,
@@ -97,9 +110,9 @@ class ProductRead
                 pd.product_detail_id = IF(:product_detail_id IS NULL, pd.product_detail_id, :product_detail_id)
                 AND pd.product_id =  IF(:product_id IS NULL, pd.product_id, :product_id)
                 AND pd.status = IF(:status IS NULL, pd.status, :status)",
-            function (PDOStatement $pstmt) use ($product, $productDetail) {
+            function (PDOStatement $pstmt) use ($productDetail) {
                 $pstmt->bindValue(":product_detail_id", $productDetail->getProductDetailId(), PDO::PARAM_INT);
-                $pstmt->bindValue(":product_id", $product->getProductId(), PDO::PARAM_INT);
+                $pstmt->bindValue(":product_id", $productDetail->getProductId(), PDO::PARAM_INT);
                 $pstmt->bindValue(":status", $productDetail->getStatus(), PDO::PARAM_STR);
             },
             function ($row) {
@@ -123,7 +136,7 @@ class ProductRead
         );
     }
 
-    private static function ReadProductImage(DataAccess $dataAccess, Product $product, ProductImage $productImage){
+    private static function ReadProductImage(DataAccess $dataAccess, ProductImage $productImage){
         return $dataAccess->Reader(
             "SELECT 
                 pi.product_image_id,
@@ -131,9 +144,11 @@ class ProductRead
                 pi.image_name
              FROM product_image pi
              WHERE
-                pi.product_id = IF(:product_id IS NULL, pi.product_id, :product_id) ",
-            function (PDOStatement $pstmt) use ($product, $productImage) {
-                $pstmt->bindValue(":product_id", $product->getProductId(), PDO::PARAM_INT);
+                pi.product_id = IF(:product_id IS NULL, pi.product_id, :product_id)
+                AND  pi.product_image_id = IF(:product_image_id IS NULL, pi.product_image_id, :product_image_id)",
+            function (PDOStatement $pstmt) use ($productImage) {
+                $pstmt->bindValue(":product_id", $productImage->getProductId(), PDO::PARAM_INT);
+                $pstmt->bindValue(":product_image_id", $productImage->getProductImageId(), PDO::PARAM_INT);
             },
             function ($row) {
                 $productImage = new ProductImage();

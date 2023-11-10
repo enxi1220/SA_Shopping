@@ -13,28 +13,47 @@ $(document).ready(function () {
         );
     }
 
-
     $(`#form-product-image-create`).submit(function (event) {
-
+        event.preventDefault();
         // if single file, then files[0]
-        var data = submitData('productImage', $('#txt-image')[0].files);
-        console.log(data);
 
-        // todo: add images
-        // var productId = JSON.stringify({
-        //     productId: new URLSearchParams(window.location.search).get('productId')
-        // });
-
-        // post('url',
-        //     [
-        //         submitData('productId', productId),
-        //         submitData('productImg', $('#txt-image')[0].files[0])
-        //     ]
-        // );
-
+        post(
+            '/SA_Shopping/Controller/BackOffice/CtrlProduct/ProductImageCreateDelete.php',
+            [
+                submitData('product',
+                    JSON.stringify({
+                        productId: productId
+                    })),
+                submitData('productImage', $('#txt-image')[0].files[0])
+            ],
+            null,
+            function () {
+                location.reload();
+            }
+        );
     });
 });
 
+function deleteProductImage(id) {
+    $('#modal-product-image-delete').modal('show');
+    $('#btn-product-image-delete').click(function () {
+        console.log(id);
+        post(
+            '/SA_Shopping/Controller/BackOffice/CtrlProduct/ProductImageCreateDelete.php',
+            [
+                submitData('productImage',
+                    JSON.stringify({
+                        productImageId: id.toString(),
+                        productId: new URLSearchParams(window.location.search).get('productId')
+                    }))
+            ],
+            null,
+            function () {
+                location.reload();
+            }
+        );
+    });
+}
 
 // todo: change to multiple pic
 function picturePreview(input) {
@@ -45,20 +64,6 @@ function picturePreview(input) {
         }
         reader.readAsDataURL(input.files[0]);
     }
-}
-// todo: html no param pass yet 
-function deleteProductImage(id) {
-    $('#modal-product-image-delete').modal('show');
-    $('#btn-product-image-delete').click(function () {
-        // todo: back end 
-        //     var productImage = JSON.stringify({
-        //         "productImageId": id.toString()
-        //     });
-
-        //     post('Controller',
-        //         productImage,
-        //     );
-    });
 }
 
 function renderProductImages(productImages) {
