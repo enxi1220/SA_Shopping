@@ -27,7 +27,7 @@ function renderOrders(orders) {
                 {
                     render: function (data, type, row, meta) {
                         var html = `
-                        <a role="button" class="btn btn-dark btn-floating" title="View" href="OrderRead.php?orderId=${row.orderId}">
+                        <a role="button" class="btn btn-dark btn-floating me-1" title="View" href="OrderRead.php?orderId=${row.orderId}">
                             <i class="fas fa-eye"></i>
                         </a>`;
                         switch (row.status) {
