@@ -11,12 +11,22 @@ $(document).ready(function () {
 
     // todo: bll add product, check product detail unique
     $(`#form-product-create`).submit(function (event) {
-
         event.preventDefault();
+        var productDetails = preparePostData(dataTable);
 
-        preparePostData(dataTable);
-
-
+        post(
+            '/SA_Shopping/Controller/BackOffice/CtrlProduct/ProductCreate.php',
+            [
+                submitData('product',
+                    JSON.stringify({
+                        name: $('#txt-name').val(),
+                        price: $('#txt-price').val(),
+                        description: $('#txt-description').val(),
+                        productDetails: productDetails
+                    })),
+                submitData('productImage', $('#txt-image')[0].files[0])
+            ]
+        );
     });
 
     drawRow(dataTable, index);
@@ -57,20 +67,7 @@ function preparePostData(dataTable) {
         index++;
     });
 
-    post(
-        '/SA_Shopping/Controller/BackOffice/CtrlProduct/ProductCreate.php',
-        [
-            submitData('product',
-                JSON.stringify({
-                    name: $('#txt-name').val(),
-                    price: $('#txt-price').val(),
-                    description: $('#txt-description').val(),
-                    productDetails: productDetails
-                })),
-            // submitData('productDetail', JSON.stringify(productDetails)),
-            submitData('productImage', $('#txt-image')[0].files[0])
-        ]
-    );
+    return productDetails;
 }
 
 function drawRow(dataTable, index) {

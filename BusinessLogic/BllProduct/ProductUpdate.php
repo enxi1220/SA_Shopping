@@ -4,60 +4,46 @@ require_once $_SERVER['DOCUMENT_ROOT'] . "/SA_Shopping/DataAccess/DataAccess.php
 require_once $_SERVER['DOCUMENT_ROOT'] . "/SA_Shopping/Model/Product.php";
 require_once $_SERVER['DOCUMENT_ROOT'] . "/SA_Shopping/Helper/FileHelper.php";
 
-class ProductCreate
+class ProductUpdate
 {
-    public static function Create(Product $product)
+    public static function Update(Product $product)
     {
         $dataAccess = DataAccess::getInstance();
         $result = $dataAccess->BeginDatabase(
             function (DataAccess $dataAccess) use ($product) {
-                $productId =  self::CreateProduct($dataAccess, $product);
+                self::UpdateProduct($dataAccess, $product);
 
                 foreach ($product->getProductDetails() as $detail) {
-                    $detail->setProductId($productId);
-                    self::CreateProductDetail($dataAccess, $detail);
+                    if (empty($detail->getProductDetailId())) {
+                        self::CreateProductDetail($dataAccess, $detail);
+                    } else {
+                        self::UpdateProductDetail($dataAccess, $detail);
+                    }
                 }
-                
-                $image = $product->getProductImage();
-
-                $fileName = FileHelper::UploadImage($image->getTempImageName(), $image->imagePath());
-                $image->setShortImageName($fileName);
-                $image->setProductId($productId);
-
-                self::CreateProductImage($dataAccess, $image);
             }
         );
 
         return $result;
     }
 
-    private static function CreateProduct(DataAccess $dataAccess, Product $product)
+    private static function UpdateProduct(DataAccess $dataAccess, Product $product)
     {
-        $productId = $dataAccess->NonQuery(
-            "INSERT INTO `product` (
-                product_no, 
-                seller_id, 
-                name, 
-                price, 
-                status, 
-                description, 
-                created_date
-                ) VALUES (?, ?, ?, ?, ?, ?, NOW())",
+        $dataAccess->NonQuery(
+            "UPDATE product
+                SET
+                    name = ?,
+                    price = ?,
+                    description = ?,
+                    updated_date = NOW()
+                WHERE
+                    product_id = ?",
             function (PDOStatement $pstmt) use ($product) {
-                $pstmt->bindValue(1, $product->getProductNo(), PDO::PARAM_STR);
-                $pstmt->bindValue(2, $product->getSellerId(), PDO::PARAM_INT);
-                $pstmt->bindValue(3, $product->getName(), PDO::PARAM_STR);
-                $pstmt->bindValue(4, $product->getPrice(), PDO::PARAM_STR);
-                $pstmt->bindValue(5, $product->getStatus(), PDO::PARAM_STR);
-                $pstmt->bindValue(6, $product->getDescription(), PDO::PARAM_STR);
-            },
-            function (Exception $ex) {
-                if (str_contains($ex, 'Duplicate entry') && str_contains($ex, 'product_no_UNIQUE')) {
-                    throw new Exception("Duplicate product no is generated. Please try again.", 500);
-                }
+                $pstmt->bindValue(1, $product->getName(), PDO::PARAM_STR);
+                $pstmt->bindValue(2, $product->getPrice(), PDO::PARAM_STR);
+                $pstmt->bindValue(3, $product->getDescription(), PDO::PARAM_STR);
+                $pstmt->bindValue(4, $product->getProductId(), PDO::PARAM_INT);
             }
         );
-        return $productId;
     }
 
     private static function CreateProductDetail(DataAccess $dataAccess, ProductDetail $productDetail)
@@ -92,17 +78,28 @@ class ProductCreate
         );
     }
 
-    private static function CreateProductImage(DataAccess $dataAccess, ProductImage $productImage)
+    private static function UpdateProductDetail(DataAccess $dataAccess, ProductDetail $productDetail)
     {
         return $dataAccess->NonQuery(
-            "INSERT INTO product_image (
-                product_id, 
-                image_name
-            ) VALUES (
-                ?, ?)",
-            function (PDOStatement $pstmt) use ($productImage) {
-                $pstmt->bindValue(1, $productImage->getProductId(), PDO::PARAM_INT);
-                $pstmt->bindValue(2, $productImage->getShortImageName(), PDO::PARAM_STR);
+            "UPDATE product_detail
+                SET
+                    size = ?,
+                    color = ?,
+                    material = ?,
+                    min_stock_qty = ?,
+                    available_qty = ?,
+                    status = ?,
+                    updated_date = NOW()
+                WHERE
+                    product_detail_no = ?",
+            function (PDOStatement $pstmt) use ($productDetail) {
+                $pstmt->bindValue(1, $productDetail->getSize(), PDO::PARAM_STR);
+                $pstmt->bindValue(2, $productDetail->getColor(), PDO::PARAM_STR);
+                $pstmt->bindValue(3, $productDetail->getMaterial(), PDO::PARAM_STR);
+                $pstmt->bindValue(4, $productDetail->getMinStockQty(), PDO::PARAM_STR);
+                $pstmt->bindValue(5, $productDetail->getAvailableQty(), PDO::PARAM_STR);
+                $pstmt->bindValue(6, $productDetail->getStatus(), PDO::PARAM_STR);
+                $pstmt->bindValue(7, $productDetail->getProductDetailNo(), PDO::PARAM_STR);
             }
         );
     }

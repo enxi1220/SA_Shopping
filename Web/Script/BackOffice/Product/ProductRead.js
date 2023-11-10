@@ -59,5 +59,4 @@ function renderProductImages(images) {
             `
         );
     });
-
 }
