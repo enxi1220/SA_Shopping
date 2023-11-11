@@ -1,6 +1,5 @@
 <?php
 
-
 require_once $_SERVER['DOCUMENT_ROOT'] . "/SA_Shopping/DataAccess/DataAccess.php";
 require_once $_SERVER['DOCUMENT_ROOT'] . "/SA_Shopping/Model/Seller.php";
 
@@ -12,6 +11,15 @@ class SellerUpdate
 
         return $dataAccess->BeginDatabase(function ($dataAccess) use ($seller) {
             self::UpdateSeller($dataAccess, $seller);
+        });
+    }
+
+    public static function Login(Seller $seller)
+    {
+        $dataAccess = DataAccess::getInstance();
+
+        return $dataAccess->BeginDatabase(function ($dataAccess) use ($seller) {
+            self::UpdateSellerLogin($dataAccess, $seller);
         });
     }
 
@@ -38,4 +46,20 @@ class SellerUpdate
             }
         );
     }
+
+    private static function UpdateSellerLogin(DataAccess $dataAccess, Seller $seller)
+    {
+        $dataAccess->NonQuery(
+            "UPDATE seller
+             SET
+               last_login_date = NOW()
+             WHERE
+               email = ?",
+            function (PDOStatement $pstmt) use ($seller) {
+                $pstmt->bindValue(1, $seller->getEmail());
+            }
+        );
+    }
+
+
 }

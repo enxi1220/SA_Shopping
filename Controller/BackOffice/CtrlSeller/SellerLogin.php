@@ -3,6 +3,7 @@
 require_once $_SERVER['DOCUMENT_ROOT'] . "/SA_Shopping/Helper/ResponseHelper.php";
 require_once $_SERVER['DOCUMENT_ROOT'] . "/SA_Shopping/Model/Seller.php";
 require_once $_SERVER['DOCUMENT_ROOT'] . "/SA_Shopping/BusinessLogic/BllSeller/SellerRead.php";
+require_once $_SERVER['DOCUMENT_ROOT'] . "/SA_Shopping/BusinessLogic/BllSeller/SellerUpdate.php";
 require_once $_SERVER['DOCUMENT_ROOT'] . "/SA_Shopping/Constant/UserStatusConstant.php";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -36,6 +37,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             // account is deleted
             throw new Exception("Account has been deleted.");
         }
+
+        SellerUpdate::Login($seller);
 
         // create session
         session_start();

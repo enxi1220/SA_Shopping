@@ -2,7 +2,6 @@
 
 class FileHelper
 {
-
     public static function ValidateImage()
     {
         $image = $_FILES['productImage'];
@@ -24,7 +23,6 @@ class FileHelper
 
         move_uploaded_file($imageTemp, $targetPath); // move the uploaded file to the specified location
         file_put_contents($targetPath, $fileContents);
-
 
         if (!file_exists($targetPath)) {
             throw new Exception("Image failed to upload.");

@@ -13,5 +13,4 @@ class UniqueNoHelper {
         $username = $prefix . $randomNumber . substr(trim($email), 0, 5);
         return $username;
     }
-
 }
