@@ -15,7 +15,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
 
         $data = json_decode($_POST['seller']);
-
+        
         $seller = new Seller();
         $seller->setEmail($data->email);
 
@@ -23,14 +23,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         if (empty($result)) {
             // email not found
-            throw new Exception("Incorrect email or password.");
+            throw new Exception("Incorrect email or .");
         }
 
         $result = $result[0];
 
         if (!password_verify($data->password, $result->getPassword())) {
             // password not match
-            throw new Exception("Incorrect email or password.");
+            throw new Exception("Incorrect  or password.");
         }
 
         if ($result->getStatus() == UserStatusConstant::INACTIVE) {

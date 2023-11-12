@@ -23,6 +23,15 @@ class SellerUpdate
         });
     }
 
+    public static function ResetCode(Seller $seller)
+    {
+        $dataAccess = DataAccess::getInstance();
+
+        return $dataAccess->BeginDatabase(function ($dataAccess) use ($seller) {
+            self::UpdateResetCode($dataAccess, $seller);
+        });
+    }
+
     private static function UpdateSeller(DataAccess $dataAccess, Seller $seller)
     {
         $dataAccess->NonQuery(
@@ -61,5 +70,18 @@ class SellerUpdate
         );
     }
 
-
+    private static function UpdateResetCode(DataAccess $dataAccess, Seller $seller)
+    {
+        $dataAccess->NonQuery(
+            "UPDATE seller
+             SET
+               reset_code = ?
+             WHERE
+               email = ?",
+            function (PDOStatement $pstmt) use ($seller) {
+                $pstmt->bindValue(1, $seller->getResetCode());
+                $pstmt->bindValue(2, $seller->getEmail());
+            }
+        );
+    }
 }

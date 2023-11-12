@@ -42,11 +42,13 @@ class SellerRead
                 s.seller_id = IF(:seller_id IS NULL, s.seller_id, :seller_id)
                 AND s.status = IF(:status IS NULL, s.status, :status)
                 AND s.email = IF(:email IS NULL, s.email, :email)
+                -- AND s.reset_code = IF(:reset_code IS NULL, s.reset_code, :reset_code)
              ORDER BY s.created_date DESC",
             function (PDOStatement $pstmt) use ($seller) {
                 $pstmt->bindValue(":seller_id", $seller->getSellerId(), PDO::PARAM_INT);
                 $pstmt->bindValue(":status", $seller->getStatus(), PDO::PARAM_STR);
                 $pstmt->bindValue(":email", $seller->getEmail(), PDO::PARAM_STR);
+                $pstmt->bindValue(":reset_code", $seller->getResetCode(), PDO::PARAM_STR);
             },
             function ($row) {
                 $seller = new Seller();
@@ -68,6 +70,43 @@ class SellerRead
                     ->setStoreName($row['store_name'])
                     ->setStoreDesc($row['store_desc'])
                     ->setLastLoginDate($row['last_login_date']);
+            }
+        );
+    }
+
+    public static function ReadWithCode(Seller $seller)
+    {
+        $dataAccess = DataAccess::getInstance();
+        $result = $dataAccess->BeginDatabase(
+            function (DataAccess $dataAccess) use ($seller) {
+                return self::ReadSellerWithCode($dataAccess, $seller);
+            }
+        );
+
+        return $result;
+    }
+
+    private static function ReadSellerWithCode(DataAccess $dataAccess, Seller $seller)
+    {
+        return $dataAccess->Reader(
+            "SELECT 
+                s.email,
+                s.reset_code
+             FROM seller s
+             WHERE
+                s.email = IF(:email IS NULL, s.email, :email)
+                AND s.reset_code = IF(:reset_code IS NULL, s.reset_code, :reset_code)
+             ORDER BY s.created_date DESC",
+            function (PDOStatement $pstmt) use ($seller) {
+                $pstmt->bindValue(":email", $seller->getEmail(), PDO::PARAM_STR);
+                $pstmt->bindValue(":reset_code", $seller->getResetCode(), PDO::PARAM_STR);
+            },
+            function ($row) {
+                $seller = new Seller();
+
+                return $seller
+                    ->setEmail($row['email'])
+                    ->setResetCode($row['reset_code']);
             }
         );
     }

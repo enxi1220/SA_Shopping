@@ -1,10 +1,6 @@
-product image add and remove - pending, left js
-reset password - not started
+todo: 
+    check pd unique - from db CK (pid + size + color + material)
+    add video
+    video js 
+    multiple files
 
-<!-- todo: add video, video js -->
-seller same method to buyer
-change password 
-login
-delete acc
-create product 
-last: reset password 

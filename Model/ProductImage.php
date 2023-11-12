@@ -1,6 +1,6 @@
 <?php
 
-require_once $_SERVER['DOCUMENT_ROOT'] . "/SA_Shopping/Constant/ImagePathConstant.php";
+require_once $_SERVER['DOCUMENT_ROOT'] . "/SA_Shopping/Constant/PathConstant.php";
 
 class ProductImage
 {
@@ -35,7 +35,7 @@ class ProductImage
 
     public function getImageName()
     {
-        return ImagePathConstant::PATH . $this->imageName;
+        return PathConstant::IMAGE_PATH . $this->imageName;
     }
 
     public function setImageName($imageName)
@@ -46,7 +46,7 @@ class ProductImage
 
     public function imagePath()
     {
-        return ImagePathConstant::PATH;
+        return PathConstant::IMAGE_PATH;
     }
 
     public function getCount()

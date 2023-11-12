@@ -88,6 +88,9 @@ class ProductCreate
                 if (str_contains($ex, 'Duplicate entry') && str_contains($ex, 'product_detail_no_UNIQUE')) {
                     throw new Exception("Duplicate product detail no is generated. Please try again.", 500);
                 }
+                if (str_contains($ex, 'Duplicate entry') && str_contains($ex, 'composite_key')) {
+                    throw new Exception("Duplicate product detail (size, color, material) is added. Please try again.", 500);
+                }
             }
         );
     }

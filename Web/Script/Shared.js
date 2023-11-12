@@ -118,7 +118,7 @@ function get(url, data, successHandler, errorHandler, afterError, afterSuccess) 
                     icon: 'error',
                     title: 'Oops...',
                     text: error.responseText,
-                    timer: 99999
+                    // timer: 99999
                 }).then(function () {
                     if (afterError) {
                         afterError();

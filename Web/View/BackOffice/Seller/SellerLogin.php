@@ -7,7 +7,6 @@ require '../Layout.php';
 <head>
     <meta charset="UTF-8">
     <title>Login</title>
-
 </head>
 
 <body>
