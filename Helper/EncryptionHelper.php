@@ -15,6 +15,7 @@ class EncryptionHelper
 
         // return hex2bin(self::$aesKey);
 
+        // Generate a new key for each user session. This way, even if a key is compromised, it's only valid for a limited time.
         if (empty($_SESSION['aesKey'])) {
             $_SESSION['aesKey'] = random_bytes(self::AES_KEY_SIZE);
         }

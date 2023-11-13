@@ -5,7 +5,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . "/SA_Shopping/Model/Order.php";
 require_once $_SERVER['DOCUMENT_ROOT'] . "/SA_Shopping/Model/Buyer.php";
 require_once $_SERVER['DOCUMENT_ROOT'] . "/SA_Shopping/BusinessLogic/BllBuyer/BuyerRead.php";
 require_once $_SERVER['DOCUMENT_ROOT'] . "/SA_Shopping/BusinessLogic/BllOrder/OrderRead.php";
-require_once $_SERVER['DOCUMENT_ROOT'] . "/SA_Shopping/BusinessLogic/BllReview/ReviewCreate.php";
+require_once $_SERVER['DOCUMENT_ROOT'] . "/SA_Shopping/BusinessLogic/BllReview/ReviewUpdate.php";
 require_once $_SERVER['DOCUMENT_ROOT'] . "/SA_Shopping/Constant/ReviewStatusConstant.php";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -43,19 +43,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $review = new Review();
         $review
             ->setReviewText($data->reviewText)
-            ->setStatus(ReviewStatusConstant::NEW)
+            ->setStatus(ReviewStatusConstant::UPDATED)
             // todo: replace with ml
             ->setSentiment(0.9)
             ->setOrder($orderResult)
             ->setBuyer($buyerResult);
 
-        ReviewCreate::Create($review);
+        ReviewUpdate::Update($review);
 
-        echo ResponseHelper::createJsonResponse("Review is posted");
-
+        echo ResponseHelper::createJsonResponse("Review is updated.");
     } catch (\Throwable $e) {
         header($_SERVER["SERVER_PROTOCOL"] . ' 500 Internal Server Error', true, 500);
-        
+
         echo $e->getMessage();
     }
 }

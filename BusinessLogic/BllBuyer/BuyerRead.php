@@ -62,4 +62,41 @@ class BuyerRead
             }
         );
     }
+
+    public static function ReadWithCode(Buyer $buyer)
+    {
+        $dataAccess = DataAccess::getInstance();
+        $result = $dataAccess->BeginDatabase(
+            function (DataAccess $dataAccess) use ($buyer) {
+                return self::ReadBuyerWithCode($dataAccess, $buyer);
+            }
+        );
+
+        return $result;
+    }
+
+    private static function ReadBuyerWithCode(DataAccess $dataAccess, Buyer $buyer)
+    {
+        return $dataAccess->Reader(
+            "SELECT 
+                b.email,
+                b.reset_code
+             FROM buyer b
+             WHERE
+                b.email = IF(:email IS NULL, b.email, :email)
+                AND b.reset_code = IF(:reset_code IS NULL, b.reset_code, :reset_code)
+             ORDER BY b.created_date DESC",
+            function (PDOStatement $pstmt) use ($buyer) {
+                $pstmt->bindValue(":email", $buyer->getEmail(), PDO::PARAM_STR);
+                $pstmt->bindValue(":reset_code", $buyer->getResetCode(), PDO::PARAM_STR);
+            },
+            function ($row) {
+                $buyer = new Buyer();
+
+                return $buyer
+                    ->setEmail($row['email'])
+                    ->setResetCode($row['reset_code']);
+            }
+        );
+    }
 }

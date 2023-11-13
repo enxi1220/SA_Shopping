@@ -7,7 +7,6 @@ $(document).ready(function () {
         '/SA_Shopping/Controller/FrontOffice/CtrlOrder/OrderSummary.php',
         {},
         function (success) {
-            console.log(success);
             orders = JSON.parse(success);
             renderOrders(orders);
         }
@@ -25,15 +24,14 @@ function writeReview(orderId) {
 
     var url = '';
 
-    if (selectedOrder.status = OrderStatus.Review) {
+    if (selectedOrder[0].status == OrderStatus.Review) {
         url = '/SA_Shopping/Controller/FrontOffice/CtrlReview/ReviewCreate.php';
-    } else if (selectedOrder.status = OrderStatus.Closed) {
+    } else if (selectedOrder[0].status == OrderStatus.Closed) {
         url = '/SA_Shopping/Controller/FrontOffice/CtrlReview/ReviewUpdate.php';
     }
 
     $(`#form-review-create`).submit(function (event) {
         event.preventDefault();
-        console.log('b');
         post(
             url,
             [
@@ -45,8 +43,6 @@ function writeReview(orderId) {
                 location.reload();
             }
         );
-        // todo: post, success only hide;
-        // $('#modal-review').modal('hide');
     });
 }
 

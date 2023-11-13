@@ -87,7 +87,8 @@ CREATE TABLE IF NOT EXISTS `SA_Shopping`.`product_detail` (
     `updated_date` DATETIME,
     `updated_by` VARCHAR(255),
     FOREIGN KEY (product_id) REFERENCES product(product_id),
-    UNIQUE KEY `product_detail_no_UNIQUE` (`product_detail_no`)
+    UNIQUE KEY `product_detail_no_UNIQUE` (`product_detail_no`),
+    UNIQUE KEY `composite_key` (`product_id`, `size`, `color`, `material`)
 );
 
 CREATE TABLE IF NOT EXISTS `SA_Shopping`.`product_image` (
