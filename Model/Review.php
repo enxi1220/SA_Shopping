@@ -203,10 +203,10 @@ class Review
 
     public function getSentimentRecommendation(): string
     {
-        switch (true) {
-            case $this->sentiment < 0:
+        switch ($this->sentiment) {
+            case 1:
                 return SentimentRecommendationConstant::NEGATIVE;
-            case $this->sentiment > 0:
+            case 2:
                 return SentimentRecommendationConstant::POSITIVE;
             default:
                 return SentimentRecommendationConstant::NEUTRAL;
@@ -215,10 +215,10 @@ class Review
     
     public function getSentimentLabel(): string
     {
-        switch (true) {
-            case $this->sentiment < 0:
+        switch ($this->sentiment) {
+            case 1:
                 return SentimentLabelConstant::NEGATIVE;
-            case $this->sentiment > 0:
+            case 2:
                 return SentimentLabelConstant::POSITIVE;
             default:
                 return SentimentLabelConstant::NEUTRAL;

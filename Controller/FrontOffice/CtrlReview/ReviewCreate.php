@@ -40,22 +40,39 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
         $orderResult = $orderResult[0];
 
+    // Communication with Py
+        $reviewText = array('text' => $data->reviewText);
+
+        $apiURL = "http://127.0.0.1:5000/process_data";
+        
+        $client = curl_init($apiURL);
+        curl_setopt($client, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($client, CURLOPT_POST, true);
+        curl_setopt($client, CURLOPT_POSTFIELDS, json_encode($reviewText));
+        curl_setopt($client, CURLOPT_HTTPHEADER, array('Content-Type: application/json'));
+        $response = curl_exec($client);
+
+        if ($response === FALSE) {
+            throw new Exception("Error in predicting sentiment");
+        }
+        $sentiment = json_decode($response, true);
+        curl_close($client);
+
+    // End Communication with Py
+
         $review = new Review();
         $review
             ->setReviewText($data->reviewText)
             ->setStatus(ReviewStatusConstant::NEW)
-            // todo: replace with ml
-            ->setSentiment(0.9)
+            ->setSentiment($sentiment['result'])
             ->setOrder($orderResult)
             ->setBuyer($buyerResult);
 
         ReviewCreate::Create($review);
-
-        echo ResponseHelper::createJsonResponse("Review is posted");
-
+        echo ResponseHelper::createJsonResponse("Review is posted with " . strtolower($review->getSentimentLabel()) . " emotion.");
     } catch (\Throwable $e) {
         header($_SERVER["SERVER_PROTOCOL"] . ' 500 Internal Server Error', true, 500);
-        
+
         echo $e->getMessage();
     }
 }
