@@ -9,7 +9,6 @@ $(document).ready(function () {
         searching: false
     });
 
-    // todo: bll add product, check product detail unique
     $(`#form-product-create`).submit(function (event) {
         event.preventDefault();
         var productDetails = preparePostData(dataTable);

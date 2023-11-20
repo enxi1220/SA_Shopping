@@ -11,7 +11,6 @@ $(document).ready(function () {
         }
     );
 
-    // todo: bll add product, check product detail unique
     $(`#form-product-update`).submit(function (event) {
         event.preventDefault();
         var productDetails = preparePostData(dataTable);

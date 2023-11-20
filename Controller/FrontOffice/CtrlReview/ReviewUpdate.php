@@ -63,7 +63,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $review
             ->setReviewText($data->reviewText)
             ->setStatus(ReviewStatusConstant::UPDATED)
-            // todo: replace with ml
             ->setSentiment($sentiment['result'])
             ->setOrder($orderResult)
             ->setBuyer($buyerResult);
