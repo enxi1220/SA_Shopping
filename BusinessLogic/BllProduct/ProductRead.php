@@ -11,9 +11,9 @@ class ProductRead
         $result = $dataAccess->BeginDatabase(
             function (DataAccess $dataAccess) use ($product, $productDetail, $productImage) {
                 $products = [];
-                
+
                 $products =  self::ReadProduct($dataAccess, $product, $productDetail);
-                
+
                 foreach ($products as $product) {
                     $productDetail->setProductId($product->getProductId());
                     $productDetails = self::ReadProductDetail($dataAccess, $productDetail);
@@ -25,7 +25,7 @@ class ProductRead
                     $productImages = self::ReadProductImage($dataAccess, $productImage);
                     $product->setProductImages($productImages);
                 }
-                
+
                 return $products;
             }
         );
@@ -33,7 +33,20 @@ class ProductRead
         return $result;
     }
 
-    public static function ReadImage(ProductImage $productImage){
+    public static function ReadForReport(Product $product)
+    {
+        $dataAccess = DataAccess::getInstance();
+        $result = $dataAccess->BeginDatabase(
+            function (DataAccess $dataAccess) use ($product) {
+                return self::ReadProductLowerThanThreshold($dataAccess, $product);
+            }
+        );
+
+        return $result;
+    }
+
+    public static function ReadImage(ProductImage $productImage)
+    {
         $dataAccess = DataAccess::getInstance();
         $result = $dataAccess->BeginDatabase(
             function (DataAccess $dataAccess) use ($productImage) {
@@ -75,20 +88,21 @@ class ProductRead
                 $product = new Product();
 
                 return $product
-                ->setProductId($row['product_id'])
-                ->setProductNo($row['product_no'])
-                ->setSellerId($row['seller_id'])
-                ->setName($row['name'])
-                ->setPrice($row['price'])
-                ->setStatus($row['status'])
-                ->setDescription($row['description'])
-                ->setCreatedDate($row['created_date'])
-                ->setUpdatedDate($row['updated_date']);
+                    ->setProductId($row['product_id'])
+                    ->setProductNo($row['product_no'])
+                    ->setSellerId($row['seller_id'])
+                    ->setName($row['name'])
+                    ->setPrice($row['price'])
+                    ->setStatus($row['status'])
+                    ->setDescription($row['description'])
+                    ->setCreatedDate($row['created_date'])
+                    ->setUpdatedDate($row['updated_date']);
             }
         );
     }
 
-    private static function ReadProductDetail(DataAccess $dataAccess, ProductDetail $productDetail){
+    private static function ReadProductDetail(DataAccess $dataAccess, ProductDetail $productDetail)
+    {
         return $dataAccess->Reader(
             "SELECT 
                 pd.product_detail_id,
@@ -118,24 +132,25 @@ class ProductRead
                 $productDetail = new ProductDetail();
 
                 return $productDetail
-                ->setProductDetailId($row['product_detail_id'])
-                ->setProductDetailNo($row['product_detail_no'])
-                ->setProductId($row['product_id'])
-                ->setSize($row['size'])
-                ->setStatus($row['status'])
-                ->setColor($row['color'])
-                ->setMaterial($row['material'])
-                ->setMinStockQty($row['min_stock_qty'])
-                ->setAvailableQty($row['available_qty'])
-                ->setSalesOutQty($row['sales_out_qty'])
-                ->setCreatedDate($row['created_date'])
-                ->setUpdatedDate($row['updated_date'])
-                ->setUpdatedBy($row['updated_by']);
+                    ->setProductDetailId($row['product_detail_id'])
+                    ->setProductDetailNo($row['product_detail_no'])
+                    ->setProductId($row['product_id'])
+                    ->setSize($row['size'])
+                    ->setStatus($row['status'])
+                    ->setColor($row['color'])
+                    ->setMaterial($row['material'])
+                    ->setMinStockQty($row['min_stock_qty'])
+                    ->setAvailableQty($row['available_qty'])
+                    ->setSalesOutQty($row['sales_out_qty'])
+                    ->setCreatedDate($row['created_date'])
+                    ->setUpdatedDate($row['updated_date'])
+                    ->setUpdatedBy($row['updated_by']);
             }
         );
     }
 
-    private static function ReadProductImage(DataAccess $dataAccess, ProductImage $productImage){
+    private static function ReadProductImage(DataAccess $dataAccess, ProductImage $productImage)
+    {
         return $dataAccess->Reader(
             "SELECT 
                 pi.product_image_id,
@@ -153,9 +168,40 @@ class ProductRead
                 $productImage = new ProductImage();
 
                 return $productImage
-                ->setProductImageId($row['product_image_id'])
-                ->setProductId($row['product_id'])
-                ->setImageName($row['image_name']);
+                    ->setProductImageId($row['product_image_id'])
+                    ->setProductId($row['product_id'])
+                    ->setImageName($row['image_name']);
+            }
+        );
+    }
+
+    private static function ReadProductLowerThanThreshold(DataAccess $dataAccess, Product $product)
+    {
+        return $dataAccess->Reader(
+            "SELECT 
+                p.name, 
+                p.product_id,
+                pd.product_detail_id, 
+                product_detail_no, 
+                pd.available_qty, 
+                pd.min_stock_qty
+             FROM product_detail pd
+             JOIN product p ON p.product_id = pd.product_id
+             WHERE pd.available_qty <= pd.min_stock_qty
+             AND p.seller_id = :seller_id",
+            function (PDOStatement $pstmt) use ($product) {
+                $pstmt->bindValue(":seller_id", $product->getSellerId(), PDO::PARAM_INT);
+            },
+            function ($row) {
+                $productDetail = new ProductDetail();
+
+                return $productDetail
+                    ->setProductDetailId($row['product_detail_id'])
+                    ->setProductDetailNo($row['product_detail_no'])
+                    ->setProductId($row['product_id'])
+                    ->setMinStockQty($row['min_stock_qty'])
+                    ->setAvailableQty($row['available_qty'])
+                    ->setProductName($row['name']);
             }
         );
     }

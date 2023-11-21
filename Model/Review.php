@@ -24,6 +24,9 @@ class Review
     private $neutralReviewCount;
     private $positiveReviewCount;
     private $totalReviewCount;
+    
+    private $sellerId;
+    private $productName;
 
     public function getReviewId()
     {
@@ -198,6 +201,28 @@ class Review
     public function setTotalReviewCount($count)
     {
         $this->totalReviewCount = $count;
+        return $this;
+    }
+
+    public function getSellerId()
+    {
+        return $this->sellerId;
+    }
+
+    public function setSellerId($sellerId)
+    {
+        $this->sellerId = $sellerId;
+        return $this;
+    }
+
+    public function getProductName()
+    {
+        return $this->productName;
+    }
+
+    public function setProductName($productName)
+    {
+        $this->productName = $productName;
         return $this;
     }
 

@@ -13,6 +13,9 @@
 <!-- swal fire -->
 <script src="<?php $_SERVER['DOCUMENT_ROOT'] ?>/SA_Shopping/Web/Library/sweetalert2.all.min.js" type="text/javascript"></script>
 
+<!-- Chart.js -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
 <!-- custom -->
 <script src="<?php $_SERVER['DOCUMENT_ROOT'] ?>/SA_Shopping/Web/Script/Footer.js" type="text/javascript"></script>
 <script src="<?php $_SERVER['DOCUMENT_ROOT'] ?>/SA_Shopping/Web/Script/Shared.js" type="text/javascript"></script>

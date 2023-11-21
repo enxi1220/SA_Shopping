@@ -36,6 +36,9 @@ class Order {
     private Buyer $buyer;
     private Review $review;
 
+    private $orderMonth;
+    private $salesCount;
+
     public function getOrderId() {
         return $this->orderId;
     }
@@ -267,6 +270,24 @@ class Order {
 
     public function setReview($review) {
         $this->review = $review;
+        return $this;
+    }
+    
+    public function getSalesCount() {
+        return $this->salesCount;
+    }
+
+    public function setSalesCount($salesCount) {
+        $this->salesCount = $salesCount;
+        return $this;
+    }
+    
+    public function getOrderMonth() {
+        return $this->orderMonth;
+    }
+
+    public function setOrderMonth($orderMonth) {
+        $this->orderMonth = $orderMonth;
         return $this;
     }
 

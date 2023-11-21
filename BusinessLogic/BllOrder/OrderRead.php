@@ -17,6 +17,18 @@ class OrderRead
         return $result;
     }
 
+    public static function ReadForReport(Order $order)
+    {
+        $dataAccess = DataAccess::getInstance();
+        $result = $dataAccess->BeginDatabase(
+            function (DataAccess $dataAccess) use ($order) {
+                return self::ReadOrderForReport($dataAccess, $order);
+            }
+        );
+
+        return $result;
+    }
+
     private static function ReadOrder(DataAccess $dataAccess, Order $order)
     {
         return $dataAccess->Reader(
@@ -99,6 +111,32 @@ class OrderRead
                     ->setProductId($row['product_id'])
                     ->setBuyer($buyer)
                     ->setProduct($product);
+            }
+        );
+    }
+
+    private static function ReadOrderForReport(DataAccess $dataAccess, Order $order)
+    {
+        return $dataAccess->Reader(
+            "SELECT
+                MONTHNAME(o.created_date) AS order_month,
+                COUNT(o.order_id) AS sales_count,
+                ROUND(SUM(o.total_price), 2) AS total_price
+             FROM `order` o
+             JOIN product p ON o.product_id = p.product_id
+             WHERE p.seller_id = :seller_id
+             GROUP BY order_month
+             ORDER BY MONTH(o.created_date)",
+            function (PDOStatement $pstmt) use ($order) {
+                $pstmt->bindValue(":seller_id", $order->getSellerId(), PDO::PARAM_INT);
+            },
+            function ($row) {
+                $order = new Order();
+
+                return $order
+                    ->setTotalPrice($row['total_price'])
+                    ->setOrderMonth($row['order_month'])
+                    ->setSalesCount($row['sales_count']);
             }
         );
     }

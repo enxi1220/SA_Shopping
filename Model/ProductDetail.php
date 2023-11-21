@@ -18,6 +18,8 @@ class ProductDetail
     private $updatedDate;
     private $updatedBy;
 
+    private $productName;
+
     public function getProductDetailId()
     {
         return $this->productDetailId;
@@ -158,6 +160,17 @@ class ProductDetail
     public function setUpdatedBy($updatedBy)
     {
         $this->updatedBy = $updatedBy;
+        return $this;
+    }
+
+    public function getProductName()
+    {
+        return $this->productName;
+    }
+
+    public function setProductName($productName)
+    {
+        $this->productName = $productName;
         return $this;
     }
 
