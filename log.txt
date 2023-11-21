@@ -3,3 +3,5 @@ todo:
     add video
     video js 
     multiple files
+
+let review prediction async... remove returned text with emotion.. direct show success msg
