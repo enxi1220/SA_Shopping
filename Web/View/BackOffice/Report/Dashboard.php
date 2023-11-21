@@ -1,6 +1,6 @@
 <?php
-require 'Layout.php';
-require 'CheckLogin.php';
+require '../Layout.php';
+require '../CheckLogin.php';
 ?>
 
 <head>
@@ -74,6 +74,6 @@ require 'CheckLogin.php';
 </div>
 
 <?php
-require 'Footer.php';
+require '../Footer.php';
 ?>
-<script src="../../Script/BackOffice/Dashboard.js"></script>
+<script src="../../../Script/BackOffice/Dashboard.js"></script>

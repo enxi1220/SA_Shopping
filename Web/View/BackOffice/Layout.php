@@ -19,7 +19,7 @@ if (session_status() == PHP_SESSION_NONE) {
         <nav id="sidebarMenu" class="collapse d-lg-block sidebar collapse bg-white position-fixed top-0 bottom-0 left-0 pt-5 shadow-3 w-auto" style="z-index: 600;">
             <div class="position-sticky">
                 <div class="list-group list-group-flush mx-3 mt-4">
-                    <a href="/SA_Shopping/Web/View/BackOffice/Dashboard.php" class="list-group-item list-group-item-action py-2 ripple active" aria-current="true">
+                    <a href="/SA_Shopping/Web/View/BackOffice/Report/Dashboard.php" class="list-group-item list-group-item-action py-2 ripple active" aria-current="true">
                         <i class="fas fa-tachometer-alt fa-fw me-3"></i>
                         <span>Main dashboard</span>
                     </a>

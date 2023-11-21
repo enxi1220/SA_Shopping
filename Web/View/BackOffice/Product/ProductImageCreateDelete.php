@@ -18,7 +18,7 @@ require '../CheckLogin.php';
                 </div>
             </div>
             <!-- todo: add video, video js -->
-            <div class="col-md-8">
+            <div class="col-md-8 d-none">
                 <video id="video-preview" class="" controls width="300" height="300">
                     <source src="" type="video/mp4">
                 </video>
