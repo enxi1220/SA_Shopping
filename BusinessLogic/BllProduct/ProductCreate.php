@@ -19,9 +19,6 @@ class ProductCreate
                 }
                 
                 $image = $product->getProductImage();
-
-                $fileName = FileHelper::UploadImage($image->getTempImageName(), $image->imagePath());
-                $image->setImageName($fileName);
                 $image->setProductId($productId);
 
                 self::CreateProductImage($dataAccess, $image);

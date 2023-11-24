@@ -48,7 +48,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         echo ResponseHelper::createJsonResponse("Login successfully.", "/SA_Shopping/Web/View/BackOffice/Report/Dashboard.php");
     } catch (\Throwable $e) {
-        header($_SERVER["SERVER_PROTOCOL"] . ' 500 Internal Server Error', true, 500);
-        echo $e->getMessage();
+        header($_SERVER["SERVER_PROTOCOL"] . ' 500 Internal Server Error', true, 500);        echo $e->getMessage();
     }
 }

@@ -40,7 +40,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         echo ResponseHelper::createJsonResponse("Delete profile successfully", "/SA_Shopping/Web/View/BackOffice/Seller/SellerLogin.php");
     } catch (\Throwable $e) {
         header($_SERVER["SERVER_PROTOCOL"] . ' 500 Internal Server Error', true, 500);
-        
-        echo $e->getMessage();
+                echo $e->getMessage();
     }
 }

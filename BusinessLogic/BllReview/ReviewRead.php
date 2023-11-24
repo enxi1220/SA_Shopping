@@ -98,8 +98,8 @@ class ReviewRead
         return $dataAccess->Reader(
             "SELECT
                 p.product_id,
-                COALESCE(SUM(CASE WHEN r.sentiment = 1 THEN 1 ELSE 0 END), 0) AS negative_reviews,
-                COALESCE(SUM(CASE WHEN r.sentiment = 2 THEN 1 ELSE 0 END), 0) AS positive_reviews,
+                COALESCE(SUM(CASE WHEN r.sentiment < 0 THEN 1 ELSE 0 END), 0) AS negative_reviews,
+                COALESCE(SUM(CASE WHEN r.sentiment > 0 THEN 1 ELSE 0 END), 0) AS positive_reviews,
                 COALESCE(SUM(CASE WHEN r.sentiment = 0 THEN 1 ELSE 0 END), 0) AS neutral_reviews,
                 COALESCE(COUNT(r.review_id), 0) AS total_reviews,
                 p.name

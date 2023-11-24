@@ -16,7 +16,23 @@ $(document).ready(function () {
 
 function renderReview(reviews) {
     reviews.forEach(element => {
-        color = element.sentimentLabel == SentimentLabel.Negative ? 'danger' : element.sentimentLabel == SentimentLabel.Neutral ? 'warning' : 'success' ;
+        
+        switch (element.sentimentLabel) {
+            case SentimentLabel.Negative:
+            case SentimentLabel.VeryNeg:
+            case SentimentLabel.SlightNeg:
+                color = 'danger';
+                break;
+            case SentimentLabel.Positive:
+            case SentimentLabel.VeryPos:
+            case SentimentLabel.SlightPos:
+                color = 'success';
+                break;
+            default:
+                color = 'warning';
+                break;
+        };
+
         $('#review').append(
             `
             <div class="card border border-${color} mb-3">

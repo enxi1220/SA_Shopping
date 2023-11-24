@@ -33,12 +33,6 @@ require '../CheckLogin.php';
         </div>
     </div>
     <div id="carousel-charts" class="carousel slide carousel-dark" data-mdb-ride="carousel" data-mdb-carousel-init>
-        <div class="carousel-indicators">
-            <button type="button" data-mdb-target="#carousel-charts" data-mdb-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-            <button type="button" data-mdb-target="#carousel-charts" data-mdb-slide-to="1" aria-label="Slide 2"></button>
-            <button type="button" data-mdb-target="#carousel-charts" data-mdb-slide-to="2" aria-label="Slide 3"></button>
-        </div>
-
         <div class="carousel-inner">
             <!-- Single item -->
             <div id="review" class="carousel-item active">

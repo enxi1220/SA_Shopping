@@ -49,11 +49,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
             $dataProductImage = $_FILES['productImage'];
             $productImage = new ProductImage();
-            $productImage->setTempImageName($dataProductImage);
-            $productImage->setProductId($dataProduct->productId);
-
+            $productImage->setTempImageName($dataProductImage)
+                         ->setProductId($dataProduct->productId);
+            
+            $fileName = FileHelper::ProcessImage($productImage->getTempImageName(), $productImage->imagePath());
+            $productImage->setImageName($fileName);
+            
             ProductImageCreate::Create($productImage);
-
             echo ResponseHelper::createJsonResponse("Add product image successfully.");
             
         } else {
@@ -61,7 +63,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
     } catch (\Throwable $e) {
         header($_SERVER["SERVER_PROTOCOL"] . ' 500 Internal Server Error', true, 500);
-        
         echo $e->getMessage();
     }
 }
@@ -105,7 +106,6 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
         echo json_encode($output);
     } catch (\Throwable $e) {
         header($_SERVER["SERVER_PROTOCOL"] . ' 500 Internal Server Error', true, 500);
-        
-        echo $e->getMessage();
+                echo $e->getMessage();
     }
 }

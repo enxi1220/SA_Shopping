@@ -4,4 +4,13 @@ todo:
     video js 
     multiple files
 
-let review prediction async... remove returned text with emotion.. direct show success msg
+Validation at backend:
+null val = SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'name' cannot be null
+empty str acceptable by database
+validate phone number.. MY phone number ba, proposal write my , or welcome everyone
+regex 走天下
+
+considering:
+Image validation about OpenCV
+web + 
+settings -> enable/disable image validation 

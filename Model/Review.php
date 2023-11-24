@@ -229,10 +229,18 @@ class Review
     public function getSentimentRecommendation(): string
     {
         switch ($this->sentiment) {
-            case 1:
+            case -3:
+                return SentimentRecommendationConstant::VERY_NEG;
+            case -2:
                 return SentimentRecommendationConstant::NEGATIVE;
+            case -1:
+                return SentimentRecommendationConstant::SLIGHT_NEG;
+            case 1:
+                return SentimentRecommendationConstant::SLIGHT_POS;
             case 2:
                 return SentimentRecommendationConstant::POSITIVE;
+            case 3:
+                return SentimentRecommendationConstant::VERY_POS;
             default:
                 return SentimentRecommendationConstant::NEUTRAL;
         }
@@ -241,10 +249,18 @@ class Review
     public function getSentimentLabel(): string
     {
         switch ($this->sentiment) {
-            case 1:
+            case -3:
+                return SentimentLabelConstant::VERY_NEG;
+            case -2:
                 return SentimentLabelConstant::NEGATIVE;
+            case -1:
+                return SentimentLabelConstant::SLIGHT_NEG;
+            case 1:
+                return SentimentLabelConstant::SLIGHT_POS;
             case 2:
                 return SentimentLabelConstant::POSITIVE;
+            case 3:
+                return SentimentLabelConstant::VERY_POS;
             default:
                 return SentimentLabelConstant::NEUTRAL;
         }

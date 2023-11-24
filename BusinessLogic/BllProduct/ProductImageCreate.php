@@ -11,10 +11,6 @@ class ProductImageCreate
         $dataAccess = DataAccess::getInstance();
         $result = $dataAccess->BeginDatabase(
             function (DataAccess $dataAccess) use ($productImage) {
-
-                $fileName = FileHelper::UploadImage($productImage->getTempImageName(), $productImage->imagePath());
-                $productImage->setImageName($fileName);
-
                 self::CreateProductImage($dataAccess, $productImage);
             }
         );

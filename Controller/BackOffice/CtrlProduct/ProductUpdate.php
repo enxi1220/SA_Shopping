@@ -60,7 +60,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         echo ResponseHelper::createJsonResponse("Update product successfully.", "/SA_Shopping/Web/View/BackOffice/Product/ProductSummary.php");
     } catch (\Throwable $e) {
         header($_SERVER["SERVER_PROTOCOL"] . ' 500 Internal Server Error', true, 500);
-        
-        echo $e->getMessage();
+                echo $e->getMessage();
     }
 }

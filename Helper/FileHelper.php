@@ -20,7 +20,6 @@ class FileHelper
         $imageTemp = $file['tmp_name'];
 
         $fileContents = file_get_contents($file['tmp_name']);
-
         move_uploaded_file($imageTemp, $targetPath); // move the uploaded file to the specified location
         file_put_contents($targetPath, $fileContents);
 
@@ -42,5 +41,36 @@ class FileHelper
                 throw new Exception("Failed to delete the image.");
             }
         }
+    }
+
+    public static function ProcessImage($file, $directory)
+    {
+        $fileName = self::UploadImage($file, $directory);
+
+        $targetPath = $_SERVER['DOCUMENT_ROOT'] . $directory . $fileName;
+
+        // Blurryness detection
+        $apiURL = "http://127.0.0.1:5000/blurry_image";
+        $filePath = array('file_path'=> $targetPath);
+
+        $client = curl_init($apiURL);
+        curl_setopt($client, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($client, CURLOPT_POST, true);
+        curl_setopt($client, CURLOPT_POSTFIELDS, json_encode($filePath));
+        curl_setopt($client, CURLOPT_HTTPHEADER, array('Content-Type: application/json'));
+        $response = curl_exec($client);
+
+        if ($response === FALSE) {
+            throw new Exception("Error in detecting blurryness");
+        }
+
+        $image = json_decode($response, true);
+        curl_close($client);
+
+        if($image['result'] == 'Blurry'){
+            self::DeleteImage($directory . $fileName);
+            throw new Exception("Image is blurry. Please upload a clear product image.");
+        }
+        return $fileName;
     }
 }

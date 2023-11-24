@@ -21,13 +21,22 @@ var ReviewStatus = {
 var SentimentRecommendation = {
     Negative: "Not Recommended",
     Neutral: "Neutral",
-    Positive: "Recommended"
+    Positive: "Recommended",
+    VeryNeg: "Strongly Not Recommended",
+    VeryPos: "Strongly Recommended",
+    SlightNeg: "Mildly Not Recommended",
+    SlightPos: "Mildly Recommended"
+    
 }
 
 var SentimentLabel = {
     Negative: "Negative",
     Neutral: "Neutral",
-    Positive: "Positive"
+    Positive: "Positive",
+    VeryNeg: "Very negative",
+    VeryPos: "Very positive",
+    SlightNeg: "Slightly negative",
+    SlightPos: "Slightly positive"
 }
 
 var OrderStatus = {
