@@ -12,11 +12,27 @@ $(document).ready(function () {
         }
     );
 
+    $(`#form-review-create`).submit(function (event) {
+        event.preventDefault();
+        var selectedOrderId = $(this).data('orderId');
+        var url = $(this).data('url');
+        post(
+            url,
+            [
+                submitData('review', preparePostData(selectedOrderId))
+            ],
+            null,
+            function () {
+                $('#modal-review').modal('hide');
+                location.reload();
+            }
+        );
+    });
+
 });
 
 function writeReview(orderId) {
     const selectedOrder = orders.filter(detail => detail.orderId == orderId);
-    console.log(selectedOrder[0].review.reviewText);
     $("#txt-review").val(selectedOrder[0].review.reviewText);
 
     $('#modal-review').modal('show');
@@ -29,21 +45,9 @@ function writeReview(orderId) {
     } else if (selectedOrder[0].status == OrderStatus.Closed) {
         url = '/SA_Shopping/Controller/FrontOffice/CtrlReview/ReviewUpdate.php';
     }
-
-    $(`#form-review-create`).submit(function (event) {
-        event.preventDefault();
-        post(
-            url,
-            [
-                submitData('review', preparePostData(orderId))
-            ],
-            null,
-            function () {
-                $('#modal-review').modal('hide');
-                location.reload();
-            }
-        );
-    });
+    selectedOrderId = selectedOrder[0].orderId;
+    // Set the orderId as a data attribute of the form
+    $('#form-review-create').data({ 'orderId': selectedOrderId, 'url': url });
 }
 
 function preparePostData(orderId) {

@@ -22,13 +22,18 @@ function renderReview(reviews) {
             { data: "reviewText" },
             {
                 render: function (data, type, row, meta) {
-                    if (row.sentimentLabel == SentimentLabel.Neutral) {
-                        return `<span class="badge rounded-pill badge-warning">${SentimentLabel.Neutral}</span>`;
-                    } else if (row.sentimentLabel == SentimentLabel.Positive) {
-                        return `<span class="badge rounded-pill badge-success">${SentimentLabel.Positive}</span>`;
-                    } else {
-                        return `<span class="badge rounded-pill badge-danger">${SentimentLabel.Negative}</span>`;
-                    }
+                    switch (row.sentimentLabel) {
+                        case SentimentLabel.Positive:
+                        case SentimentLabel.SlightPos:
+                        case SentimentLabel.VeryPos:
+                            return `<span class="badge rounded-pill badge-success">${row.sentimentLabel}</span>`;
+                        case SentimentLabel.Negative:
+                        case SentimentLabel.SlightNeg:
+                        case SentimentLabel.VeryNeg:
+                            return `<span class="badge rounded-pill badge-danger">${row.sentimentLabel}</span>`;
+                        default:
+                            return `<span class="badge rounded-pill badge-warning">${SentimentLabel.Neutral}</span>`;
+                    };
                 }
             },
             { data: "createdDate" },

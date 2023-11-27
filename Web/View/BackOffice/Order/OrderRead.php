@@ -146,15 +146,6 @@ require '../Layout.php';
             <a class="btn btn-secondary btn-floating float-end" title="Back" href="OrderSummary.php" role="button">
                 <i class="fas fa-arrow-left"></i>
             </a>
-            <button type="button" id="btn-confirm" class="btn btn-success btn-floating float-end ms-2" title="Confirm">
-                <i class="fas fa-check"></i>
-            </button>
-            <button type="button" id="btn-ship" class="btn btn-primary btn-floating float-end ms-2" title="Ship">
-                <i class="fas fa-box"></i>
-            </button>
-            <button type="button" id="btn-deliver" class="btn btn-warning btn-floating float-end ms-2" title="Deliver">
-                <i class="fas fa-truck"></i>
-            </button>
         </div>
     </form>
 </div>

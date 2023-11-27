@@ -31,4 +31,24 @@ function renderOrder(order) {
     $('#txt-buyer-name').val(order.buyer.name);
     $('#txt-buyer-phone').val(order.buyer.phone);
     $('#txt-buyer-email').val(order.buyer.email);
+    
+    $('#txt-order-no').focus();
+    $('#txt-status').focus();
+    $('#txt-price').focus();
+    $('#txt-total-price').focus();
+    $('#txt-delivery-fee').focus();
+    $('#txt-created-date').focus();
+    $('#txt-updated-date').focus();
+    $('#txt-delivery-address').focus();
+    $('#txt-product-name').focus();
+    $('#txt-price').focus();
+    $('#txt-quantity').focus();
+    $('#txt-payment-method').focus();
+    $('#txt-product-size').focus();
+    $('#txt-product-color').focus();
+    $('#txt-product-material').focus();
+    $('#txt-buyer-name').focus();
+    $('#txt-buyer-phone').focus();
+    $('#txt-buyer-email').focus();
+    $('#txt-buyer-email').blur();
 }

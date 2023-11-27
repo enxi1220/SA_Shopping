@@ -84,7 +84,7 @@ require '../Layout.php';
 
             <!-- Seller  -->
             <div class="row d-flex justify-content-center border-top pt-3">
-                <div class="col-3 card h-100 p-4 text-center">
+                <div class="col-xs-12 col-md-12 col-lg-3 card h-100 p-4 text-center">
                     <span class="mb-0 fs-5 fw-" id="txt-seller-name"></span>
                     <p class="mb-2 ms-3 text-muted"><small> Last login at <span id="txt-seller-last-login-date"></span></small></p>
                     <p class="mb-2">Join on <span id="txt-seller-created-date"></span></p>
@@ -93,7 +93,7 @@ require '../Layout.php';
                     <button class="btn btn-outline-dark">Whatsapp me</button>
                 </div>
 
-                <div class="col col-lg-9 ps-4">
+                <div class="col-xs-12 col-md-12 col-lg-9 ps-4 pt-4">
                     <h4 id="txt-store-name"></h4>
                     <div>
                         <i class="fas fa-location-dot fs-5"></i>

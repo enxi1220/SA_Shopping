@@ -37,7 +37,6 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
         $output = array_map(
             function ($data) {
                 // bcz product creation must have 1 image, can predefine [0]
-
                 $image = $data->getProductImages()[0];
 
                 return [
