@@ -21,19 +21,19 @@ require '../Layout.php';
                             </div>
                             <div class="col-5 col-md-6 d-flex align-items-center">
                                 <div class="card-body p-4 p-lg-5 text-black">
-
                                     <form id="form-buyer-reset-password" class="needs-validation" novalidate>
                                         <h1 class="mb-3 pb-3">Reset Password</h1>
                                         <div class="col-md-12 mb-4">
                                             <div class="form-outline">
                                                 <i class="fas fa-eye-slash text-secondary toggle-visibility trailing" data-target></i>
-                                                <input type="password" id="txt-password" class="form-control" required data-mdb-showcounter="true" maxlength="20" />
+                                                <i class="fas fa-info-circle text-info position-absolute top-0 fs-5 translate-middle-y" data-bs-toggle="tooltip" data-bs-placement="top" title="Password must be 8-20 characters and include at least one lowercase letter, one uppercase letter, one digit, and one special character"></i>
+                                                <input type="password" id="txt-password" class="form-control" required data-mdb-showcounter="true" maxlength="20" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%?&])[A-Za-z\d@$!%?&]{8,20}$"/>
                                                 <label class="form-label" for="txt-password" required>Password</label>
                                                 <div class="form-helper"></div>
-                                                <div class="invalid-feedback">Required</div>
+                                                <div class="invalid-feedback">Required with requirements</div>
                                             </div>
                                         </div>
-                                        <div class="col-md-12 mb-4">
+                                        <div class="col-md-12 mt-5 mb-5">
                                             <div class="form-outline">
                                                 <i class="fas fa-eye-slash text-secondary toggle-visibility trailing" data-target></i>
                                                 <input type="password" id="txt-confirm-password" class="form-control" required data-mdb-showcounter="true" maxlength="20" />

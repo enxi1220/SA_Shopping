@@ -23,14 +23,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         if (empty($result)) {
             // email not found
-            throw new Exception("Incorrect email or .");
+            throw new Exception("Incorrect email or password.");
         }
 
         $result = $result[0];
 
         if (!password_verify($data->password, $result->getPassword())) {
             // password not match
-            throw new Exception("Incorrect  or password.");
+            throw new Exception("Incorrect email or password.");
         }
 
         if ($result->getStatus() == UserStatusConstant::INACTIVE) {

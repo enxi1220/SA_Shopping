@@ -1,6 +1,7 @@
 <?php
 
 require_once $_SERVER['DOCUMENT_ROOT'] . "/SA_Shopping/Helper/ResponseHelper.php";
+require_once $_SERVER['DOCUMENT_ROOT'] . "/SA_Shopping/Helper/ValidationHelper.php";
 require_once $_SERVER['DOCUMENT_ROOT'] . "/SA_Shopping/Model/Buyer.php";
 require_once $_SERVER['DOCUMENT_ROOT'] . "/SA_Shopping/BusinessLogic/BllBuyer/BuyerRead.php";
 require_once $_SERVER['DOCUMENT_ROOT'] . "/SA_Shopping/BusinessLogic/BllBuyer/BuyerUpdatePassword.php";
@@ -17,7 +18,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
 
         $data = json_decode($_POST['buyer']);
-
+        
         $buyer = new Buyer();
         $buyer->setBuyerId($buyerId);
 
@@ -32,6 +33,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if(!password_verify($data->currentPassword, $result->getPassword())){
             throw new Exception("Incorrect password. Failed to change password.");
         }
+        
+        ValidationHelper::ValidatePassword($data->password);
 
         $buyer->setPassword(password_hash($data->password, PASSWORD_DEFAULT));
 

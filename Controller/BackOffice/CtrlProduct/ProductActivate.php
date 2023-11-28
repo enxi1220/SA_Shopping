@@ -1,6 +1,7 @@
 <?php
 
 require_once $_SERVER['DOCUMENT_ROOT'] . "/SA_Shopping/Helper/ResponseHelper.php";
+require_once $_SERVER['DOCUMENT_ROOT'] . "/SA_Shopping/Helper/ValidationHelper.php";
 require_once $_SERVER['DOCUMENT_ROOT'] . "/SA_Shopping/Model/Product.php";
 require_once $_SERVER['DOCUMENT_ROOT'] . "/SA_Shopping/BusinessLogic/BllProduct/ProductActivate.php";
 
@@ -13,6 +14,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
 
         $data = json_decode($_POST['product']);
+
+        ValidationHelper::ValidateNumber($data->productId);
 
         $product = new Product();
         $product->setProductId($data->productId);

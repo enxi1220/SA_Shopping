@@ -1,5 +1,8 @@
 <?php
 require $_SERVER['DOCUMENT_ROOT'] . '/SA_Shopping/Web/StyleSheet/CSS_links.php';
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
 ?>
 
 <!DOCTYPE html>
@@ -37,7 +40,11 @@ require $_SERVER['DOCUMENT_ROOT'] . '/SA_Shopping/Web/StyleSheet/CSS_links.php';
                     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">
                         <li><a class="dropdown-item" href="/SA_Shopping/Web/View/FrontOffice/Buyer/BuyerOverview.php">My profile</a></li>
                         <li><a class="dropdown-item" href="/SA_Shopping/Web/View/FrontOffice/Order/OrderSummary.php">Purchase History</a></li>
+                      <?php if (isset($_SESSION['buyer'])) : ?>
                         <li><a class="dropdown-item" href="#" onclick="logout()">Logout</a></li>
+                      <?php else : ?>
+                        <li><a class="dropdown-item" href="/SA_Shopping/Web/View/FrontOffice/Buyer/BuyerLogin.php">Login</a></li>
+                      <?php endif; ?>
                     </ul>
                 </li>
             </ul>

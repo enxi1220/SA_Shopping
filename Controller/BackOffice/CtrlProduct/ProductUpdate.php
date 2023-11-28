@@ -1,6 +1,7 @@
 <?php
 
 require_once $_SERVER['DOCUMENT_ROOT'] . "/SA_Shopping/Helper/ResponseHelper.php";
+require_once $_SERVER['DOCUMENT_ROOT'] . "/SA_Shopping/Helper/ValidationHelper.php";
 require_once $_SERVER['DOCUMENT_ROOT'] . "/SA_Shopping/Model/Product.php";
 require_once $_SERVER['DOCUMENT_ROOT'] . "/SA_Shopping/BusinessLogic/BllProduct/ProductUpdate.php";
 require_once $_SERVER['DOCUMENT_ROOT'] . "/SA_Shopping/Constant/ProductStatusConstant.php";
@@ -16,10 +17,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
         $dataProduct = json_decode($_POST['product']);
 
+        ValidationHelper::ValidateText($dataProduct->name);
+        ValidationHelper::ValidateText($dataProduct->description);
+        ValidationHelper::ValidatePrice($dataProduct->price);
+
         if (!isset($dataProduct->productDetails) || empty($dataProduct->productDetails)) {
             throw new Exception("Please complete the product detail.");
         }
         $arrayProductDetail = $dataProduct->productDetails;
+        foreach ($arrayProductDetail as $detail) {
+            ValidationHelper::ValidateText($detail->size);
+            ValidationHelper::ValidateText($detail->color);
+            ValidationHelper::ValidateText($detail->material);
+            ValidationHelper::ValidateNumber($detail->minStockQty, false);
+            ValidationHelper::ValidateNumber($detail->availableStockQty, false);
+        }
 
         $product = new Product();
         $product->setProductId($dataProduct->productId);
@@ -28,7 +40,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $product->setDescription($dataProduct->description);
 
         foreach ($arrayProductDetail as $detail) {
-
             $productDetail = new ProductDetail();
             $productDetail->setProductDetailNo($detail->productDetailNo);
             $productDetail->setSize($detail->size);

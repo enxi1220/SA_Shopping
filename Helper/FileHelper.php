@@ -7,9 +7,24 @@ class FileHelper
         $image = $_FILES['productImage'];
         $validExtensions = '/\.(jpg|jpeg|gif|png)$/i';
         $validMimeTypes = ['image/jpeg', 'image/gif', 'image/png'];
+        $maxFileSize = 5242880; // 5 MB
+        $maxWidth = 1200;
+        $maxHeight = 1200;
 
+        // Check file extension and MIME type
         if (!preg_match($validExtensions, $image['name']) || !in_array($image['type'], $validMimeTypes)) {
             throw new Exception("Image with jpg, gif, and png format only.");
+        }
+
+        // Check file size
+        if ($image['size'] > $maxFileSize) {
+            throw new Exception("File size exceeds the maximum allowed limit.");
+        }
+
+        // Check image dimensions
+        list($width, $height) = getimagesize($image['tmp_name']);
+        if ($width > $maxWidth || $height > $maxHeight) {
+            throw new Exception("Image dimensions exceed the maximum allowed limit.");
         }
     }
 
@@ -51,7 +66,7 @@ class FileHelper
 
         // Blurryness detection
         $apiURL = "http://127.0.0.1:5000/blurry_image";
-        $filePath = array('file_path'=> $targetPath);
+        $filePath = array('file_path' => $targetPath);
 
         $client = curl_init($apiURL);
         curl_setopt($client, CURLOPT_RETURNTRANSFER, true);
@@ -67,7 +82,7 @@ class FileHelper
         $image = json_decode($response, true);
         curl_close($client);
 
-        if($image['result'] == 'Blurry'){
+        if ($image['result'] == 'Blurry') {
             self::DeleteImage($directory . $fileName);
             throw new Exception("Image is blurry. Please upload a clear product image.");
         }

@@ -1,6 +1,7 @@
 <?php
 
 require_once $_SERVER['DOCUMENT_ROOT'] . "/SA_Shopping/Helper/ResponseHelper.php";
+require_once $_SERVER['DOCUMENT_ROOT'] . "/SA_Shopping/Helper/ValidationHelper.php";
 require_once $_SERVER['DOCUMENT_ROOT'] . "/SA_Shopping/Model/Seller.php";
 require_once $_SERVER['DOCUMENT_ROOT'] . "/SA_Shopping/BusinessLogic/BllSeller/SellerRead.php";
 require_once $_SERVER['DOCUMENT_ROOT'] . "/SA_Shopping/BusinessLogic/BllSeller/SellerUpdatePassword.php";
@@ -32,6 +33,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if(!password_verify($data->currentPassword, $result->getPassword())){
             throw new Exception("Incorrect password. Failed to change password.");
         }
+        
+        ValidationHelper::ValidatePassword($data->password);
 
         $seller->setPassword(password_hash($data->password, PASSWORD_DEFAULT));
 

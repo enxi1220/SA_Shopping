@@ -21,7 +21,7 @@ require '../Layout.php';
                         <div class="col-md-6 col-lg-7 d-flex align-items-center">
                             <div class="card-body p-4 p-lg-5 text-black">
                                 <div class="text-center">
-                                    <img src="https://static.vecteezy.com/system/resources/previews/003/689/231/original/online-registration-or-sign-up-login-for-account-on-smartphone-app-user-interface-with-secure-password-mobile-application-for-ui-web-banner-access-cartoon-people-illustration-vector.jpg" alt="register form" class="img-fluid w-50 h-50" style="border-radius: 1rem 0 0 1rem;" loading="lazy"/>
+                                    <img src="https://static.vecteezy.com/system/resources/previews/003/689/231/original/online-registration-or-sign-up-login-for-account-on-smartphone-app-user-interface-with-secure-password-mobile-application-for-ui-web-banner-access-cartoon-people-illustration-vector.jpg" alt="register form" class="img-fluid w-50 h-50" style="border-radius: 1rem 0 0 1rem;" loading="lazy" />
                                 </div>
                                 <form id="form-buyer-create" class="needs-validation" novalidate>
                                     <div class="row">
@@ -48,17 +48,18 @@ require '../Layout.php';
                                         </div>
                                         <div class="col-md-6 mb-3">
                                             <div class="form-outline">
-                                                <textarea id="txt-delivery-address" class="form-control" rows="4" tabindex="4" ></textarea>
+                                                <textarea id="txt-delivery-address" class="form-control" rows="4" tabindex="4"></textarea>
                                                 <label class="form-label" for="txt-delivery-address">Delivery Address (Optional)</label>
                                             </div>
                                         </div>
                                         <div class="col-md-6 mb-4">
                                             <div class="form-outline">
-                                                <i class="fas fa-eye-slash text-secondary toggle-visibility trailing" data-target></i>    
-                                                <input type="password" id="txt-password" class="form-control" required tabindex="5" data-mdb-showcounter="true" maxlength="20" />
+                                                <i class="fas fa-eye-slash text-secondary toggle-visibility trailing" data-target></i>
+                                                <i class="fas fa-info-circle text-info position-absolute top-0 fs-5 translate-middle-y" data-bs-toggle="tooltip" data-bs-placement="top" title="Password must be 8-20 characters and include at least one lowercase letter, one uppercase letter, one digit, and one special character"></i>
+                                                <input type="password" id="txt-password" class="form-control" required tabindex="5" data-mdb-showcounter="true" maxlength="20" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%?&])[A-Za-z\d@$!%?&]{8,20}$" />
                                                 <label class="form-label" for="txt-password" required>Password</label>
                                                 <div class="form-helper"></div>
-                                                <div class="invalid-feedback">Required</div>
+                                                <div class="invalid-feedback">Required with requirements</div>
                                             </div>
                                         </div>
                                         <div class="col-md-6 mb-4">

@@ -1,6 +1,7 @@
 <?php
 
 require_once $_SERVER['DOCUMENT_ROOT'] . "/SA_Shopping/Helper/ResponseHelper.php";
+require_once $_SERVER['DOCUMENT_ROOT'] . "/SA_Shopping/Helper/ValidationHelper.php";
 require_once $_SERVER['DOCUMENT_ROOT'] . "/SA_Shopping/Model/Buyer.php";
 require_once $_SERVER['DOCUMENT_ROOT'] . "/SA_Shopping/BusinessLogic/BllBuyer/BuyerRead.php";
 require_once $_SERVER['DOCUMENT_ROOT'] . "/SA_Shopping/BusinessLogic/BllBuyer/BuyerUpdate.php";
@@ -17,9 +18,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
 
         $data = json_decode($_POST['buyer']);
+        
+        ValidationHelper::ValidateText($data->name);
+        ValidationHelper::ValidatePhoneNumber($data->phone);
 
         $buyer = new Buyer();
-
         $buyer
             ->setBuyerId($buyerId)
             ->setPhone($data->phone)

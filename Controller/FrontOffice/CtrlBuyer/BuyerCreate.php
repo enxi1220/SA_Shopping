@@ -15,6 +15,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         $data = json_decode($_POST['buyer']);
 
+        ValidationHelper::ValidateEmail($data->email);
+        ValidationHelper::ValidatePhoneNumber($data->phone);
+        ValidationHelper::ValidateText($data->name);
+        ValidationHelper::ValidatePassword($data->password);
+
         $buyer = new Buyer();
         $buyer
             ->setEmail($data->email)

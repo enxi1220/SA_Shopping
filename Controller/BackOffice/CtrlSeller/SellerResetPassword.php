@@ -1,6 +1,7 @@
 <?php
 
 require_once $_SERVER['DOCUMENT_ROOT'] . "/SA_Shopping/Helper/ResponseHelper.php";
+require_once $_SERVER['DOCUMENT_ROOT'] . "/SA_Shopping/Helper/ValidationHelper.php";
 require_once $_SERVER['DOCUMENT_ROOT'] . "/SA_Shopping/Helper/EncryptionHelper.php";
 require_once $_SERVER['DOCUMENT_ROOT'] . "/SA_Shopping/Constant/EmailTypeConstant.php";
 require_once $_SERVER['DOCUMENT_ROOT'] . "/SA_Shopping/Helper/MailHelper.php";
@@ -50,6 +51,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
 
         $data = json_decode($_POST['seller']);
+        
+        ValidationHelper::ValidatePassword($data->password);
 
         $emailCode = EncryptionHelper::Decrypt($data->resetCode);
 
@@ -66,13 +69,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         if (empty($result)) {
             // email not found or email and reset code not match
-            throw new Exception("Invalid link.");
+            throw new Exception("Invalid URL.");
         }
 
         $result = SellerUpdatePassword::Reset($seller);
 
         echo ResponseHelper::createJsonResponse("Reset password successfully.", "/SA_Shopping/Web/View/BackOffice/Seller/SellerLogin.php");
     } catch (\Throwable $e) {
-        header($_SERVER["SERVER_PROTOCOL"] . ' 500 Internal Server Error', true, 500);        echo $e->getMessage();
+        header($_SERVER["SERVER_PROTOCOL"] . ' 500 Internal Server Error', true, 500);
+        echo $e->getMessage();
     }
 }

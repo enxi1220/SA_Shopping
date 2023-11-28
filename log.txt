@@ -4,7 +4,7 @@ todo:
     video js 
     multiple files
 
-Validation at backend:
+Validation at backend: done
 null val = SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'name' cannot be null
 empty str acceptable by database
 validate phone number.. MY phone number ba, proposal write my , or welcome everyone
