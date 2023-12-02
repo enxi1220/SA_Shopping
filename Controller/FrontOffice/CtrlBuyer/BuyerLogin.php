@@ -42,7 +42,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $_SESSION['buyer']['buyerId'] = $result->getBuyerId();
         $_SESSION['buyer']['buyerEmail'] = $result->getEmail();
 
-        echo ResponseHelper::createJsonResponse("Login successfully.", "/SA_Shopping/Web/View/FrontOffice/Product/ProductSummary.php");
+        echo ResponseHelper::createJsonResponse("Login successfully.", "/SA_Shopping/FrontOffice/Product/ProductSummary.php");
 
     } catch (\Throwable $e) {
         header($_SERVER["SERVER_PROTOCOL"] . ' 500 Internal Server Error', true, 500);        echo $e->getMessage();

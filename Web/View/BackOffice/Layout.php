@@ -9,7 +9,8 @@ if (session_status() == PHP_SESSION_NONE) {
 
 <head>
     <meta charset="UTF-8">
-    <title></title>
+    <title>Shop Scribe</title>
+    <link rel="shortcut icon" type="image/png" sizes="16x16" href="/SA_Shopping/logo.png"/>
 </head>
 
 <body>
@@ -19,19 +20,19 @@ if (session_status() == PHP_SESSION_NONE) {
         <nav id="sidebarMenu" class="collapse d-lg-block sidebar collapse bg-white position-fixed top-0 bottom-0 left-0 pt-5 shadow-3 w-auto" style="z-index: 600;">
             <div class="position-sticky">
                 <div class="list-group list-group-flush mx-3 mt-4">
-                    <a href="/SA_Shopping/Web/View/BackOffice/Report/Dashboard.php" class="list-group-item list-group-item-action py-2 ripple active" aria-current="true">
+                    <a href="/SA_Shopping/BackOffice/Report/Dashboard.php" class="list-group-item list-group-item-action py-2 ripple" aria-current="true">
                         <i class="fas fa-tachometer-alt fa-fw me-3"></i>
                         <span>Main dashboard</span>
                     </a>
-                    <a href="/SA_Shopping/Web/View/BackOffice/Product/ProductSummary.php" class="list-group-item list-group-item-action py-2 ripple">
+                    <a href="/SA_Shopping/BackOffice/Product/ProductSummary.php" class="list-group-item list-group-item-action py-2 ripple">
                         <i class="fas fa-box fa-fw me-3"></i>
                         <span>Products</span>
                     </a>
-                    <a href="/SA_Shopping/Web/View/BackOffice/Order/OrderSummary.php" class="list-group-item list-group-item-action py-2 ripple">
+                    <a href="/SA_Shopping/BackOffice/Order/OrderSummary.php" class="list-group-item list-group-item-action py-2 ripple">
                         <i class="fas fa-chart-bar fa-fw me-3"></i>
                         <span>Orders</span>
                     </a>
-                    <a href="/SA_Shopping/Web/View/BackOffice/Seller/SellerOverview.php" class="list-group-item list-group-item-action py-2 ripple">
+                    <a href="/SA_Shopping/BackOffice/Seller/SellerOverview.php" class="list-group-item list-group-item-action py-2 ripple">
                         <i class="fas fa-user fa-fw me-3"></i>
                         <span>Profile</span>
                     </a>
@@ -55,9 +56,10 @@ if (session_status() == PHP_SESSION_NONE) {
                 </button>
 
                 <!-- Brand -->
-                <a class="navbar-brand" href="/SA_Shopping/Web/View/FrontOffice/Product/ProductSummary.php">
-                    <img src="/SA_Shopping/Web/Image/iu-fighting.gif" height="40" alt="" loading="lazy" />
+                <a class="navbar-brand" href="/SA_Shopping/FrontOffice/Product/ProductSummary.php">
+                    <img src="/SA_Shopping/logo.png" height="40" alt="" loading="lazy" />
                 </a>
+                <img src="/SA_Shopping/name.png" height="40" alt="" loading="lazy" />
                 <div class="lead" id="lbl-store-name"><?php echo isset($_SESSION['seller']) ? $_SESSION['seller']['storeName'] : "" ?></div>
             </div>
             <!-- Container wrapper -->

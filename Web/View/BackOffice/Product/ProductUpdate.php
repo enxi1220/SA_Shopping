@@ -77,4 +77,4 @@ require '../CheckLogin.php';
 <?php
 require '../Footer.php';
 ?>
-<script src="../../../Script/BackOffice/Product/ProductUpdate.js"></script>
+<script src="/SA_Shopping/BackOffice/Product/ProductUpdate.js"></script>

@@ -3,6 +3,12 @@
 require '../Layout.php';
 require '../CheckLogin.php';
 ?>
+<nav aria-label="breadcrumb " class="pt-3 d-flex justify-content-center align-items-center">
+    <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="../Product/ProductSummary.php">Product Catalog</a></li>
+        <li class="breadcrumb-item active" aria-current="page">My Profile</li>
+    </ol>
+</nav>
 
 <div class="container p-5">
     <div class="row d-flex justify-content-center h-100 mt-5">
@@ -30,7 +36,7 @@ require '../CheckLogin.php';
 <?php
 require '../Footer.php';
 ?>
-<script src="../../../Script/FrontOffice/Buyer/BuyerRead.js"></script>
-<script src="../../../Script/FrontOffice/Buyer/BuyerUpdate.js"></script>
-<script src="../../../Script/FrontOffice/Buyer/BuyerChangePassword.js"></script>
-<script src="../../../Script/FrontOffice/Buyer/BuyerDelete.js"></script>
+<script src="/SA_Shopping/FrontOffice/Buyer/BuyerRead.js"></script>
+<script src="/SA_Shopping/FrontOffice/Buyer/BuyerUpdate.js"></script>
+<script src="/SA_Shopping/FrontOffice/Buyer/BuyerChangePassword.js"></script>
+<script src="/SA_Shopping/FrontOffice/Buyer/BuyerDelete.js"></script>

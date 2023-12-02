@@ -57,7 +57,7 @@ require '../Layout.php';
     <?php
     require '../Footer.php';
     ?>
-    <script src="../../../Script/FrontOffice/Buyer/BuyerForgetPassword.js"></script>
+    <script src="/SA_Shopping/FrontOffice/Buyer/BuyerForgetPassword.js"></script>
 
 </body>
 

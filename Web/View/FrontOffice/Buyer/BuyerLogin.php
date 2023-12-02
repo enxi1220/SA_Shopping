@@ -18,7 +18,7 @@ require '../Layout.php';
                     <div class="card" style="border-radius: 1rem;">
                         <div class="row g-0 d-flex justify-content-center align-items-center">
                             <div class="col-7 col-lg-5 d-md-block">
-                                <img src="https://www.tampabaytamilacademy.org/assets/login.c6b269bc.png" alt="login form" class="img-fluid mt-5" loading="lazy" />
+                                <img src="/SA_Shopping/logo.png" alt="login form" class="img-fluid" loading="lazy" />
                             </div>
                             <div class="col-5 col-md-6 d-flex align-items-center">
                                 <div class="card-body p-4 p-lg-5 text-black">
@@ -78,7 +78,7 @@ require '../Layout.php';
     <?php
     require '../Footer.php';
     ?>
-    <script src="../../../Script/FrontOffice/Buyer/BuyerLogin.js"></script>
+    <script src="/SA_Shopping/FrontOffice/Buyer/BuyerLogin.js"></script>
 
 </body>
 

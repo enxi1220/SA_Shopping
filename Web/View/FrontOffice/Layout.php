@@ -10,7 +10,8 @@ if (session_status() == PHP_SESSION_NONE) {
 
 <head>
     <meta charset="UTF-8">
-    <title></title>
+    <title>Shop Scribe</title>
+    <link rel="shortcut icon" type="image/png" sizes="16x16" href="/SA_Shopping/logo.png"/>
 </head>
 
 <body>
@@ -19,8 +20,8 @@ if (session_status() == PHP_SESSION_NONE) {
         <div class="container-fluid">
 
             <!-- Brand -->
-            <a class="navbar-brand" href="/SA_Shopping/Web/View/FrontOffice/Product/ProductSummary.php">
-                <img src="/SA_Shopping/Web/Image/iu-fighting.gif" height="40" alt="" loading="lazy" />
+            <a class="navbar-brand" href="/SA_Shopping/FrontOffice/Product/ProductSummary.php">
+                <img src="/SA_Shopping/logo.png" height="40" alt="" loading="lazy" />
             </a>
             <!-- Search  -->
             <div class="input-group my-auto mx-4">
@@ -38,12 +39,12 @@ if (session_status() == PHP_SESSION_NONE) {
                         <i class="fas fa-user"></i>
                     </a>
                     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">
-                        <li><a class="dropdown-item" href="/SA_Shopping/Web/View/FrontOffice/Buyer/BuyerOverview.php">My profile</a></li>
-                        <li><a class="dropdown-item" href="/SA_Shopping/Web/View/FrontOffice/Order/OrderSummary.php">Purchase History</a></li>
+                        <li><a class="dropdown-item" href="/SA_Shopping/FrontOffice/Buyer/BuyerOverview.php">My profile</a></li>
+                        <li><a class="dropdown-item" href="/SA_Shopping/FrontOffice/Order/OrderSummary.php">Purchase History</a></li>
                       <?php if (isset($_SESSION['buyer'])) : ?>
                         <li><a class="dropdown-item" href="#" onclick="logout()">Logout</a></li>
                       <?php else : ?>
-                        <li><a class="dropdown-item" href="/SA_Shopping/Web/View/FrontOffice/Buyer/BuyerLogin.php">Login</a></li>
+                        <li><a class="dropdown-item" href="/SA_Shopping/FrontOffice/Buyer/BuyerLogin.php">Login</a></li>
                       <?php endif; ?>
                     </ul>
                 </li>

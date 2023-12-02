@@ -38,7 +38,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         SellerCreate::Create($seller);
 
-        echo ResponseHelper::createJsonResponse("Register successfully. Please proceed to login", "/SA_Shopping/Web/View/BackOffice/Seller/SellerLogin.php");
+        echo ResponseHelper::createJsonResponse("Register successfully. Please proceed to login", "/SA_Shopping/BackOffice/Seller/SellerLogin.php");
 
     } catch (\Throwable $e) {
         header($_SERVER["SERVER_PROTOCOL"] . ' 500 Internal Server Error', true, 500);

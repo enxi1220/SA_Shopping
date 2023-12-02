@@ -55,7 +55,7 @@ class ValidationHelper
         }
 
         // Malaysian phone number regex (example)
-        $malaysianRegex = '/^(\+?6?01)[0-46-9]-*[0-9]{7,8}$/';
+        $malaysianRegex = '/^(\+?6?01)[02-46-9]-*[0-9]{7}$|^(\+?6?01)[1]-*[0-9]{8}$/';
         if (!preg_match($malaysianRegex, $phoneNumber)) {
             throw new Exception("Invalid Malaysian phone number format.");
         }

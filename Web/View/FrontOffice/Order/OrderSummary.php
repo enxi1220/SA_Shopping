@@ -74,4 +74,4 @@ require '../CheckLogin.php';
 <?php
 require '../Footer.php';
 ?>
-<script src="../../../Script/FrontOffice/Order/OrderSummary.js"></script>
+<script src="/SA_Shopping/FrontOffice/Order/OrderSummary.js"></script>

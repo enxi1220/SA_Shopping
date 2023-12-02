@@ -8,7 +8,7 @@
 </head>
 
 <body>
-    Please reset your password through this link. http://localhost/SA_Shopping/Web/View/FrontOffice/Buyer/BuyerResetPassword.php?code=[ResetCode]
+    Please reset your password through this link. http://localhost/SA_Shopping/FrontOffice/Buyer/BuyerResetPassword.php?code=[ResetCode]
 </body>
 
 </html>

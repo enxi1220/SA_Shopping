@@ -30,7 +30,7 @@ require '../CheckLogin.php';
 <?php
 require '../Footer.php';
 ?>
-<script src="../../../Script/BackOffice/Seller/SellerRead.js"></script>
-<script src="../../../Script/BackOffice/Seller/SellerUpdate.js"></script>
-<script src="../../../Script/BackOffice/Seller/SellerChangePassword.js"></script>
-<script src="../../../Script/BackOffice/Seller/SellerDelete.js"></script>
+<script src="/SA_Shopping/BackOffice/Seller/SellerRead.js"></script>
+<script src="/SA_Shopping/BackOffice/Seller/SellerUpdate.js"></script>
+<script src="/SA_Shopping/BackOffice/Seller/SellerChangePassword.js"></script>
+<script src="/SA_Shopping/BackOffice/Seller/SellerDelete.js"></script>

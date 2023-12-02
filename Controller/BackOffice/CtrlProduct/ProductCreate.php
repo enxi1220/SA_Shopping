@@ -72,7 +72,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         ProductCreate::Create($product);
 
-        echo ResponseHelper::createJsonResponse("Add product successfully.", "/SA_Shopping/Web/View/BackOffice/Product/ProductSummary.php");
+        echo ResponseHelper::createJsonResponse("Add product successfully.", "/SA_Shopping/BackOffice/Product/ProductSummary.php");
 
     } catch (\Throwable $e) {
         header($_SERVER["SERVER_PROTOCOL"] . ' 500 Internal Server Error', true, 500);

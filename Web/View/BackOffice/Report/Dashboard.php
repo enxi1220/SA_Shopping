@@ -70,4 +70,4 @@ require '../CheckLogin.php';
 <?php
 require '../Footer.php';
 ?>
-<script src="../../../Script/BackOffice/Dashboard.js"></script>
+<script src="/SA_Shopping/BackOffice/Report/Dashboard.js"></script>

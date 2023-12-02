@@ -152,4 +152,4 @@ require '../Layout.php';
 <?php
 require '../Footer.php';
 ?>
-<script src="../../../Script/BackOffice/Order/OrderRead.js"></script>
+<script src="/SA_Shopping/BackOffice/Order/OrderRead.js"></script>

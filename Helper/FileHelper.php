@@ -22,10 +22,10 @@ class FileHelper
         }
 
         // Check image dimensions
-        list($width, $height) = getimagesize($image['tmp_name']);
-        if ($width > $maxWidth || $height > $maxHeight) {
-            throw new Exception("Image dimensions exceed the maximum allowed limit.");
-        }
+        // list($width, $height) = getimagesize($image['tmp_name']);
+        // if ($width > $maxWidth || $height > $maxHeight) {
+        //     throw new Exception("Image dimensions exceed the maximum allowed limit.");
+        // }
     }
 
     public static function UploadImage($file, $directory)

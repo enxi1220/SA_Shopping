@@ -31,7 +31,7 @@ require '../Layout.php';
                         <div class="col-md-6 col-lg-7 d-flex align-items-center">
                             <div class="card-body p-4 p-lg-5 text-black">
                                 <div class="text-center">
-                                    <img src="https://static.vecteezy.com/system/resources/previews/003/689/231/original/online-registration-or-sign-up-login-for-account-on-smartphone-app-user-interface-with-secure-password-mobile-application-for-ui-web-banner-access-cartoon-people-illustration-vector.jpg" alt="register form" class="img-fluid w-50 h-50" style="border-radius: 1rem 0 0 1rem;" loading="lazy" />
+                                    <img src="/SA_Shopping/name.png" alt="register form" class="img-fluid w-50 h-50" style="border-radius: 1rem 0 0 1rem;" loading="lazy" />
                                 </div>
                                 <form id="form-seller-create" novalidate class="needs-validation" >
                                     <div class="row">
@@ -122,7 +122,7 @@ require '../Layout.php';
 require '../Footer.php';
 ?>
 
-<script src="../../../Script/BackOffice/Seller/SellerCreate.js"></script>
+<script src="/SA_Shopping/BackOffice/Seller/SellerCreate.js"></script>
 
 </body>
 

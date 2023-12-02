@@ -33,4 +33,4 @@ require '../Layout.php';
 <?php
 require '../Footer.php';
 ?>
-<script src="../../../Script/BackOffice/Review/ReviewSummary.js"></script>
+<script src="/SA_Shopping/BackOffice/Review/ReviewSummary.js"></script>

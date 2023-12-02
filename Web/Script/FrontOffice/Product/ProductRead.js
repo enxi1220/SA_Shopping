@@ -11,15 +11,6 @@ $(document).ready(function () {
             product = JSON.parse(success);
             renderProduct(product);
             renderSeller(product.seller);
-
-            // get(
-            //     '/SA_Shopping/Controller/FrontOffice/CtrlSeller/SellerRead.php',
-            //     { sellerId: product.sellerId },
-            //     function (successSeller) {
-            //         var seller = JSON.parse(successSeller);
-            //         renderSeller(seller);
-            //     }
-            // );
         }
     );
 
@@ -36,7 +27,7 @@ $(document).ready(function () {
         console.log('sdfv');
         var productDetailId = $('input[name="OptionGroup"]:checked').attr('id');
         var quantity = $('#txt-quantity').val();
-        location.href = `/SA_Shopping/Web/View/FrontOffice/Order/OrderCreate.php?productDetailId=${productDetailId}&quantity=${quantity}`;
+        location.href = `/SA_Shopping/FrontOffice/Order/OrderCreate.php?productDetailId=${productDetailId}&quantity=${quantity}`;
     });
 });
 

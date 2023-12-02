@@ -131,5 +131,5 @@ require '../Layout.php';
 require '../Footer.php';
 ?>
 
-<script src="../../../Script/FrontOffice/Product/ProductRead.js"></script>
-<script src="../../../Script/FrontOffice/Review/ReviewSummary.js"></script>
+<script src="/SA_Shopping/FrontOffice/Product/ProductRead.js"></script>
+<script src="/SA_Shopping/FrontOffice/Review/ReviewSummary.js"></script>

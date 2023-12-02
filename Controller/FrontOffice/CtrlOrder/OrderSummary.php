@@ -29,7 +29,8 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
         }
 
         if (empty($result)) {
-            throw new Exception("Data not found");
+            // throw new Exception("Data not found");
+            exit;
         }
 
         $output = array_map(

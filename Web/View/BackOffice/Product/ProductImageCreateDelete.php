@@ -68,4 +68,4 @@ require '../CheckLogin.php';
 <?php
 require '../Footer.php';
 ?>
-<script src="../../../Script/BackOffice/Product/ProductImageCreateDelete.js"></script>
+<script src="/SA_Shopping/BackOffice/Product/ProductImageCreateDelete.js"></script>

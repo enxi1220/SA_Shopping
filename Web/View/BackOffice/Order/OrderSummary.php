@@ -44,4 +44,4 @@ require '../Layout.php';
 <?php
 require '../Footer.php';
 ?>
-<script src="../../../Script/BackOffice/Order/OrderSummary.js"></script>
+<script src="/SA_Shopping/BackOffice/Order/OrderSummary.js"></script>

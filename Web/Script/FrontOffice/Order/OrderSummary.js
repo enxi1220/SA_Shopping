@@ -2,6 +2,12 @@ var orders;
 
 $(document).ready(function () {
     backToTop();
+    
+    $('#v-tabs-confirm-tab').text(OrderStatus.Confirm);
+    $('#v-tabs-ship-tab').text(OrderStatus.Ship);
+    $('#v-tabs-deliver-tab').text(OrderStatus.Deliver);
+    $('#v-tabs-review-tab').text(OrderStatus.Review);
+    $('#v-tabs-closed-tab').text(OrderStatus.Closed);
 
     get(
         '/SA_Shopping/Controller/FrontOffice/CtrlOrder/OrderSummary.php',
@@ -60,11 +66,6 @@ function preparePostData(orderId) {
 }
 
 function renderOrders(orders) {
-    $('#v-tabs-confirm-tab').text(OrderStatus.Confirm);
-    $('#v-tabs-ship-tab').text(OrderStatus.Ship);
-    $('#v-tabs-deliver-tab').text(OrderStatus.Deliver);
-    $('#v-tabs-review-tab').text(OrderStatus.Review);
-    $('#v-tabs-closed-tab').text(OrderStatus.Closed);
     orders.forEach(element => {
         var html = `
             <div class="p-3 mb-4 bg-white shadow-3">

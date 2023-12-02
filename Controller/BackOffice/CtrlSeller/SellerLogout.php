@@ -20,9 +20,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         session_unset();
         session_destroy();
 
-        echo ResponseHelper::createJsonResponse("Logout successfully.", "/SA_Shopping/Web/View/BackOffice/Seller/SellerLogin.php");
+        echo ResponseHelper::createJsonResponse("Logout successfully.", "/SA_Shopping/BackOffice/Seller/SellerLogin.php");
 
     } catch (\Throwable $e) {
-        header($_SERVER["SERVER_PROTOCOL"] . ' 500 Internal Server Error', true, 500);        echo $e->getMessage();
+        header($_SERVER["SERVER_PROTOCOL"] . ' 500 Internal Server Error', true, 500);        
+        echo $e->getMessage();
     }
 }

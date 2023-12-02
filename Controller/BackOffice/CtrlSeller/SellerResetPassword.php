@@ -74,7 +74,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         $result = SellerUpdatePassword::Reset($seller);
 
-        echo ResponseHelper::createJsonResponse("Reset password successfully.", "/SA_Shopping/Web/View/BackOffice/Seller/SellerLogin.php");
+        echo ResponseHelper::createJsonResponse("Reset password successfully.", "/SA_Shopping/BackOffice/Seller/SellerLogin.php");
     } catch (\Throwable $e) {
         header($_SERVER["SERVER_PROTOCOL"] . ' 500 Internal Server Error', true, 500);
         echo $e->getMessage();

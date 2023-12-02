@@ -1,4 +1,4 @@
-<script src="<?php $_SERVER['DOCUMENT_ROOT'] ?>/SA_Shopping/Web/Library/sweetalert2.all.min.js" type="text/javascript"></script>
+<script src="<?php $_SERVER['DOCUMENT_ROOT'] ?>/SA_Shopping/sweetalert2.all.min.js" type="text/javascript"></script>
 
 <?php
 
@@ -16,7 +16,7 @@ if (!isset($_SESSION['buyer'])) {
                 confirmButtonText: 'Log In',
             })
             setTimeout(function() {
-                window.location.href = '../Buyer/BuyerLogin.php';
+                window.location.href = window.location.origin + '/SA_Shopping/FrontOffice/Buyer/BuyerLogin.php';
             }, 2000);
         </script>";
     exit;

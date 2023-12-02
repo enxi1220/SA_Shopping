@@ -137,4 +137,4 @@ require '../CheckLogin.php';
 <?php
 require '../Footer.php';
 ?>
-<script src="../../../Script/FrontOffice/Order/OrderCreate.js"></script>
+<script src="/SA_Shopping/FrontOffice/Order/OrderCreate.js"></script>

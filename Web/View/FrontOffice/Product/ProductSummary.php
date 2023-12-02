@@ -18,4 +18,4 @@ require '../Layout.php';
 <?php
 require '../Footer.php';
 ?>
-<script src="../../../Script/FrontOffice/Product/ProductSummary.js"></script>
+<script src="/SA_Shopping/FrontOffice/Product/ProductSummary.js"></script>

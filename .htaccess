@@ -1,5 +1,3 @@
-# Author: Lim En Xi
-
 # Handle 400 errors
 ErrorDocument 400 /SA_Shopping/Web/View/CustomError/BadRequest.php
 
@@ -14,3 +12,40 @@ ErrorDocument 404 /SA_Shopping/Web/View/CustomError/NotFound.php
 
 # Handle 503 errors
 ErrorDocument 503 /SA_Shopping/Web/View/CustomError/ServiceUnavailable.php
+
+RewriteEngine On
+RewriteBase /SA_Shopping/
+
+# Rewrite PHP files to the Web/View directory
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^([^/]+)/([^/]+)/([^/]+)\.php$ Web/View/$1/$2/$3.php [L,QSA]
+
+# Rewrite JS files to the Web/Script directory
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^([^/]+)/([^/]+)/([^/]+)\.js$ Web/Script/$1/$2/$3.js [L,QSA]
+RewriteRule ^(Footer\.js|Constant/String\.js|Shared\.js)$ Web/Script/$1 [L,QSA]
+RewriteRule ^BackOffice/Layout\.js$ Web/Script/BackOffice/Layout\.js [L,QSA]
+RewriteRule ^FrontOffice/Layout\.js$ Web/Script/FrontOffice/Layout\.js [L,QSA]
+
+# Rewrite image files to the Web/Image directory
+RewriteRule ^([^/]+\.(jpg|jpeg|gif|png))$ Web/Image/$1 [L,QSA]
+
+# Rewrite CSS files to the Web/StyleSheet directory
+RewriteRule ^([^/]+\.css)$ Web/StyleSheet/$1 [L,QSA]
+
+# Rewrite requests to specific files in the Web/Library directory
+RewriteRule ^sweetalert2\.all\.min\.js$ Web/Library/sweetalert2.all.min.js [L,QSA]
+RewriteRule ^MDB5/css/mdb\.min\.css$ Web/Library/MDB5/css/mdb.min.css [L,QSA]
+RewriteRule ^MDB5/js/mdb\.min\.js$ Web/Library/MDB5/js/mdb.min.js [L,QSA]
+RewriteRule ^DataTable/datatables\.min\.css$ Web/Library/DataTable/datatables.min.css [L,QSA]
+RewriteRule ^DataTable/datatables\.min\.js$ Web/Library/DataTable/datatables.min.js [L,QSA]
+
+
+
+
+
+
+
+
