@@ -3,7 +3,7 @@ $(document).ready(function () {
     $(`#form-buyer-create`).submit(function (event){
         event.preventDefault();
         post(
-            '/SA_Shopping/Controller/FrontOffice/CtrlBuyer/BuyerCreate.php',
+            baseUrl + 'FrontOffice/CtrlBuyer/BuyerCreate.php',
             [
                 submitData('buyer', preparePostData())
             ]

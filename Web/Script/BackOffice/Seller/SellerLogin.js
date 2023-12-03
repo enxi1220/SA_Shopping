@@ -5,7 +5,7 @@ $(document).ready(function () {
     $(`#form-seller-login`).submit(function (event) {
         event.preventDefault();
         post(
-            '/SA_Shopping/Controller/BackOffice/CtrlSeller/SellerLogin.php',
+            baseUrl + 'BackOffice/CtrlSeller/SellerLogin.php',
             [
                 submitData('seller',
                     JSON.stringify({

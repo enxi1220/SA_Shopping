@@ -17,11 +17,10 @@ require '../Layout.php';
                     <div class="card" style="border-radius: 1rem;">
                         <div class="row g-0 d-flex justify-content-center align-items-center">
                             <div class="col-7 col-lg-5 d-md-block">
-                                <img src="https://www.tampabaytamilacademy.org/assets/login.c6b269bc.png" alt="login form" class="img-fluid mt-5" loading="lazy" />
+                            <img src="/SA_Shopping/name.png" alt="login form" class="img-fluid" loading="lazy" />
                             </div>
                             <div class="col-5 col-md-6 d-flex align-items-center">
                                 <div class="card-body p-4 p-lg-5 text-black">
-
                                     <form id="form-seller-forget-password" class="needs-validation" novalidate>
                                         <h1 class="mb-3 pb-3">Forget Password</h1>
                                         <div class="row">

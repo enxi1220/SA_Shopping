@@ -10,7 +10,7 @@ $(document).ready(function () {
     $('#v-tabs-closed-tab').text(OrderStatus.Closed);
 
     get(
-        '/SA_Shopping/Controller/FrontOffice/CtrlOrder/OrderSummary.php',
+        baseUrl + 'FrontOffice/CtrlOrder/OrderSummary.php',
         {},
         function (success) {
             orders = JSON.parse(success);
@@ -47,9 +47,9 @@ function writeReview(orderId) {
     var url = '';
 
     if (selectedOrder[0].status == OrderStatus.Review) {
-        url = '/SA_Shopping/Controller/FrontOffice/CtrlReview/ReviewCreate.php';
+        url = baseUrl + 'FrontOffice/CtrlReview/ReviewCreate.php';
     } else if (selectedOrder[0].status == OrderStatus.Closed) {
-        url = '/SA_Shopping/Controller/FrontOffice/CtrlReview/ReviewUpdate.php';
+        url = baseUrl + 'FrontOffice/CtrlReview/ReviewUpdate.php';
     }
     selectedOrderId = selectedOrder[0].orderId;
     // Set the orderId as a data attribute of the form

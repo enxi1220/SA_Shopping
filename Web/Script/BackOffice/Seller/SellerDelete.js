@@ -8,7 +8,7 @@ $(`#form-seller-delete`).submit(function (event) {
     $(`#btn-seller-delete`).click(function () {
         event.preventDefault();
         post(
-            '/SA_Shopping/Controller/BackOffice/CtrlSeller/SellerDelete.php',
+            baseUrl + 'BackOffice/CtrlSeller/SellerDelete.php',
             [
                 submitData('seller',
                     JSON.stringify({

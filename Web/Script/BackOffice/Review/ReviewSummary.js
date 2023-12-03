@@ -2,7 +2,7 @@ $(document).ready(function () {
     var productId = new URLSearchParams(window.location.search).get('productId');
 
     get(
-        '/SA_Shopping/Controller/BackOffice/CtrlReview/ReviewSummary.php',
+        baseUrl + 'BackOffice/CtrlReview/ReviewSummary.php',
         { productId: productId },
         function (success) {
             console.log(success);

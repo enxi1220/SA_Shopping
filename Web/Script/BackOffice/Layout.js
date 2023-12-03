@@ -1,6 +1,6 @@
 function logout() {
     post(
-        '/SA_Shopping/Controller/BackOffice/CtrlSeller/SellerLogout.php',
+        baseUrl + 'BackOffice/CtrlSeller/SellerLogout.php',
         []
     );
 }

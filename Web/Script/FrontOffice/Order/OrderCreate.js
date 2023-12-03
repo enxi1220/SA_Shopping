@@ -4,7 +4,7 @@ var quantity = new URLSearchParams(window.location.search).get('quantity');
 $(document).ready(function () {
 
     get(
-        '/SA_Shopping/Controller/FrontOffice/CtrlOrder/OrderCreate.php',
+        baseUrl + 'FrontOffice/CtrlOrder/OrderCreate.php',
         {
             productDetailId: productDetailId,
             quantity: quantity
@@ -20,7 +20,7 @@ $(document).ready(function () {
     $(`#form-order-create`).submit(function (event) {
         event.preventDefault();
         post(
-            '/SA_Shopping/Controller/FrontOffice/CtrlOrder/OrderCreate.php',
+            baseUrl + 'FrontOffice/CtrlOrder/OrderCreate.php',
             [
                 submitData('order', preparePostData())
             ],

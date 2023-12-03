@@ -3,7 +3,7 @@ $(document).ready(function () {
     $(`#form-seller-change-password`).submit(function (event) {
         event.preventDefault();
         post(
-            '/SA_Shopping/Controller/BackOffice/CtrlSeller/SellerChangePassword.php',
+            baseUrl + 'BackOffice/CtrlSeller/SellerChangePassword.php',
             [
                 submitData('seller',
                     JSON.stringify({

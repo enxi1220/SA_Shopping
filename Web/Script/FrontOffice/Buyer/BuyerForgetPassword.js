@@ -5,7 +5,7 @@ $(document).ready(function () {
     $(`#form-buyer-forget-password`).submit(function (event) {
         event.preventDefault();
         post(
-            '/SA_Shopping/Controller/FrontOffice/CtrlBuyer/BuyerForgetPassword.php',
+            baseUrl + 'FrontOffice/CtrlBuyer/BuyerForgetPassword.php',
             [
                 submitData('buyer',
                     JSON.stringify({

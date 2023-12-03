@@ -56,7 +56,7 @@ if (session_status() == PHP_SESSION_NONE) {
                 </button>
 
                 <!-- Brand -->
-                <a class="navbar-brand" href="/SA_Shopping/FrontOffice/Product/ProductSummary.php">
+                <a class="navbar-brand" href="/SA_Shopping/BackOffice/Report/Dashboard.php">
                     <img src="/SA_Shopping/logo.png" height="40" alt="" loading="lazy" />
                 </a>
                 <img src="/SA_Shopping/name.png" height="40" alt="" loading="lazy" />

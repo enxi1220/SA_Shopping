@@ -3,7 +3,7 @@ $(document).ready(function () {
     $(`#form-buyer-edit`).submit(function (event) {
         event.preventDefault();
         post(
-            '/SA_Shopping/Controller/FrontOffice/CtrlBuyer/BuyerUpdate.php',
+            baseUrl + 'FrontOffice/CtrlBuyer/BuyerUpdate.php',
             [
                 submitData('buyer',
                     JSON.stringify({

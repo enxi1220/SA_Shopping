@@ -8,7 +8,7 @@ $(`#form-buyer-delete`).submit(function (event) {
     $(`#btn-buyer-delete`).click(function () {
         event.preventDefault();
         post(
-            '/SA_Shopping/Controller/FrontOffice/CtrlBuyer/BuyerDelete.php',
+            baseUrl + 'FrontOffice/CtrlBuyer/BuyerDelete.php',
             [
                 submitData('buyer',
                     JSON.stringify({

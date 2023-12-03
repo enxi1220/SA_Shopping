@@ -1,6 +1,6 @@
 function logout() {
     post(
-        '/SA_Shopping/Controller/FrontOffice/CtrlBuyer/BuyerLogout.php',
+        baseUrl + 'FrontOffice/CtrlBuyer/BuyerLogout.php',
         []
     );
 }

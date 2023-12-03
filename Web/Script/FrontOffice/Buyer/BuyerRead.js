@@ -1,6 +1,6 @@
 $(document).ready(function () {
     get(
-        '/SA_Shopping/Controller/FrontOffice/CtrlBuyer/BuyerRead.php',
+        baseUrl + 'FrontOffice/CtrlBuyer/BuyerRead.php',
         {},
         function (success) {
             buyer = JSON.parse(success);

@@ -2,7 +2,7 @@ $(document).ready(function () {
     backToTop();
 
     get(
-        '/SA_Shopping/Controller/FrontOffice/CtrlProduct/ProductSummary.php',
+        baseUrl + 'FrontOffice/CtrlProduct/ProductSummary.php',
         {},
         function (success) {
             console.log(success);

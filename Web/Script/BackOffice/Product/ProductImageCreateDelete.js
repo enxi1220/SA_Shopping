@@ -3,7 +3,7 @@ $(document).ready(function () {
 
     if (productId) {
         get(
-            '/SA_Shopping/Controller/BackOffice/CtrlProduct/ProductImageCreateDelete.php',
+            baseUrl + 'BackOffice/CtrlProduct/ProductImageCreateDelete.php',
             { productId: new URLSearchParams(window.location.search).get('productId') },
             function (success) {
                 console.log(success);
@@ -18,7 +18,7 @@ $(document).ready(function () {
         // if single file, then files[0]
 
         post(
-            '/SA_Shopping/Controller/BackOffice/CtrlProduct/ProductImageCreateDelete.php',
+            baseUrl + 'BackOffice/CtrlProduct/ProductImageCreateDelete.php',
             [
                 submitData('product',
                     JSON.stringify({
@@ -39,7 +39,7 @@ function deleteProductImage(id) {
     $('#btn-product-image-delete').click(function () {
         console.log(id);
         post(
-            '/SA_Shopping/Controller/BackOffice/CtrlProduct/ProductImageCreateDelete.php',
+            baseUrl + 'BackOffice/CtrlProduct/ProductImageCreateDelete.php',
             [
                 submitData('productImage',
                     JSON.stringify({

@@ -184,3 +184,31 @@ $('#txt-confirm-password').on('input', function (event) {
         $(this).removeClass('is-invalid');
     }
 });
+
+const baseUrl = "/SA_Shopping/Controller/";
+
+$('#txt-password').on('input', function (event) {
+    event.preventDefault();
+    var password = $(this).val();
+    const regexPattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%?&])[A-Za-z\d@$!%?&]{8,20}$/;
+
+    const isValid = regexPattern.test(password);
+    console.log(isValid);
+    isValid ? $('#password-hint').addClass('d-none') : $('#password-hint').removeClass('d-none');
+
+    var confirmPassword = $('#txt-confirm-password').val();
+
+    var feedbackDiv = $('#txt-confirm-password').siblings('.invalid-feedback');
+
+    if (!confirmPassword) {
+        feedbackDiv.text('Required');
+        $('#txt-confirm-password').addClass('is-invalid');
+    } else if (password !== confirmPassword) {
+        feedbackDiv.text('Unmatch password');
+        $('#txt-confirm-password').addClass('is-invalid');
+    }
+    else {
+        feedbackDiv.text('');
+        $('#txt-confirm-password').removeClass('is-invalid');
+    }
+});

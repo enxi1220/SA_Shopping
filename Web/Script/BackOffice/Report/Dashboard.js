@@ -14,7 +14,7 @@ $(document).ready(function () {
     });
 
     get(
-        '/SA_Shopping/Controller/BackOffice/CtrlReport/Dashboard.php',
+        baseUrl + 'BackOffice/CtrlReport/Dashboard.php',
         {},
         function (success) {
             console.log(success);

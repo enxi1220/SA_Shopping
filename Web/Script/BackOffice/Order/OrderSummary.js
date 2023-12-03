@@ -1,7 +1,7 @@
 $(document).ready(function () {
 
     get(
-        '/SA_Shopping/Controller/BackOffice/CtrlOrder/OrderSummary.php',
+        baseUrl + 'BackOffice/CtrlOrder/OrderSummary.php',
         {},
         function (success) {
             orders = JSON.parse(success);
@@ -71,7 +71,7 @@ function updateOrder(orderId, action) {
     $(`#btn-update-order`).click(function (event) {
         event.preventDefault();
         post(
-            '/SA_Shopping/Controller/BackOffice/CtrlOrder/OrderUpdate.php',
+            baseUrl + 'BackOffice/CtrlOrder/OrderUpdate.php',
             [
                 submitData('order',
                     JSON.stringify({

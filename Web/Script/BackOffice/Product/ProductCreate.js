@@ -14,7 +14,7 @@ $(document).ready(function () {
         var productDetails = preparePostData(dataTable);
 
         post(
-            '/SA_Shopping/Controller/BackOffice/CtrlProduct/ProductCreate.php',
+            baseUrl + 'BackOffice/CtrlProduct/ProductCreate.php',
             [
                 submitData('product',
                     JSON.stringify({

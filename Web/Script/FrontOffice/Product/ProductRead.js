@@ -5,7 +5,7 @@ $(document).ready(function () {
     var product = null;
 
     get(
-        '/SA_Shopping/Controller/FrontOffice/CtrlProduct/ProductRead.php',
+        baseUrl + 'FrontOffice/CtrlProduct/ProductRead.php',
         { productId: productId },
         function (success) {
             product = JSON.parse(success);

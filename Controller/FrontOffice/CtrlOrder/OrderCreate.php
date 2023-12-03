@@ -17,7 +17,7 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
     try {
 
         if (!isset($_GET['productDetailId']) || $_GET['productDetailId'] === 'undefined' || !isset($_GET['quantity'])) {
-            throw new Exception("Please choose a product.");
+            throw new Exception("Please choose a variation.");
         }
 
         $productDetailId = json_decode($_GET['productDetailId']);

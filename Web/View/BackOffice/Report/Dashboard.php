@@ -50,18 +50,16 @@ require '../CheckLogin.php';
             </div>
             <!-- <canvas id="myPieChart" width="400" height="300"></canvas> -->
         </div>
-        <!-- Inner -->
-
         <!-- Controls -->
         <div class="carousel-controls">
-            <!-- <button class="carousel-control-prev" type="button" data-mdb-target="#carousel-charts" data-mdb-slide="prev">
+            <button class="carousel-control-prev" type="button" data-mdb-target="#carousel-charts" data-mdb-slide="prev">
                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                 <span class="visually-hidden">Previous</span>
-            </button> -->
-            <button class="carousel-control-next" type="button" data-mdb-target="#carousel-charts" data-mdb-slide="next">
+            </button>
+            <!-- <button class="carousel-control-next" type="button" data-mdb-target="#carousel-charts" data-mdb-slide="next">
                 <span class="carousel-control-next-icon" aria-hidden="true"></span>
                 <span class="visually-hidden">Next</span>
-            </button>
+            </button> -->
         </div>
     </div>
     <!-- Carousel wrapper -->

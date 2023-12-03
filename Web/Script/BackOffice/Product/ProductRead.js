@@ -2,7 +2,7 @@ $(document).ready(function () {
     var productId = new URLSearchParams(window.location.search).get('productId');
 
     get(
-        '/SA_Shopping/Controller/BackOffice/CtrlProduct/ProductRead.php',
+        baseUrl + 'BackOffice/CtrlProduct/ProductRead.php',
         { productId: productId },
         function (success) {
             product = JSON.parse(success);

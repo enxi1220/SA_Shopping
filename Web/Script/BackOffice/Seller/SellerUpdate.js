@@ -3,7 +3,7 @@ $(document).ready(function () {
     $(`#form-seller-edit`).submit(function (event) {
         event.preventDefault();
         post(
-            '/SA_Shopping/Controller/BackOffice/CtrlSeller/SellerUpdate.php',
+            baseUrl + 'BackOffice/CtrlSeller/SellerUpdate.php',
             [
                 submitData('seller',
                     JSON.stringify({

@@ -3,7 +3,7 @@ $(document).ready(function () {
 
     if (productId) {
         get(
-            '/SA_Shopping/Controller/FrontOffice/CtrlReview/ReviewSummary.php',
+            baseUrl + 'FrontOffice/CtrlReview/ReviewSummary.php',
             { productId: productId },
             function (success) {
                 data = JSON.parse(success);

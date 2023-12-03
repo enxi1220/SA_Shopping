@@ -2,7 +2,7 @@ $(document).ready(function () {
     var orderId = new URLSearchParams(window.location.search).get('orderId');
 
     get(
-        '/SA_Shopping/Controller/BackOffice/CtrlOrder/OrderRead.php',
+        baseUrl + 'BackOffice/CtrlOrder/OrderRead.php',
         { orderId: orderId },
         function (success) {
             console.log(success);

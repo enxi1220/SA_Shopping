@@ -2,7 +2,7 @@ $(document).ready(function () {
     var productId = new URLSearchParams(window.location.search).get('productId');
     var index = 0;
     get(
-        '/SA_Shopping/Controller/BackOffice/CtrlProduct/ProductRead.php',
+        baseUrl + 'BackOffice/CtrlProduct/ProductRead.php',
         { productId: productId },
         function (success) {
             var product = JSON.parse(success);
@@ -16,7 +16,7 @@ $(document).ready(function () {
         var productDetails = preparePostData(dataTable);
 
         post(
-            '/SA_Shopping/Controller/BackOffice/CtrlProduct/ProductUpdate.php',
+            baseUrl + 'BackOffice/CtrlProduct/ProductUpdate.php',
             [
                 submitData('product',
                     JSON.stringify({

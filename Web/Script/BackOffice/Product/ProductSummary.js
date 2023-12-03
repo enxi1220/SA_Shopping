@@ -1,6 +1,6 @@
 $(document).ready(function () {
     get(
-        '/SA_Shopping/Controller/BackOffice/CtrlProduct/ProductSummary.php',
+        baseUrl + 'BackOffice/CtrlProduct/ProductSummary.php',
         {},
         function (success) {
             products = JSON.parse(success);
@@ -72,7 +72,7 @@ function deactivateProduct(productId){
     $(`#btn-product-deactivate`).click(function (event) {
         event.preventDefault();
         post(
-            '/SA_Shopping/Controller/BackOffice/CtrlProduct/ProductDeactivate.php',
+            baseUrl + 'BackOffice/CtrlProduct/ProductDeactivate.php',
             [
                 submitData('product',
                     JSON.stringify({
@@ -95,7 +95,7 @@ function activateProduct(productId){
     $(`#btn-product-activate`).click(function (event) {
         event.preventDefault();
         post(
-            '/SA_Shopping/Controller/BackOffice/CtrlProduct/ProductActivate.php',
+            baseUrl + 'BackOffice/CtrlProduct/ProductActivate.php',
             [
                 submitData('product',
                     JSON.stringify({

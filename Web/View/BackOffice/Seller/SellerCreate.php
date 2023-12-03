@@ -33,7 +33,7 @@ require '../Layout.php';
                                 <div class="text-center">
                                     <img src="/SA_Shopping/name.png" alt="register form" class="img-fluid w-50 h-50" style="border-radius: 1rem 0 0 1rem;" loading="lazy" />
                                 </div>
-                                <form id="form-seller-create" novalidate class="needs-validation" >
+                                <form id="form-seller-create" novalidate class="needs-validation">
                                     <div class="row">
                                         <div class="col-md-6 mb-3">
                                             <div class="form-outline">
@@ -63,17 +63,27 @@ require '../Layout.php';
                                                 <div class="invalid-feedback">Required</div>
                                             </div>
                                         </div>
-                                        <div class="col-md-6 mb-4">
+                                        <div class="col-md-6 mb-3">
                                             <div class="form-outline">
                                                 <i class="fas fa-eye-slash text-secondary toggle-visibility trailing" data-target></i>
-                                                <i class="fas fa-info-circle text-info position-absolute top-0 fs-5 translate-middle-y" data-bs-toggle="tooltip" data-bs-placement="top" title="Password must be 8-20 characters and include at least one lowercase letter, one uppercase letter, one digit, and one special character"></i>
-                                                <input type="password" id="txt-password" class="form-control" required tabindex="5" data-mdb-showcounter="true" maxlength="20"  pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%?&])[A-Za-z\d@$!%?&]{8,20}$"/>
+                                                <input type="password" id="txt-password" class="form-control" required tabindex="5" data-mdb-showcounter="true" maxlength="20" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%?&])[A-Za-z\d@$!%?&]{8,20}$" />
                                                 <label class="form-label" for="txt-password" required>Password</label>
                                                 <div class="form-helper"></div>
                                                 <div class="invalid-feedback">Required with requirements</div>
                                             </div>
+                                            <div class="alert-info mt-4 d-none" id="password-hint">
+                                                <small>
+                                                    <ul>
+                                                        <li>8-20 characters</li>
+                                                        <li>one lowercase letter</li>
+                                                        <li>one uppercase letter</li>
+                                                        <li>one digit</li>
+                                                        <li>one special character</li>
+                                                    </ul>
+                                                </small>
+                                            </div>
                                         </div>
-                                        <div class="col-md-6 mb-4">
+                                        <div class="col-md-6 mb-3">
                                             <div class="form-outline">
                                                 <i class="fas fa-eye-slash text-secondary toggle-visibility trailing" data-target></i>
                                                 <input type="password" id="txt-confirm-password" class="form-control" required tabindex="6" data-mdb-showcounter="true" maxlength="20" />
