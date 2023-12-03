@@ -5,11 +5,13 @@ require_once $_SERVER['DOCUMENT_ROOT'] . "/SA_Shopping/Helper/ValidationHelper.p
 require_once $_SERVER['DOCUMENT_ROOT'] . "/SA_Shopping/Model/Order.php";
 require_once $_SERVER['DOCUMENT_ROOT'] . "/SA_Shopping/Model/Product.php";
 require_once $_SERVER['DOCUMENT_ROOT'] . "/SA_Shopping/Model/Buyer.php";
+require_once $_SERVER['DOCUMENT_ROOT'] . "/SA_Shopping/Constant/UserStatusConstant.php";
 require_once $_SERVER['DOCUMENT_ROOT'] . "/SA_Shopping/Constant/ProductStatusConstant.php";
 require_once $_SERVER['DOCUMENT_ROOT'] . "/SA_Shopping/Constant/ProductDetailStatusConstant.php";
 require_once $_SERVER['DOCUMENT_ROOT'] . "/SA_Shopping/Constant/OrderStatusConstant.php";
 require_once $_SERVER['DOCUMENT_ROOT'] . "/SA_Shopping/BusinessLogic/BllProduct/ProductRead.php";
 require_once $_SERVER['DOCUMENT_ROOT'] . "/SA_Shopping/BusinessLogic/BllBuyer/BuyerRead.php";
+require_once $_SERVER['DOCUMENT_ROOT'] . "/SA_Shopping/BusinessLogic/BllSeller/SellerRead.php";
 require_once $_SERVER['DOCUMENT_ROOT'] . "/SA_Shopping/BusinessLogic/BllOrder/OrderCreate.php";
 
 if ($_SERVER["REQUEST_METHOD"] == "GET") {
@@ -24,11 +26,8 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
         $quantity = json_decode($_GET['quantity']);
 
         $product = new Product();
-
         $productDetail = new ProductDetail();
-        $productDetail
-            ->setProductDetailId($productDetailId);
-
+        $productDetail->setProductDetailId($productDetailId);
         $productImage = new ProductImage();
 
         $productResult = ProductRead::Read($product, $productDetail, $productImage);
@@ -40,7 +39,6 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
 
         session_start();
         $buyerId = $_SESSION['buyer']['buyerId'];
-        
         $buyer = new Buyer();
         $buyer->setBuyerId($buyerId);
 
@@ -80,7 +78,7 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
                 )
             ),
             'buyer' => array(
-                'buyerId' => $buyer->getBuyerId(),
+                // 'buyerId' => $buyer->getBuyerId(),
                 'deliveryAddress' => $buyer->getDeliveryAddress()
             )
         );
@@ -88,7 +86,7 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
         echo json_encode($output);
     } catch (\Throwable $e) {
         header($_SERVER["SERVER_PROTOCOL"] . ' 500 Internal Server Error', true, 500);
-                echo $e->getMessage();
+        echo $e->getMessage();
     }
 } else if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
@@ -120,12 +118,23 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
         $productResult = ProductRead::Read($product, $productDetail, new ProductImage());
 
         if (empty($productResult)) {
-            throw new Exception("The shop is closed");
-        }
-        if (empty($productResult[0]->getProductDetails())) {
-            throw new Exception("The product is discontinued");
+            throw new Exception("The product is no more selling now.");
         }
         $productResult = $productResult[0];
+
+        $seller = new Seller();
+        $seller
+            ->setSellerId($productResult->getSellerId())
+            ->setStatus(UserStatusConstant::ACTIVE);
+        $sellerResult = SellerRead::Read($seller);
+
+        if (empty($sellerResult)) {
+            throw new Exception("The shop is closed now.");
+        }
+
+        if (empty($productResult->getProductDetails())) {
+            throw new Exception("The variation is unavailable now.");
+        }
         $productDetailResult = $productResult->getProductDetails()[0];
         $product = $productResult;
         $product->setProductDetail($productDetailResult);
@@ -147,9 +156,8 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
         OrderCreate::Create($order);
 
         echo ResponseHelper::createJsonResponse("Order is placed. Order No: " . $order->getOrderNo());
-
     } catch (\Throwable $e) {
         header($_SERVER["SERVER_PROTOCOL"] . ' 500 Internal Server Error', true, 500);
-                echo $e->getMessage();
+        echo $e->getMessage();
     }
 }

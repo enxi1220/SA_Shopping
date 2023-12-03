@@ -69,19 +69,23 @@ class ProductRead
                 p.status,
                 p.description, 
                 p.created_date, 
-                p.updated_date
+                p.updated_date,
+                s.status
              FROM product p
-             LEFT JOIN product_detail pd on p.product_id = pd.product_id
+             LEFT JOIN product_detail pd ON p.product_id = pd.product_id
+             JOIN seller s ON s.seller_id = p.seller_id
              WHERE
                 p.product_id =  IF(:product_id IS NULL, p.product_id, :product_id)
                 AND p.seller_id = IF(:seller_id IS NULL, p.seller_id, :seller_id)
-                AND p.status = IF(:status IS NULL, p.status, :status)
+                AND p.status = IF(:pStatus IS NULL, p.status, :pStatus)
+                AND s.status = IF(:sStatus IS NULL, s.status, :sStatus)
                 AND pd.product_detail_id =  IF(:product_detail_id IS NULL, pd.product_detail_id, :product_detail_id)
             ORDER BY p.product_id DESC",
             function (PDOStatement $pstmt) use ($product, $productDetail) {
                 $pstmt->bindValue(":product_id", $product->getProductId(), PDO::PARAM_INT);
                 $pstmt->bindValue(":seller_id", $product->getSellerId(), PDO::PARAM_INT);
-                $pstmt->bindValue(":status", $product->getStatus(), PDO::PARAM_STR);
+                $pstmt->bindValue(":pStatus", $product->getStatus(), PDO::PARAM_STR);
+                $pstmt->bindValue(":sStatus", $product->getSellerStatus(), PDO::PARAM_STR);
                 $pstmt->bindValue(":product_detail_id", $productDetail->getProductDetailId(), PDO::PARAM_STR);
             },
             function ($row) {

@@ -27,6 +27,8 @@ class Product
     private $productImages = array();
     private $reviews = array();
 
+    private $sellerStatus;
+
     public function getProductId()
     {
         return $this->productId;
@@ -200,6 +202,15 @@ class Product
 
     public function pushProductDetails(ProductDetail $productDetail){
         $this->productDetails[] = $productDetail;
+    }
+
+    public function getSellerStatus(){
+        return $this->sellerStatus;
+    }
+
+    public function setSellerStatus($sellerStatus){
+        $this->sellerStatus = $sellerStatus;
+        return $this;
     }
 
     public function prefix()

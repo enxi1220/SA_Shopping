@@ -8,13 +8,15 @@ require_once $_SERVER['DOCUMENT_ROOT'] . "/SA_Shopping/BusinessLogic/BllProduct/
 require_once $_SERVER['DOCUMENT_ROOT'] . "/SA_Shopping/BusinessLogic/BllReview/ReviewReadCount.php";
 require_once $_SERVER['DOCUMENT_ROOT'] . "/SA_Shopping/Constant/ProductDetailStatusConstant.php";
 require_once $_SERVER['DOCUMENT_ROOT'] . "/SA_Shopping/Constant/ProductStatusConstant.php";
+require_once $_SERVER['DOCUMENT_ROOT'] . "/SA_Shopping/Constant/UserStatusConstant.php";
 
 if ($_SERVER["REQUEST_METHOD"] == "GET") {
 
     try {
-
         $product = new Product();
-        $product->setStatus(ProductStatusConstant::ACTIVE);
+        $product
+            ->setStatus(ProductStatusConstant::ACTIVE)
+            ->setSellerStatus(UserStatusConstant::ACTIVE);
 
         $productDetail = new ProductDetail();
         $productDetail->setStatus(ProductDetailStatusConstant::AVAILABLE);
@@ -22,7 +24,7 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
         $result = ProductRead::Read($product, $productDetail, new ProductImage());
 
         if (empty($result)) {
-            throw new Exception("Data not found");
+            exit;
         }
 
         foreach ($result as $data) {
