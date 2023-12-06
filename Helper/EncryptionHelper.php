@@ -56,7 +56,7 @@ class EncryptionHelper
         // echo "Decrypted Data: " . ($decryptedData !== false ? bin2hex($decryptedData) : 'Failed') . PHP_EOL;
 
         if ($decryptedData === false) {
-            throw new Exception("Decryption failed: " . openssl_error_string() . PHP_EOL);
+            throw new Exception("Please try again the link on the same browser." . PHP_EOL);
             return false;
         }
 

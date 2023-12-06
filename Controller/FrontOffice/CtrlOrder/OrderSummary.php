@@ -21,6 +21,7 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
             $review->setOrderId($order->getOrderId());
             $reviews = ReviewRead::Read($review);
             if(empty($reviews)){
+                // prevent null exception
                 $order->setReview(new Review());
             }else{
                 $order->setReview($reviews[0]);
@@ -29,15 +30,16 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
         }
 
         if (empty($result)) {
-            // throw new Exception("Data not found");
+            // front end display empty
             exit;
         }
 
         $output = array_map(
             function ($order) {
+                // sure product exists
                 $product = $order->getProduct();
+                // line 24 already initialize review
                 $review = $order->getReview();
-                // $review = $order->getReview() == null? new Review() : $order->getReview();
                 return [
                     'orderId' => $order->getOrderId(),
                     'orderNo' => $order->getOrderNo(),

@@ -16,7 +16,6 @@ $(document).ready(function () {
 
 function renderReview(reviews) {
     reviews.forEach(element => {
-        
         switch (element.sentimentLabel) {
             case SentimentLabel.Negative:
             case SentimentLabel.VeryNeg:
@@ -35,7 +34,7 @@ function renderReview(reviews) {
 
         $('#review').append(
             `
-            <div class="card border border-${color} mb-3">
+            <div class="card-review-${color} card border border-${color} mb-3">
                 <div class="card-header fw-bold fs-4 text-${color}">${element.sentimentRecommendation}</div>
                 <div class="card-body">
                     <h5 class="card-title">${element.order.productDetail.color} - ${element.order.productDetail.size} - ${element.order.productDetail.material}</h5>
@@ -46,11 +45,28 @@ function renderReview(reviews) {
             `
         );
     });
+
+    $('#btn-negative').click(function () {
+        $(this).toggleClass('btn-outline-danger btn-danger');
+        $('.card-review-danger').toggleClass('d-none d-block');
+    });
+
+    $('#btn-positive').click(function () {
+        $(this).toggleClass('btn-outline-success btn-success');
+        $('.card-review-success').toggleClass('d-none d-block');
+    });
+
+    $('#btn-neutral').click(function () {
+        $(this).toggleClass('btn-outline-warning btn-warning');
+        $('.card-review-warning').toggleClass('d-none d-block');
+    });
 }
 
 function renderReviewCount(reviewCount) {
-    $('#lbl-total-review').text(reviewCount.totalReview);
-    $('#btn-negative').text(reviewCount.negativeReview);
-    $('#btn-neutral').text(reviewCount.neutralReview);
-    $('#btn-positive').text(reviewCount.positiveReview);
+    if (typeof reviewCount === 'object' && reviewCount !== null) {
+        $('#lbl-total-review').text(reviewCount.totalReview);
+        $('#btn-negative').text(reviewCount.negativeReview);
+        $('#btn-neutral').text(reviewCount.neutralReview);
+        $('#btn-positive').text(reviewCount.positiveReview);
+    }
 }

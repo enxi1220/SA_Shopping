@@ -15,9 +15,9 @@ def process_data():
         print("Received request with text:", text)
         # Prediction
         nb_file_path = r'C:\xampp\htdocs\SA_Shopping\MachineLearning\unibigram_tfidf_nb_model.pkl'
-        nn_file_path = r'C:\xampp\htdocs\SA_Shopping\MachineLearning\nb_nn_model.pkl'
+        nn_file_path = r'C:\xampp\htdocs\SA_Shopping\MachineLearning\nb_nn_model(5).pkl'
         loaded_tfidf_vectorizer, loaded_nb_classifier = load(nb_file_path)
-        loaded_tfidf_proba, loaded_nn_classifier = load(nn_file_path)
+        loaded_nn_classifier = load(nn_file_path)
         
         data = [f'''{text}''']
         new_data_tfidf = loaded_tfidf_vectorizer.transform(data)

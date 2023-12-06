@@ -8,7 +8,6 @@ require '../Layout.php';
     <meta charset="UTF-8">
     <title>Forget Password</title>
 </head>
-
 <body>
     <section class="mt-5">
         <div class="container py-5 mt-5">
@@ -16,12 +15,11 @@ require '../Layout.php';
                 <div class="col col-xl-10">
                     <div class="card" style="border-radius: 1rem;">
                         <div class="row g-0 d-flex justify-content-center align-items-center">
-                            <div class="col-7 col-lg-5 d-md-block">
-                            <img src="/SA_Shopping/name.png" alt="login form" class="img-fluid" loading="lazy" />
+                            <div class="col-xs-12 col-md-6 col-lg-5 d-md-block">
+                                <img src="/SA_Shopping/name.png" alt="login form" class="img-fluid" loading="lazy" />
                             </div>
-                            <div class="col-5 col-md-6 d-flex align-items-center">
+                            <div class="col-xs-12 col-md-6 col-md-6 d-flex align-items-center">
                                 <div class="card-body p-4 p-lg-5 text-black">
-
                                     <form id="form-buyer-forget-password" class="needs-validation" novalidate>
                                         <h1 class="mb-3 pb-3">Forget Password</h1>
                                         <div class="row">

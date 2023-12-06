@@ -8,12 +8,13 @@ $(document).ready(function () {
         baseUrl + 'FrontOffice/CtrlProduct/ProductRead.php',
         { productId: productId },
         function (success) {
+            console.log(success);
             product = JSON.parse(success);
+            renderMeta(product);
             renderProduct(product);
             renderSeller(product.seller);
         }
     );
-
 
     // show available quantity according to selected variation
     $(document).on('change', 'input[name="OptionGroup"]', function () {
@@ -24,12 +25,27 @@ $(document).ready(function () {
     });
 
     $(`#btn-buy-now`).click(function () {
-        console.log('sdfv');
         var productDetailId = $('input[name="OptionGroup"]:checked').attr('id');
         var quantity = $('#txt-quantity').val();
         location.href = `/SA_Shopping/FrontOffice/Order/OrderCreate.php?productDetailId=${productDetailId}&quantity=${quantity}`;
     });
+
+    $(`#btn-whatsapp-me`).click(function () {
+        var message = window.location.href + ' Hello from Shop Scribe buyer, I have inquiries about this product.';
+
+        // Create the WhatsApp link
+        var whatsappLink = 'https://wa.me/' + $('#btn-whatsapp-me').data('phone') + '?text=' + encodeURIComponent(message);
+
+        // Open the WhatsApp chat in a new window/tab
+        window.open(whatsappLink, '_blank');
+    });
 });
+
+function renderMeta(product) {
+    $('#og-desc').attr('content', product.name);
+    $('#og-image').attr('content', product.productImages[0].imageName);
+    $('#og-url').attr('content', window.location.href);
+}
 
 function renderProduct(product) {
     $('#txt-name').text(product.name);
@@ -101,6 +117,7 @@ function renderProduct(product) {
 function renderSeller(seller) {
     $('#txt-seller-name').text(seller.name);
     $('#txt-seller-email').attr({ href: "mailto:" + seller.email });
+    $('#btn-whatsapp-me').data('phone', seller.phone);
     $('#txt-seller-last-login-date').text(seller.lastLoginDate);
     $('#txt-seller-created-date').text(seller.createdDate);
     $('#txt-store-name').text(seller.storeName);

@@ -89,8 +89,8 @@ require '../Layout.php';
                     <p class="mb-2 ms-3 text-muted"><small> Last login at <span id="txt-seller-last-login-date"></span></small></p>
                     <p class="mb-2">Join on <span id="txt-seller-created-date"></span></p>
 
-                    <a class="btn btn-outline-info mb-3" role="button" id="txt-seller-email" hrerf>Email me</a>
-                    <button class="btn btn-outline-dark">Whatsapp me</button>
+                    <a class="btn btn-outline-info mb-3" role="button" id="txt-seller-email" href>Email me</a>
+                    <a class="btn btn-outline-dark" role="button" id="btn-whatsapp-me">Whatsapp me</a>
                 </div>
 
                 <div class="col-xs-12 col-md-12 col-lg-9 ps-4 pt-4">

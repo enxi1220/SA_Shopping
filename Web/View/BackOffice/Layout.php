@@ -11,6 +11,7 @@ if (session_status() == PHP_SESSION_NONE) {
     <meta charset="UTF-8">
     <title>Shop Scribe</title>
     <link rel="shortcut icon" type="image/png" sizes="16x16" href="/SA_Shopping/logo.png"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 </head>
 
 <body>

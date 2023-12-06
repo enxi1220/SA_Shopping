@@ -39,6 +39,12 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
 
         $sellerResult = SellerRead::Read($seller)[0];
 
+        // add MY country code for whatsapp feature
+        if (substr($sellerResult->getPhone(), 0, 1) !== "6") {
+            $phoneWithCountryCode = '+6' . $sellerResult->getPhone();
+            $sellerResult->setPhone($phoneWithCountryCode);
+        }
+
         $output = array(
             'productId' => $result->getProductId(),
             'productNo' => $result->getProductNo(),
@@ -84,10 +90,9 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
                 'createdDate' => $sellerResult->getCreatedDate()
             ]
         );
-
         echo json_encode($output);
     } catch (\Throwable $e) {
         header($_SERVER["SERVER_PROTOCOL"] . ' 500 Internal Server Error', true, 500);
-                echo $e->getMessage();
+        echo $e->getMessage();
     }
 }

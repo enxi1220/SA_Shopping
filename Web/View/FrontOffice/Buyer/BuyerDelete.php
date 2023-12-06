@@ -13,7 +13,7 @@
             <div class="invalid-feedback">Required</div>
         </div>
         <div class="d-flex justify-content-center mt-5">
-            <button type="submit" class="btn btn-danger btn-block w-25">Delete account</button>
+            <button type="submit" class="btn btn-danger btn-block">Delete account</button>
         </div>
     </form>
 </div>

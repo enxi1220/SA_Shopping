@@ -6,7 +6,7 @@ require '../CheckLogin.php';
 <nav aria-label="breadcrumb " class="pt-3 d-flex justify-content-center align-items-center">
     <ol class="breadcrumb">
         <li class="breadcrumb-item"><a href="../Product/ProductSummary.php">Product Catalog</a></li>
-        <li class="breadcrumb-item" ><a id="link-product-detail" href="../Product/ProductRead.php?productId=">Product Detail</a></li>
+        <li class="breadcrumb-item"><a id="link-product-detail" href="../Product/ProductRead.php?productId=">Product Detail</a></li>
         <li class="breadcrumb-item active" aria-current="page">Order Form</li>
     </ol>
 </nav>
@@ -16,18 +16,20 @@ require '../CheckLogin.php';
         <div class="col-lg-8">
             <div class="container p-3 m-1">
                 <div class="row">
-                    <div class="col-3">
+                    <div class="col-lg-3 col-xs-12">
                         <img id="img-product" class="img-fluid rounded float-start" src alt="Product name" loading="lazy" />
                         <span class="badge rounded-pill badge-notification bg-danger fs-6" id="txt-quantity"></span>
                     </div>
-                    <div class="col-9 d-flex align-items-center justify-content-between">
-                        <div class="fs-5">
-                            <label for="" id="txt-product-name"></label> -
-                            <label for="" id="txt-product-size"></label> -
-                            <label for="" id="txt-product-color"></label> -
-                            <label for="" id="txt-product-material"></label>
+                    <div class="col-lg-9 col-xs-12 d-flex align-items-center justify-content-between">
+                        <div class="row">
+                            <div class="fs-5 col-xs-12">
+                                <label for="" id="txt-product-name"></label> -
+                                <label for="" id="txt-product-size"></label> -
+                                <label for="" id="txt-product-color"></label> -
+                                <label for="" id="txt-product-material"></label>
+                            </div>
+                            <div class="fs-5 col-xs-12">RM <label for="" id="txt-unit-price"></label></div>
                         </div>
-                        <div class="fs-5">RM <label for="" id="txt-unit-price"></label></div>
                     </div>
                 </div>
             </div>

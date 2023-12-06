@@ -8,7 +8,7 @@ require '../Layout.php';
             <div class="col col-xl-11">
                 <div class="card" style="border-radius: 1rem;">
                     <div class="row g-0 d-flex justify-content-center align-items-center">
-                        <div class="col-md-6 col-lg-5 d-none d-md-block p-5 border-end">
+                        <div class="col-xs-12 col-md-6 col-lg-5 d-none d-md-block p-5 border-end">
                             <h1 class="my-5 display-3 fw-bold ls-tight">
                                 Shopping<br />
                                 <span class="text-primary">with us</span>
@@ -18,7 +18,7 @@ require '../Layout.php';
                                 We offer review sentiment analysis that allows you grasp sentiment from reviews
                             </p>
                         </div>
-                        <div class="col-md-6 col-lg-7 d-flex align-items-center">
+                        <div class="col-xs-12 col-md-6 col-lg-7 d-flex align-items-center">
                             <div class="card-body p-4 p-lg-5 text-black">
                                 <div class="text-center">
                                     <img src="/SA_Shopping/name.png" alt="register form" class="img-fluid w-50 h-50" style="border-radius: 1rem 0 0 1rem;" loading="lazy" />

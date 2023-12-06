@@ -17,12 +17,11 @@ require '../Layout.php';
                 <div class="col col-xl-10">
                     <div class="card" style="border-radius: 1rem;">
                         <div class="row g-0 d-flex justify-content-center align-items-center">
-                            <div class="col-7 col-lg-5 d-md-block">
+                            <div class="col-xs-12 col-md-7 col-lg-6 d-md-block">
                                 <img src="/SA_Shopping/logo.png" alt="login form" class="img-fluid" loading="lazy" />
                             </div>
-                            <div class="col-5 col-md-6 d-flex align-items-center">
+                            <div class="col-xs-12 col-md-5 col-lg-6 d-flex align-items-center">
                                 <div class="card-body p-4 p-lg-5 text-black">
-
                                     <form id="form-buyer-login" method="POST" class="needs-validation" novalidate>
                                         <h1 class="mb-3 pb-3">Login as a Buyer</h1>
                                         <div class="row">
@@ -33,7 +32,6 @@ require '../Layout.php';
                                                     <div class="invalid-feedback">Required</div>
                                                 </div>
                                             </div>
-                                            
                                             <div class="col-md-12 mb-4">
                                                 <div class="form-outline">
                                                     <i class="fas fa-eye-slash text-secondary toggle-visibility trailing" data-target></i>

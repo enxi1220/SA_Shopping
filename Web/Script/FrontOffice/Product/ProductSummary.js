@@ -5,7 +5,6 @@ $(document).ready(function () {
         baseUrl + 'FrontOffice/CtrlProduct/ProductSummary.php',
         {},
         function (success) {
-            console.log(success);
             products = JSON.parse(success);
             renderProducts(products);
         }

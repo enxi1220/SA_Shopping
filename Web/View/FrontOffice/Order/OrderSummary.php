@@ -12,7 +12,7 @@ require '../CheckLogin.php';
 
 <div class="container">
     <div class="row d-flex justify-content-center mt-5">
-        <div class="col-3 card h-100 fixed">
+        <div class="col-xs-12 col-md-3 card h-100 fixed">
             <!-- Tab navs -->
             <div class="nav flex-column nav-tabs text-center rounded" id="v-tabs-tab" role="tablist" aria-orientation="vertical">
                 <a class="nav-link ripple rounded-top" id="v-tabs-confirm-tab" data-mdb-toggle="tab" href="#confirm" role="tab" aria-controls="v-tabs-confirm" aria-selected="false"></a>
@@ -24,8 +24,8 @@ require '../CheckLogin.php';
             <!-- Tab navs -->
         </div>
 
-        <div class="col col-9">
-            <div class="tab-content" id="v-tabs-tabContent">
+        <div class="col-xs-12 col-md-9 col-lg-9">
+            <div class="tab-content my-3" id="v-tabs-tabContent">
             <!-- Tab content -->
                 <div class="tab-pane fade" id="confirm" role="tabpanel" aria-labelledby="confirm-nav-tab">
                 </div>
