@@ -11,7 +11,7 @@ class BuyerCreate
         $dataAccess = DataAccess::getInstance();
 
         return $dataAccess->BeginDatabase(function ($dataAccess) use ($buyer) {
-            $buyerId = self::CreateBuyer($dataAccess, $buyer);
+            return self::CreateBuyer($dataAccess, $buyer);
         });
     }
 

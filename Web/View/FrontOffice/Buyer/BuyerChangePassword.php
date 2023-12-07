@@ -14,20 +14,33 @@
         <div class="col-md-12 mb-4">
             <div class="form-outline">
                 <i class="fas fa-eye-slash text-secondary toggle-visibility trailing" data-target></i>
-                <input type="password" id="txt-password" class="form-control" required data-mdb-showcounter="true" maxlength="20" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%?&])[A-Za-z\d@$!%?&]{8,20}$"/>
+                <input type="password" id="txt-password" class="form-control" required data-mdb-showcounter="true" maxlength="20" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%?&])[A-Za-z\d@$!%?&]{8,20}$" />
                 <label class="form-label" for="txt-password" required>Password</label>
                 <div class="form-helper"></div>
                 <div class="invalid-feedback">Required with requirements</div>
             </div>
-            <div class="alert-info mt-4 d-none" id="password-hint">
+            <div class="alert-info mt-4 d-none ps-3 pt-1" id="password-hint">
                 <small>
-                    <ul>
-                        <li>8-20 characters</li>
-                        <li>one lowercase letter</li>
-                        <li>one uppercase letter</li>
-                        <li>one digit</li>
-                        <li>one special character</li>
-                    </ul>
+                    <div id="length">
+                        <i class="far fa-circle-check"></i>
+                        8-20 characters
+                    </div>
+                    <div id="lowercase">
+                        <i class="far fa-circle-check"></i>
+                        one lowercase letter
+                    </div>
+                    <div id="uppercase">
+                        <i class="far fa-circle-check"></i>
+                        one uppercase letter
+                    </div>
+                    <div id="digit">
+                        <i class="far fa-circle-check"></i>
+                        one digit
+                    </div>
+                    <div id="special-char">
+                        <i class="far fa-circle-check"></i>
+                        one special character
+                    </div>
                 </small>
             </div>
         </div>

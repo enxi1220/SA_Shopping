@@ -15,8 +15,8 @@ require '../Layout.php';
             <div class="row d-flex justify-content-center">
                 <div class="col col-xl-10">
                     <div class="card" style="border-radius: 1rem;">
-                        <div class="row g-0 d-flex justify-content-center align-items-center">
-                            <div class="col-7 col-lg-5 d-md-block">
+                        <div class="row g-0">
+                            <div class="col-xs-12 col-md-7 col-lg-6 d-flex align-items-center justify-content-center">
                                 <img src="/SA_Shopping/logo.png" alt="login form" class="img-fluid" loading="lazy" />
                             </div>
                             <div class="col-5 col-md-6 d-flex align-items-center">
@@ -31,15 +31,28 @@ require '../Layout.php';
                                                 <div class="form-helper"></div>
                                                 <div class="invalid-feedback">Required with requirements</div>
                                             </div>
-                                            <div class="alert-info mt-4 d-none" id="password-hint">
+                                            <div class="alert-info mt-4 d-none ps-3 pt-1" id="password-hint">
                                                 <small>
-                                                    <ul>
-                                                        <li>8-20 characters</li>
-                                                        <li>one lowercase letter</li>
-                                                        <li>one uppercase letter</li>
-                                                        <li>one digit</li>
-                                                        <li>one special character</li>
-                                                    </ul>
+                                                    <div id="length">
+                                                        <i class="far fa-circle-check"></i>
+                                                        8-20 characters
+                                                    </div>
+                                                    <div id="lowercase">
+                                                        <i class="far fa-circle-check"></i>
+                                                        one lowercase letter
+                                                    </div>
+                                                    <div id="uppercase">
+                                                        <i class="far fa-circle-check"></i>
+                                                        one uppercase letter
+                                                    </div>
+                                                    <div id="digit">
+                                                        <i class="far fa-circle-check"></i>
+                                                        one digit
+                                                    </div>
+                                                    <div id="special-char">
+                                                        <i class="far fa-circle-check"></i>
+                                                        one special character
+                                                    </div>
                                                 </small>
                                             </div>
                                         </div>

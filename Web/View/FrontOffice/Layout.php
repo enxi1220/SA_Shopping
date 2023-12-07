@@ -25,11 +25,11 @@ if (session_status() == PHP_SESSION_NONE) {
         <div class="container-fluid">
             <!-- Brand -->
             <a class="navbar-brand" href="/SA_Shopping/FrontOffice/Product/ProductSummary.php">
-                <img src="/SA_Shopping/logo.png" height="40" alt="" loading="lazy" />
+                <img src="/SA_Shopping/logo.png" height="40" alt="Logo" loading="lazy" />
             </a>
             <!-- Search  -->
             <div class="input-group my-auto mx-4">
-                <input type="text" class="form-control" placeholder="Search product" aria-label="Search product" aria-describedby="btn-search" />
+                <input type="text" id="txt-search" class="form-control" placeholder="Search product" aria-label="Search product" aria-describedby="btn-search" />
                 <button class="btn btn-danger" type="button" id="btn-search" data-mdb-ripple-color="dark">
                     <i class="fas fa-search"></i>
                 </button>

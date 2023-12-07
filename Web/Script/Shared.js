@@ -190,10 +190,45 @@ const baseUrl = "/SA_Shopping/Controller/";
 $('#txt-password').on('input', function (event) {
     event.preventDefault();
     var password = $(this).val();
+    const lengthPattern = /^.{8,20}$/;
+    const lowercasePattern = /^(?=.*[a-z]).*$/;
+    const uppercasePattern = /^(?=.*[A-Z]).*$/;
+    const digitPattern = /^(?=.*\d).*$/;
+    const specialCharacterPattern = /^(?=.*[@$!%?&]).*$/;
     const regexPattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%?&])[A-Za-z\d@$!%?&]{8,20}$/;
+    
+    var isValid = lengthPattern.test(password);
+    if (isValid) {
+        $('#length').find('i').addClass('fas').removeClass('far');
+    }else{
+        $('#length').find('i').addClass('far').removeClass('fas');
+    }
+    var isValid = lowercasePattern.test(password);
+    if (isValid) {
+        $('#lowercase').find('i').addClass('fas').removeClass('far');
+    }else{
+        $('#lowercase').find('i').addClass('far').removeClass('fas');
+    }
+    var isValid = uppercasePattern.test(password);
+    if (isValid) {
+        $('#uppercase').find('i').addClass('fas').removeClass('far');
+    }else{
+        $('#uppercase').find('i').addClass('far').removeClass('fas');
+    }
+    var isValid = digitPattern.test(password);
+    if (isValid) {
+        $('#digit').find('i').addClass('fas').removeClass('far');
+    }else{
+        $('#digit').find('i').addClass('far').removeClass('fas');
+    }
+    var isValid = specialCharacterPattern.test(password);
+    if (isValid) {
+        $('#special-char').find('i').addClass('fas').removeClass('far');
+    }else{
+        $('#special-char').find('i').addClass('far').removeClass('fas');
+    }
 
-    const isValid = regexPattern.test(password);
-    console.log(isValid);
+    var isValid = regexPattern.test(password);
     isValid ? $('#password-hint').addClass('d-none') : $('#password-hint').removeClass('d-none');
 
     var confirmPassword = $('#txt-confirm-password').val();

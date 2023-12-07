@@ -39,7 +39,7 @@
         </div>
 
         <div class="d-flex justify-content-center mt-5">
-            <button type="submit" class="btn btn-dark btn-block w-25">Save Changes</button>
+            <button type="submit" class="btn btn-dark btn-block">Save Changes</button>
         </div>
     </form>
 </div>

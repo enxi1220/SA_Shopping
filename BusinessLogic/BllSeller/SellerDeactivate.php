@@ -22,12 +22,14 @@ class SellerDeactivate
             "UPDATE seller
              SET
                status = ?,
+               email = ?,
                updated_date = NOW()
              WHERE
                seller_id = ?",
             function (PDOStatement $pstmt) use ($seller) {
                 $pstmt->bindValue(1, UserStatusConstant::INACTIVE);
-                $pstmt->bindValue(2, $seller->getSellerId());
+                $pstmt->bindValue(2, "Deleted User". $seller->getSellerId()); 
+                $pstmt->bindValue(3, $seller->getSellerId());
             }
         );
     }

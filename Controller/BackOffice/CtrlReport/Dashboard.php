@@ -21,21 +21,6 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
         $reviewResult = ReviewRead::ReadForReport($review);
         $stockResult = ProductRead::ReadForReport($product);
         $salesResult = OrderRead::ReadForReport($order);
-// todo: one report no data, others wont show. 
-        if (empty($reviewResult)) {
-            echo json_encode($reviewResult);
-            exit;
-        }
-
-        if (empty($stockResult)) {
-            echo json_encode($stockResult);
-            exit;
-        }
-
-        if (empty($salesResult)) {
-            echo json_encode($salesResult);
-            exit;
-        }
 
         $output = array(
             'reviews' => array_map(

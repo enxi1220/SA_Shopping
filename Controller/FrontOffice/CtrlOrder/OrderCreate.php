@@ -117,6 +117,7 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
 
         $productResult = ProductRead::Read($product, $productDetail, new ProductImage());
 
+        // buyer buy right after seller deactivate product
         if (empty($productResult)) {
             throw new Exception("The product is no more selling now.");
         }
@@ -128,14 +129,22 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
             ->setStatus(UserStatusConstant::ACTIVE);
         $sellerResult = SellerRead::Read($seller);
 
+        // buyer buy right after seller delete account
         if (empty($sellerResult)) {
             throw new Exception("The shop is closed now.");
         }
 
+        // buyer buy right after seller deactivate variation
         if (empty($productResult->getProductDetails())) {
             throw new Exception("The variation is unavailable now.");
         }
+
+        // check variation quantity
         $productDetailResult = $productResult->getProductDetails()[0];
+        if ($productDetailResult->getAvailableQty() < $data->quantity) {
+            throw new Exception("The quantity exceeds available quantity, please buy not more than " . $productDetailResult->getAvailableQty(). ".");
+        }
+
         $product = $productResult;
         $product->setProductDetail($productDetailResult);
 

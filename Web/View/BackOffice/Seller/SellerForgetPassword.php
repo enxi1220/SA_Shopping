@@ -15,9 +15,9 @@ require '../Layout.php';
             <div class="row d-flex justify-content-center">
                 <div class="col col-xl-10">
                     <div class="card" style="border-radius: 1rem;">
-                        <div class="row g-0 d-flex justify-content-center align-items-center">
-                            <div class="col-7 col-lg-5 d-md-block">
-                            <img src="/SA_Shopping/name.png" alt="login form" class="img-fluid" loading="lazy" />
+                        <div class="row g-0">
+                            <div class="col-xs-12 col-md-7 col-lg-6 d-flex align-items-center justify-content-center">
+                                <img src="/SA_Shopping/name.png" alt="Logo" class="img-fluid" loading="lazy" />
                             </div>
                             <div class="col-5 col-md-6 d-flex align-items-center">
                                 <div class="card-body p-4 p-lg-5 text-black">

@@ -36,8 +36,7 @@ require '../CheckLogin.php';
             </div>
             <div class="col-md-6">
                 <div class="form-outline">
-                    <input type="file" id="txt-image" name="ProductImage" class="form-control" tabindex="4" required multiple accept="image/jpeg, image/png, image/gif">
-                    <!-- <label class="form-label" for="txt-image" required>Product Image</label> -->
+                    <input type="file" id="txt-image" name="ProductImage" class="form-control" tabindex="4" required accept="image/jpeg, image/png, image/gif">
                     <div class="invalid-feedback">Required and only allow jpg, jpeg, png, gif file types</div>
                 </div>
             </div>

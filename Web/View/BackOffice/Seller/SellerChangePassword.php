@@ -19,15 +19,28 @@
                 <div class="form-helper"></div>
                 <div class="invalid-feedback">Required with requirements</div>
             </div>
-            <div class="alert-info mt-4 d-none" id="password-hint">
+            <div class="alert-info mt-4 d-none ps-3 pt-1" id="password-hint">
                 <small>
-                    <ul>
-                        <li>8-20 characters</li>
-                        <li>one lowercase letter</li>
-                        <li>one uppercase letter</li>
-                        <li>one digit</li>
-                        <li>one special character</li>
-                    </ul>
+                    <div id="length">
+                        <i class="far fa-circle-check"></i>
+                        8-20 characters
+                    </div>
+                    <div id="lowercase">
+                        <i class="far fa-circle-check"></i>
+                        one lowercase letter
+                    </div>
+                    <div id="uppercase">
+                        <i class="far fa-circle-check"></i>
+                        one uppercase letter
+                    </div>
+                    <div id="digit">
+                        <i class="far fa-circle-check"></i>
+                        one digit
+                    </div>
+                    <div id="special-char">
+                        <i class="far fa-circle-check"></i>
+                        one special character
+                    </div>
                 </small>
             </div>
         </div>
@@ -42,7 +55,7 @@
         </div>
 
         <div class="d-flex justify-content-center mt-5">
-            <button type="submit" class="btn btn-dark btn-block w-25">Save Changes</button>
+            <button type="submit" class="btn btn-dark btn-block">Save Changes</button>
         </div>
     </form>
 </div>

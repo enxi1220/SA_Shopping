@@ -11,7 +11,7 @@ class SellerCreate
         $dataAccess = DataAccess::getInstance();
 
         return $dataAccess->BeginDatabase(function ($dataAccess) use ($seller) {
-            $sellerId = self::CreateSeller($dataAccess, $seller);
+            return self::CreateSeller($dataAccess, $seller);
         });
     }
 

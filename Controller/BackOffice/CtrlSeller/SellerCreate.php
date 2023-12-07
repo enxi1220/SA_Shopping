@@ -36,9 +36,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             ->setUsername()
             ->setStatus(UserStatusConstant::ACTIVE);
 
-        SellerCreate::Create($seller);
+        $sellerId = SellerCreate::Create($seller);
 
-        echo ResponseHelper::createJsonResponse("Register successfully. Please proceed to login", "/SA_Shopping/BackOffice/Seller/SellerLogin.php");
+        // auto login
+        session_start();
+        $_SESSION['seller']['sellerId'] = $sellerId;
+        $_SESSION['seller']['sellerEmail'] = $seller->getEmail();
+        $_SESSION['seller']['storeName'] = $seller->getStoreName();
+
+        echo ResponseHelper::createJsonResponse("Register successfully. Let's add your first product!", "/SA_Shopping/BackOffice/Product/ProductCreate.php");
 
     } catch (\Throwable $e) {
         header($_SERVER["SERVER_PROTOCOL"] . ' 500 Internal Server Error', true, 500);

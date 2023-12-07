@@ -6,7 +6,7 @@ require '../CheckLogin.php';
 
 <div class="container p-5">
     <div class="row d-flex justify-content-center h-100 mt-5">
-        <div class="col-3 card h-100 ">
+        <div class="col-xs-12 col-md-12 col-lg-4 card h-100">
             <!-- Tab side navs -->
             <div class="nav flex-column nav-tabs rounded" id="nav-tabs" role="tablist" aria-orientation="vertical">
                 <a class="nav-link ripple rounded-top" id="seller-view-nav-tab" data-mdb-ripple-color="info" data-mdb-toggle="tab" role="tab" aria-controls="seller-view" aria-selected="false" href="#seller-view"><i class="fas fa-user pe-3"></i>Profile Overview</a>
@@ -16,7 +16,7 @@ require '../CheckLogin.php';
             </div>
         </div>
 
-        <div class="col col-lg-9 ">
+        <div class="col-xs-12 col-md-12 col-lg-8 mt-2">
             <div class="card shadow text-black tab-content rounded-0 rounded-bottom ">
                 <?php require 'SellerRead.php' ?>
                 <?php require 'SellerUpdate.php' ?>

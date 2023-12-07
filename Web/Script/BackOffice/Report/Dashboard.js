@@ -19,9 +19,21 @@ $(document).ready(function () {
         function (success) {
             console.log(success);
             data = JSON.parse(success);
-            drawSentiment(data.reviews);
-            drawStock(data.stocks);
-            drawSales(data.sales);
+            if (data.reviews.length === 0) {
+                $('#review').html('<p>No data available for reviews.</p>');
+            } else {
+                drawSentiment(data.reviews);
+            }
+            if (data.stocks.length === 0) {
+                $('#stock').html('<p>No data available for stock.</p>');
+            } else {
+                drawStock(data.stocks);
+            }
+            if (data.sales.length === 0) {
+                $('#sales').html('<p>No data available for sales.</p>');
+            } else {
+                drawSales(data.sales);
+            }
         }
     );
 });

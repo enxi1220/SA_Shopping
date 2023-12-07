@@ -49,6 +49,12 @@ class ProductImage
         return PathConstant::IMAGE_PATH;
     }
 
+
+    public function actualImagePath()
+    {
+        return PathConstant::ACTUAL_IMAGE_PATH;
+    }
+
     public function getCount()
     {
         return $this->count;

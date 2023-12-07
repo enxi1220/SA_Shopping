@@ -184,7 +184,7 @@ class ProductDetail
         $this->salesOutQty += $quantity;
         $this->updatedBy = "System";
 
-        if($this->availableQty == 0){
+        if($this->availableQty <= 0){
             $this->status = ProductDetailStatusConstant::OUTOFSTOCK;
         }
     }

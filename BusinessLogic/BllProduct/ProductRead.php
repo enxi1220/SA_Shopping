@@ -69,8 +69,7 @@ class ProductRead
                 p.status,
                 p.description, 
                 p.created_date, 
-                p.updated_date,
-                s.status
+                p.updated_date
              FROM product p
              LEFT JOIN product_detail pd ON p.product_id = pd.product_id
              JOIN seller s ON s.seller_id = p.seller_id

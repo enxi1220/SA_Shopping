@@ -8,14 +8,15 @@ require '../Layout.php';
     <meta charset="UTF-8">
     <title>Forget Password</title>
 </head>
+
 <body>
     <section class="mt-5">
         <div class="container py-5 mt-5">
             <div class="row d-flex justify-content-center">
                 <div class="col col-xl-10">
                     <div class="card" style="border-radius: 1rem;">
-                        <div class="row g-0 d-flex justify-content-center align-items-center">
-                            <div class="col-xs-12 col-md-6 col-lg-5 d-md-block">
+                        <div class="row g-0">
+                            <div class="col-xs-12 col-md-7 col-lg-6 d-flex align-items-center justify-content-center">
                                 <img src="/SA_Shopping/name.png" alt="login form" class="img-fluid" loading="lazy" />
                             </div>
                             <div class="col-xs-12 col-md-6 col-md-6 d-flex align-items-center">

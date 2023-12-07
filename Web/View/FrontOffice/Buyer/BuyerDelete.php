@@ -2,7 +2,7 @@
     <h3 class="lead">Delete Account</h3>
     <hr class="mt-0" />
     <div class="alert alert-info">
-        <b>Attention:</b> Deleting your account is irreversible. Once done, you can't log in using this email again. Proceed with caution
+        <b>Attention:</b> Deleting your account is irreversible. Once done, you can't trace the history for this account. Proceed with caution
     </div>
     <form id="form-buyer-delete" class="needs-validation" novalidate>
         <div class="form-outline my-3">

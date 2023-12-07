@@ -19,7 +19,7 @@ function renderProducts(products) {
 
         $('#product').append(
             `
-            <div class="col">
+            <div class="col card-product">
             <a class="text-reset" href="ProductRead.php?productId=${element.productId}">
                 <div class="card h-100 hover-shadow ">
                     <img width="500" height="400" src="${element.productImage.imageName}" class="card-img-top" loading="lazy" />

@@ -55,7 +55,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $productImage->setTempImageName($dataProductImage)
                          ->setProductId($dataProduct->productId);
             
-            $fileName = FileHelper::ProcessImage($productImage->getTempImageName(), $productImage->imagePath());
+            $fileName = FileHelper::ProcessImage($productImage->getTempImageName(), $productImage->actualImagePath());
             $productImage->setImageName($fileName);
             
             ProductImageCreate::Create($productImage);

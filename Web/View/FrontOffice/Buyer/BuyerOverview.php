@@ -12,7 +12,7 @@ require '../CheckLogin.php';
 
 <div class="container p-5 pt-2">
     <div class="row d-flex justify-content-center h-100 mt-5">
-        <div class="col-xs-12 col-md-3 col-lg-3 card h-100 ">
+        <div class="col-xs-12 col-md-3 col-lg-3 card h-100">
             <!-- Tab side navs -->
             <div class="nav flex-column nav-tabs rounded" id="nav-tabs" role="tablist" aria-orientation="vertical">
                 <a class="nav-link ripple rounded-top" id="buyer-view-nav-tab" data-mdb-ripple-color="info" data-mdb-toggle="tab" role="tab" aria-controls="buyer-view" aria-selected="false" href="#buyer-view"><i class="fas fa-user pe-3"></i>Profile Overview</a>
@@ -22,7 +22,7 @@ require '../CheckLogin.php';
             </div>
         </div>
 
-        <div class="col-xs-12 col-md-9 col-lg-9 ">
+        <div class="col-xs-12 col-md-9 col-lg-9">
             <div class="card shadow text-black tab-content rounded-0 rounded-bottom my-3">
                 <?php require 'BuyerRead.php' ?>
                 <?php require 'BuyerUpdate.php' ?>

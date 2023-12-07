@@ -31,7 +31,7 @@ require '../Layout.php';
                         <div class="col-md-6 col-lg-7 d-flex align-items-center">
                             <div class="card-body p-4 p-lg-5 text-black">
                                 <div class="text-center">
-                                    <img src="/SA_Shopping/name.png" alt="register form" class="img-fluid w-50 h-50" style="border-radius: 1rem 0 0 1rem;" loading="lazy" />
+                                    <img src="/SA_Shopping/name.png" alt="Logo" class="img-fluid w-50 h-50" loading="lazy" />
                                 </div>
                                 <form id="form-seller-create" novalidate class="needs-validation">
                                     <div class="row">
@@ -63,7 +63,7 @@ require '../Layout.php';
                                                 <div class="invalid-feedback">Required</div>
                                             </div>
                                         </div>
-                                        <div class="col-md-6 mb-3">
+                                        <div class="col-md-6 mb-4">
                                             <div class="form-outline">
                                                 <i class="fas fa-eye-slash text-secondary toggle-visibility trailing" data-target></i>
                                                 <input type="password" id="txt-password" class="form-control" required tabindex="5" data-mdb-showcounter="true" maxlength="20" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%?&])[A-Za-z\d@$!%?&]{8,20}$" />
@@ -71,19 +71,32 @@ require '../Layout.php';
                                                 <div class="form-helper"></div>
                                                 <div class="invalid-feedback">Required with requirements</div>
                                             </div>
-                                            <div class="alert-info mt-4 d-none" id="password-hint">
+                                            <div class="alert-info mt-4 d-none ps-3 pt-1" id="password-hint">
                                                 <small>
-                                                    <ul>
-                                                        <li>8-20 characters</li>
-                                                        <li>one lowercase letter</li>
-                                                        <li>one uppercase letter</li>
-                                                        <li>one digit</li>
-                                                        <li>one special character</li>
-                                                    </ul>
+                                                    <div id="length">
+                                                        <i class="far fa-circle-check"></i> 
+                                                        8-20 characters
+                                                    </div>
+                                                    <div id="lowercase">
+                                                        <i class="far fa-circle-check"></i> 
+                                                        one lowercase letter
+                                                    </div>
+                                                    <div id="uppercase">
+                                                        <i class="far fa-circle-check"></i> 
+                                                        one uppercase letter
+                                                    </div>
+                                                    <div id="digit">
+                                                        <i class="far fa-circle-check"></i> 
+                                                        one digit
+                                                    </div>
+                                                    <div id="special-char">
+                                                        <i class="far fa-circle-check"></i> 
+                                                        one special character
+                                                    </div>
                                                 </small>
                                             </div>
                                         </div>
-                                        <div class="col-md-6 mb-3">
+                                        <div class="col-md-6 mb-4">
                                             <div class="form-outline">
                                                 <i class="fas fa-eye-slash text-secondary toggle-visibility trailing" data-target></i>
                                                 <input type="password" id="txt-confirm-password" class="form-control" required tabindex="6" data-mdb-showcounter="true" maxlength="20" />
@@ -112,13 +125,6 @@ require '../Layout.php';
                                     </div>
 
                                     <p class="pb-lg-2 text-muted">Already have an account? <a href="SellerLogin.php" class="ms-1">Login here</a></p>
-
-                                    <div class="text-center">
-                                        <p>or sign up with</p>
-                                        <button type="button" class="btn btn-secondary btn-floating mx-1">
-                                            <i class="fab fa-google"></i>
-                                        </button>
-                                    </div>
                                 </form>
                             </div>
                         </div>
