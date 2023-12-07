@@ -57,6 +57,9 @@ require '../CheckLogin.php';
                     <button type="button" class="btn-close" data-mdb-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
+                    <div class="alert alert-info p-2">
+                        It takes some time to analyze the review when you post review.
+                    </div>
                     <div class="form-outline">
                         <textarea id="txt-review" class="form-control" required rows="4" placeholder="Write something..."></textarea>
                         <div class="invalid-feedback">Required</div>

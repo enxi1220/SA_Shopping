@@ -15,6 +15,7 @@ $(document).ready(function () {
 
 function renderReview(reviews) {
     $('#review-summary').DataTable({
+        order: [4, 'desc'],
         data: reviews,
         columns: [
             { data: "productDetail.productDetailNo" },

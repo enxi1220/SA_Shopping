@@ -57,7 +57,7 @@ def blurry_image():
     # explanation: sellers ideally wont't upload blurry images, 
     # but help ensure that the images meet certain standards for clarity, visibility, and overall visual appeal
     ### require web system to store image temporarily 1st
-    THRESHOLD = 110
+    THRESHOLD = 130
     
     try:
         json_data = request.get_json()  # Assuming data is sent in JSON format

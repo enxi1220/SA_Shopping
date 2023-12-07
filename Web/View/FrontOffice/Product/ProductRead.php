@@ -52,7 +52,7 @@ require '../Layout.php';
             <div class="row d-flex align-items-center mb-3 mt-4">
                 <div class="col">
                     <h6>
-                        <label required>Variations</label>
+                        <label required>Variations (Color - Size - Material)</label>
                         <label class="text-muted mt-2 ms-2"><span id="txt-available-qty"></span> item(s) left</label>
                     </h6>
                     <div class="form-outline">
@@ -99,7 +99,7 @@ require '../Layout.php';
                         <i class="fas fa-location-dot fs-5"></i>
                         <p id="txt-business-address"></p>
                     </div>
-                    <div>
+                    <div class="overflow-auto">
                         <i class="fas fa-circle-info fs-5"></i>
                         <p id="txt-store-desc"></p>
                     </div>

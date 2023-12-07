@@ -27,6 +27,7 @@ class Review
     
     private $sellerId;
     private $productName;
+    private $productNo;
 
     public function getReviewId()
     {
@@ -223,6 +224,17 @@ class Review
     public function setProductName($productName)
     {
         $this->productName = $productName;
+        return $this;
+    }
+
+    public function getProductNo()
+    {
+        return $this->productNo;
+    }
+
+    public function setProductNo($productNo)
+    {
+        $this->productNo = $productNo;
         return $this;
     }
 

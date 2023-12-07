@@ -17,7 +17,7 @@ $(document).ready(function () {
 function renderProducts(product) {
     $('#txt-product-no').val(product.productNo);
     $('#txt-name').val(product.name);
-    $('#txt-price').val(product.price);
+    $('#txt-price').val(product.price.toFixed(2));
     $('#txt-description').val(product.description);
     // todo: rm shitty code
     $('#txt-product-no').focus();

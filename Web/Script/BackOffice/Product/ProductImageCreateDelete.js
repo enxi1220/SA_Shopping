@@ -32,19 +32,15 @@ $(document).ready(function () {
             }
         );
     });
-});
 
-function deleteProductImage(id) {
-    $('#modal-product-image-delete').modal('show');
     $('#btn-product-image-delete').click(function () {
-        console.log(id);
         post(
             baseUrl + 'BackOffice/CtrlProduct/ProductImageCreateDelete.php',
             [
                 submitData('productImage',
                     JSON.stringify({
-                        productImageId: id.toString(),
-                        productId: new URLSearchParams(window.location.search).get('productId')
+                        productImageId: $(this).data('productImageId'),
+                        productId: $(this).data('productId')
                     }))
             ],
             null,
@@ -53,6 +49,18 @@ function deleteProductImage(id) {
             }
         );
     });
+});
+
+function deleteProductImage(id) {
+    $('#modal-product-image-delete').modal('show');
+
+    $('#btn-product-image-delete').data({
+        'productImageId': id.toString(),
+        'productId': new URLSearchParams(window.location.search).get('productId')
+    });
+
+
+
 }
 
 // todo: change to multiple pic

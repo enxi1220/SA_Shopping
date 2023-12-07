@@ -27,6 +27,7 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
                 function ($review) {
                     return [
                         'productId' => $review->getProductId(),
+                        'productNo' => $review->getProductNo(),
                         'productName' => $review->getProductName(),
                         'negativeReview' => $review->getNegativeReviewCount(),
                         'neutralReview' => $review->getNeutralReviewCount(),

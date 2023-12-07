@@ -79,7 +79,7 @@ function drawSales(sales) {
 
 function drawSentiment(reviews) {
     var stackedBarData = {
-        labels: reviews.map(review => review.productName),
+        labels: reviews.map(review => review.productNo),
         datasets: [
             {
                 label: 'Positive sentiment',

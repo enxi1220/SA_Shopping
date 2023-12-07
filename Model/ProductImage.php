@@ -35,7 +35,7 @@ class ProductImage
 
     public function getImageName()
     {
-        return PathConstant::IMAGE_PATH . $this->imageName;
+        return PathConstant::ACTUAL_IMAGE_PATH . $this->imageName;
     }
 
     public function setImageName($imageName)

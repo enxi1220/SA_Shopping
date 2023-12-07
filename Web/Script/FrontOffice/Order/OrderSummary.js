@@ -2,7 +2,7 @@ var orders;
 
 $(document).ready(function () {
     backToTop();
-    
+
     $('#v-tabs-confirm-tab').text(OrderStatus.Confirm);
     $('#v-tabs-ship-tab').text(OrderStatus.Ship);
     $('#v-tabs-deliver-tab').text(OrderStatus.Deliver);
@@ -34,7 +34,6 @@ $(document).ready(function () {
             }
         );
     });
-
 });
 
 function writeReview(orderId) {
@@ -75,7 +74,9 @@ function renderOrders(orders) {
                 </h3>
                 <a href="../Product/ProductRead.php?productId=${element.product.productId}" class="text-reset">
                     <div class="alert alert-light p-3 my-2 lead fs-6 hover-shadow">
-                        <span id="txt-product-name" class="fs-5">${element.product.name}</span>
+                        <div>
+                            <span id="txt-product-name" class="fs-5">${element.product.name}</span>
+                        </div>
                         <span id="txt-product-size-color-material" class="text-capitalize">${element.product.productDetail.size} - ${element.product.productDetail.color} - ${element.product.productDetail.material}</span>
                         <div class="d-flex justify-content-between">
                             <label><span id="txt-quantity">${element.quantity}</span> item(s)</label>

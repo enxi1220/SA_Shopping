@@ -14,7 +14,7 @@ $(document).ready(function () {
 
 function renderOrders(orders) {
     $('#order-summary').DataTable({
-        order: [0, 'desc'],
+        order: [4, 'desc'],
         data: orders,
         columns:
             [

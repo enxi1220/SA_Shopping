@@ -49,7 +49,7 @@ function renderMeta(product) {
 
 function renderProduct(product) {
     $('#txt-name').text(product.name);
-    $('#txt-price').text(product.price);
+    $('#txt-price').text(product.price.toFixed(2));
     $('#txt-description').text(product.description);
 
     product.productDetails.forEach(element => {

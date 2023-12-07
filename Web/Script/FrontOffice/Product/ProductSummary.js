@@ -25,7 +25,7 @@ function renderProducts(products) {
                     <img width="500" height="400" src="${element.productImage.imageName}" class="card-img-top" loading="lazy" />
                     <div class="card-body">
                         <h5 class="card-title">${element.name}</h5>
-                        <p class="card-text">RM ${element.price}</p>
+                        <p class="card-text">RM ${element.price.toFixed(2)}</p>
                     </div>
                     <div class="card-footer">
                         <div class="progress rounded h-25">

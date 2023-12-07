@@ -3,23 +3,6 @@ DROP DATABASE IF EXISTS `SA_Shopping`;
 CREATE DATABASE `SA_Shopping`;
 USE `SA_Shopping`;
 
-CREATE TABLE IF NOT EXISTS `SA_Shopping`.`admin` (
-    `admin_id` INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
-    `username` VARCHAR(255) NOT NULL,
-    `name` VARCHAR(255) NOT NULL,
-    `email` VARCHAR(255) NOT NULL,
-    `password` VARCHAR(255) NOT NULL,
-    `phone` VARCHAR(20) NOT NULL,
-    `status` VARCHAR(50) NOT NULL,
-    `reset_code` VARCHAR(50),
-    `created_date` DATETIME,
-    `created_by` VARCHAR(255),
-    `updated_date` DATETIME,
-    `updated_by` VARCHAR(255),
-	UNIQUE KEY `email_UNIQUE` (`email`),
-	UNIQUE KEY `username_UNIQUE` (`username`)
-);
-
 CREATE TABLE IF NOT EXISTS `SA_Shopping`.`seller` (
     `seller_id` INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
     `username` VARCHAR(255) NOT NULL,

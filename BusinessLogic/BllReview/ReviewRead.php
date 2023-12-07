@@ -102,9 +102,10 @@ class ReviewRead
                 COALESCE(SUM(CASE WHEN r.sentiment > 0 THEN 1 ELSE 0 END), 0) AS positive_reviews,
                 COALESCE(SUM(CASE WHEN r.sentiment = 0 THEN 1 ELSE 0 END), 0) AS neutral_reviews,
                 COALESCE(COUNT(r.review_id), 0) AS total_reviews,
-                p.name
+                p.name,
+                p.product_no
             FROM (
-                SELECT product_id, name, seller_id
+                SELECT product_id, name, product_no, seller_id
                 FROM product 
             ) AS p
             LEFT JOIN review r ON p.product_id = r.product_id
@@ -123,7 +124,8 @@ class ReviewRead
                     ->setNeutralReviewCount($row['neutral_reviews'])
                     ->setPositiveReviewCount($row['positive_reviews'])
                     ->setTotalReviewCount($row['total_reviews'])
-                    ->setProductName($row['name']);
+                    ->setProductName($row['name'])
+                    ->setProductNo($row['product_no']);
             }
         );
     }

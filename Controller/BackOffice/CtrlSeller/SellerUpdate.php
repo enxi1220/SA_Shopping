@@ -36,6 +36,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         SellerUpdate::Update($seller);
 
+        $_SESSION['seller']['storeName'] = $data->storeName;
+
         echo ResponseHelper::createJsonResponse("Update profile successfully");
 
     } catch (\Throwable $e) {
