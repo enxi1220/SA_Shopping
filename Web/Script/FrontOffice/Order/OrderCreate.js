@@ -63,9 +63,10 @@ function calculation(order) {
     var quantity = parseInt(order.quantity);
     var price = parseFloat(order.product.price);
     var deliveryFee = parseFloat(order.deliveryFee);
+    var txtprice = quantity * price;
 
-    $('#txt-price').text(quantity * price);
-    var total = (quantity * price) + deliveryFee;
+    $('#txt-price').text(txtprice.toFixed(2));
+    var total = txtprice + deliveryFee;
     $('#txt-total-price').text(total.toFixed(2));
 }
 
